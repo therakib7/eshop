@@ -5,8 +5,15 @@ defmodule EshopWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", EshopWeb do
+  scope "/api" do
     pipe_through :api
+
+    forward "/graphiql",
+      Absinthe.Plug.GraphiQL,
+      schema: EshopWeb.Schema
+
+    forward "/", Absinthe.Plug,
+      schema: EshopWeb.Schema
   end
 
   # Enables LiveDashboard only for development
