@@ -4,8 +4,7 @@ defmodule EshopWeb.Schema.Queries.Todo do
     object :todo_queries do
         @desc "Get all todos"
         field :todos, list_of(:todo) do
-            resolve &TodoWeb.Schema.Resolvers.Todo.list_todos/3
-
+            resolve &EshopWeb.Schema.Resolvers.Todo.list_todos/3
         end
     end
     

@@ -6,8 +6,7 @@ defmodule EshopWeb.Schema.Mutations.Todo do
         field :create_todo, type: :todo do
             arg :title, non_null(:string)
             arg :status, :integer
-
-            resolve &TodoWeb.Schema.Resolvers.Todo.create_todo/3
+            resolve &EshopWeb.Schema.Resolvers.Todo.create_todo/3
         end
     end
     

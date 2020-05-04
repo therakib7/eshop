@@ -1,4 +1,4 @@
-defmodule TodoWeb.Schema.Types.Todo do
+defmodule EshopWeb.Schema.Types.Todo do
     use Absinthe.Schema.Notation
 
     object :todo do
