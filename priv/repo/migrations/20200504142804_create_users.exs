@@ -10,9 +10,9 @@ defmodule Eshop.Repo.Migrations.CreateUsers do
       add :mobile, :string, null: true, size: 30
       add :pin, :integer, null: true
       add :password_hash, :string, size: 255
-      add :verified_user, :naive_datetime, null: true
-      add :verified_email, :naive_datetime, null: true
-      add :verified_phone, :naive_datetime, null: true
+      add :verified_user, :utc_datetime, null: true
+      add :verified_email, :utc_datetime, null: true
+      add :verified_phone, :utc_datetime, null: true
 
       timestamps()
     end

@@ -9,10 +9,12 @@ defmodule Eshop.Accounts.User do
     field :last_name, :string
     field :mobile, :string
     field :password_hash, :string
+    field :password, :string, virtual: true
+    field :password_confirmation, :string, virtual: true
     field :pin, :integer
-    field :verified_email, :naive_datetime
-    field :verified_phone, :naive_datetime
-    field :verified_user, :naive_datetime
+    field :verified_email, :utc_datetime
+    field :verified_phone, :utc_datetime
+    field :verified_user, :utc_datetime
 
     timestamps()
   end
@@ -21,6 +23,10 @@ defmodule Eshop.Accounts.User do
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:is_active, :first_name, :last_name, :email, :mobile, :password, :pin])
-    |> validate_required([:is_active, :first_name, :last_name, :email, :mobile, :pin, :password_hash, :verified_user, :verified_email, :verified_phone])
+    |> validate_required([:first_name  :password, :password_confirmation])
+    |> validate_confirmation(:password)
+    |> validate_format(:email, ~r/@/)
+    |> validate_length(:password, min: 8, max: 80)
+    |> validate_length(:pin, min: 4, max: 10)
   end
 end
