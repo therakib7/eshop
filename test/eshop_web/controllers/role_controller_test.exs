@@ -1,8 +1,8 @@
 defmodule EshopWeb.RoleControllerTest do
   use EshopWeb.ConnCase
 
-  alias Eshop.Accounts
-  alias Eshop.Accounts.Role
+  alias Eshop.Users
+  alias Eshop.Users.Role
 
   @create_attrs %{
     desc: "some desc",
@@ -19,7 +19,7 @@ defmodule EshopWeb.RoleControllerTest do
   @invalid_attrs %{desc: nil, is_company: nil, name: nil, native_name: nil}
 
   def fixture(:role) do
-    {:ok, role} = Accounts.create_role(@create_attrs)
+    {:ok, role} = Users.create_role(@create_attrs)
     role
   end
 

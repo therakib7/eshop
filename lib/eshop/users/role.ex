@@ -1,4 +1,4 @@
-defmodule Eshop.Accounts.Role do
+defmodule Eshop.Users.Role do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -15,8 +15,8 @@ defmodule Eshop.Accounts.Role do
   @doc false
   def changeset(role, attrs) do
     role
-    |> cast(attrs, [:name, :slug, :native_name, :desc])
-    |> validate_required([:name, :native_name, :desc])
+    |> cast(attrs, [:name, :slug, :native_name, :desc, :is_company])
+    |> validate_required([:name, :native_name, :desc, :is_company])
     |> unique_constraint(:slug)
   end
 end

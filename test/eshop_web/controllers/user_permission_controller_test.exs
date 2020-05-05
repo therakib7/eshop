@@ -1,8 +1,8 @@
 defmodule EshopWeb.UserPermissionControllerTest do
   use EshopWeb.ConnCase
 
-  alias Eshop.Accounts
-  alias Eshop.Accounts.UserPermission
+  alias Eshop.Users
+  alias Eshop.Users.UserPermission
 
   @create_attrs %{
 
@@ -13,7 +13,7 @@ defmodule EshopWeb.UserPermissionControllerTest do
   @invalid_attrs %{}
 
   def fixture(:user_permission) do
-    {:ok, user_permission} = Accounts.create_user_permission(@create_attrs)
+    {:ok, user_permission} = Users.create_user_permission(@create_attrs)
     user_permission
   end
 

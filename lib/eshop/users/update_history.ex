@@ -1,4 +1,4 @@
-defmodule Eshop.Accounts.UpdateHistory do
+defmodule Eshop.Users.UpdateHistory do
   use Ecto.Schema
   import Ecto.Changeset
 

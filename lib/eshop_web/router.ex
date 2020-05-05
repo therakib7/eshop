@@ -14,7 +14,11 @@ defmodule EshopWeb.Router do
 
     forward "/", Absinthe.Plug,
       schema: EshopWeb.Schema
-  end  
+  end
+
+
+  
+
   
   # Enables LiveDashboard only for development
   #

@@ -20,6 +20,5 @@ defmodule Eshop.Repo.Migrations.CreateUserProfiles do
     create index(:user_profiles, [:user_id])
     create index(:user_profiles, [:pre_location_id])
     create index(:user_profiles, [:per_location_id])
-
   end
 end

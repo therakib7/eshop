@@ -1,8 +1,8 @@
 defmodule EshopWeb.UserProfileControllerTest do
   use EshopWeb.ConnCase
 
-  alias Eshop.Accounts
-  alias Eshop.Accounts.UserProfile
+  alias Eshop.Users
+  alias Eshop.Users.UserProfile
 
   @create_attrs %{
     date_of_birth: "some date_of_birth",
@@ -25,7 +25,7 @@ defmodule EshopWeb.UserProfileControllerTest do
   @invalid_attrs %{date_of_birth: nil, gender: nil, integer: nil, lat: nil, long: nil, merital_status: nil, utc_datetime: nil}
 
   def fixture(:user_profile) do
-    {:ok, user_profile} = Accounts.create_user_profile(@create_attrs)
+    {:ok, user_profile} = Users.create_user_profile(@create_attrs)
     user_profile
   end
 

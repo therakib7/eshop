@@ -1,8 +1,8 @@
 defmodule EshopWeb.UserControllerTest do
   use EshopWeb.ConnCase
 
-  alias Eshop.Accounts
-  alias Eshop.Accounts.User
+  alias Eshop.Users
+  alias Eshop.Users.User
 
   @create_attrs %{
     email: "some email",
@@ -12,9 +12,9 @@ defmodule EshopWeb.UserControllerTest do
     mobile: "some mobile",
     password_hash: "some password_hash",
     pin: 42,
-    verified_email: ~N[2010-04-17 14:00:00],
-    verified_phone: ~N[2010-04-17 14:00:00],
-    verified_user: ~N[2010-04-17 14:00:00]
+    verified_email: "2010-04-17T14:00:00Z",
+    verified_phone: "2010-04-17T14:00:00Z",
+    verified_user: "2010-04-17T14:00:00Z"
   }
   @update_attrs %{
     email: "some updated email",
@@ -24,14 +24,14 @@ defmodule EshopWeb.UserControllerTest do
     mobile: "some updated mobile",
     password_hash: "some updated password_hash",
     pin: 43,
-    verified_email: ~N[2011-05-18 15:01:01],
-    verified_phone: ~N[2011-05-18 15:01:01],
-    verified_user: ~N[2011-05-18 15:01:01]
+    verified_email: "2011-05-18T15:01:01Z",
+    verified_phone: "2011-05-18T15:01:01Z",
+    verified_user: "2011-05-18T15:01:01Z"
   }
   @invalid_attrs %{email: nil, first_name: nil, is_active: nil, last_name: nil, mobile: nil, password_hash: nil, pin: nil, verified_email: nil, verified_phone: nil, verified_user: nil}
 
   def fixture(:user) do
-    {:ok, user} = Accounts.create_user(@create_attrs)
+    {:ok, user} = Users.create_user(@create_attrs)
     user
   end
 
@@ -62,9 +62,9 @@ defmodule EshopWeb.UserControllerTest do
                "mobile" => "some mobile",
                "password_hash" => "some password_hash",
                "pin" => 42,
-               "verified_email" => "2010-04-17T14:00:00",
-               "verified_phone" => "2010-04-17T14:00:00",
-               "verified_user" => "2010-04-17T14:00:00"
+               "verified_email" => "2010-04-17T14:00:00Z",
+               "verified_phone" => "2010-04-17T14:00:00Z",
+               "verified_user" => "2010-04-17T14:00:00Z"
              } = json_response(conn, 200)["data"]
     end
 
@@ -92,9 +92,9 @@ defmodule EshopWeb.UserControllerTest do
                "mobile" => "some updated mobile",
                "password_hash" => "some updated password_hash",
                "pin" => 43,
-               "verified_email" => "2011-05-18T15:01:01",
-               "verified_phone" => "2011-05-18T15:01:01",
-               "verified_user" => "2011-05-18T15:01:01"
+               "verified_email" => "2011-05-18T15:01:01Z",
+               "verified_phone" => "2011-05-18T15:01:01Z",
+               "verified_user" => "2011-05-18T15:01:01Z"
              } = json_response(conn, 200)["data"]
     end
 

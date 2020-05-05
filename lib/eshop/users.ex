@@ -1,12 +1,12 @@
-defmodule Eshop.Accounts do
+defmodule Eshop.Users do
   @moduledoc """
-  The Accounts context.
+  The Users context.
   """
 
   import Ecto.Query, warn: false
   alias Eshop.Repo
 
-  alias Eshop.Accounts.User
+  alias Eshop.Users.User
 
   @doc """
   Returns the list of users.
@@ -102,7 +102,7 @@ defmodule Eshop.Accounts do
     User.changeset(user, attrs)
   end
 
-  alias Eshop.Accounts.UserProfile
+  alias Eshop.Users.UserProfile
 
   @doc """
   Returns the list of user_profiles.
@@ -198,7 +198,7 @@ defmodule Eshop.Accounts do
     UserProfile.changeset(user_profile, attrs)
   end
 
-  alias Eshop.Accounts.Role
+  alias Eshop.Users.Role
 
   @doc """
   Returns the list of roles.
@@ -294,7 +294,7 @@ defmodule Eshop.Accounts do
     Role.changeset(role, attrs)
   end
 
-  alias Eshop.Accounts.Permission
+  alias Eshop.Users.Permission
 
   @doc """
   Returns the list of permissions.
@@ -390,7 +390,7 @@ defmodule Eshop.Accounts do
     Permission.changeset(permission, attrs)
   end
 
-  alias Eshop.Accounts.RolePermission
+  alias Eshop.Users.RolePermission
 
   @doc """
   Returns the list of role_permissions.
@@ -486,7 +486,7 @@ defmodule Eshop.Accounts do
     RolePermission.changeset(role_permission, attrs)
   end
 
-  alias Eshop.Accounts.UserRole
+  alias Eshop.Users.UserRole
 
   @doc """
   Returns the list of user_roles.
@@ -582,7 +582,7 @@ defmodule Eshop.Accounts do
     UserRole.changeset(user_role, attrs)
   end
 
-  alias Eshop.Accounts.UserPermission
+  alias Eshop.Users.UserPermission
 
   @doc """
   Returns the list of user_permissions.
@@ -678,7 +678,7 @@ defmodule Eshop.Accounts do
     UserPermission.changeset(user_permission, attrs)
   end
 
-  alias Eshop.Accounts.PasswordReset
+  alias Eshop.Users.PasswordReset
 
   @doc """
   Returns the list of password_resets.
@@ -774,7 +774,7 @@ defmodule Eshop.Accounts do
     PasswordReset.changeset(password_reset, attrs)
   end
 
-  alias Eshop.Accounts.LoginDetail
+  alias Eshop.Users.LoginDetail
 
   @doc """
   Returns the list of login_details.
@@ -870,7 +870,7 @@ defmodule Eshop.Accounts do
     LoginDetail.changeset(login_detail, attrs)
   end
 
-  alias Eshop.Accounts.UpdateHistory
+  alias Eshop.Users.UpdateHistory
 
   @doc """
   Returns the list of update_histories.

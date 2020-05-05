@@ -1,8 +1,8 @@
 defmodule EshopWeb.PasswordResetControllerTest do
   use EshopWeb.ConnCase
 
-  alias Eshop.Accounts
-  alias Eshop.Accounts.PasswordReset
+  alias Eshop.Users
+  alias Eshop.Users.PasswordReset
 
   @create_attrs %{
     created_at: "2010-04-17T14:00:00Z",
@@ -15,7 +15,7 @@ defmodule EshopWeb.PasswordResetControllerTest do
   @invalid_attrs %{created_at: nil, token: nil}
 
   def fixture(:password_reset) do
-    {:ok, password_reset} = Accounts.create_password_reset(@create_attrs)
+    {:ok, password_reset} = Users.create_password_reset(@create_attrs)
     password_reset
   end
 

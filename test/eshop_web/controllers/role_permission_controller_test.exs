@@ -1,8 +1,8 @@
 defmodule EshopWeb.RolePermissionControllerTest do
   use EshopWeb.ConnCase
 
-  alias Eshop.Accounts
-  alias Eshop.Accounts.RolePermission
+  alias Eshop.Users
+  alias Eshop.Users.RolePermission
 
   @create_attrs %{
 
@@ -13,7 +13,7 @@ defmodule EshopWeb.RolePermissionControllerTest do
   @invalid_attrs %{}
 
   def fixture(:role_permission) do
-    {:ok, role_permission} = Accounts.create_role_permission(@create_attrs)
+    {:ok, role_permission} = Users.create_role_permission(@create_attrs)
     role_permission
   end
 

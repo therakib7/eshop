@@ -1,8 +1,8 @@
 defmodule EshopWeb.LoginDetailControllerTest do
   use EshopWeb.ConnCase
 
-  alias Eshop.Accounts
-  alias Eshop.Accounts.LoginDetail
+  alias Eshop.Users
+  alias Eshop.Users.LoginDetail
 
   @create_attrs %{
     ip_address: "some ip_address",
@@ -23,7 +23,7 @@ defmodule EshopWeb.LoginDetailControllerTest do
   @invalid_attrs %{ip_address: nil, ip_location: nil, is_active: nil, last_activity: nil, login_at: nil, user_agent: nil}
 
   def fixture(:login_detail) do
-    {:ok, login_detail} = Accounts.create_login_detail(@create_attrs)
+    {:ok, login_detail} = Users.create_login_detail(@create_attrs)
     login_detail
   end
 

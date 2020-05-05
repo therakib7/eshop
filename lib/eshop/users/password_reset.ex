@@ -1,4 +1,4 @@
-defmodule Eshop.Accounts.PasswordReset do
+defmodule Eshop.Users.PasswordReset do
   use Ecto.Schema
   import Ecto.Changeset
 

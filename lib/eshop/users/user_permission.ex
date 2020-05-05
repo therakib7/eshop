@@ -1,4 +1,4 @@
-defmodule Eshop.Accounts.UserPermission do
+defmodule Eshop.Users.UserPermission do
   use Ecto.Schema
   import Ecto.Changeset
 

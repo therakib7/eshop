@@ -1,8 +1,8 @@
 defmodule EshopWeb.UpdateHistoryControllerTest do
   use EshopWeb.ConnCase
 
-  alias Eshop.Accounts
-  alias Eshop.Accounts.UpdateHistory
+  alias Eshop.Users
+  alias Eshop.Users.UpdateHistory
 
   @create_attrs %{
     created_at: "2010-04-17T14:00:00Z",
@@ -23,7 +23,7 @@ defmodule EshopWeb.UpdateHistoryControllerTest do
   @invalid_attrs %{created_at: nil, key: nil, new_value: nil, old_value: nil, type: nil, type_id: nil}
 
   def fixture(:update_history) do
-    {:ok, update_history} = Accounts.create_update_history(@create_attrs)
+    {:ok, update_history} = Users.create_update_history(@create_attrs)
     update_history
   end
 

@@ -1,4 +1,4 @@
-defmodule Eshop.Accounts.UserProfile do
+defmodule Eshop.Users.UserProfile do
   use Ecto.Schema
   import Ecto.Changeset
 
