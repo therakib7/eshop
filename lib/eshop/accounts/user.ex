@@ -23,7 +23,7 @@ defmodule Eshop.Accounts.User do
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:is_active, :first_name, :last_name, :email, :mobile, :password, :pin])
-    |> validate_required([:first_name  :password, :password_confirmation])
+    |> validate_required([:first_name, :password, :password_confirmation])
     |> validate_confirmation(:password)
     |> validate_format(:email, ~r/@/)
     |> validate_length(:password, min: 8, max: 80)
