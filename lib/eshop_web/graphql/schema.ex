@@ -2,15 +2,15 @@ defmodule EshopWeb.Schema do
     use Absinthe.Schema
 
     import_types(__MODULE__.Types.{
-        Eshop
+        User
     })
 
     import_types(__MODULE__.Queries.{
-        Eshop
+        User
     })
 
     import_types(__MODULE__.Mutations.{
-        Eshop
+        User
     })
 
     query do
