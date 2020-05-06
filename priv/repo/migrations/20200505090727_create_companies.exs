@@ -18,7 +18,7 @@ defmodule Eshop.Repo.Migrations.CreateCompanies do
       timestamps()
     end
 
-    create index(:shops, [:user_id])
+    create index(:companies, [:user_id])
     create index(:companies, [:location_id])
     create index(:companies, [:attachment_id])
     create index(:companies, [:term_condition_id])
