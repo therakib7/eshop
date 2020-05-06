@@ -1,0 +1,7 @@
+* All Routers
+* Views folder module separate
+* Casting data validation
+* Queries data first in graphql.
+* Seed data (Role and Permission and others)
+* Gurdian Authentication Api and graphql 
+* Mix test fixing later

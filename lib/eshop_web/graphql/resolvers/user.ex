@@ -1,4 +1,4 @@
-defmodule EshopWeb.Schema.Resolvers.Eshop do
+defmodule EshopWeb.Schema.Resolvers.User do
 
     def list_users(_parent, _args, _resolution) do
         {:ok, Eshop.Users.list_users()}

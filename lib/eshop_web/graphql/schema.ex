@@ -2,11 +2,13 @@ defmodule EshopWeb.Schema do
     use Absinthe.Schema
 
     import_types(__MODULE__.Types.{
-        User
+        User,
+        Role
     })
 
     import_types(__MODULE__.Queries.{
-        User
+        User,
+        Role
     })
 
     import_types(__MODULE__.Mutations.{
@@ -15,6 +17,7 @@ defmodule EshopWeb.Schema do
 
     query do
         import_fields(:user_queries)
+        import_fields(:role_queries)
     end 
 
     mutation do
