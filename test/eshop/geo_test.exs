@@ -150,4 +150,61 @@ defmodule Eshop.GeoTest do
       assert %Ecto.Changeset{} = Geo.change_location(location)
     end
   end
+
+  describe "shop_locations" do
+    alias Eshop.Geo.ShopLocation
+
+    @valid_attrs %{}
+    @update_attrs %{}
+    @invalid_attrs %{}
+
+    def shop_location_fixture(attrs \\ %{}) do
+      {:ok, shop_location} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Geo.create_shop_location()
+
+      shop_location
+    end
+
+    test "list_shop_locations/0 returns all shop_locations" do
+      shop_location = shop_location_fixture()
+      assert Geo.list_shop_locations() == [shop_location]
+    end
+
+    test "get_shop_location!/1 returns the shop_location with given id" do
+      shop_location = shop_location_fixture()
+      assert Geo.get_shop_location!(shop_location.id) == shop_location
+    end
+
+    test "create_shop_location/1 with valid data creates a shop_location" do
+      assert {:ok, %ShopLocation{} = shop_location} = Geo.create_shop_location(@valid_attrs)
+    end
+
+    test "create_shop_location/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Geo.create_shop_location(@invalid_attrs)
+    end
+
+    test "update_shop_location/2 with valid data updates the shop_location" do
+      shop_location = shop_location_fixture()
+      assert {:ok, %ShopLocation{} = shop_location} = Geo.update_shop_location(shop_location, @update_attrs)
+    end
+
+    test "update_shop_location/2 with invalid data returns error changeset" do
+      shop_location = shop_location_fixture()
+      assert {:error, %Ecto.Changeset{}} = Geo.update_shop_location(shop_location, @invalid_attrs)
+      assert shop_location == Geo.get_shop_location!(shop_location.id)
+    end
+
+    test "delete_shop_location/1 deletes the shop_location" do
+      shop_location = shop_location_fixture()
+      assert {:ok, %ShopLocation{}} = Geo.delete_shop_location(shop_location)
+      assert_raise Ecto.NoResultsError, fn -> Geo.get_shop_location!(shop_location.id) end
+    end
+
+    test "change_shop_location/1 returns a shop_location changeset" do
+      shop_location = shop_location_fixture()
+      assert %Ecto.Changeset{} = Geo.change_shop_location(shop_location)
+    end
+  end
 end

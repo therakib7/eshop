@@ -12,5 +12,7 @@ defmodule Eshop.Repo.Migrations.CreateAttachments do
       timestamps()
     end
 
+    create index(:attachments, [:type, :type_id])
+
   end
 end

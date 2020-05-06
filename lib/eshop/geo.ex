@@ -197,4 +197,100 @@ defmodule Eshop.Geo do
   def change_location(%Location{} = location, attrs \\ %{}) do
     Location.changeset(location, attrs)
   end
+
+  alias Eshop.Geo.ShopLocation
+
+  @doc """
+  Returns the list of shop_locations.
+
+  ## Examples
+
+      iex> list_shop_locations()
+      [%ShopLocation{}, ...]
+
+  """
+  def list_shop_locations do
+    Repo.all(ShopLocation)
+  end
+
+  @doc """
+  Gets a single shop_location.
+
+  Raises `Ecto.NoResultsError` if the Shop location does not exist.
+
+  ## Examples
+
+      iex> get_shop_location!(123)
+      %ShopLocation{}
+
+      iex> get_shop_location!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_shop_location!(id), do: Repo.get!(ShopLocation, id)
+
+  @doc """
+  Creates a shop_location.
+
+  ## Examples
+
+      iex> create_shop_location(%{field: value})
+      {:ok, %ShopLocation{}}
+
+      iex> create_shop_location(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_shop_location(attrs \\ %{}) do
+    %ShopLocation{}
+    |> ShopLocation.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a shop_location.
+
+  ## Examples
+
+      iex> update_shop_location(shop_location, %{field: new_value})
+      {:ok, %ShopLocation{}}
+
+      iex> update_shop_location(shop_location, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_shop_location(%ShopLocation{} = shop_location, attrs) do
+    shop_location
+    |> ShopLocation.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a shop_location.
+
+  ## Examples
+
+      iex> delete_shop_location(shop_location)
+      {:ok, %ShopLocation{}}
+
+      iex> delete_shop_location(shop_location)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_shop_location(%ShopLocation{} = shop_location) do
+    Repo.delete(shop_location)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking shop_location changes.
+
+  ## Examples
+
+      iex> change_shop_location(shop_location)
+      %Ecto.Changeset{data: %ShopLocation{}}
+
+  """
+  def change_shop_location(%ShopLocation{} = shop_location, attrs \\ %{}) do
+    ShopLocation.changeset(shop_location, attrs)
+  end
 end
