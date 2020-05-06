@@ -3,14 +3,14 @@ defmodule Eshop.Repo.Migrations.CreateUserProfiles do
 
   def change do
     create table(:user_profiles) do
-      add :lat, :float
-      add :long, :float
-      add :date_of_birth, :utc_datetime
-      add :merital_status, :integer
-      add :gender, :integer
+      add :lat, :float, null: true, size: 50
+      add :long, :float, null: true, size: 50
+      add :date_of_birth, :utc_datetime, null: true
+      add :merital_status, :integer, null: true
+      add :gender, :integer, null: true
       add :user_id, references(:users, on_delete: :nothing)
-      add :pre_location_id, references(:locations, on_delete: :nothing)
-      add :per_location_id, references(:locations, on_delete: :nothing)
+      add :pre_location_id, references(:locations, on_delete: :nothing), null: true
+      add :per_location_id, references(:locations, on_delete: :nothing), null: true
 
       timestamps()
     end

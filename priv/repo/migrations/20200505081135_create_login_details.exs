@@ -4,8 +4,8 @@ defmodule Eshop.Repo.Migrations.CreateLoginDetails do
   def change do
     create table(:login_details) do
       add :is_active, :boolean, default: false, null: false
-      add :user_agent, :string
-      add :ip_address, :string
+      add :user_agent, :string, size: 500
+      add :ip_address, :string, size: 100
       add :ip_location, :string
       add :login_at, :utc_datetime
       add :last_activity, :utc_datetime

@@ -11,8 +11,8 @@ defmodule Eshop.Repo.Migrations.CreateLocations do
       add :native_name, :string, null: true, size: 150
       add :order, :integer, null: true
       add :code, :string, null: true, size: 10
-      add :lat, :float, null: true
-      add :long, :float, null: true
+      add :lat, :float, null: true, size: 50
+      add :long, :float, null: true, size: 50
       add :web, :string, null: true, size: 255
       add :user_id, :integer
 
