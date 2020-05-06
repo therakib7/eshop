@@ -5,7 +5,7 @@ defmodule EshopWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/graphiql" do
+  scope "/graphql" do
     pipe_through :api
 
     forward "/ide",
@@ -16,7 +16,7 @@ defmodule EshopWeb.Router do
       schema: EshopWeb.Schema
   end
 
-  scope "/api", ShuvoWeb do
+  scope "/api", EshopWeb do
     pipe_through :api
 
     # Users
