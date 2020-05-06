@@ -5,8 +5,8 @@ defmodule Eshop.Repo.Migrations.CreateTermConditions do
     create table(:term_conditions) do
       add :type, :integer
       add :type_id, :integer
-      add :content, :text, size: 3000
-      add :native_content, :text, null: true, size: 3000
+      add :content, :text, null: true
+      add :native_content, :text, null: true
 
       timestamps()
     end

@@ -6,7 +6,7 @@ defmodule Eshop.Repo.Migrations.CreateCompanySettings do
       add :type, :integer
       add :type_id, :integer
       add :key, :string, size: 120
-      add :value, :text, size: 500
+      add :value, :text
 
       timestamps()
     end

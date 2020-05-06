@@ -4,7 +4,7 @@ defmodule Eshop.Repo.Migrations.CreateChatMsgs do
   def change do
     create table(:chat_msgs) do
       add :msg_type, :integer
-      add :msg, :text, null: true, size: 1200
+      add :msg, :text, null: true
       add :read, :boolean, default: false, null: false
       add :deleted_at, :utc_datetime, null: true
       add :chat_room_id, references(:chat_rooms, on_delete: :nothing)

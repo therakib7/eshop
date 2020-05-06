@@ -7,7 +7,7 @@ defmodule Eshop.Repo.Migrations.CreateWarehouseVariants do
       add :name, :string, null: true, size: 100
       add :native_name, :string, null: true, size: 100
       add :company_id, references(:companies, on_delete: :nothing)
-      add :parent_id, references(:warehouse_variants, on_delete: :nothing)
+      add :parent_id, references(:warehouse_variants, on_delete: :nilify_all), null: true
 
       timestamps()
     end

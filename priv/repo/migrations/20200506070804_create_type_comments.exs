@@ -5,7 +5,7 @@ defmodule Eshop.Repo.Migrations.CreateTypeComments do
     create table(:type_comments) do
       add :type, :integer
       add :type_id, :integer
-      add :comment, :text, null: true, size: 500
+      add :comment, :text, null: true
       add :user_id, references(:users, on_delete: :nothing)
 
       timestamps()

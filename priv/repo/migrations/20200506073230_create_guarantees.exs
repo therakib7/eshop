@@ -3,10 +3,10 @@ defmodule Eshop.Repo.Migrations.CreateGuarantees do
 
   def change do
     create table(:guarantees) do
-      add :content, :text, null: true, size: 500
-      add :native_content, :text, null: true, size: 500
+      add :content, :text, null: true
+      add :native_content, :text, null: true
       add :duration, :integer, null: true
-      add :gurantee_type, :, null: true
+      add :gurantee_type, :integer, null: true
       add :item_id, references(:items, on_delete: :nothing)
 
       timestamps()

@@ -8,7 +8,7 @@ defmodule Eshop.Repo.Migrations.CreateCategories do
       add :name, :string
       add :native_name, :string
       add :slug, :string
-      add :parent_id, references(:categories, on_delete: :nothing)
+      add :parent_id, references(:categories, on_delete: :nilify_all), null: true
       add :attachment_id, references(:attachments, on_delete: :nothing)
       add :user_id, references(:users, on_delete: :nothing)
 

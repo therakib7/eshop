@@ -4,7 +4,7 @@ defmodule Eshop.Repo.Migrations.CreateUserSettings do
   def change do
     create table(:user_settings) do
       add :key, :string, size: 120
-      add :value, :text, size: 500
+      add :value, :text
       add :user_id, references(:users, on_delete: :nothing)
 
       timestamps()

@@ -6,11 +6,11 @@ defmodule Eshop.Repo.Migrations.CreateItems do
       add :is_active, :boolean, default: false, null: false
       add :name, :string, null: true, size: 255
       add :native_name, :string, null: true, size: 255
-      add :desc, :text, null: true, size: 1200
-      add :native_desc, :text, null: true, size: 1200
+      add :desc, :text, null: true
+      add :native_desc, :text, null: true
       add :views, :integer, null: true
       add :loves, :integer, null: true
-      add :vat, :, null: true
+      add :vat, :integer, null: true
       add :vat_type, :integer, null: true
       add :unit, :integer, null: true
       add :has_variant, :boolean, default: false, null: false
