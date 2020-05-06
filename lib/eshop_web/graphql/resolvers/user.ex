@@ -1,11 +1,11 @@
-defmodule EshopWeb.Schema.Resolvers.User do
+defmodule EshopWeb.Schema.Resolvers.Eshop do
 
     def list_users(_parent, _args, _resolution) do
-        {:ok, User.Tasks.list_users()}
+        {:ok, Eshop.Users.list_users()}
     end
 
     def create_user(_parent, args, _resolution) do
-        User.Tasks.create_task(args)
+        Eshop.Users.create_user(args)
     end
     
 end
