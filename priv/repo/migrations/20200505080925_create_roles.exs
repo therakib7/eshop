@@ -3,11 +3,11 @@ defmodule Eshop.Repo.Migrations.CreateRoles do
 
   def change do
     create table(:roles) do
-      add :name, :string
+      add :name, :string, size: 200
       add :slug, :string
-      add :native_name, :string
-      add :desc, :string
-      add :is_company, :boolean, default: false, null: false
+      add :native_name, :string, null: true, size: 200
+      add :desc, :string, null: true, size: 500
+      add :is_company, :boolean, default: false, null: true
 
       timestamps()
     end

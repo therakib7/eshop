@@ -5,8 +5,8 @@ defmodule Eshop.Repo.Migrations.CreateAttachments do
     create table(:attachments) do
       add :type, :integer
       add :type_id, :integer
-      add :file_name, :string
-      add :resized_size, :string
+      add :file_name, :string, size: 150
+      add :resized_size, :string 
       add :orginal_size, :string
 
       timestamps()

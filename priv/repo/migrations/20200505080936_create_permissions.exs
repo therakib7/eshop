@@ -3,7 +3,7 @@ defmodule Eshop.Repo.Migrations.CreatePermissions do
 
   def change do
     create table(:permissions) do
-      add :name, :string
+      add :name, :string, size: 200
       add :slug, :string
 
       timestamps()
