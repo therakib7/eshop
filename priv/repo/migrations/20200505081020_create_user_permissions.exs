@@ -2,7 +2,7 @@ defmodule Eshop.Repo.Migrations.CreateUserPermissions do
   use Ecto.Migration
 
   def change do
-    create table(:user_permissions, primary_key: false) do
+    create table(:user_permissions) do
       add :user_id, references(:users, on_delete: :nothing)
       add :permission_id, references(:permissions, on_delete: :nothing)
 
