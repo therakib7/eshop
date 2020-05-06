@@ -71,4 +71,65 @@ defmodule Eshop.AttachmentsTest do
       assert %Ecto.Changeset{} = Attachments.change_attachment(attachment)
     end
   end
+
+  describe "galleries" do
+    alias Eshop.Attachments.Gallery
+
+    @valid_attrs %{type: 42, type_id: 42}
+    @update_attrs %{type: 43, type_id: 43}
+    @invalid_attrs %{type: nil, type_id: nil}
+
+    def gallery_fixture(attrs \\ %{}) do
+      {:ok, gallery} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Attachments.create_gallery()
+
+      gallery
+    end
+
+    test "list_galleries/0 returns all galleries" do
+      gallery = gallery_fixture()
+      assert Attachments.list_galleries() == [gallery]
+    end
+
+    test "get_gallery!/1 returns the gallery with given id" do
+      gallery = gallery_fixture()
+      assert Attachments.get_gallery!(gallery.id) == gallery
+    end
+
+    test "create_gallery/1 with valid data creates a gallery" do
+      assert {:ok, %Gallery{} = gallery} = Attachments.create_gallery(@valid_attrs)
+      assert gallery.type == 42
+      assert gallery.type_id == 42
+    end
+
+    test "create_gallery/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Attachments.create_gallery(@invalid_attrs)
+    end
+
+    test "update_gallery/2 with valid data updates the gallery" do
+      gallery = gallery_fixture()
+      assert {:ok, %Gallery{} = gallery} = Attachments.update_gallery(gallery, @update_attrs)
+      assert gallery.type == 43
+      assert gallery.type_id == 43
+    end
+
+    test "update_gallery/2 with invalid data returns error changeset" do
+      gallery = gallery_fixture()
+      assert {:error, %Ecto.Changeset{}} = Attachments.update_gallery(gallery, @invalid_attrs)
+      assert gallery == Attachments.get_gallery!(gallery.id)
+    end
+
+    test "delete_gallery/1 deletes the gallery" do
+      gallery = gallery_fixture()
+      assert {:ok, %Gallery{}} = Attachments.delete_gallery(gallery)
+      assert_raise Ecto.NoResultsError, fn -> Attachments.get_gallery!(gallery.id) end
+    end
+
+    test "change_gallery/1 returns a gallery changeset" do
+      gallery = gallery_fixture()
+      assert %Ecto.Changeset{} = Attachments.change_gallery(gallery)
+    end
+  end
 end

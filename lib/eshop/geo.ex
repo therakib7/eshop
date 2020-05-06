@@ -293,4 +293,100 @@ defmodule Eshop.Geo do
   def change_shop_location(%ShopLocation{} = shop_location, attrs \\ %{}) do
     ShopLocation.changeset(shop_location, attrs)
   end
+
+  alias Eshop.Geo.ItemLocation
+
+  @doc """
+  Returns the list of item_locations.
+
+  ## Examples
+
+      iex> list_item_locations()
+      [%ItemLocation{}, ...]
+
+  """
+  def list_item_locations do
+    Repo.all(ItemLocation)
+  end
+
+  @doc """
+  Gets a single item_location.
+
+  Raises `Ecto.NoResultsError` if the Item location does not exist.
+
+  ## Examples
+
+      iex> get_item_location!(123)
+      %ItemLocation{}
+
+      iex> get_item_location!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_item_location!(id), do: Repo.get!(ItemLocation, id)
+
+  @doc """
+  Creates a item_location.
+
+  ## Examples
+
+      iex> create_item_location(%{field: value})
+      {:ok, %ItemLocation{}}
+
+      iex> create_item_location(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_item_location(attrs \\ %{}) do
+    %ItemLocation{}
+    |> ItemLocation.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a item_location.
+
+  ## Examples
+
+      iex> update_item_location(item_location, %{field: new_value})
+      {:ok, %ItemLocation{}}
+
+      iex> update_item_location(item_location, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_item_location(%ItemLocation{} = item_location, attrs) do
+    item_location
+    |> ItemLocation.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a item_location.
+
+  ## Examples
+
+      iex> delete_item_location(item_location)
+      {:ok, %ItemLocation{}}
+
+      iex> delete_item_location(item_location)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_item_location(%ItemLocation{} = item_location) do
+    Repo.delete(item_location)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking item_location changes.
+
+  ## Examples
+
+      iex> change_item_location(item_location)
+      %Ecto.Changeset{data: %ItemLocation{}}
+
+  """
+  def change_item_location(%ItemLocation{} = item_location, attrs \\ %{}) do
+    ItemLocation.changeset(item_location, attrs)
+  end
 end
