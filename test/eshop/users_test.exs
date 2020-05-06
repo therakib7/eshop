@@ -646,4 +646,71 @@ defmodule Eshop.UsersTest do
       assert %Ecto.Changeset{} = Users.change_update_history(update_history)
     end
   end
+
+  describe "user_profiles" do
+    alias Eshop.Users.UserProfile
+
+    @valid_attrs %{date_of_birth: "2010-04-17T14:00:00Z", gender: 42, lat: 120.5, long: 120.5, merital_status: 42}
+    @update_attrs %{date_of_birth: "2011-05-18T15:01:01Z", gender: 43, lat: 456.7, long: 456.7, merital_status: 43}
+    @invalid_attrs %{date_of_birth: nil, gender: nil, lat: nil, long: nil, merital_status: nil}
+
+    def user_profile_fixture(attrs \\ %{}) do
+      {:ok, user_profile} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Users.create_user_profile()
+
+      user_profile
+    end
+
+    test "list_user_profiles/0 returns all user_profiles" do
+      user_profile = user_profile_fixture()
+      assert Users.list_user_profiles() == [user_profile]
+    end
+
+    test "get_user_profile!/1 returns the user_profile with given id" do
+      user_profile = user_profile_fixture()
+      assert Users.get_user_profile!(user_profile.id) == user_profile
+    end
+
+    test "create_user_profile/1 with valid data creates a user_profile" do
+      assert {:ok, %UserProfile{} = user_profile} = Users.create_user_profile(@valid_attrs)
+      assert user_profile.date_of_birth == DateTime.from_naive!(~N[2010-04-17T14:00:00Z], "Etc/UTC")
+      assert user_profile.gender == 42
+      assert user_profile.lat == 120.5
+      assert user_profile.long == 120.5
+      assert user_profile.merital_status == 42
+    end
+
+    test "create_user_profile/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Users.create_user_profile(@invalid_attrs)
+    end
+
+    test "update_user_profile/2 with valid data updates the user_profile" do
+      user_profile = user_profile_fixture()
+      assert {:ok, %UserProfile{} = user_profile} = Users.update_user_profile(user_profile, @update_attrs)
+      assert user_profile.date_of_birth == DateTime.from_naive!(~N[2011-05-18T15:01:01Z], "Etc/UTC")
+      assert user_profile.gender == 43
+      assert user_profile.lat == 456.7
+      assert user_profile.long == 456.7
+      assert user_profile.merital_status == 43
+    end
+
+    test "update_user_profile/2 with invalid data returns error changeset" do
+      user_profile = user_profile_fixture()
+      assert {:error, %Ecto.Changeset{}} = Users.update_user_profile(user_profile, @invalid_attrs)
+      assert user_profile == Users.get_user_profile!(user_profile.id)
+    end
+
+    test "delete_user_profile/1 deletes the user_profile" do
+      user_profile = user_profile_fixture()
+      assert {:ok, %UserProfile{}} = Users.delete_user_profile(user_profile)
+      assert_raise Ecto.NoResultsError, fn -> Users.get_user_profile!(user_profile.id) end
+    end
+
+    test "change_user_profile/1 returns a user_profile changeset" do
+      user_profile = user_profile_fixture()
+      assert %Ecto.Changeset{} = Users.change_user_profile(user_profile)
+    end
+  end
 end

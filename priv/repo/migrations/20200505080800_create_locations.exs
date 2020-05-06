@@ -6,14 +6,14 @@ defmodule Eshop.Repo.Migrations.CreateLocations do
       add :is_active, :boolean, default: false, null: false
       add :country_id, :integer
       add :stage_id, :integer
-      add :parent_id, :integer
-      add :name, :string
-      add :native_name, :string
-      add :order, :integer
-      add :code, :string
-      add :lat, :float
-      add :long, :float
-      add :web, :string
+      add :parent_id, :integer, null: true
+      add :name, :string, null: true, size: 150
+      add :native_name, :string, null: true, size: 150
+      add :order, :integer, null: true
+      add :code, :string, null: true, size: 10
+      add :lat, :float, null: true
+      add :long, :float, null: true
+      add :web, :string, null: true, size: 255
       add :user_id, :integer
 
       timestamps()

@@ -5,24 +5,20 @@ defmodule EshopWeb.UserProfileControllerTest do
   alias Eshop.Users.UserProfile
 
   @create_attrs %{
-    date_of_birth: "some date_of_birth",
+    date_of_birth: "2010-04-17T14:00:00Z",
     gender: 42,
-    integer: "some integer",
     lat: 120.5,
     long: 120.5,
-    merital_status: "some merital_status",
-    utc_datetime: "some utc_datetime"
+    merital_status: 42
   }
   @update_attrs %{
-    date_of_birth: "some updated date_of_birth",
+    date_of_birth: "2011-05-18T15:01:01Z",
     gender: 43,
-    integer: "some updated integer",
     lat: 456.7,
     long: 456.7,
-    merital_status: "some updated merital_status",
-    utc_datetime: "some updated utc_datetime"
+    merital_status: 43
   }
-  @invalid_attrs %{date_of_birth: nil, gender: nil, integer: nil, lat: nil, long: nil, merital_status: nil, utc_datetime: nil}
+  @invalid_attrs %{date_of_birth: nil, gender: nil, lat: nil, long: nil, merital_status: nil}
 
   def fixture(:user_profile) do
     {:ok, user_profile} = Users.create_user_profile(@create_attrs)
@@ -49,13 +45,11 @@ defmodule EshopWeb.UserProfileControllerTest do
 
       assert %{
                "id" => id,
-               "date_of_birth" => "some date_of_birth",
+               "date_of_birth" => "2010-04-17T14:00:00Z",
                "gender" => 42,
-               "integer" => "some integer",
                "lat" => 120.5,
                "long" => 120.5,
-               "merital_status" => "some merital_status",
-               "utc_datetime" => "some utc_datetime"
+               "merital_status" => 42
              } = json_response(conn, 200)["data"]
     end
 
@@ -76,13 +70,11 @@ defmodule EshopWeb.UserProfileControllerTest do
 
       assert %{
                "id" => id,
-               "date_of_birth" => "some updated date_of_birth",
+               "date_of_birth" => "2011-05-18T15:01:01Z",
                "gender" => 43,
-               "integer" => "some updated integer",
                "lat" => 456.7,
                "long" => 456.7,
-               "merital_status" => "some updated merital_status",
-               "utc_datetime" => "some updated utc_datetime"
+               "merital_status" => 43
              } = json_response(conn, 200)["data"]
     end
 

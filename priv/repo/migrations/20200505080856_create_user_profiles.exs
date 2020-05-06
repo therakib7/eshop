@@ -5,10 +5,8 @@ defmodule Eshop.Repo.Migrations.CreateUserProfiles do
     create table(:user_profiles) do
       add :lat, :float
       add :long, :float
-      add :date_of_birth, :string
-      add :utc_datetime, :string
-      add :merital_status, :string
-      add :integer, :string
+      add :date_of_birth, :utc_datetime
+      add :merital_status, :integer
       add :gender, :integer
       add :user_id, references(:users, on_delete: :nothing)
       add :pre_location_id, references(:locations, on_delete: :nothing)

@@ -15,9 +15,7 @@ defmodule EshopWeb.UserProfileView do
       lat: user_profile.lat,
       long: user_profile.long,
       date_of_birth: user_profile.date_of_birth,
-      utc_datetime: user_profile.utc_datetime,
       merital_status: user_profile.merital_status,
-      integer: user_profile.integer,
       gender: user_profile.gender}
   end
 end
