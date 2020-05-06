@@ -5,8 +5,8 @@ defmodule Eshop.Repo.Migrations.CreateBankingProviders do
     create table(:banking_providers) do
       add :is_active, :boolean, default: false, null: false
       add :type, :integer
-      add :name, :string
-      add :native_name, :string
+      add :name, :string, null: true, size: 100
+      add :native_name, :string, null: true, size: 100
       add :order, :integer
       add :attachement_id, references(:attachments, on_delete: :nothing)
 

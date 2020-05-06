@@ -3,8 +3,8 @@ defmodule Eshop.Repo.Migrations.CreateSettings do
 
   def change do
     create table(:settings) do
-      add :key, :string
-      add :value, :text
+      add :key, :string, size: 120
+      add :value, :text, size: 500
 
       timestamps()
     end

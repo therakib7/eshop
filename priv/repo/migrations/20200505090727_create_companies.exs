@@ -5,9 +5,9 @@ defmodule Eshop.Repo.Migrations.CreateCompanies do
     create table(:companies) do
       add :is_active, :boolean, default: false, null: false
       add :is_verifed, :boolean, default: false, null: false
-      add :name, :string
+      add :name, :string, null: true, size: 120
       add :trade_assurance, :boolean, default: false, null: false
-      add :highest_assurance, :decimal
+      add :highest_assurance, :decimal, null: true
       add :golden_supplier, :boolean, default: false, null: false
       add :created_at, :utc_datetime
       add :user_id, references(:users, on_delete: :nothing)

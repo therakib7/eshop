@@ -3,11 +3,11 @@ defmodule Eshop.Repo.Migrations.CreateShippingAddresses do
 
   def change do
     create table(:shipping_addresses) do
-      add :lat, :float
-      add :long, :float
-      add :address, :string
+      add :lat, :float, null: true, size: 50
+      add :long, :float, null: true, size: 50
+      add :address, :string, null: true, size: 255
       add :invoice_id, references(:invoices, on_delete: :nothing)
-      add :location_id, references(:locations, on_delete: :nothing)
+      add :location_id, references(:locations, on_delete: :nothing), null: true
 
       timestamps()
     end

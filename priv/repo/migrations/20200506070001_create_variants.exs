@@ -3,8 +3,9 @@ defmodule Eshop.Repo.Migrations.CreateVariants do
 
   def change do
     create table(:variants) do
-      add :name, :string
-      add :native_name, :string
+      add :order, :integer, null: true
+      add :name, :string, null: true, size: 100
+      add :native_name, :string, null: true, size: 100
       add :type, :integer
       add :shop_id, references(:shops, on_delete: :nothing)
       add :user_id, references(:users, on_delete: :nothing)

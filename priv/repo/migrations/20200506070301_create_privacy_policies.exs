@@ -3,8 +3,8 @@ defmodule Eshop.Repo.Migrations.CreatePrivacyPolicies do
 
   def change do
     create table(:privacy_policies) do
-      add :content, :text
-      add :native_content, :text
+      add :content, :text, null: true, size: 3000
+      add :native_content, :text, null: true, size: 3000
       add :shop_id, references(:shops, on_delete: :nothing)
 
       timestamps()

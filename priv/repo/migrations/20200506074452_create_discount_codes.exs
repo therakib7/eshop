@@ -4,9 +4,9 @@ defmodule Eshop.Repo.Migrations.CreateDiscountCodes do
   def change do
     create table(:discount_codes) do
       add :is_active, :boolean, default: false, null: false
-      add :code, :string
+      add :code, :string, size: 50
       add :amount, :integer
-      add :validity, :integer
+      add :validity, :integer, null: true
       add :created_at, :utc_datetime
       add :used_at, :utc_datetime
       add :shop_id, references(:shops, on_delete: :nothing)

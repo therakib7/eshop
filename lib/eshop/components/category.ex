@@ -4,6 +4,7 @@ defmodule Eshop.Components.Category do
 
   schema "categories" do
     field :is_active, :boolean, default: false
+    field :order, :integer
     field :name, :string
     field :native_name, :string
     field :slug, :string
@@ -17,7 +18,7 @@ defmodule Eshop.Components.Category do
   @doc false
   def changeset(category, attrs) do
     category
-    |> cast(attrs, [:is_active, :name, :native_name, :slug])
+    |> cast(attrs, [:is_active, :order, :name, :native_name, :slug])
     |> validate_required([:is_active, :name, :native_name, :slug])
   end
 end

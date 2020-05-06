@@ -3,9 +3,9 @@ defmodule Eshop.Repo.Migrations.CreatePackages do
 
   def change do
     create table(:packages) do
-      add :cost_price, :decimal
-      add :unit_price, :decimal
-      add :sale_price, :decimal
+      add :cost_price, :decimal, null: true
+      add :unit_price, :decimal, null: true
+      add :sale_price, :decimal, null: true
       add :item_id, references(:items, on_delete: :nothing)
 
       timestamps()

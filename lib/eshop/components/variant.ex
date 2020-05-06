@@ -3,6 +3,7 @@ defmodule Eshop.Components.Variant do
   import Ecto.Changeset
 
   schema "variants" do
+    field :order, :integer
     field :name, :string
     field :native_name, :string
     field :type, :integer
@@ -15,7 +16,7 @@ defmodule Eshop.Components.Variant do
   @doc false
   def changeset(variant, attrs) do
     variant
-    |> cast(attrs, [:name, :native_name, :type])
+    |> cast(attrs, [:order, :name, :native_name, :type])
     |> validate_required([:name, :native_name, :type])
   end
 end

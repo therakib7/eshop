@@ -4,8 +4,8 @@ defmodule Eshop.Repo.Migrations.CreateWarehouseVariants do
   def change do
     create table(:warehouse_variants) do
       add :type, :integer
-      add :name, :string
-      add :native_name, :string
+      add :name, :string, null: true, size: 100
+      add :native_name, :string, null: true, size: 100
       add :company_id, references(:companies, on_delete: :nothing)
       add :parent_id, references(:warehouse_variants, on_delete: :nothing)
 

@@ -6,7 +6,7 @@ defmodule Eshop.Repo.Migrations.CreateInvoices do
       add :type, :integer
       add :total, :decimal
       add :discount, :decimal
-      add :note, :text
+      add :note, :text, null: true, size: 500
       add :paid, :decimal
       add :company_id, references(:companies, on_delete: :nothing)
       add :shop_id, references(:shops, on_delete: :nothing)

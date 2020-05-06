@@ -4,8 +4,8 @@ defmodule Eshop.Repo.Migrations.CreateWarehouses do
   def change do
     create table(:warehouses) do
       add :is_active, :boolean, default: false, null: false
-      add :name, :string
-      add :native_name, :string
+      add :name, :string, null: true, size: 150
+      add :native_name, :string, null: true, size: 150
       add :shop_id, references(:shops, on_delete: :nothing)
       add :user_id, references(:users, on_delete: :nothing)
       add :location_id, references(:locations, on_delete: :nothing)

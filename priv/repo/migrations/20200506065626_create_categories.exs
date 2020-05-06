@@ -4,6 +4,7 @@ defmodule Eshop.Repo.Migrations.CreateCategories do
   def change do
     create table(:categories) do
       add :is_active, :boolean, default: false, null: false
+      add :order, :integer, null: true
       add :name, :string
       add :native_name, :string
       add :slug, :string

@@ -5,10 +5,10 @@ defmodule Eshop.Repo.Migrations.CreateShops do
     create table(:shops) do
       add :is_active, :boolean, default: false, null: false
       add :is_verifed, :boolean, default: false, null: false
-      add :name, :string
-      add :native_name, :string
+      add :name, :string, null: true, size: 150
+      add :native_name, :string, null: true, size: 150
       add :trade_assurance, :boolean, default: false, null: false
-      add :highest_assurance, :decimal
+      add :highest_assurance, :decimal, null: true
       add :golden_supplier, :boolean, default: false, null: false
       add :created_at, :utc_datetime
       add :company_id, references(:companies, on_delete: :nothing)

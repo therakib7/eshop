@@ -3,7 +3,7 @@ defmodule Eshop.Repo.Migrations.CreateNotificationMsgs do
 
   def change do
     create table(:notification_msgs) do
-      add :msg, :text
+      add :msg, :text, null: true, size: 255
       add :for, :integer
 
       timestamps()

@@ -4,6 +4,7 @@ defmodule Eshop.Components.Brand do
 
   schema "brands" do
     field :is_active, :boolean, default: false
+    field :order, :integer
     field :loves, :integer
     field :name, :string
     field :native_name, :string
@@ -18,7 +19,7 @@ defmodule Eshop.Components.Brand do
   @doc false
   def changeset(brand, attrs) do
     brand
-    |> cast(attrs, [:is_active, :name, :native_name, :slug, :loves])
+    |> cast(attrs, [:is_active, :order, :name, :native_name, :slug, :loves])
     |> validate_required([:is_active, :name, :native_name, :slug, :loves])
   end
 end

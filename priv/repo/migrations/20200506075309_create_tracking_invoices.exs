@@ -3,7 +3,7 @@ defmodule Eshop.Repo.Migrations.CreateTrackingInvoices do
 
   def change do
     create table(:tracking_invoices) do
-      add :tracking_id, :string
+      add :tracking_id, :string, null: true, size: 150
       add :invoice_id, references(:invoices, on_delete: :nothing)
       add :shipping_method_id, references(:shipping_methods, on_delete: :nothing)
 

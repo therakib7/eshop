@@ -5,8 +5,8 @@ defmodule Eshop.Repo.Migrations.CreateCompanySettings do
     create table(:company_settings) do
       add :type, :integer
       add :type_id, :integer
-      add :key, :string
-      add :value, :text
+      add :key, :string, size: 120
+      add :value, :text, size: 500
 
       timestamps()
     end

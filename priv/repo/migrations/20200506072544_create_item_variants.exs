@@ -3,9 +3,9 @@ defmodule Eshop.Repo.Migrations.CreateItemVariants do
 
   def change do
     create table(:item_variants) do
-      add :unit_price, :decimal
-      add :cost_price, :decimal
-      add :sale_price, :decimal
+      add :unit_price, :decimal, null: true
+      add :cost_price, :decimal, null: true
+      add :sale_price, :decimal, null: true
       add :item_id, references(:items, on_delete: :nothing)
       add :variant_id, references(:variants, on_delete: :nothing)
       add :variant_value_id, references(:variant_values, on_delete: :nothing)

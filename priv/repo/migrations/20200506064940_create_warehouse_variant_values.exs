@@ -3,8 +3,8 @@ defmodule Eshop.Repo.Migrations.CreateWarehouseVariantValues do
 
   def change do
     create table(:warehouse_variant_values) do
-      add :value, :string
-      add :native_value, :string
+      add :value, :string, null: true, size: 120
+      add :native_value, :string, null: true, size: 120
       add :warehouse_variant_id, references(:warehouse_variants, on_delete: :nothing)
 
       timestamps()
