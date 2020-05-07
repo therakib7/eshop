@@ -6,7 +6,8 @@ defmodule EshopWeb.Schema do
         User,
         UserProfile,
         Role,
-        #UserRole,
+        UserRole,
+        LoginDetail,
 
     })
 
@@ -14,7 +15,8 @@ defmodule EshopWeb.Schema do
         User,
         UserProfile,
         Role,
-        #UserRole,
+        UserRole,
+        LoginDetail,
     })
 
     import_types(__MODULE__.Mutations.{
@@ -25,7 +27,8 @@ defmodule EshopWeb.Schema do
         import_fields(:user_queries)
         import_fields(:user_profile_queries)
         import_fields(:role_queries)
-        #import_fields(:user_role_queries)
+        import_fields(:user_role_queries)
+        import_fields(:login_detail_queries)
 #
 
     end 
