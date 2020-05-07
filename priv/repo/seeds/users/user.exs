@@ -1,13 +1,10 @@
-alias Eshop.Repo
-alias Eshop.Users.User
+alias Eshop.Users
 
-%User{
+Users.create_user(%{
   first_name: "Shuvo Shaha",
   last_name: "Shuvo",
   email: "DDtheshuvo.01@gmail.com",
   mobile: "420420420420",
-  password: "rakib",
-  password_confirmation: "rakib",
-} 
-|> User.changeset()
-|> Repo.insert()
+  password: "rakibijioj",
+  password_confirmation: "rakibijioj"
+})
