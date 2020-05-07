@@ -8,5 +8,7 @@ defmodule EshopWeb.Schema.Types.Role do
         field :name, :string
         field :slug, :string
         field :native_name, :string
+        field :inserted_at, :datetime
+        field :updated_at, :datetime
     end
 end
