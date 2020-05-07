@@ -9,5 +9,4 @@ alias Eshop.Users.User
   password: "rakib",
   password_confirmation: "rakib",
 } 
-|> User.changeset()
 |> Repo.insert()
