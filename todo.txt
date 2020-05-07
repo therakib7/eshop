@@ -1,5 +1,5 @@
 * All Routers
-* Views folder module separate
+* done - Views folder module separate
 * Casting data validation
 * Queries data first in graphql.
 * Seed data (Role and Permission and others)

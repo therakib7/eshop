@@ -14,6 +14,6 @@ defmodule EshopWeb.Schema.Types.User do
         field :verified_phone, :datetime 
         field :verified_user, :datetime 
         field :inserted_at, :naive_datetime
-        field :updated_at, :datetime
+        field :updated_at, :naive_datetime
     end
 end
