@@ -1,5 +1,7 @@
 defmodule EshopWeb.Schema.Types.User do
     use Absinthe.Schema.Notation
+    
+    import_types Absinthe.Type.Custom
 
     object :user do
         field :id, :integer
@@ -10,8 +12,8 @@ defmodule EshopWeb.Schema.Types.User do
         field :mobile, :string
         field :password_hash, :string
         field :pin, :integer
-        field :verified_email, :string
-        field :verified_phone, :string
-        field :verified_user, :string
+        field :verified_email, :datetime 
+        field :verified_phone, :datetime 
+        field :verified_user, :datetime 
     end
 end
