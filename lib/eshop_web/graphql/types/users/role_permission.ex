@@ -1,18 +1,10 @@
-defmodule Eshop.Users.RolePermission do
-  use Ecto.Schema
-  import Ecto.Changeset
-
-  schema "role_permissions" do
-    field :role_id, :id
-    field :permission_id, :id
-
-    timestamps()
-  end
-
-  @doc false
-  def changeset(role_permission, attrs) do
-    role_permission
-    |> cast(attrs, [])
-    |> validate_required([])
-  end
-end
+# defmodule EshopWeb.Schema.Types.RolePermission do
+#     use Absinthe.Schema.Notation
+    
+#     object :role_permission do
+#         field :role_id, :id
+#         field :permission_id, :id
+#         field :inserted_at, :native_datetime
+#         field :updated_at, :native_datetime
+#     end
+# end

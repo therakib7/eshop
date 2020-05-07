@@ -1,19 +1,11 @@
-defmodule Eshop.Users.Permission do
-  use Ecto.Schema
-  import Ecto.Changeset
+# defmodule EshopWeb.Schema.Types.Permission do
+#     use Absinthe.Schema.Notation
+    
+#     object :permission do
+#         field :name, :string
+#         field :slug, :string
+#         field :inserted_at, :native_datetime
+#         field :updated_at, :native_datetime
 
-  schema "permissions" do
-    field :name, :string
-    field :slug, :string
-
-    timestamps()
-  end
-
-  @doc false
-  def changeset(permission, attrs) do
-    permission
-    |> cast(attrs, [:name, :slug])
-    |> validate_required([:name, :slug])
-    |> unique_constraint(:slug)
-  end
-end
+#     end
+# end

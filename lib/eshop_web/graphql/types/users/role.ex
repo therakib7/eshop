@@ -9,6 +9,6 @@ defmodule EshopWeb.Schema.Types.Role do
         field :slug, :string
         field :native_name, :string
         field :inserted_at, :native_datetime
-        field :updated_at, :native_datetime
+        field :updated_at, :datetime
     end
 end

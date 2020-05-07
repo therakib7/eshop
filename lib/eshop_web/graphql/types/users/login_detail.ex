@@ -1,23 +1,15 @@
-defmodule Eshop.Users.LoginDetail do
-  use Ecto.Schema
-  import Ecto.Changeset
+# defmodule EshopWeb.Schema.Types.LoginDetail do
+#     use Absinthe.Schema.Notation
 
-  schema "login_details" do
-    field :ip_address, :string
-    field :ip_location, :string
-    field :is_active, :boolean, default: false
-    field :last_activity, :utc_datetime
-    field :login_at, :utc_datetime
-    field :user_agent, :string
-    field :user_id, :id
-
-    timestamps()
-  end
-
-  @doc false
-  def changeset(login_detail, attrs) do
-    login_detail
-    |> cast(attrs, [:is_active, :user_agent, :ip_address, :ip_location, :login_at, :last_activity])
-    |> validate_required([:is_active, :user_agent, :ip_address, :ip_location, :login_at, :last_activity])
-  end
-end
+#     object :login_detail do
+#         field :ip_address, :string
+#         field :ip_location, :string
+#         field :is_active, :boolean
+#         field :last_activity, :utc_datetime
+#         field :login_at, :utc_datetime
+#         field :user_agent, :string
+#         field :user_id, :id
+#         field :inserted_at, :native_datetime
+#         field :updated_at, :native_datetime
+#     end
+# end
