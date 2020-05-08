@@ -4,4 +4,8 @@ defmodule EshopWeb.Schema.Resolvers.Attachment do
         {:ok, Eshop.Attachments.list_attachments()}
     end
 
+    def create_attachment(_parent, args, _resolution) do
+        Eshop.Attachments.create_attachment(args)
+    end 
+
 end

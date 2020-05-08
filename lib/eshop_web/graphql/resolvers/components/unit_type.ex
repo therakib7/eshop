@@ -4,4 +4,8 @@ defmodule EshopWeb.Schema.Resolvers.UnitType do
         {:ok, Eshop.Components.list_unit_types()}
     end
 
+    def create_unit_type(_parent, args, _resolution) do
+        Eshop.Components.create_unit_type(args)
+    end
+
 end

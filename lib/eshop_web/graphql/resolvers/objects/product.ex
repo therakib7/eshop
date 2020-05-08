@@ -4,4 +4,8 @@ defmodule EshopWeb.Schema.Resolvers.Product do
         {:ok, Eshop.Objects.list_products()}
     end
 
+    def create_product(_parent, args, _resolution) do
+        Eshop.Objects.create_product(args)
+    end
+
 end

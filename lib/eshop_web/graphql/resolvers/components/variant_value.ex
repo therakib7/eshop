@@ -4,4 +4,8 @@ defmodule EshopWeb.Schema.Resolvers.VariantValue do
         {:ok, Eshop.Components.list_variant_values()}
     end
 
+    def create_variant_value(_parent, args, _resolution) do
+        Eshop.Components.create_variant_value(args)
+    end
+
 end

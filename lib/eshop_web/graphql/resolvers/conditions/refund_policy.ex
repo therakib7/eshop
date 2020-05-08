@@ -4,4 +4,8 @@ defmodule EshopWeb.Schema.Resolvers.RefundPolicy do
         {:ok, Eshop.Conditions.list_refund_policies()}
     end
 
+    def create_refund_policy(_parent, args, _resolution) do
+        Eshop.Conditions.create_refund_policy(args)
+    end
+
 end

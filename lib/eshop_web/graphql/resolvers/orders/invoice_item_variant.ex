@@ -4,4 +4,8 @@ defmodule EshopWeb.Schema.Resolvers.InvoiceItemVariant do
         {:ok, Eshop.Orders.list_invoice_item_variants()}
     end
 
+    def create_invoice_item_variant(_parent, args, _resolution) do
+        Eshop.Orders.create_invoice_item_variant(args)
+    end
+
 end

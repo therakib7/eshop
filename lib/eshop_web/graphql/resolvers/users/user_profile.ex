@@ -4,8 +4,8 @@ defmodule EshopWeb.Schema.Resolvers.UserProfile do
         {:ok, Eshop.Users.list_user_profiles()}
     end
 
-    # def create_user_profile(_parent, args, _resolution) do
-    #     Eshop.Users.create_user_profile(args)
-    # end
+    def create_user_profile(_parent, args, _resolution) do
+        Eshop.Users.create_user_profile(args)
+    end
     
 end

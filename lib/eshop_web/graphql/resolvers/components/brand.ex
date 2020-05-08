@@ -4,4 +4,8 @@ defmodule EshopWeb.Schema.Resolvers.Brand do
         {:ok, Eshop.Components.list_brands()}
     end
 
+    def create_brand(_parent, args, _resolution) do
+        Eshop.Components.create_brand(args)
+    end
+
 end

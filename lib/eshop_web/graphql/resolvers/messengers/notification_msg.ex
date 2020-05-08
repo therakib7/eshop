@@ -4,4 +4,8 @@ defmodule EshopWeb.Schema.Resolvers.NotificationMsg do
         {:ok, Eshop.Messengers.list_notification_msgs()}
     end
 
+    def create_notification_msg(_parent, args, _resolution) do
+        Eshop.Messengers.create_notification_msg(args)
+    end
+
 end

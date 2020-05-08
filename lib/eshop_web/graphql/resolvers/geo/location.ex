@@ -4,4 +4,8 @@ defmodule EshopWeb.Schema.Resolvers.Location do
         {:ok, Eshop.Geo.list_locations()}
     end
 
+    def create_location(_parent, args, _resolution) do
+        Eshop.Geo.create_location(args)
+    end
+
 end

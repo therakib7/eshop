@@ -4,4 +4,8 @@ defmodule EshopWeb.Schema.Resolvers.ItemVariant do
         {:ok, Eshop.Components.list_item_variants()}
     end
 
+    def create_item_variant(_parent, args, _resolution) do
+        Eshop.Components.create_item_variant(args)
+    end
+
 end

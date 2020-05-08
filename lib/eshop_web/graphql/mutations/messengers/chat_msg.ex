@@ -1,0 +1,19 @@
+defmodule EshopWeb.Schema.Mutations.ChatMsg do
+  use Absinthe.Schema.Notation
+  
+  object :chat_msg_mutations do
+    @desc "Create a chat_msg"
+    field :create_chat_msg, type: :chat_msg do 
+      arg :id, :integer
+    	arg :deleted_at, :datetime
+    	arg :msg, :string
+    	arg :msg_type, :integer
+    	arg :read, :boolean
+    	arg :chat_room_id, :id
+    	arg :user_id, :id
+    	arg :attachment_id, :id
+      
+    	resolve &EshopWeb.Schema.Resolvers.ChatMsg.create_chat_msg/3
+    end
+  end 
+end
