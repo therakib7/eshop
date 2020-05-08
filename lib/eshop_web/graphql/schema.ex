@@ -24,7 +24,7 @@ defmodule EshopWeb.Schema do
         Shop,
         Warehouse,
         WarehouseVariant,
-        WarehouseVariantValue
+        WarehouseVariantValue,
 
         # Attachments
         Attachment,

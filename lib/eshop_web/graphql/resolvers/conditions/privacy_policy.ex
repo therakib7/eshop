@@ -1,11 +1,7 @@
 defmodule EshopWeb.Schema.Resolvers.PrivacyPolicy do
 
-  object "privacy_policy" do
-    field :id, :integer
-    field :content, :string
-    field :native_content, :string
-    field :shop_id, :id
-    field :inserted_at, :naive_datetime
-    field :updated_at, :naive_datetime
-  end 
+	def list_privacy_policies(_parent, _args, _resolution) do
+        {:ok, Eshop.Conditions.list_privacy_policies()}
+    end
+
 end

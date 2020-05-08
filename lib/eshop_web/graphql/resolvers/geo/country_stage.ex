@@ -1,14 +1,7 @@
 defmodule EshopWeb.Schema.Resolvers.CountryStage do
-  
 
-    object :country_stage do
-        field :id, :integer
-        field :country_id, :integer
-        field :name, :string
-        field :native_name, :string
-        field :stage, :integer
-        field :user_id, :integer
-        field :inserted_at, :naive_datetime
-        field :updated_at, :naive_datetime
+    def list_country_stages(_parent, _args, _resolution) do
+        {:ok, Eshop.Geo.list_country_stages()}
     end
+
 end

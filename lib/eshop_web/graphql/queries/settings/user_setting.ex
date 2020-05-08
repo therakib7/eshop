@@ -2,11 +2,9 @@ defmodule EshopWeb.Schema.Queries.UserSetting do
   use Absinthe.Schema.Notation
 
   object :user_setting_queries do
-    field :id, :integer
-    field :key, :string
-    field :value, :string
-    field :user_id, :id
-    field :inserted_at, :naive_datetime
-    field :updated_at, :naive_datetime
+    @desc "Get all user_settings"
+    field :user_settings, list_of(:user_setting) do
+      resolve &EshopWeb.Schema.Resolvers.UserSetting.list_user_settings/3
+    end
   end 
 end

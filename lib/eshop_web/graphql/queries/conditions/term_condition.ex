@@ -2,12 +2,9 @@ defmodule EshopWeb.Schema.Queries.TermCondition do
   use Absinthe.Schema.Notation
 
   object :term_condition_queries do
-    field :id, :integer
-    field :content, :string
-    field :native_content, :string
-    field :type, :integer
-    field :type_id, :integer
-    field :inserted_at, :naive_datetime
-    field :updated_at, :naive_datetime
+    @desc "Get all term_conditions"
+    field :term_conditions, list_of(:term_condition) do
+      resolve &EshopWeb.Schema.Resolvers.TermCondition.list_term_conditions/3
+    end
   end 
 end

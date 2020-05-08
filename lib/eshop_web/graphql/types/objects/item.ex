@@ -6,7 +6,7 @@ defmodule EshopWeb.Schema.Types.Item do
     field :asin_id, :integer
     field :cost_price, :decimal
     field :desc, :string
-    field :extra_fields, :map
+    field :extra_fields, :string
     field :has_package, :boolean
     field :has_variant, :boolean
     field :has_warehouse, :boolean

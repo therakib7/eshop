@@ -2,11 +2,9 @@ defmodule EshopWeb.Schema.Queries.WarehouseVariantValue do
   use Absinthe.Schema.Notation
 
   object :warehouse_variant_value_queries do
-    field :id, :integer
-    field :native_value, :string
-    field :value, :string
-    field :warehouse_variant_id, :id
-    field :inserted_at, :naive_datetime
-    field :updated_at, :naive_datetime
-  end
+    @desc "Get all warehouse_variant_values"
+    field :warehouse_variant_values, list_of(:warehouse_variant_value) do
+      resolve &EshopWeb.Schema.Resolvers.WarehouseVariantValue.list_warehouse_variant_values/3
+    end
+  end 
 end
