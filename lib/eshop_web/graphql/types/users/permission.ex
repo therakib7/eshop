@@ -1,11 +1,11 @@
-# defmodule EshopWeb.Schema.Types.Permission do
-#     use Absinthe.Schema.Notation
+defmodule EshopWeb.Schema.Types.Permission do
+    use Absinthe.Schema.Notation
     
-#     object :permission do
-#         field :name, :string
-#         field :slug, :string
-#         field :inserted_at, :native_datetime
-#         field :updated_at, :native_datetime
-
-#     end
-# end
+    object :permission do
+    	field :id, :integer
+        field :name, :string
+        field :slug, :string
+        field :inserted_at, :naive_datetime
+        field :updated_at, :naive_datetime 
+    end
+end

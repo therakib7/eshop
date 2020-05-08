@@ -2,6 +2,7 @@ defmodule EshopWeb.Schema.Types.UserProfile do
     use Absinthe.Schema.Notation
     
     object :user_profile do
+        field :id, :integer
         field :date_of_birth, :datetime
         field :gender, :integer
         field :lat, :float

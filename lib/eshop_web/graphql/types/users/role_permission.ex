@@ -1,10 +1,11 @@
-# defmodule EshopWeb.Schema.Types.RolePermission do
-#     use Absinthe.Schema.Notation
+defmodule EshopWeb.Schema.Types.RolePermission do
+    use Absinthe.Schema.Notation
     
-#     object :role_permission do
-#         field :role_id, :id
-#         field :permission_id, :id
-#         field :inserted_at, :native_datetime
-#         field :updated_at, :native_datetime
-#     end
-# end
+    object :role_permission do
+    	field :id, :integer
+        field :role_id, :id
+        field :permission_id, :id
+        field :inserted_at, :naive_datetime
+        field :updated_at, :naive_datetime
+    end
+end
