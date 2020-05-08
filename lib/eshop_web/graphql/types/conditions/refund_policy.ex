@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.RefundPolicy do
   use Absinthe.Schema.Notation
   
-  object "refund_policy" do
+  object :refund_policy do
     field :id, :integer
     field :content, :string
     field :native_content, :string

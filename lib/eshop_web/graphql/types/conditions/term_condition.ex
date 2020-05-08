@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.TermCondition do
   use Absinthe.Schema.Notation
   
-  object "term_condition" do
+  object :term_condition do
     field :id, :integer
     field :content, :string
     field :native_content, :string

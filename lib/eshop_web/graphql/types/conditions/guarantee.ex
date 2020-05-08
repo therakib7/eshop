@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.Guarantee do
   use Absinthe.Schema.Notation
   
-  object "guarantee" do
+  object :guarantee do
     field :id, :integer
     field :content, :string
     field :duration, :integer

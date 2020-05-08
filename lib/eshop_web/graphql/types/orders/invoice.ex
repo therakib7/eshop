@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.Invoice do
   use Absinthe.Schema.Notation
   
-  object "invoice" do
+  object :invoice do
     field :id, :integer
     field :discount, :decimal
     field :note, :string

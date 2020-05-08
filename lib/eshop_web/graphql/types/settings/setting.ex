@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.Setting do
   use Absinthe.Schema.Notation
   
-  object "setting" do
+  object :setting do
     field :id, :integer
     field :key, :string
     field :value, :string

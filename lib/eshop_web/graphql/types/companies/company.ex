@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.Company do
   use Absinthe.Schema.Notation 
 
-  object "company" do
+  object :company do
     field :id, :integer
     field :created_at, :datetime
     field :golden_supplier, :boolean

@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.ShippingMethod do
   use Absinthe.Schema.Notation
   
-  object "shipping_method" do
+  object :shipping_method do
     field :id, :integer
     field :is_active, :boolean
     field :name, :string

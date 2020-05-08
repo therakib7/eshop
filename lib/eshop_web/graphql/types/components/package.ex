@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.Package do
   use Absinthe.Schema.Notation
   
-  object "package" do
+  object :package do
     field :id, :integer
     field :cost_price, :decimal
     field :sale_price, :decimal

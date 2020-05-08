@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.ChatMsg do
   use Absinthe.Schema.Notation
   
-  object "chat_msg" do
+  object :chat_msg do
     field :id, :integer
     field :deleted_at, :datetime
     field :msg, :string

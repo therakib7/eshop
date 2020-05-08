@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.Warehouse do
   use Absinthe.Schema.Notation
   
-  object "warehouse" do
+  object :warehouse do
     field :id, :integer
     field :is_active, :boolean
     field :name, :string

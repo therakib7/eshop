@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.ShippingAddress do
   use Absinthe.Schema.Notation
   
-  object "shipping_addresse" do
+  object :shipping_address do
     field :id, :integer
     field :address, :string
     field :lat, :float

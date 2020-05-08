@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.Category do
   use Absinthe.Schema.Notation
   
-  object "category" do
+  object :category do
     field :id, :integer
     field :is_active, :boolean
     field :order, :integer

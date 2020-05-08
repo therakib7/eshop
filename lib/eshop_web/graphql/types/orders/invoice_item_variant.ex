@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.InvoiceItemVariant do
   use Absinthe.Schema.Notation
   
-  object "invoice_item_variant" do
+  object :invoice_item_variant do
     field :id, :integer
     field :invoice_item_id, :id
     field :variant_id, :id

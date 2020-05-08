@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.BankingProvider do
   use Absinthe.Schema.Notation
   
-  object "banking_provider" do
+  object :banking_provider do
     field :id, :integer
     field :is_active, :boolean
     field :name, :string

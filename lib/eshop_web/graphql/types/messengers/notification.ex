@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.Notification do
   use Absinthe.Schema.Notation
   
-  object "notification" do
+  object :notification do
     field :id, :integer
     field :notification_msg_id, :integer
     field :read, :boolean

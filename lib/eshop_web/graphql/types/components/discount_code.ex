@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.DiscountCode do
   use Absinthe.Schema.Notation
   
-  object "discount_code" do
+  object :discount_code do
     field :id, :integer
     field :amount, :integer
     field :code, :string

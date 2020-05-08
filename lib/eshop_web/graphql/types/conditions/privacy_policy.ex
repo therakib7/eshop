@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.PrivacyPolicy do
   use Absinthe.Schema.Notation
   
-  object "privacy_policy" do
+  object :privacy_policy do
     field :id, :integer
     field :content, :string
     field :native_content, :string

@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.Rating do
   use Absinthe.Schema.Notation
 
-  object "rating" do
+  object :rating do
     field :comment, :string
     field :star, :integer
     field :type, :integer

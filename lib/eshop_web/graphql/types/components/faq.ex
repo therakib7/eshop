@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.Faq do
   use Absinthe.Schema.Notation
   
-  object "faq" do
+  object :faq do
     field :id, :integer
     field :content, :string
     field :native_content, :string

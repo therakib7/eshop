@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.Brand do
   use Absinthe.Schema.Notation
   
-  object "brand" do
+  object :brand do
     field :id, :integer
     field :is_active, :boolean
     field :order, :integer

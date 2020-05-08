@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.Attachment do
   use Absinthe.Schema.Notation
 
-  object "attachment" do
+  object :attachment do
     field :id, :integer
     field :file_name, :string 
     field :orginal_size, :string

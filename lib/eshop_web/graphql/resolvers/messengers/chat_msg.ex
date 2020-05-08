@@ -1,0 +1,7 @@
+defmodule EshopWeb.Schema.Resolvers.ChatMsg do
+
+    def list_chat_msgs(_parent, _args, _resolution) do
+        {:ok, Eshop.Messengers.list_chat_msgs()}
+    end
+
+end

@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.ShopPaymentMethod do
   use Absinthe.Schema.Notation
   
-  object "shop_payment_method" do
+  object :shop_payment_method do
     field :id, :integer
     field :ac_holder_name, :string
     field :ac_no, :integer

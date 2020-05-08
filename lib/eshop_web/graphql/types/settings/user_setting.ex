@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Types.UserSetting do
   use Absinthe.Schema.Notation
   
-  object "user_setting" do
+  object :user_setting do
     field :id, :integer
     field :key, :string
     field :value, :string
