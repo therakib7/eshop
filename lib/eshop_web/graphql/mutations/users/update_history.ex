@@ -12,7 +12,7 @@ defmodule EshopWeb.Schema.Mutations.UpdateHistory do
             arg :type, :integer
             arg :type_id, :integer
 
-            resolve &EshopWeb.Schema.Resolvers.UpdateHistory.create_update_history/3
+            resolve &EshopWeb.Schema.Resolvers.UpdateHistory.create_update_history/2
         end
     end 
 end

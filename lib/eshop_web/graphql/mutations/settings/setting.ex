@@ -4,11 +4,11 @@ defmodule EshopWeb.Schema.Mutations.Setting do
   object :setting_mutations do
     @desc "Create a setting"
     field :create_setting, type: :setting do 
-        arg :id, :integer
+      arg :id, :integer
     	arg :key, :string
     	arg :value, :string
     	
-    	resolve &EshopWeb.Schema.Resolvers.Setting.create_setting/3
+    	resolve &EshopWeb.Schema.Resolvers.Setting.create_setting/2
     end
   end 
 end

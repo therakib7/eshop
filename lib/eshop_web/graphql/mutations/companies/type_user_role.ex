@@ -9,7 +9,8 @@ defmodule EshopWeb.Schema.Mutations.TypeUserRole do
     	arg :type_id, :integer
     	arg :user_id, :id
     	arg :role_id, :id
-    	resolve &EshopWeb.Schema.Resolvers.TypeUserRole.create_type_user_role/3
+
+    	resolve &EshopWeb.Schema.Resolvers.TypeUserRole.create_type_user_role/2
     end
   end 
 end

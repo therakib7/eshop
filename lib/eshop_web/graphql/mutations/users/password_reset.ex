@@ -11,7 +11,7 @@ defmodule EshopWeb.Schema.Mutations.PasswordReset do
             arg :inserted_at, :naive_datetime
             arg :updated_at, :naive_datetime 
 
-            resolve &EshopWeb.Schema.Resolvers.PasswordReset.create_password_reset/3
+            resolve &EshopWeb.Schema.Resolvers.PasswordReset.create_password_reset/2
         end
     end 
 end

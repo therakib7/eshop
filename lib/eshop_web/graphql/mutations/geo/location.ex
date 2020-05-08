@@ -18,7 +18,7 @@ defmodule EshopWeb.Schema.Mutations.Location do
 			arg :user_id, :integer
 			arg :web, :string 
 
-			resolve &EshopWeb.Schema.Resolvers.Location.create_location/3
+			resolve &EshopWeb.Schema.Resolvers.Location.create_location/2
 		end
 	end
 end

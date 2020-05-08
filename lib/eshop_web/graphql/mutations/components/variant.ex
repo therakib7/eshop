@@ -11,7 +11,8 @@ defmodule EshopWeb.Schema.Mutations.Variant do
     	arg :type, :integer
     	arg :shop_id, :id
     	arg :user_id, :id
-    	resolve &EshopWeb.Schema.Resolvers.Variant.create_variant/3
+
+    	resolve &EshopWeb.Schema.Resolvers.Variant.create_variant/2
     end
   end 
 end

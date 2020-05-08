@@ -11,7 +11,7 @@ defmodule EshopWeb.Schema.Mutations.Role do
             arg :slug, :string
             arg :native_name, :string
 
-            resolve &EshopWeb.Schema.Resolvers.Role.create_role/3
+            resolve &EshopWeb.Schema.Resolvers.Role.create_role/2
         end
     end 
 end

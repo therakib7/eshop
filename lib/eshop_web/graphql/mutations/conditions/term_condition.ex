@@ -4,12 +4,13 @@ defmodule EshopWeb.Schema.Mutations.TermCondition do
   object :term_condition_mutations do
     @desc "Create a term_condition"
     field :create_term_condition, type: :term_condition do 
-        arg :id, :integer
+      arg :id, :integer
     	arg :content, :string
     	arg :native_content, :string
     	arg :type, :integer
     	arg :type_id, :integer
-    	resolve &EshopWeb.Schema.Resolvers.TermCondition.create_term_condition/3
+      
+    	resolve &EshopWeb.Schema.Resolvers.TermCondition.create_term_condition/2
     end
   end 
 end

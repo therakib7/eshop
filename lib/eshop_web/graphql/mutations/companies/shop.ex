@@ -18,7 +18,8 @@ defmodule EshopWeb.Schema.Mutations.Shop do
     	arg :location_id, :id
     	arg :attachment_id, :id
     	arg :term_condition_id, :id
-    	resolve &EshopWeb.Schema.Resolvers.Shop.create_shop/3
+        
+    	resolve &EshopWeb.Schema.Resolvers.Shop.create_shop/2
     end
   end 
 end

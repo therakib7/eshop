@@ -10,7 +10,7 @@ defmodule EshopWeb.Schema.Mutations.Notification do
     	arg :type, :integer
     	arg :type_id, :integer 
       
-    	resolve &EshopWeb.Schema.Resolvers.Notification.create_notification/3
+    	resolve &EshopWeb.Schema.Resolvers.Notification.create_notification/2
     end
   end 
 end

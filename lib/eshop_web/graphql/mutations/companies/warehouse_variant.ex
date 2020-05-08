@@ -10,7 +10,8 @@ defmodule EshopWeb.Schema.Mutations.WarehouseVariant do
     	arg :type, :integer
     	arg :company_id, :id
     	arg :parent_id, :id
-    	resolve &EshopWeb.Schema.Resolvers.WarehouseVariant.create_warehouse_variant/3
+
+    	resolve &EshopWeb.Schema.Resolvers.WarehouseVariant.create_warehouse_variant/2
     end
   end 
 end

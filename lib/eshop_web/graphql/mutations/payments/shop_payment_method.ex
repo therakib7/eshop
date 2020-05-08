@@ -13,7 +13,7 @@ defmodule EshopWeb.Schema.Mutations.ShopPaymentMethod do
     	arg :banking_provider_id, :id
     	arg :user_id, :id
       
-    	resolve &EshopWeb.Schema.Resolvers.ShopPaymentMethod.create_shop_payment_method/3
+    	resolve &EshopWeb.Schema.Resolvers.ShopPaymentMethod.create_shop_payment_method/2
     end
   end
 end
