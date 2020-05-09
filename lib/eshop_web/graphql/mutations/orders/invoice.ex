@@ -14,7 +14,7 @@ defmodule EshopWeb.Schema.Mutations.Invoice do
     	arg :shop_id, :id
     	arg :user_id, :id
       
-    	resolve &EshopWeb.Schema.Resolvers.Invoice.create_user/3
+    	resolve &EshopWeb.Schema.Resolvers.Invoice.create_user/2
     end
   end 
 end

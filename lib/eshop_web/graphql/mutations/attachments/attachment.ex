@@ -10,7 +10,8 @@ defmodule EshopWeb.Schema.Mutations.Attachment do
     	arg :resized_size, :string
     	arg :type, :integer
     	arg :type_id, :integer
-    	resolve &EshopWeb.Schema.Resolvers.Attachment.create_attachment/3
+
+    	resolve &EshopWeb.Schema.Resolvers.Attachment.create_attachment/2
     end
   end 
 end

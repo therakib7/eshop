@@ -12,7 +12,7 @@ defmodule EshopWeb.Schema.Mutations.BankingProvider do
     	arg :type, :integer
     	arg :attachement_id, :id
       
-    	resolve &EshopWeb.Schema.Resolvers.BankingProvider.create_user/3
+    	resolve &EshopWeb.Schema.Resolvers.BankingProvider.create_user/2
     end
   end 
 end

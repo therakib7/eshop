@@ -13,7 +13,7 @@ defmodule EshopWeb.Schema.Mutations.ChatMsg do
     	arg :user_id, :id
     	arg :attachment_id, :id
       
-    	resolve &EshopWeb.Schema.Resolvers.ChatMsg.create_chat_msg/3
+    	resolve &EshopWeb.Schema.Resolvers.ChatMsg.create_chat_msg/2
     end
   end 
 end

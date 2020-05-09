@@ -11,7 +11,7 @@ defmodule EshopWeb.Schema.Mutations.ShippingMethod do
     	arg :user_id, :id
     	arg :location_id, :id
       
-    	resolve &EshopWeb.Schema.Resolvers.ShippingMethod.create_shipping_method/3
+    	resolve &EshopWeb.Schema.Resolvers.ShippingMethod.create_shipping_method/2
     end
   end 
 end

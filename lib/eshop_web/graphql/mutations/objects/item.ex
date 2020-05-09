@@ -30,7 +30,8 @@ defmodule EshopWeb.Schema.Mutations.Item do
     	arg :user_id, :id
     	arg :shop_id, :id
     	arg :unit_type_id, :id
-    	resolve &EshopWeb.Schema.Resolvers.Item.create_item/3
+
+    	resolve &EshopWeb.Schema.Resolvers.Item.create_item/2
     end
   end 
 end

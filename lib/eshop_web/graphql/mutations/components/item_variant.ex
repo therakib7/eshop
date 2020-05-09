@@ -4,14 +4,15 @@ defmodule EshopWeb.Schema.Mutations.ItemVariant do
   object :item_variant_mutations do
     @desc "Create a item_varian"
     field :create_item_varian, type: :item_varian do 
-        arg :id, :integer
+      arg :id, :integer
     	arg :cost_price, :decimal
     	arg :sale_price, :decimal
     	arg :unit_price, :decimal
     	arg :item_id, :id
     	arg :variant_id, :id
     	arg :variant_value_id, :id
-    	resolve &EshopWeb.Schema.Resolvers.ItemVariant.create_item_varian/3
+
+    	resolve &EshopWeb.Schema.Resolvers.ItemVariant.create_item_varian/2
     end
   end 
 end

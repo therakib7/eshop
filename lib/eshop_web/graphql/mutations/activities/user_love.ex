@@ -7,7 +7,8 @@ defmodule EshopWeb.Schema.Mutations.UserLove do
     	arg :type, :integer
     	arg :type_id, :integer
     	arg :user_id, :id 
-    	resolve &EshopWeb.Schema.Resolvers.UserLove.create_user_love/3
+
+    	resolve &EshopWeb.Schema.Resolvers.UserLove.create_user_love/2
     end
   end 
 end
