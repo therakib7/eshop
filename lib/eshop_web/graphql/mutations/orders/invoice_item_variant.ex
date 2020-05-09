@@ -9,7 +9,7 @@ defmodule EshopWeb.Schema.Mutations.InvoiceItemVariant do
     	arg :variant_id, :id
     	arg :variant_value_id, :id
 
-    	resolve &EshopWeb.Schema.Resolvers.InvoiceItemVariant.create_user/2
+    	resolve &EshopWeb.Schema.Resolvers.InvoiceItemVariant.create_user/3
     end
   end 
 end

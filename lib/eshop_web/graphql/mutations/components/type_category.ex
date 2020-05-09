@@ -9,7 +9,7 @@ defmodule EshopWeb.Schema.Mutations.TypeCategory do
     	arg :type_id, :integer
     	arg :category_id, :id
 
-    	resolve &EshopWeb.Schema.Resolvers.TypeCategory.create_user/2
+    	resolve &EshopWeb.Schema.Resolvers.TypeCategory.create_user/3
     end
   end 
 end

@@ -14,7 +14,7 @@ defmodule EshopWeb.Schema.Mutations.UserProfile do
             arg :pre_location_id, :id
             arg :per_location_id, :id  
 
-            resolve &EshopWeb.Schema.Resolvers.UserProfile.create_user_profile/2
+            resolve &EshopWeb.Schema.Resolvers.UserProfile.create_user_profile/3
         end
     end 
 end

@@ -8,7 +8,7 @@ defmodule EshopWeb.Schema.Mutations.Setting do
     	arg :key, :string
     	arg :value, :string
     	
-    	resolve &EshopWeb.Schema.Resolvers.Setting.create_setting/2
+    	resolve &EshopWeb.Schema.Resolvers.Setting.create_setting/3
     end
   end 
 end

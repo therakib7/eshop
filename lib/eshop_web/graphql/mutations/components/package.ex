@@ -10,7 +10,7 @@ defmodule EshopWeb.Schema.Mutations.Package do
     	arg :unit_price, :decimal
     	arg :item_id, :id
 
-    	resolve &EshopWeb.Schema.Resolvers.Package.create_package/2
+    	resolve &EshopWeb.Schema.Resolvers.Package.create_package/3
     end
   end 
 end

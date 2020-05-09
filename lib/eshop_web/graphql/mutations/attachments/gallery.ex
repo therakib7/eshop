@@ -8,7 +8,7 @@ defmodule EshopWeb.Schema.Mutations.Gallery do
     	arg :type_id, :integer
     	arg :attachment_id, :id 
 
-    	resolve &EshopWeb.Schema.Resolvers.Gallery.create_gallery/2
+    	resolve &EshopWeb.Schema.Resolvers.Gallery.create_gallery/3
     end
   end 
 end

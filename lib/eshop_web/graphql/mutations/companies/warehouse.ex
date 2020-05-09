@@ -12,7 +12,7 @@ defmodule EshopWeb.Schema.Mutations.Warehouse do
     	arg :user_id, :id
     	arg :location_id, :id
       
-    	resolve &EshopWeb.Schema.Resolvers.Warehouse.create_warehouse/2
+    	resolve &EshopWeb.Schema.Resolvers.Warehouse.create_warehouse/3
     end
   end 
 end

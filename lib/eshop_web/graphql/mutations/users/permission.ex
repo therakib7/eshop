@@ -10,7 +10,7 @@ defmodule EshopWeb.Schema.Mutations.Permission do
             arg :inserted_at, :naive_datetime
             arg :updated_at, :naive_datetime 
 
-            resolve &EshopWeb.Schema.Resolvers.Permission.create_user/2
+            resolve &EshopWeb.Schema.Resolvers.Permission.create_user/3
         end
     end 
 end

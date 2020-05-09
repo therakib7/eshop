@@ -12,7 +12,7 @@ defmodule EshopWeb.Schema.Mutations.Variant do
     	arg :shop_id, :id
     	arg :user_id, :id
 
-    	resolve &EshopWeb.Schema.Resolvers.Variant.create_variant/2
+    	resolve &EshopWeb.Schema.Resolvers.Variant.create_variant/3
     end
   end 
 end

@@ -9,7 +9,7 @@ defmodule EshopWeb.Schema.Mutations.TrackingInvoice do
     	arg :invoice_id, :id
     	arg :shipping_method_id, :id
     	
-    	resolve &EshopWeb.Schema.Resolvers.TrackingInvoice.create_tracking_invoice/2
+    	resolve &EshopWeb.Schema.Resolvers.TrackingInvoice.create_tracking_invoice/3
     end
   end 
 end

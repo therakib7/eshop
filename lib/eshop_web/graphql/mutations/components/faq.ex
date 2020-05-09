@@ -12,7 +12,7 @@ defmodule EshopWeb.Schema.Mutations.Faq do
     	arg :item, :id
     	arg :user_id, :id
 
-    	resolve &EshopWeb.Schema.Resolvers.Faq.create_faq/2
+    	resolve &EshopWeb.Schema.Resolvers.Faq.create_faq/3
     end
   end 
 end

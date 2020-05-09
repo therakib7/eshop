@@ -11,7 +11,7 @@ defmodule EshopWeb.Schema.Mutations.Attachment do
     	arg :type, :integer
     	arg :type_id, :integer
 
-    	resolve &EshopWeb.Schema.Resolvers.Attachment.create_attachment/2
+    	resolve &EshopWeb.Schema.Resolvers.Attachment.create_attachment/3
     end
   end 
 end

@@ -8,7 +8,7 @@ defmodule EshopWeb.Schema.Mutations.NotificationMsg do
     	arg :for, :integer
     	arg :msg, :string
 
-    	resolve &EshopWeb.Schema.Resolvers.NotificationMsg.create_notification_msg/2
+    	resolve &EshopWeb.Schema.Resolvers.NotificationMsg.create_notification_msg/3
     end
   end 
 end

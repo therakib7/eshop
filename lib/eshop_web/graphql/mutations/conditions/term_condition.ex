@@ -10,7 +10,7 @@ defmodule EshopWeb.Schema.Mutations.TermCondition do
     	arg :type, :integer
     	arg :type_id, :integer
       
-    	resolve &EshopWeb.Schema.Resolvers.TermCondition.create_term_condition/2
+    	resolve &EshopWeb.Schema.Resolvers.TermCondition.create_term_condition/3
     end
   end 
 end

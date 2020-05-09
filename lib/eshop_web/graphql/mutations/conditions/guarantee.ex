@@ -11,7 +11,7 @@ defmodule EshopWeb.Schema.Mutations.Guarantee do
     	arg :native_content, :string
     	arg :item_id, :id
 
-    	resolve &EshopWeb.Schema.Resolvers.Guarantee.create_guarantee/2
+    	resolve &EshopWeb.Schema.Resolvers.Guarantee.create_guarantee/3
     end
   end 
 end

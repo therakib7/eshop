@@ -9,7 +9,7 @@ defmodule EshopWeb.Schema.Mutations.TypeComment do
     	arg :type_id, :integer
     	arg :user_id, :id 
 
-    	resolve &EshopWeb.Schema.Resolvers.TypeComment.create_type_comment/2
+    	resolve &EshopWeb.Schema.Resolvers.TypeComment.create_type_comment/3
     end
   end 
 end

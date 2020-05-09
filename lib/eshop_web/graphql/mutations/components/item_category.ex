@@ -8,7 +8,7 @@ defmodule EshopWeb.Schema.Mutations.ItemCategory do
     	arg :item_id, :id
     	arg :category_id, :id
 
-    	resolve &EshopWeb.Schema.Resolvers.ItemCategory.create_item_category/2
+    	resolve &EshopWeb.Schema.Resolvers.ItemCategory.create_item_category/3
     end
   end 
 end

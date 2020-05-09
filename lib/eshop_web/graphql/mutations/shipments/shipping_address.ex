@@ -11,7 +11,7 @@ defmodule EshopWeb.Schema.Mutations.ShippingAddress do
     	arg :invoice_id, :id
     	arg :location_id, :id
       
-    	resolve &EshopWeb.Schema.Resolvers.ShippingAddress.create_shipping_address/2
+    	resolve &EshopWeb.Schema.Resolvers.ShippingAddress.create_shipping_address/3
     end
   end 
 end

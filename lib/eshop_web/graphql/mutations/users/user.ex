@@ -16,7 +16,7 @@ defmodule EshopWeb.Schema.Mutations.User do
             arg :verified_phone, :datetime 
             arg :verified_user, :datetime 
 
-            resolve &EshopWeb.Schema.Resolvers.User.create_user/2
+            resolve &EshopWeb.Schema.Resolvers.User.create_user/3
         end
     end 
 end

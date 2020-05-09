@@ -11,7 +11,7 @@ defmodule EshopWeb.Schema.Mutations.CountryStage do
             arg :stage, :integer
             arg :user_id, :integer
 
-            resolve &EshopWeb.Schema.Resolvers.CountryStage.create_country_stage/2
+            resolve &EshopWeb.Schema.Resolvers.CountryStage.create_country_stage/3
         end
     end 
 end

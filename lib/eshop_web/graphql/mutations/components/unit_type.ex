@@ -9,7 +9,7 @@ defmodule EshopWeb.Schema.Mutations.UnitType do
     	arg :native_name, :string
     	arg :user_id, :id
 
-    	resolve &EshopWeb.Schema.Resolvers.UnitType.create_unit_type/2
+    	resolve &EshopWeb.Schema.Resolvers.UnitType.create_unit_type/3
     end
   end 
 end
