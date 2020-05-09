@@ -1,5 +1,7 @@
 defmodule EshopWeb.Schema.Mutations.User do
     use Absinthe.Schema.Notation
+
+    alias EshopWeb.Schema.Resolvers.User, as: User
     
     object :user_mutations do
         @desc "Create a user"
@@ -17,20 +19,20 @@ defmodule EshopWeb.Schema.Mutations.User do
             arg :verified_phone, :datetime 
             arg :verified_user, :datetime 
 
-            resolve &EshopWeb.Schema.Resolvers.User.create_user/3
+            resolve &User.create_user/3
         end
 
         @desc "Update a user by its id"
         field :update_user, type: :user do
             arg(:id, non_null(:id))
             arg(:user, :user_params)
-            resolve &EshopWeb.Schema.Resolvers.User.update_user/2
+            resolve &User.update_user/2
         end
 
         @desc "Delete a user by its id"
         field :delete_user, type: :user do
             arg(:id, non_null(:id))
-            resolve &EshopWeb.Schema.Resolvers.User.delete_user/2
+            resolve &User.delete_user/2
         end
     end 
 end
