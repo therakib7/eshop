@@ -6,9 +6,9 @@ defmodule Eshop.UsersTest do
   describe "users" do
     alias Eshop.Users.User
 
-    @valid_attrs %{email: "some email", first_name: "some first_name", is_active: true, last_name: "some last_name", mobile: "some mobile", password_hash: "some password_hash", pin: 42, verified_email: "2010-04-17T14:00:00Z", verified_phone: "2010-04-17T14:00:00Z", verified_user: "2010-04-17T14:00:00Z"}
-    @update_attrs %{email: "some updated email", first_name: "some updated first_name", is_active: false, last_name: "some updated last_name", mobile: "some updated mobile", password_hash: "some updated password_hash", pin: 43, verified_email: "2011-05-18T15:01:01Z", verified_phone: "2011-05-18T15:01:01Z", verified_user: "2011-05-18T15:01:01Z"}
-    @invalid_attrs %{email: nil, first_name: nil, is_active: nil, last_name: nil, mobile: nil, password_hash: nil, pin: nil, verified_email: nil, verified_phone: nil, verified_user: nil}
+    @valid_attrs %{email: "some email", first_name: "some first_name", is_active: true, surname: "some surname", mobile: "some mobile", password_hash: "some password_hash", pin: 42, verified_email: "2010-04-17T14:00:00Z", verified_phone: "2010-04-17T14:00:00Z", verified_user: "2010-04-17T14:00:00Z"}
+    @update_attrs %{email: "some updated email", first_name: "some updated first_name", is_active: false, surname: "some updated surname", mobile: "some updated mobile", password_hash: "some updated password_hash", pin: 43, verified_email: "2011-05-18T15:01:01Z", verified_phone: "2011-05-18T15:01:01Z", verified_user: "2011-05-18T15:01:01Z"}
+    @invalid_attrs %{email: nil, first_name: nil, is_active: nil, surname: nil, mobile: nil, password_hash: nil, pin: nil, verified_email: nil, verified_phone: nil, verified_user: nil}
 
     def user_fixture(attrs \\ %{}) do
       {:ok, user} =
@@ -34,7 +34,7 @@ defmodule Eshop.UsersTest do
       assert user.email == "some email"
       assert user.first_name == "some first_name"
       assert user.is_active == true
-      assert user.last_name == "some last_name"
+      assert user.surname == "some surname"
       assert user.mobile == "some mobile"
       assert user.password_hash == "some password_hash"
       assert user.pin == 42
@@ -53,7 +53,7 @@ defmodule Eshop.UsersTest do
       assert user.email == "some updated email"
       assert user.first_name == "some updated first_name"
       assert user.is_active == false
-      assert user.last_name == "some updated last_name"
+      assert user.surname == "some updated surname"
       assert user.mobile == "some updated mobile"
       assert user.password_hash == "some updated password_hash"
       assert user.pin == 43

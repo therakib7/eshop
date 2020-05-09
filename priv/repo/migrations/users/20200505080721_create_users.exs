@@ -5,7 +5,7 @@ defmodule Eshop.Repo.Migrations.CreateUsers do
     create table(:users) do
       add :is_active, :boolean, default: false, null: false
       add :first_name, :string, size: 100
-      add :last_name, :string, null: true, size: 50
+      add :surname, :string, null: true, size: 50
       add :email, :string, null: true, size: 150
       add :mobile, :string, null: true, size: 30
       add :pin, :integer, null: true

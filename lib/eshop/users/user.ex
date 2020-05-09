@@ -6,7 +6,7 @@ defmodule Eshop.Users.User do
     field :email, :string
     field :first_name, :string
     field :is_active, :boolean, default: false
-    field :last_name, :string
+    field :surname, :string
     field :mobile, :string
     field :password, :string, virtual: true
     field :password_confirmation, :string, virtual: true
@@ -15,6 +15,8 @@ defmodule Eshop.Users.User do
     field :verified_email, :utc_datetime
     field :verified_phone, :utc_datetime
     field :verified_user, :utc_datetime
+    
+    has_one :profile, Eshop.Users.UserProfile
 
     timestamps()
   end
@@ -22,7 +24,7 @@ defmodule Eshop.Users.User do
   @doc false
   def changeset(user, attrs) do
     user 
-    |> cast(attrs, [:is_active, :first_name, :last_name, :email, :mobile, :password, :password_confirmation, :pin])
+    |> cast(attrs, [:is_active, :first_name, :surname, :email, :mobile, :password, :password_confirmation, :pin])
     |> validate_required([:first_name, :password])
     |> validate_confirmation(:password)
     |> validate_format(:email, ~r/@/)

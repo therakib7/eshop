@@ -12,6 +12,8 @@ defmodule Eshop.Users.UserProfile do
     field :pre_location_id, :id
     field :per_location_id, :id
 
+    #belongs_to :user, Eshop.Users.User
+
     timestamps()
   end
 
