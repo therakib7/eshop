@@ -19,5 +19,18 @@ defmodule EshopWeb.Schema.Mutations.User do
 
             resolve &EshopWeb.Schema.Resolvers.User.create_user/3
         end
+
+        @desc "Update a user by its id"
+        field :update_user, type: :user do
+            arg(:id, non_null(:id))
+            arg(:user, :user_params)
+            resolve &EshopWeb.Schema.Resolvers.User.update_user/2
+        end
+
+        @desc "Delete a user by its id"
+        field :delete_user, type: :user do
+            arg(:id, non_null(:id))
+            resolve &EshopWeb.Schema.Resolvers.User.delete_user/2
+        end
     end 
 end

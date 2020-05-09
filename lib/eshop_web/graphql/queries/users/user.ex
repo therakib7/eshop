@@ -11,7 +11,7 @@ defmodule EshopWeb.Schema.Queries.User do
         field :user, :user do
             arg :id, non_null(:id)
             resolve &EshopWeb.Schema.Resolvers.User.get_user/3
-        end
+        end 
     end
     
 end
