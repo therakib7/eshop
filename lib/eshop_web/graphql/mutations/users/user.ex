@@ -10,7 +10,8 @@ defmodule EshopWeb.Schema.Mutations.User do
             arg :is_active, :boolean
             arg :last_name, :string
             arg :mobile, :string
-            arg :password_hash, :string
+            arg :password, :string
+            arg :password_confirmation, :string
             arg :pin, :integer
             arg :verified_email, :datetime 
             arg :verified_phone, :datetime 
