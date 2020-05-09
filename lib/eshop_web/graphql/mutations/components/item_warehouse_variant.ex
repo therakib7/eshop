@@ -9,7 +9,7 @@ defmodule EshopWeb.Schema.Mutations.ItemWarehouseVariant do
     	arg :warehouse_variant_id, :id
     	arg :warehouse_variant_value_id, :id
 
-    	resolve &EshopWeb.Schema.Resolvers.ItemWarehouseVariant.create_user/2
+    	resolve &EshopWeb.Schema.Resolvers.ItemWarehouseVariant.create_user/3
     end
   end 
 end

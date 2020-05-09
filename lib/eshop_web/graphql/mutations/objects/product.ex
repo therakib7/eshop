@@ -11,7 +11,7 @@ defmodule EshopWeb.Schema.Mutations.Product do
     	arg :sku, :string
     	arg :brand_id, :id
       
-    	resolve &EshopWeb.Schema.Resolvers.Product.create_product/2
+    	resolve &EshopWeb.Schema.Resolvers.Product.create_product/3
     end
   end 
 end

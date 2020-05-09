@@ -10,7 +10,7 @@ defmodule EshopWeb.Schema.Mutations.CompanySetting do
     	arg :type_id, :integer
     	arg :value, :string
 
-    	resolve &EshopWeb.Schema.Resolvers.CompanySetting.create_company_setting/2
+    	resolve &EshopWeb.Schema.Resolvers.CompanySetting.create_company_setting/3
     end
   end 
 end

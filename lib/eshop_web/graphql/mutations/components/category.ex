@@ -14,7 +14,7 @@ defmodule EshopWeb.Schema.Mutations.Category do
     	arg :attachment_id, :id
     	arg :user_id, :id
       
-    	resolve &EshopWeb.Schema.Resolvers.Category.create_category/2
+    	resolve &EshopWeb.Schema.Resolvers.Category.create_category/3
     end
   end 
 end

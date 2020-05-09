@@ -16,7 +16,7 @@ defmodule EshopWeb.Schema.Mutations.DiscountCode do
     	arg :used_by, :id
     	arg :invoice_id, :id
 
-    	resolve &EshopWeb.Schema.DiscountCode.User.create_discount_code/2
+    	resolve &EshopWeb.Schema.DiscountCode.User.create_discount_code/3
     end
   end 
 end

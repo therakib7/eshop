@@ -8,7 +8,7 @@ defmodule EshopWeb.Schema.Mutations.RolePermission do
             arg :role_id, :id
             arg :permission_id, :id
 
-            resolve &EshopWeb.Schema.Resolvers.RolePermission.create_role_permission/2
+            resolve &EshopWeb.Schema.Resolvers.RolePermission.create_role_permission/3
         end
     end 
 end

@@ -17,7 +17,7 @@ defmodule EshopWeb.Schema.Mutations.Company do
     	arg :attachment_id, :id
     	arg :term_condition_id, :id
 
-    	resolve &EshopWeb.Schema.Resolvers.Company.create_company/2
+    	resolve &EshopWeb.Schema.Resolvers.Company.create_company/3
     end
   end 
 end

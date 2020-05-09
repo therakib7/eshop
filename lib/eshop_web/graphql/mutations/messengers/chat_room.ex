@@ -8,7 +8,7 @@ defmodule EshopWeb.Schema.Mutations.ChatRoom do
     	arg :shop_id, :id
     	arg :customer_id, :id
 
-    	resolve &EshopWeb.Schema.Resolvers.ChatRoom.create_chat_room/2
+    	resolve &EshopWeb.Schema.Resolvers.ChatRoom.create_chat_room/3
     end
   end 
 end

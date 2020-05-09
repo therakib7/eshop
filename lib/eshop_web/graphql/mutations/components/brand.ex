@@ -15,7 +15,7 @@ defmodule EshopWeb.Schema.Mutations.Brand do
     	arg :location_id, :id
     	arg :user_id, :id
 
-    	resolve &EshopWeb.Schema.Resolvers.Brand.create_brand/2
+    	resolve &EshopWeb.Schema.Resolvers.Brand.create_brand/3
     end
   end 
 end

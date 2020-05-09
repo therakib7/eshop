@@ -13,7 +13,7 @@ defmodule EshopWeb.Schema.Mutations.LoginDetail do
             arg :user_agent, :string
             arg :user_id, :id
 
-            resolve &EshopWeb.Schema.Resolvers.LoginDetail.create_login_detail/2
+            resolve &EshopWeb.Schema.Resolvers.LoginDetail.create_login_detail/3
         end
     end 
 end

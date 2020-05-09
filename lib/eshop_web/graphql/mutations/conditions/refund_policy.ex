@@ -10,7 +10,7 @@ defmodule EshopWeb.Schema.Mutations.RefundPolicy do
     	arg :type, :integer
     	arg :type_id, :integer
 
-    	resolve &EshopWeb.Schema.Resolvers.RefundPolicy.create_refund_policy/2
+    	resolve &EshopWeb.Schema.Resolvers.RefundPolicy.create_refund_policy/3
     end
   end 
 end
