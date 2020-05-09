@@ -16,7 +16,7 @@ defmodule Eshop.Users.Role do
   def changeset(role, attrs) do
     role
     |> cast(attrs, [:name, :slug, :native_name, :desc, :is_company])
-    |> validate_required([:name, :native_name, :desc, :is_company])
+    |> validate_required([:name])
     |> unique_constraint(:slug)
   end
 end

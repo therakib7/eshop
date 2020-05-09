@@ -4,7 +4,6 @@ defmodule EshopWeb.Schema.Mutations.Role do
     object :role_mutations do
         @desc "Create a role"
         field :create_role, type: :role do 
-            arg :id, :integer
             arg :desc, :string
             arg :is_company, :boolean
             arg :name, :string
