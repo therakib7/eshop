@@ -12,7 +12,7 @@ defmodule Eshop.Users.RolePermission do
   @doc false
   def changeset(role_permission, attrs) do
     role_permission
-    |> cast(attrs, [])
-    |> validate_required([])
+    |> cast(attrs, [:role_id, :permission_id])
+    |> validate_required([:role_id, :permission_id])
   end
 end

@@ -19,5 +19,7 @@ defmodule Eshop.Users.LoginDetail do
     login_detail
     |> cast(attrs, [:is_active, :user_agent, :ip_address, :ip_location, :login_at, :last_activity])
     |> validate_required([:is_active, :user_agent, :ip_address, :ip_location, :login_at, :last_activity])
+    |> validate_length(:user_agent, min: 2, max: 500)
+    |> validate_length(:ip_address, min: 8, max: 100)
   end
 end

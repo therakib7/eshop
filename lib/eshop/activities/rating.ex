@@ -17,5 +17,7 @@ defmodule Eshop.Activities.Rating do
     rating
     |> cast(attrs, [:type, :type_id, :comment, :star])
     |> validate_required([:type, :type_id, :comment, :star])
+    |> validate_length(:comment, min: 4, max: 500)
+    |> validate_inclusion(:star, 1..5)
   end
 end
