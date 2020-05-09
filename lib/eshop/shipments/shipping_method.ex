@@ -15,7 +15,9 @@ defmodule Eshop.Shipments.ShippingMethod do
   @doc false
   def changeset(shipping_method, attrs) do
     shipping_method
-    |> cast(attrs, [:is_active, :name, :native_name])
-    |> validate_required([:is_active, :name, :native_name])
+    |> cast(attrs, [:is_active, :name, :native_name, :location_id])
+    |> validate_required([:name, :location_id])
+    |> validate_length(:name, min: 2, max: 200)
+    |> validate_length(:native_name, min: 2, max: 200)
   end
 end

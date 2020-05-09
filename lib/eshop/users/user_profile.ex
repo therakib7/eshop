@@ -18,7 +18,11 @@ defmodule Eshop.Users.UserProfile do
   @doc false
   def changeset(user_profile, attrs) do
     user_profile
-    |> cast(attrs, [:lat, :long, :date_of_birth, :merital_status, :gender])
-    |> validate_required([:lat, :long, :date_of_birth, :merital_status, :gender])
+    |> cast(attrs, [:lat, :long, :merital_status, :gender])
+    |> validate_number(:lat, greater_than_or_equal_to: -90, less_than_or_equal_to: 90)
+    |> validate_number(:long, greater_than_or_equal_to: -180, less_than_or_equal_to: 180)
+    |> validate_inclusion(:merital_status, 1..4)
+    |> validate_inclusion(:gender, 1..3)
+
   end
 end

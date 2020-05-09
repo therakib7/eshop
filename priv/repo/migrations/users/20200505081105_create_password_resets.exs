@@ -7,7 +7,6 @@ defmodule Eshop.Repo.Migrations.CreatePasswordResets do
       add :created_at, :utc_datetime
       add :user_id, references(:users, on_delete: :nothing)
 
-      timestamps()
     end
 
     create index(:password_resets, [:user_id])

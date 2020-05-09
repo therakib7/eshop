@@ -26,12 +26,12 @@ defmodule Eshop.Users.User do
     |> validate_required([:first_name, :password])
     |> validate_confirmation(:password)
     |> validate_format(:email, ~r/@/)
-    |> unique_constraint(:email, downcase: true)
+    |> unique_constraint(:email)
     |> validate_length(:password, min: 8, max: 80)
     |> validate_length(:pin, min: 4, max: 10)
     |> put_password_hash()
   end
-
+  
   defp put_password_hash(changeset) do
     case changeset do
       %Ecto.Changeset{valid?: true, changes: %{password: pass}} ->

@@ -12,7 +12,8 @@ defmodule Eshop.Shipments.ShopShippingMethod do
   @doc false
   def changeset(shop_shipping_method, attrs) do
     shop_shipping_method
-    |> cast(attrs, [])
-    |> validate_required([])
+    |> cast(attrs, [:shipping_method_id, :shop_id])
+    |> validate_required([:shipping_method_id, :shop_id])
+    
   end
 end

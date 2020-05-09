@@ -17,6 +17,9 @@ defmodule Eshop.Users.Role do
     role
     |> cast(attrs, [:name, :slug, :native_name, :desc, :is_company])
     |> validate_required([:name])
+    |> validate_length(:name, min: 2, max: 100)
+    |> validate_length(:native_name, min: 2, max: 100)
+    |> validate_length(:desc, min: 2, max: 500)
     |> unique_constraint(:slug)
   end
 end

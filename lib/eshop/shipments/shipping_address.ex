@@ -15,7 +15,10 @@ defmodule Eshop.Shipments.ShippingAddress do
   @doc false
   def changeset(shipping_address, attrs) do
     shipping_address
-    |> cast(attrs, [:lat, :long, :address])
-    |> validate_required([:lat, :long, :address])
+    |> cast(attrs, [:lat, :long, :address, :invoice_id, :location_id])
+    |> validate_required([:lat, :long, :address, :invoice_id, :location_id])
+    |> validate_length(:address, min: 2, max: 300)
+    |> validate_number(:lat, greater_than_or_equal_to: -90, less_than_or_equal_to: 90)
+    |> validate_number(:long, greater_than_or_equal_to: -180, less_than_or_equal_to: 180)
   end
 end
