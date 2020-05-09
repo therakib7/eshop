@@ -13,18 +13,18 @@ defmodule EshopWeb.Schema.Mutations.Role do
             resolve &EshopWeb.Schema.Resolvers.Role.create_role/3
         end
 
-        # @desc "Update a role"
-        # field :update_role, type: :role do
-        #     arg(:id, non_null(:id))
-        #     arg(:role, :role_params)
+        @desc "Update a role"
+        field :update_role, type: :role do
+            arg(:id, non_null(:id))
+            arg(:role_params, :role_params)
     
-        #     resolve &EshopWeb.Schema.Resolvers.Role.update_role/3
-        # end
+            resolve &EshopWeb.Schema.Resolvers.Role.update_role/2
+        end
         
-        # @desc "Delete a role"
-        # field :delete_role, type: :role do
-        #     arg(:id, non_null(:id))
-        #     resolve &EshopWeb.Schema.Resolvers.Role.delete_role/3
-        # end
+        @desc "Delete a role"
+        field :delete_role, type: :role do
+            arg(:id, non_null(:id))
+            resolve &EshopWeb.Schema.Resolvers.Role.delete_role/2
+        end
     end 
 end

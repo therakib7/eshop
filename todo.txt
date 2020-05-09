@@ -7,6 +7,12 @@
 * Mix test fixing later
 
 
+mutation {
+  updateRole(id: 2, roleParams: { name: "update value"} ) {
+    name
+  }
+  
+}
 
 
 

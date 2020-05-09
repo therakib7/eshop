@@ -11,4 +11,8 @@ defmodule EshopWeb.Schema.Types.Role do
         field :inserted_at, :naive_datetime
         field :updated_at, :naive_datetime
     end
+
+    input_object :role_params do
+       field :name, :string
+    end
 end
