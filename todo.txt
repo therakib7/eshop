@@ -5,3 +5,21 @@
 * Seed data (Role and Permission and others)
 * Gurdian Authentication Api and graphql 
 * Mix test fixing later
+
+
+
+
+
+changeset
+=========
+    |> cast(attrs, [:fieldName, :fieldName2,])
+    |> validate_required([:fieldName, :fieldName2])
+    |> validate_confirmation(:password)
+    |> validate_format(:email, ~r/@/)
+    |> unique_constraint(:email)
+    |> validate_length(:password, min: 8, max: 80)
+    |> validate_length(:pin, min: 4, max: 10)
+    |> put_password_hash()
+    |> validate_inclusion(:long, -180..180)
+    |> unique_constraint(:slug)
+    |> validate_number(:lat, greater_than_or_equal_to: -90, less_than_or_equal_to: 90)
