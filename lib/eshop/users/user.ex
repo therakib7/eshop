@@ -29,15 +29,15 @@ defmodule Eshop.Users.User do
     |> unique_constraint(:email, downcase: true)
     |> validate_length(:password, min: 8, max: 80)
     |> validate_length(:pin, min: 4, max: 10)
-    #|> put_password_hash()
+    |> put_password_hash()
   end
 
-  # defp put_password_hash(changeset) do
-  #   case changeset do
-  #     %Ecto.Changeset{valid?: true, changes: %{password: pass}} ->
-  #       put_change(changeset, :password_hash, Bcrypt.hash_pwd_salt(pass))
-  #     _ ->
-  #       changeset
-  #   end
-  # end
+  defp put_password_hash(changeset) do
+    case changeset do
+      %Ecto.Changeset{valid?: true, changes: %{password: pass}} ->
+        put_change(changeset, :password_hash, Bcrypt.hash_pwd_salt(pass))
+      _ ->
+        changeset
+    end
+  end
 end
