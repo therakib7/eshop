@@ -6,6 +6,7 @@
 * Gurdian Authentication Api and graphql 
 * Mix test fixing later
 
+now() for postbird datetime auto insert
 
 schema "users" do
   has_one :profile, Eshop.Users.UserProfile

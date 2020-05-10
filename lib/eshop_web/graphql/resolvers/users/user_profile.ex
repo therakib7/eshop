@@ -1,5 +1,9 @@
 defmodule EshopWeb.Schema.Resolvers.UserProfile do
 
+    # def list_user_profiles(%Eshop.Users.User{} = author, args, _resolution) do
+    #     {:ok, Eshop.Users.list_user_profiles(author, args)}
+    # end
+
     def list_user_profiles(_parent, _args, _resolution) do
         {:ok, Eshop.Users.list_user_profiles()}
     end

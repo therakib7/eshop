@@ -13,5 +13,7 @@ defmodule EshopWeb.Schema.Types.UserProfile do
         field :per_location_id, :id
         field :inserted_at, :naive_datetime
         field :updated_at, :naive_datetime
+
+        field :author, :user
     end
 end
