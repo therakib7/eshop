@@ -16,7 +16,7 @@ defmodule EshopWeb.Schema.Types.User do
         field :verified_phone, :datetime 
         field :verified_user, :datetime 
         field :inserted_at, :naive_datetime
-        field :updated_at, :naive_datetime
+        field :updated_at, :naive_datetime 
 
         # has many field
         # field :profile, list_of(:user_profile) do
@@ -34,8 +34,14 @@ defmodule EshopWeb.Schema.Types.User do
 
         field :profile, :user_profile do
             arg :id, non_null(:id)
-            resolve &EshopWeb.Schema.Resolvers.UserProfile.get_user_profile/3
+            resolve: &EshopWeb.Schema.Resolvers.UserProfile.get_user_profile/3
         end
+
+        # field :profile, list_of(:user_profile) do
+        #     #arg :date, :date
+        #     resolve &UserProfile.list_user_profiles/3
+        # end
+
 
         #field :profile, list_of(:user_profile), resolve &EshopWeb.Schema.Resolvers.Profile.list_user_profiles
 

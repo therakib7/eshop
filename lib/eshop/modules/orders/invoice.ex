@@ -18,7 +18,7 @@ defmodule Eshop.Orders.Invoice do
   @doc false
   def changeset(invoice, attrs) do
     invoice
-    |> cast(attrs, [:type, :total, :discount, :note, :paid])
-    |> validate_required([:type, :total, :discount, :note, :paid])
+    |> cast(attrs, [:type, :total, :discount, :note, :paid,:company_id,:shop_id])
+    |> validate_required([:type, :total, :discount, :note, :paid,:company_id,:shop_id])
   end
 end

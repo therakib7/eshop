@@ -16,7 +16,9 @@ defmodule Eshop.Payments.BankingProvider do
   @doc false
   def changeset(banking_provider, attrs) do
     banking_provider
-    |> cast(attrs, [:is_active, :type, :name, :native_name, :order])
-    |> validate_required([:is_active, :type, :name, :native_name, :order])
+    |> cast(attrs, [:is_active, :type, :name, :native_name, :order, :attachement_id])
+    |> validate_required([:type, :name, :native_name, :order])
+    |> validate_length(:name, min: 2, max: 200)
+    |> validate_length(:native_name, min: 2, max: 200)
   end
 end

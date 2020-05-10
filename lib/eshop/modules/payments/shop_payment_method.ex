@@ -17,7 +17,9 @@ defmodule Eshop.Payments.ShopPaymentMethod do
   @doc false
   def changeset(shop_payment_method, attrs) do
     shop_payment_method
-    |> cast(attrs, [:is_active, :ac_holder_name, :ac_no, :account_type])
-    |> validate_required([:is_active, :ac_holder_name, :ac_no, :account_type])
+    |> cast(attrs, [:is_active, :ac_holder_name, :ac_no, :account_type,:shop_id,:banking_provider_id])
+    |> validate_required([:ac_holder_name, :ac_no, :account_type,:shop_id,:banking_provider_id])
+    |> validate_length(:ac_holder_name, min: 20, max: 100)
+    |> validate_length(:account_type, min: 20, max: 200)
   end
 end
