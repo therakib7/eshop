@@ -7,12 +7,11 @@ defmodule Eshop.Users.UserProfile do
     field :gender, :integer
     field :lat, :float
     field :long, :float
-    field :merital_status, :integer
-    field :user_id, :id
+    field :merital_status, :integer 
     field :pre_location_id, :id
     field :per_location_id, :id
 
-    #belongs_to :user, Eshop.Users.User
+    belongs_to :user, Eshop.Users.User
 
     timestamps()
   end
