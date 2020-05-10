@@ -20,6 +20,6 @@ changeset
     |> validate_length(:password, min: 8, max: 80)
     |> validate_length(:pin, min: 4, max: 10)
     |> put_password_hash()
-    |> validate_inclusion(:long, -180..180)
+    |> validate_inclusion(:age, 1..18)
     |> unique_constraint(:slug)
     |> validate_number(:lat, greater_than_or_equal_to: -90, less_than_or_equal_to: 90)
