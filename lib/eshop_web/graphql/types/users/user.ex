@@ -32,10 +32,11 @@ defmodule EshopWeb.Schema.Types.User do
         #     resolve &UserProfile.get_user_profiles/3
         # end
 
-        field :profile, :user_profile do
-            arg :id, non_null(:id)
-            resolve: &EshopWeb.Schema.Resolvers.UserProfile.get_user_profile/3
-        end
+        #latest
+        # field :profile, :user_profile do
+        #     arg :id, non_null(:id)
+        #     resolve: &EshopWeb.Schema.Resolvers.UserProfile.get_user_profile/3
+        # end
 
         # field :profile, list_of(:user_profile) do
         #     #arg :date, :date

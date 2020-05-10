@@ -37,8 +37,6 @@ defmodule Eshop.Objects.Item do
     item
     |> cast(attrs, [:is_active, :name, :native_name, :desc, :native_desc, :views, :loves, :vat, :vat_type, :unit, :has_variant, :has_package, :total_order, :low_stock, :has_warehouse, :cost_price, :unit_price, :sell_price, :type, :type_id, :extra_fields, :asin_id])
     |> validate_required([:is_active, :name, :native_name, :desc, :native_desc, :views, :loves, :vat, :vat_type, :unit, :has_variant, :has_package, :total_order, :low_stock, :has_warehouse, :cost_price, :unit_price, :sell_price, :type, :type_id, :extra_fields, :asin_id])
-    |> validate_length(:desc, min: 4, max: 5000)
-    |> validate_length(:native_desc, min: 4, max:5000)
     |> validate_length(:name, min: 2, max: 200)
     |> validate_length(:native_name, min: 2, max: 200)
 
