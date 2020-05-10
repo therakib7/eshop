@@ -6,8 +6,8 @@ defmodule Eshop.Shipments.ShippingAddress do
     field :address, :string
     field :lat, :float
     field :long, :float
-    field :invoice_id, :id
-    field :location_id, :id
+    belongs_to :invoice, Eshop.Orders.Invoice
+    belongs_to :location, Eshop.Geo.Location
 
     timestamps()
   end

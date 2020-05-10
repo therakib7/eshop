@@ -14,5 +14,7 @@ defmodule Eshop.Messengers.NotificationMsg do
     notification_msg
     |> cast(attrs, [:msg, :for])
     |> validate_required([:msg, :for])
+    |> validate_length(:msg, min: 1, max: 5000)
+
   end
 end

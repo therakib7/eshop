@@ -9,7 +9,7 @@ defmodule Eshop.Users.LoginDetail do
     field :last_activity, :utc_datetime
     field :login_at, :utc_datetime
     field :user_agent, :string
-    field :user_id, :id
+    belongs_to :user, Eshop.Users.User
 
     timestamps()
   end

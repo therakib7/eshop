@@ -3,7 +3,7 @@ defmodule EshopWeb.Schema.Types.Item do
   
   object :item do
     field :id, :integer
-    field :asin_id, :integer
+    field :asin_id, :string
     field :cost_price, :decimal
     field :desc, :string
     field :extra_fields, :string

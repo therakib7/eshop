@@ -5,7 +5,8 @@ defmodule Eshop.Settings.UserSetting do
   schema "user_settings" do
     field :key, :string
     field :value, :string
-    field :user_id, :id
+    belongs_to :user, Eshop.Users.User
+
 
     timestamps()
   end

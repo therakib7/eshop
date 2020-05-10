@@ -3,7 +3,7 @@ defmodule Eshop.Messengers.Notification do
   import Ecto.Changeset
 
   schema "notifications" do
-    field :notification_msg_id, :integer
+    belongs_to :notification_msg, Eshop.Messengers.NotificationMsg
     field :read, :boolean, default: false
     field :type, :integer
     field :type_id, :integer

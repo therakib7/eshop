@@ -7,9 +7,9 @@ defmodule Eshop.Messengers.ChatMsg do
     field :msg, :string
     field :msg_type, :integer
     field :read, :boolean, default: false
-    field :chat_room_id, :id
-    field :user_id, :id
-    field :attachment_id, :id
+    belongs_to :chat_room, Eshop.Messengers.ChatRoom
+    belongs_to :user, Eshop.Users.User
+    belongs_to :attachment, Eshop.Attachments.Attachment
 
     timestamps()
   end
@@ -19,5 +19,8 @@ defmodule Eshop.Messengers.ChatMsg do
     chat_msg
     |> cast(attrs, [:msg_type, :msg, :read, :deleted_at])
     |> validate_required([:msg_type, :msg, :read, :deleted_at])
+    |> validate_length(:msg, min: 1, max: 500)
+    |> validate_inclusion(:msg_type, 1..2)
+
   end
 end

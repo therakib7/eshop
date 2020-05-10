@@ -5,8 +5,8 @@ defmodule Eshop.Users.PasswordReset do
   schema "password_resets" do
     field :created_at, :utc_datetime
     field :token, :string
-    field :user_id, :id
-    
+    belongs_to :user, Eshop.Users.User
+
   end
 
   @doc false

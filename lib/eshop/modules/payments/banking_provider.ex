@@ -8,8 +8,7 @@ defmodule Eshop.Payments.BankingProvider do
     field :native_name, :string
     field :order, :integer
     field :type, :integer
-    field :attachement_id, :id
-
+    belongs_to :attachement, Eshop.Attachments.Attachment
     timestamps()
   end
 

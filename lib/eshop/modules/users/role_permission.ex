@@ -3,8 +3,8 @@ defmodule Eshop.Users.RolePermission do
   import Ecto.Changeset
 
   schema "role_permissions" do
-    field :role_id, :id
-    field :permission_id, :id
+    belongs_to :role, Eshop.Users.Role
+    belongs_to :permission, Eshop.Users.Permission
 
     timestamps()
   end

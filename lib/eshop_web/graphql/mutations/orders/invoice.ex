@@ -6,7 +6,8 @@ defmodule EshopWeb.Schema.Mutations.Invoice do
     field :create_invoice, type: :invoice do 
       arg :id, :integer
     	arg :discount, :decimal
-    	arg :note, :string
+    	arg :user_note, :string
+    	arg :shop_note, :string
     	arg :paid, :decimal
     	arg :total, :decimal
     	arg :type, :integer

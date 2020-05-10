@@ -7,7 +7,7 @@ defmodule Eshop.Geo.CountryStage do
     field :name, :string
     field :native_name, :string
     field :stage, :integer
-    field :user_id, :integer
+    belongs_to :user, Eshop.Users.User
 
     timestamps()
   end

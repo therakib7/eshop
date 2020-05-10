@@ -7,7 +7,7 @@ defmodule Eshop.Objects.Product do
     field :exp_date, :naive_datetime
     field :mfg_date, :naive_datetime
     field :sku, :string
-    field :brand_id, :id
+    belongs_to :brand, Eshop.Components.Brand
 
     timestamps()
   end

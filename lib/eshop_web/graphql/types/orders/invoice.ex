@@ -4,7 +4,8 @@ defmodule EshopWeb.Schema.Types.Invoice do
   object :invoice do
     field :id, :integer
     field :discount, :decimal
-    field :note, :string
+    field :user_note, :string
+    field :shop_note, :string
     field :paid, :decimal
     field :total, :decimal
     field :type, :integer

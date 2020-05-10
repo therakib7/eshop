@@ -6,8 +6,8 @@ defmodule Eshop.Shipments.ShippingMethod do
     field :is_active, :boolean, default: false
     field :name, :string
     field :native_name, :string
-    field :user_id, :id
-    field :location_id, :id
+    belongs_to :user, Eshop.Users.User
+    belongs_to :location, Eshop.Geo.Location
 
     timestamps()
   end

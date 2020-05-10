@@ -24,7 +24,7 @@ defmodule Eshop.Repo.Migrations.CreateItems do
       add :type, :integer, null: true
       add :type_id, :integer, null: true
       add :extra_fields, :map, null: true
-      add :asin_id, :integer, null: true
+      add :asin_id, :string, null: true
       add :user_id, references(:users, on_delete: :nothing)
       add :shop_id, references(:shops, on_delete: :nothing)
       add :unit_type_id, references(:unit_types, on_delete: :nothing)

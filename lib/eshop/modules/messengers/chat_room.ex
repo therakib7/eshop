@@ -3,8 +3,8 @@ defmodule Eshop.Messengers.ChatRoom do
   import Ecto.Changeset
 
   schema "chat_rooms" do
-    field :shop_id, :id
-    field :customer_id, :id
+    belongs_to :shop, Eshop.Companies.Shop
+    belongs_to :customer, Eshop.Users.User
 
     timestamps()
   end

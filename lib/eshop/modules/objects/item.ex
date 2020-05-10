@@ -3,7 +3,7 @@ defmodule Eshop.Objects.Item do
   import Ecto.Changeset
 
   schema "items" do
-    field :asin_id, :integer
+    field :asin_id, :string
     field :cost_price, :decimal
     field :desc, :string
     field :extra_fields, :map
@@ -25,9 +25,9 @@ defmodule Eshop.Objects.Item do
     field :vat, :integer
     field :vat_type, :integer
     field :views, :integer
-    field :user_id, :id
-    field :shop_id, :id
-    field :unit_type_id, :id
+    belongs_to :shop, Eshop.Companies.Shop
+    belongs_to :user, Eshop.Users.User
+    belongs_to :unit_type, Eshop.Components.UnitType
 
     timestamps()
   end
@@ -37,5 +37,10 @@ defmodule Eshop.Objects.Item do
     item
     |> cast(attrs, [:is_active, :name, :native_name, :desc, :native_desc, :views, :loves, :vat, :vat_type, :unit, :has_variant, :has_package, :total_order, :low_stock, :has_warehouse, :cost_price, :unit_price, :sell_price, :type, :type_id, :extra_fields, :asin_id])
     |> validate_required([:is_active, :name, :native_name, :desc, :native_desc, :views, :loves, :vat, :vat_type, :unit, :has_variant, :has_package, :total_order, :low_stock, :has_warehouse, :cost_price, :unit_price, :sell_price, :type, :type_id, :extra_fields, :asin_id])
+    |> validate_length(:desc, min: 4, max: 5000)
+    |> validate_length(:native_desc, min: 4, max:5000)
+    |> validate_length(:name, min: 2, max: 200)
+    |> validate_length(:native_name, min: 2, max: 200)
+
   end
 end

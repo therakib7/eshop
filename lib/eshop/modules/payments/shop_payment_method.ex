@@ -7,9 +7,9 @@ defmodule Eshop.Payments.ShopPaymentMethod do
     field :ac_no, :integer
     field :account_type, :string
     field :is_active, :boolean, default: false
-    field :shop_id, :id
     field :banking_provider_id, :id
-    field :user_id, :id
+    belongs_to :user, Eshop.Users.User
+    belongs_to :shop, Eshop.Companies.Shop
 
     timestamps()
   end

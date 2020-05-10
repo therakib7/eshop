@@ -5,7 +5,7 @@ defmodule EshopWeb.Schema.Mutations.Item do
     @desc "Create a item"
     field :create_item, type: :item do 
         arg :id, :integer
-    	arg :asin_id, :integer
+    	arg :asin_id, :string
     	arg :cost_price, :decimal
     	arg :desc, :string
     	arg :extra_args, :string

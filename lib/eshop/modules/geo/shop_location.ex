@@ -3,8 +3,8 @@ defmodule Eshop.Geo.ShopLocation do
   import Ecto.Changeset
 
   schema "shop_locations" do
-    field :shop_id, :id
-    field :location_id, :id
+    belongs_to :shop, Eshop.Companies.Shop
+    belongs_to :location, Eshop.Geo.Location
 
     timestamps()
   end

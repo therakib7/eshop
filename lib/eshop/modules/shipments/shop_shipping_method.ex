@@ -3,9 +3,8 @@ defmodule Eshop.Shipments.ShopShippingMethod do
   import Ecto.Changeset
 
   schema "shop_shipping_methods" do
-    field :shipping_method_id, :id
-    field :shop_id, :id
-
+    belongs_to :shipping_method, Eshop.Shipments.ShippingMethod
+    belongs_to :shop, Eshop.Companies.Shop
     timestamps()
   end
 

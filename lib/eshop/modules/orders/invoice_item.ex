@@ -9,8 +9,8 @@ defmodule Eshop.Orders.InvoiceItem do
     field :status, :integer
     field :vat, :decimal
     field :vat_type, :integer
-    field :item_id, :id
-    field :invoice_id, :id
+    belongs_to :item, Eshop.Objects.Item
+    belongs_to :shop, Eshop.Orders.Invoice
 
     timestamps()
   end
@@ -20,5 +20,7 @@ defmodule Eshop.Orders.InvoiceItem do
     invoice_item
     |> cast(attrs, [:qty, :price, :vat, :vat_type, :shipping_charge, :status])
     |> validate_required([:qty, :price, :vat, :vat_type, :shipping_charge, :status])
+    |> validate_inclusion(:vat_type, 1..2)
+    |> validate_inclusion(:status, 1..3)
   end
 end

@@ -3,9 +3,9 @@ defmodule Eshop.Orders.InvoiceItemVariant do
   import Ecto.Changeset
 
   schema "invoice_item_variants" do
-    field :invoice_item_id, :id
-    field :variant_id, :id
-    field :variant_value_id, :id
+    belongs_to :invoice_item, Eshop.Orders.Invoice
+    belongs_to :variant, Eshop.Components.Variant
+    belongs_to :variant_value, Eshop.Components.VariantValue
 
     timestamps()
   end
