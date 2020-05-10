@@ -7,6 +7,23 @@
 * Mix test fixing later
 
 
+schema "users" do
+  has_one :profile, Eshop.Users.UserProfile
+end
+
+schema "user_profiles" do
+  belongs_to :user, Eshop.Users.User
+  belongs_to :pre_location, Eshop.Geo.Location
+  belongs_to :per_location, Eshop.Geo.Location
+end
+
+schema "invoices" do
+  has_many :invoice_items, Eshop.Orders.InvoiceItem
+end
+
+
+
+
 mutation {
   updateRole(id: 2, roleParams: { name: "update value"} ) {
     name
