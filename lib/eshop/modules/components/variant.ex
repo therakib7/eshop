@@ -7,8 +7,8 @@ defmodule Eshop.Components.Variant do
     field :name, :string
     field :native_name, :string
     field :type, :integer
-    field :shop_id, :id
-    field :user_id, :id
+    belongs_to :user, Eshop.Users.User
+    belongs_to :shop, Eshop.Companies.Shop
 
     timestamps()
   end
@@ -18,5 +18,7 @@ defmodule Eshop.Components.Variant do
     variant
     |> cast(attrs, [:order, :name, :native_name, :type])
     |> validate_required([:name, :native_name, :type])
+    |> validate_length(:name, min: 2, max: 200)
+    |> validate_length(:native_name, min: 2, max: 200)
   end
 end

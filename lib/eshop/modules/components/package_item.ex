@@ -5,7 +5,8 @@ defmodule Eshop.Components.PackageItem do
   schema "package_items" do
     field :name, :string
     field :native_name, :string
-    field :package_id, :id
+    belongs_to :package, Eshop.Components.Package 
+    
 
     timestamps()
   end
@@ -15,5 +16,7 @@ defmodule Eshop.Components.PackageItem do
     package_item
     |> cast(attrs, [:name, :native_name])
     |> validate_required([:name, :native_name])
+    |> validate_length(:name, min: 2, max: 200)
+    |> validate_length(:native_name, min: 2, max: 200)
   end
 end

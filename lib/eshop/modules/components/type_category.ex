@@ -5,7 +5,7 @@ defmodule Eshop.Components.TypeCategory do
   schema "type_categories" do
     field :type, :integer
     field :type_id, :integer
-    field :category_id, :id
+    belongs_to :category, Eshop.Components.Category
 
     timestamps()
   end
