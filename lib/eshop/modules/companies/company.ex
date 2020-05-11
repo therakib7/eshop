@@ -10,10 +10,10 @@ defmodule Eshop.Companies.Company do
     field :is_verifed, :boolean, default: false
     field :name, :string
     field :trade_assurance, :boolean, default: false
-    field :user_id, :id
-    field :location_id, :id
-    field :attachment_id, :id
-    field :term_condition_id, :id
+    belongs_to :user, Eshop.Users.User
+    belongs_to :location, Eshop.Geo.Location
+    belongs_to :attachment, Eshop.Attachments.Attachment
+    belongs_to :term_condition, Eshop.Conditions.TermCondition 
 
     timestamps()
   end
@@ -23,5 +23,6 @@ defmodule Eshop.Companies.Company do
     company
     |> cast(attrs, [:is_active, :is_verifed, :name, :trade_assurance, :highest_assurance, :golden_supplier, :created_at])
     |> validate_required([:is_active, :is_verifed, :name, :trade_assurance, :highest_assurance, :golden_supplier, :created_at])
+    |> validate_length(:name, min: 2, max: 200)
   end
 end

@@ -5,7 +5,7 @@ defmodule Eshop.Activities.UserLove do
   schema "user_loves" do
     field :type, :integer
     field :type_id, :integer
-    field :user_id, :id
+    belongs_to :user, Eshop.Users.User
 
     timestamps()
   end

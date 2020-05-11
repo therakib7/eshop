@@ -7,7 +7,7 @@ defmodule Eshop.Activities.Rating do
     field :star, :integer
     field :type, :integer
     field :type_id, :integer
-    field :user_id, :id
+    belongs_to :user, Eshop.Users.User
 
     timestamps()
   end

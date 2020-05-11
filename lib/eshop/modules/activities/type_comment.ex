@@ -6,7 +6,7 @@ defmodule Eshop.Activities.TypeComment do
     field :comment, :string
     field :type, :integer
     field :type_id, :integer
-    field :user_id, :id
+    belongs_to :user, Eshop.Users.User
 
     timestamps()
   end
@@ -16,5 +16,6 @@ defmodule Eshop.Activities.TypeComment do
     type_comment
     |> cast(attrs, [:type, :type_id, :comment])
     |> validate_required([:type, :type_id, :comment])
+    |> validate_length(:comment, min: 4, max: 500)
   end
 end

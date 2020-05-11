@@ -5,8 +5,8 @@ defmodule Eshop.Companies.TypeUserRole do
   schema "type_user_roles" do
     field :type, :integer
     field :type_id, :integer
-    field :user_id, :id
-    field :role_id, :id
+    belongs_to :user, Eshop.Users.User
+    belongs_to :role, Eshop.Users.Role
 
     timestamps()
   end

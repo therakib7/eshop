@@ -6,8 +6,8 @@ defmodule Eshop.Companies.WarehouseVariant do
     field :name, :string
     field :native_name, :string
     field :type, :integer
-    field :company_id, :id
-    field :parent_id, :id
+    belongs_to :company, Eshop.Companies.Company 
+    belongs_to :parent, Eshop.Companies.WarehouseVariant
 
     timestamps()
   end
@@ -17,5 +17,7 @@ defmodule Eshop.Companies.WarehouseVariant do
     warehouse_variant
     |> cast(attrs, [:type, :name, :native_name])
     |> validate_required([:type, :name, :native_name])
+    |> validate_length(:name, min: 1, max: 200)
+    |> validate_length(:native_name, min: 1, max: 200)
   end
 end

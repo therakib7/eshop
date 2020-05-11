@@ -4,8 +4,8 @@ defmodule Eshop.Companies.WarehouseVariantValue do
 
   schema "warehouse_variant_values" do
     field :native_value, :string
-    field :value, :string
-    field :warehouse_variant_id, :id
+    field :value, :string 
+    belongs_to :warehouse_variant, Eshop.Companies.WarehouseVariant
 
     timestamps()
   end
@@ -15,5 +15,7 @@ defmodule Eshop.Companies.WarehouseVariantValue do
     warehouse_variant_value
     |> cast(attrs, [:value, :native_value])
     |> validate_required([:value, :native_value])
+    |> validate_length(:value, min: 1, max: 200)
+    |> validate_length(:native_value, min: 1, max: 200)
   end
 end
