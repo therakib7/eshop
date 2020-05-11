@@ -13,7 +13,7 @@ defmodule Eshop.Repo.Migrations.CreateFaqs do
       timestamps()
     end
 
-    create index(:faqs, [:item])
+    create index(:faqs, [:item_id])
     create index(:faqs, [:user_id])
   end
 end
