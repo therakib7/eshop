@@ -11,6 +11,7 @@ defmodule EshopWeb.Schema.Types.Item do
     field :has_variant, :boolean
     field :has_warehouse, :boolean
     field :is_active, :boolean
+    field :is_online, :boolean
     field :loves, :integer
     field :low_stock, :integer
     field :name, :string

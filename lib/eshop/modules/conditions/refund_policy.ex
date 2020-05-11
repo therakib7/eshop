@@ -16,5 +16,7 @@ defmodule Eshop.Conditions.RefundPolicy do
     refund_policy
     |> cast(attrs, [:type, :type_id, :content, :native_content])
     |> validate_required([:type, :type_id, :content, :native_content])
+    |> validate_length(:content, min: 2, max: 5000)
+    |> validate_length(:native_content, min: 2, max: 5000)
   end
 end

@@ -12,6 +12,7 @@ defmodule EshopWeb.Schema.Mutations.Item do
     	arg :has_package, :boolean
     	arg :has_variant, :boolean
     	arg :has_warehouse, :boolean
+		arg :is_online, :boolean
     	arg :is_active, :boolean
     	arg :loves, :integer
     	arg :low_stock, :integer

@@ -8,9 +8,9 @@ defmodule Eshop.Components.Category do
     field :name, :string
     field :native_name, :string
     field :slug, :string
-    field :parent_id, :id
-    field :attachment_id, :id
-    field :user_id, :id
+    belongs_to :parent, Eshop.Components.Category
+    belongs_to :attachment, Eshop.Attachments.Attachment
+    belongs_to :user, Eshop.Users.User
 
     timestamps()
   end
@@ -20,5 +20,7 @@ defmodule Eshop.Components.Category do
     category
     |> cast(attrs, [:is_active, :order, :name, :native_name, :slug])
     |> validate_required([:is_active, :name, :native_name, :slug])
+    |> validate_length(:name, min: 2, max: 200)
+    |> validate_length(:native_name, min: 2, max: 200)
   end
 end

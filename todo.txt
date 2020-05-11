@@ -13,13 +13,14 @@ schema "users" do
 end
 
 schema "user_profiles" do
-  belongs_to :company, Eshop.Companies.Company
-  belongs_to :shop, Eshop.Companies.Shop
-  belongs_to :user, Eshop.Users.User
-  belongs_to :shop, Eshop.Companies.Shop
-  belongs_to :pre_location, Eshop.Geo.Location
-  belongs_to :per_location, Eshop.Geo.Location
-  belongs_to :invoice, Eshop.Orders.Invoice
+    belongs_to :company, Eshop.Companies.Company
+    belongs_to :shop, Eshop.Companies.Shop
+    belongs_to :user, Eshop.Users.User
+    belongs_to :shop, Eshop.Companies.Shop
+    belongs_to :pre_location, Eshop.Geo.Location
+    belongs_to :per_location, Eshop.Geo.Location
+    belongs_to :invoice, Eshop.Orders.Invoice
+    belongs_to :attachment, Eshop.Attachments.Attachment
 end
 
 schema "invoices" do

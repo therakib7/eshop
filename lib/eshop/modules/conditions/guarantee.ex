@@ -7,7 +7,7 @@ defmodule Eshop.Conditions.Guarantee do
     field :duration, :integer
     field :gurantee_type, :integer
     field :native_content, :string
-    field :item_id, :id
+    belongs_to :user, Eshop.Objects.Item
 
     timestamps()
   end
@@ -17,5 +17,7 @@ defmodule Eshop.Conditions.Guarantee do
     guarantee
     |> cast(attrs, [:content, :native_content, :duration, :gurantee_type])
     |> validate_required([:content, :native_content, :duration, :gurantee_type])
+    |> validate_length(:content, min: 2, max: 5000)
+    |> validate_length(:native_content, min: 2, max: 5000)
   end
 end

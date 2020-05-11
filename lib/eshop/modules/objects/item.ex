@@ -3,6 +3,7 @@ defmodule Eshop.Objects.Item do
   import Ecto.Changeset
 
   schema "items" do
+    field :is_online, :boolean
     field :asin_id, :string
     field :cost_price, :decimal
     field :desc, :string
@@ -35,8 +36,8 @@ defmodule Eshop.Objects.Item do
   @doc false
   def changeset(item, attrs) do
     item
-    |> cast(attrs, [:is_active, :name, :native_name, :desc, :native_desc, :views, :loves, :vat, :vat_type, :unit, :has_variant, :has_package, :total_order, :low_stock, :has_warehouse, :cost_price, :unit_price, :sell_price, :type, :type_id, :extra_fields, :asin_id])
-    |> validate_required([:is_active, :name, :native_name, :desc, :native_desc, :views, :loves, :vat, :vat_type, :unit, :has_variant, :has_package, :total_order, :low_stock, :has_warehouse, :cost_price, :unit_price, :sell_price, :type, :type_id, :extra_fields, :asin_id])
+    |> cast(attrs, [:is_online, :is_active, :name, :native_name, :desc, :native_desc, :views, :loves, :vat, :vat_type, :unit, :has_variant, :has_package, :total_order, :low_stock, :has_warehouse, :cost_price, :unit_price, :sell_price, :type, :type_id, :extra_fields, :asin_id])
+    |> validate_required([:is_online, :is_active, :name, :native_name, :desc, :native_desc, :views, :loves, :vat, :vat_type, :unit, :has_variant, :has_package, :total_order, :low_stock, :has_warehouse, :cost_price, :unit_price, :sell_price, :type, :type_id, :extra_fields, :asin_id])
     |> validate_length(:name, min: 2, max: 200)
     |> validate_length(:native_name, min: 2, max: 200)
 

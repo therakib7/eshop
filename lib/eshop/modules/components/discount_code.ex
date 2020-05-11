@@ -9,10 +9,10 @@ defmodule Eshop.Components.DiscountCode do
     field :is_active, :boolean, default: false
     field :used_at, :utc_datetime
     field :validity, :integer
-    field :shop_id, :id
-    field :user_id, :id
-    field :used_by, :id
-    field :invoice_id, :id
+    belongs_to :shop, Eshop.Companies.Shop
+    belongs_to :user, Eshop.Users.User
+    belongs_to :used_by, Eshop.Users.User
+    belongs_to :invoice, Eshop.Orders.Invoice
 
     timestamps()
   end
