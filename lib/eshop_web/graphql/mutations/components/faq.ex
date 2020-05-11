@@ -9,7 +9,7 @@ defmodule EshopWeb.Schema.Mutations.Faq do
     	arg :native_content, :string
     	arg :native_question, :string
     	arg :question, :string
-    	arg :item, :id
+    	arg :item_id, :id
     	arg :user_id, :id
 
     	resolve &EshopWeb.Schema.Resolvers.Faq.create_faq/3

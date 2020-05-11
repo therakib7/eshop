@@ -6,7 +6,7 @@ defmodule Eshop.Components.Package do
     field :cost_price, :decimal
     field :sale_price, :decimal
     field :unit_price, :decimal
-    field :item_id, :id
+    belongs_to :item, Eshop.Objects.Item
 
     timestamps()
   end

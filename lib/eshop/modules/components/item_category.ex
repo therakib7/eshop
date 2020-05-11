@@ -3,8 +3,8 @@ defmodule Eshop.Components.ItemCategory do
   import Ecto.Changeset
 
   schema "item_categories" do
-    field :item_id, :id
-    field :category_id, :id
+    belongs_to :item, Eshop.Objects.Item
+    belongs_to :category, Eshop.Components.Category
 
     timestamps()
   end

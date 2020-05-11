@@ -5,7 +5,7 @@ defmodule Eshop.Components.VariantValue do
   schema "variant_values" do
     field :native_value, :string
     field :value, :string
-    field :variant_id, :id
+    belongs_to :variant, Eshop.Components.Variant
 
     timestamps()
   end
@@ -15,5 +15,7 @@ defmodule Eshop.Components.VariantValue do
     variant_value
     |> cast(attrs, [:value, :native_value])
     |> validate_required([:value, :native_value])
+    |> validate_length(:value, min: 2, max: 200)
+    |> validate_length(:native_value, min: 2, max: 200)
   end
 end

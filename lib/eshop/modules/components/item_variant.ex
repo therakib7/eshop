@@ -6,10 +6,9 @@ defmodule Eshop.Components.ItemVariant do
     field :cost_price, :decimal
     field :sale_price, :decimal
     field :unit_price, :decimal
-    field :item_id, :id
-    field :variant_id, :id
-    field :variant_value_id, :id
-
+    belongs_to :item, Eshop.Objects.Item
+    belongs_to :variant, Eshop.Components.Variant
+    belongs_to :variant_value, Eshop.Components.VariantValue
     timestamps()
   end
 

@@ -5,7 +5,7 @@ defmodule Eshop.Components.UnitType do
   schema "unit_types" do
     field :name, :string
     field :native_name, :string
-    field :user_id, :id
+    belongs_to :user, Eshop.Users.User
 
     timestamps()
   end
@@ -15,5 +15,7 @@ defmodule Eshop.Components.UnitType do
     unit_type
     |> cast(attrs, [:name, :native_name])
     |> validate_required([:name, :native_name])
+    |> validate_length(:name, min: 2, max: 200)
+    |> validate_length(:native_name, min: 2, max: 200)
   end
 end

@@ -7,7 +7,7 @@ defmodule EshopWeb.Schema.Types.Faq do
     field :native_content, :string
     field :native_question, :string
     field :question, :string
-    field :item, :id
+    field :item_id, :id
     field :user_id, :id
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime

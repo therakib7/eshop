@@ -7,7 +7,7 @@ defmodule Eshop.Repo.Migrations.CreateFaqs do
       add :native_question, :string, null: true, size: 255
       add :content, :text, null: true
       add :native_content, :text, null: true
-      add :item, references(:items, on_delete: :nothing)
+      add :item_id, references(:items, on_delete: :nothing)
       add :user_id, references(:users, on_delete: :nothing)
 
       timestamps()

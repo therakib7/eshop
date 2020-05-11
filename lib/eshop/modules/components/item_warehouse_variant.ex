@@ -3,9 +3,9 @@ defmodule Eshop.Components.ItemWarehouseVariant do
   import Ecto.Changeset
 
   schema "item_warehouse_variants" do
-    field :item_id, :id
-    field :warehouse_variant_id, :id
-    field :warehouse_variant_value_id, :id
+    belongs_to :item, Eshop.Objects.Item
+    belongs_to :warehouse_variant, Eshop.Companies.WarehouseVariant
+    belongs_to :warehouse_variant_value, Eshop.Companies.WarehouseVariantValue
 
     timestamps()
   end
