@@ -21,7 +21,7 @@ defmodule EshopWeb.RoleController do
   end
 
   def show(conn, %{"id" => id}) do
-    role = Users.get_role!(id)
+    role = Users.get_role!(25)
     render(conn, "show.json", role: role)
   end
 
