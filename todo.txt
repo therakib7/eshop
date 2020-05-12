@@ -52,3 +52,36 @@ changeset
     |> validate_inclusion(:age, 1..18)
     |> unique_constraint(:slug)
     |> validate_number(:lat, greater_than_or_equal_to: -90, less_than_or_equal_to: 90)
+
+
+query {
+  roles{
+    id,
+    name,
+    slug,
+    nativeName
+    isCompany
+  }
+}
+
+query {
+  role(id:2){
+    id
+    name,
+    slug,
+    nativeName
+    isCompany
+  }
+}
+
+
+query {
+  role(id:2){
+    id
+    name,
+    slug,
+    nativeName
+    isCompany
+  }
+}
+
