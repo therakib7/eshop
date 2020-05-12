@@ -815,4 +815,132 @@ defmodule Eshop.ComponentsTest do
       assert %Ecto.Changeset{} = Components.change_discount_code(discount_code)
     end
   end
+
+  describe "type_statuses" do
+    alias Eshop.Components.TypeStatus
+
+    @valid_attrs %{is_active: true, name: "some name", native_name: "some native_name", order: 42, type: 42}
+    @update_attrs %{is_active: false, name: "some updated name", native_name: "some updated native_name", order: 43, type: 43}
+    @invalid_attrs %{is_active: nil, name: nil, native_name: nil, order: nil, type: nil}
+
+    def type_status_fixture(attrs \\ %{}) do
+      {:ok, type_status} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Components.create_type_status()
+
+      type_status
+    end
+
+    test "list_type_statuses/0 returns all type_statuses" do
+      type_status = type_status_fixture()
+      assert Components.list_type_statuses() == [type_status]
+    end
+
+    test "get_type_status!/1 returns the type_status with given id" do
+      type_status = type_status_fixture()
+      assert Components.get_type_status!(type_status.id) == type_status
+    end
+
+    test "create_type_status/1 with valid data creates a type_status" do
+      assert {:ok, %TypeStatus{} = type_status} = Components.create_type_status(@valid_attrs)
+      assert type_status.is_active == true
+      assert type_status.name == "some name"
+      assert type_status.native_name == "some native_name"
+      assert type_status.order == 42
+      assert type_status.type == 42
+    end
+
+    test "create_type_status/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Components.create_type_status(@invalid_attrs)
+    end
+
+    test "update_type_status/2 with valid data updates the type_status" do
+      type_status = type_status_fixture()
+      assert {:ok, %TypeStatus{} = type_status} = Components.update_type_status(type_status, @update_attrs)
+      assert type_status.is_active == false
+      assert type_status.name == "some updated name"
+      assert type_status.native_name == "some updated native_name"
+      assert type_status.order == 43
+      assert type_status.type == 43
+    end
+
+    test "update_type_status/2 with invalid data returns error changeset" do
+      type_status = type_status_fixture()
+      assert {:error, %Ecto.Changeset{}} = Components.update_type_status(type_status, @invalid_attrs)
+      assert type_status == Components.get_type_status!(type_status.id)
+    end
+
+    test "delete_type_status/1 deletes the type_status" do
+      type_status = type_status_fixture()
+      assert {:ok, %TypeStatus{}} = Components.delete_type_status(type_status)
+      assert_raise Ecto.NoResultsError, fn -> Components.get_type_status!(type_status.id) end
+    end
+
+    test "change_type_status/1 returns a type_status changeset" do
+      type_status = type_status_fixture()
+      assert %Ecto.Changeset{} = Components.change_type_status(type_status)
+    end
+  end
+
+  describe "invoice_statuses" do
+    alias Eshop.Components.InvoiceStatus
+
+    @valid_attrs %{type: 42, type_id: 42}
+    @update_attrs %{type: 43, type_id: 43}
+    @invalid_attrs %{type: nil, type_id: nil}
+
+    def invoice_status_fixture(attrs \\ %{}) do
+      {:ok, invoice_status} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Components.create_invoice_status()
+
+      invoice_status
+    end
+
+    test "list_invoice_statuses/0 returns all invoice_statuses" do
+      invoice_status = invoice_status_fixture()
+      assert Components.list_invoice_statuses() == [invoice_status]
+    end
+
+    test "get_invoice_status!/1 returns the invoice_status with given id" do
+      invoice_status = invoice_status_fixture()
+      assert Components.get_invoice_status!(invoice_status.id) == invoice_status
+    end
+
+    test "create_invoice_status/1 with valid data creates a invoice_status" do
+      assert {:ok, %InvoiceStatus{} = invoice_status} = Components.create_invoice_status(@valid_attrs)
+      assert invoice_status.type == 42
+      assert invoice_status.type_id == 42
+    end
+
+    test "create_invoice_status/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Components.create_invoice_status(@invalid_attrs)
+    end
+
+    test "update_invoice_status/2 with valid data updates the invoice_status" do
+      invoice_status = invoice_status_fixture()
+      assert {:ok, %InvoiceStatus{} = invoice_status} = Components.update_invoice_status(invoice_status, @update_attrs)
+      assert invoice_status.type == 43
+      assert invoice_status.type_id == 43
+    end
+
+    test "update_invoice_status/2 with invalid data returns error changeset" do
+      invoice_status = invoice_status_fixture()
+      assert {:error, %Ecto.Changeset{}} = Components.update_invoice_status(invoice_status, @invalid_attrs)
+      assert invoice_status == Components.get_invoice_status!(invoice_status.id)
+    end
+
+    test "delete_invoice_status/1 deletes the invoice_status" do
+      invoice_status = invoice_status_fixture()
+      assert {:ok, %InvoiceStatus{}} = Components.delete_invoice_status(invoice_status)
+      assert_raise Ecto.NoResultsError, fn -> Components.get_invoice_status!(invoice_status.id) end
+    end
+
+    test "change_invoice_status/1 returns a invoice_status changeset" do
+      invoice_status = invoice_status_fixture()
+      assert %Ecto.Changeset{} = Components.change_invoice_status(invoice_status)
+    end
+  end
 end

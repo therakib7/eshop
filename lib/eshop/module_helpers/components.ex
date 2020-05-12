@@ -1253,4 +1253,197 @@ defmodule Eshop.Components do
   def change_discount_code(%DiscountCode{} = discount_code, attrs \\ %{}) do
     DiscountCode.changeset(discount_code, attrs)
   end
+
+  alias Eshop.Components.TypeStatus
+
+  @doc """
+  Returns the list of type_statuses.
+
+  ## Examples
+
+      iex> list_type_statuses()
+      [%TypeStatus{}, ...]
+
+  """
+  def list_type_statuses do
+    Repo.all(TypeStatus)
+  end
+
+  @doc """
+  Gets a single type_status.
+
+  Raises `Ecto.NoResultsError` if the Type status does not exist.
+
+  ## Examples
+
+      iex> get_type_status!(123)
+      %TypeStatus{}
+
+      iex> get_type_status!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_type_status!(id), do: Repo.get!(TypeStatus, id)
+
+  @doc """
+  Creates a type_status.
+
+  ## Examples
+
+      iex> create_type_status(%{field: value})
+      {:ok, %TypeStatus{}}
+
+      iex> create_type_status(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_type_status(attrs \\ %{}) do
+    %TypeStatus{}
+    |> TypeStatus.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a type_status.
+
+  ## Examples
+
+      iex> update_type_status(type_status, %{field: new_value})
+      {:ok, %TypeStatus{}}
+
+      iex> update_type_status(type_status, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_type_status(%TypeStatus{} = type_status, attrs) do
+    type_status
+    |> TypeStatus.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a type_status.
+
+  ## Examples
+
+      iex> delete_type_status(type_status)
+      {:ok, %TypeStatus{}}
+
+      iex> delete_type_status(type_status)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_type_status(%TypeStatus{} = type_status) do
+    Repo.delete(type_status)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking type_status changes.
+
+  ## Examples
+
+      iex> change_type_status(type_status)
+      %Ecto.Changeset{data: %TypeStatus{}}
+
+  """
+  def change_type_status(%TypeStatus{} = type_status, attrs \\ %{}) do
+    TypeStatus.changeset(type_status, attrs)
+  end
+
+  alias Eshop.Components.InvoiceStatus
+
+  @doc """
+  Returns the list of invoice_statuses.
+
+  ## Examples
+
+      iex> list_invoice_statuses()
+      [%InvoiceStatus{}, ...]
+
+  """
+  def list_invoice_statuses do
+    Repo.all(InvoiceStatus)
+  end
+
+  @doc """
+  Gets a single invoice_status.
+
+  Raises `Ecto.NoResultsError` if the Invoice status does not exist.
+
+  ## Examples
+
+      iex> get_invoice_status!(123)
+      %InvoiceStatus{}
+
+      iex> get_invoice_status!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_invoice_status!(id), do: Repo.get!(InvoiceStatus, id)
+
+  @doc """
+  Creates a invoice_status.
+
+  ## Examples
+
+      iex> create_invoice_status(%{field: value})
+      {:ok, %InvoiceStatus{}}
+
+      iex> create_invoice_status(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_invoice_status(attrs \\ %{}) do
+    %InvoiceStatus{}
+    |> InvoiceStatus.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a invoice_status.
+
+  ## Examples
+
+      iex> update_invoice_status(invoice_status, %{field: new_value})
+      {:ok, %InvoiceStatus{}}
+
+      iex> update_invoice_status(invoice_status, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_invoice_status(%InvoiceStatus{} = invoice_status, attrs) do
+    invoice_status
+    |> InvoiceStatus.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a invoice_status.
+
+  ## Examples
+
+      iex> delete_invoice_status(invoice_status)
+      {:ok, %InvoiceStatus{}}
+
+      iex> delete_invoice_status(invoice_status)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_invoice_status(%InvoiceStatus{} = invoice_status) do
+    Repo.delete(invoice_status)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking invoice_status changes.
+
+  ## Examples
+
+      iex> change_invoice_status(invoice_status)
+      %Ecto.Changeset{data: %InvoiceStatus{}}
+
+  """
+  def change_invoice_status(%InvoiceStatus{} = invoice_status, attrs \\ %{}) do
+    InvoiceStatus.changeset(invoice_status, attrs)
+  end
+  
 end
