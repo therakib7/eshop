@@ -29,6 +29,7 @@ defmodule Eshop.Users.User do
     |> validate_confirmation(:password)
     |> validate_format(:email, ~r/@/)
     |> unique_constraint(:email)
+    |> update_change(:email, &String.downcase/1)
     |> validate_length(:password, min: 8, max: 80)
     |> validate_length(:pin, min: 4, max: 10)
     |> put_password_hash()
