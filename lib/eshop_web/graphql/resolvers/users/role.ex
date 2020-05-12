@@ -5,19 +5,7 @@ defmodule EshopWeb.Schema.Resolvers.Role do
     end
 
     def get_role(_, %{id: id}, _) do 
-		# case {:ok, Eshop.Users.get_role!(id)} do
-		# 	{:ok, Eshop.Users.get_role!(id)}
-		# 	{:error, _} -> {:error, "No role found by its ID"}
-		# end
-		# case {:ok, Eshop.Users.get_role!(id)} do
-		# {:ok, Eshop.Users.get_role!(id)}
-		# {:error, _} -> {"Failed to update role"}
-		# end
-		case {:ok, Eshop.Users.get_role!(id)} do
-			{:ok, role} -> {:ok, Eshop.Users.get_role!(id)}
-			{:error, _} -> {:error, "Failed to update role"}
-		end
-		
+		{:ok, Eshop.Users.get_role!(id)}
     end
     
     def create_role(_parent, args, _resolution) do
