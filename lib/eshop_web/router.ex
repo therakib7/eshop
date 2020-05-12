@@ -21,6 +21,7 @@ defmodule EshopWeb.Router do
 
     # Users
     resources "/users", UserController, except: [:new, :edit]
+    resources "/roles", RoleController, except: [:new, :edit]
     resources "/users/profiles", UserProfileController, except: [:new, :edit]
     resources "/users/login_details", LoginDetailController, except: [:new, :edit]
     resources "/users/password_resets", PasswordResetController, except: [:new, :edit]
