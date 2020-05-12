@@ -85,3 +85,10 @@ query {
   }
 }
 
+alias ga='git add .'
+alias gc='git commit -m'
+alias gpl='git pull origin master'
+alias gp='git push origin master'
+alias gs='git status'
+
+
