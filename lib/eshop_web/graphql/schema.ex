@@ -162,6 +162,9 @@ defmodule EshopWeb.Schema do
         UserRole,
         LoginDetail,
 
+        #Auth
+        AuthLogin,
+
         # Geo
         CountryStage,
         Location,
@@ -237,6 +240,9 @@ defmodule EshopWeb.Schema do
         import_fields(:role_queries)
         import_fields(:user_role_queries)
         import_fields(:login_detail_queries)
+
+        #Auth
+        import_fields(:auth_login_mutations)
 
         # Geo
         import_fields(:country_stage_queries)

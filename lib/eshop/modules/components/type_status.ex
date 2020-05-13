@@ -8,7 +8,7 @@ defmodule Eshop.Components.TypeStatus do
     field :native_name, :string
     field :order, :integer
     field :type, :integer
-    field :user_id, :id
+    belongs_to :user, Eshop.Users.User
 
     timestamps()
   end
@@ -18,5 +18,8 @@ defmodule Eshop.Components.TypeStatus do
     type_status
     |> cast(attrs, [:is_active, :order, :type, :name, :native_name])
     |> validate_required([:is_active, :order, :type, :name, :native_name])
+    |> validate_length(:name, min: 1, max: 50)
+    |> validate_length(:native_name, min: 1, max: 50)
+
   end
 end

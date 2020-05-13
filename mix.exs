@@ -48,7 +48,7 @@ defmodule Eshop.MixProject do
       {:absinthe_plug, "~> 1.4"},
       {:absinthe_ecto, "~> 0.1.3"},
       {:corsica, "~> 1.1"},
-      {:bcrypt_elixir, "~> 2.0"}
+      {:argon2_elixir, "~> 2.0"},
     ]
   end
 

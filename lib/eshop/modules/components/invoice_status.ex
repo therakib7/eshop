@@ -5,11 +5,11 @@ defmodule Eshop.Components.InvoiceStatus do
   schema "invoice_statuses" do
     field :type, :integer
     field :type_id, :integer
-    field :invoice_id, :id
-    field :type_status_id, :id
+    belongs_to :invoice, Eshop.Orders.Invoice
+    belongs_to :type_status, Eshop.Components.TypeStatus
 
     timestamps()
-  end
+  end 
 
   @doc false
   def changeset(invoice_status, attrs) do

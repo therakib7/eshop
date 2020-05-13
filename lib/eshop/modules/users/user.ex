@@ -35,12 +35,10 @@ defmodule Eshop.Users.User do
     |> put_password_hash()
   end
   
-  defp put_password_hash(changeset) do
-    case changeset do
-      %Ecto.Changeset{valid?: true, changes: %{password: pass}} ->
-        put_change(changeset, :password_hash, Bcrypt.hash_pwd_salt(pass))
-      _ ->
-        changeset
-    end
+  defp put_password_hash(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do
+    change(changeset, password_hash: Argon2.hash_pwd_salt(password))
   end
+
+  defp put_password_hash(changeset), do: changeset
+
 end

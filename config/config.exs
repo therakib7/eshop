@@ -29,3 +29,7 @@ config :phoenix, :json_library, Jason
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
+
+config :eshop, Eshop.UserManager.Guardian,
+  issuer: "eshop",
+  secret_key: "DJMITTwb0aO0MLmxWfbQZSprPfHOBiXHwd2+S8HvCi88slKqrk5tBwF5e+2EhNr0"
