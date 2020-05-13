@@ -8,3 +8,4 @@ defmodule EshopWeb.Schema.Queries.Company do
     end
   end 
 end
+
