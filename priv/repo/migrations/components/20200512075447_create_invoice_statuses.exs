@@ -13,5 +13,6 @@ defmodule Eshop.Repo.Migrations.CreateInvoiceStatuses do
 
     create index(:invoice_statuses, [:invoice_id])
     create index(:invoice_statuses, [:type_status_id])
+    create index(:invoice_statuses, [:type, :type_id])
   end
 end
