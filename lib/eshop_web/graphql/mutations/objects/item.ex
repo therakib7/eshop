@@ -1,10 +1,12 @@
 defmodule EshopWeb.Schema.Mutations.Item do
-  use Absinthe.Schema.Notation
+	use Absinthe.Schema.Notation
   
-  object :item_mutations do
-    @desc "Create a item"
-    field :create_item, type: :item do 
-        arg :id, :integer
+	alias EshopWeb.Schema.Resolvers.Item, as: Item
+  
+	object :item_mutations do
+	  @desc "Create a item"
+	  field :create_item, type: :item do 
+		  arg :id, :integer
     	arg :asin_id, :string
     	arg :cost_price, :decimal
     	arg :desc, :string
@@ -12,7 +14,7 @@ defmodule EshopWeb.Schema.Mutations.Item do
     	arg :has_package, :boolean
     	arg :has_variant, :boolean
     	arg :has_warehouse, :boolean
-		arg :is_online, :boolean
+		  arg :is_online, :boolean
     	arg :is_active, :boolean
     	arg :loves, :integer
     	arg :low_stock, :integer
@@ -31,8 +33,22 @@ defmodule EshopWeb.Schema.Mutations.Item do
     	arg :user_id, :id
     	arg :shop_id, :id
     	arg :unit_type_id, :id
-
-    	resolve &EshopWeb.Schema.Resolvers.Item.create_item/3
-    end
-  end 
+      
+		  resolve &Item.create_item/3
+	  end
+  
+	  @desc "Update a item"
+	  field :update_item, type: :item do
+		  arg(:id, non_null(:id))
+		  arg(:item_params, :item_params)
+  
+		  resolve &Item.update_item/2
+	  end
+	  
+	  @desc "Delete a item"
+	  field :delete_item, type: :item do
+		  arg(:id, non_null(:id))
+		  resolve &Item.delete_item/2
+	  end
+	end 
 end
