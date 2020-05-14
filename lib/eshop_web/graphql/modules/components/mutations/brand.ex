@@ -6,7 +6,7 @@ defmodule EshopWeb.Schema.Mutations.Brand do
 	object :brand_mutations do
 	  @desc "Create a brand"
 	  field :create_brand, type: :brand do 
-		  arg :id, :integer
+		arg :id, :integer
     	arg :is_active, :boolean
     	arg :order, :integer
     	arg :loves, :integer

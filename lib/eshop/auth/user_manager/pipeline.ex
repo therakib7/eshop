@@ -1,6 +1,6 @@
 defmodule Eshop.Auth.UserManager.Pipeline do
   use Guardian.Plug.Pipeline,
-    otp_app: :auth_me,
+    otp_app: :eshop,
     error_handler: AuthMe.UserManager.ErrorHandler,
     module: AuthMe.UserManager.Guardian
 
