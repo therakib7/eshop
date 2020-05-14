@@ -39,3 +39,10 @@ config :eshop, Eshop.Auth.UserManager.Guardian,
   allowed_algos: ["HS512"],
   secret_key: "DJMITTwb0aO0MLmxWfbQZSprPfHOBiXHwd2+S8HvCi88slKqrk5tBwF5e+2EhNr0",
   serializer: Eshop.Auth.UserManager.Guardian
+
+
+config :guardian, Guardian.DB,
+  repo: MyApp.Repo, # Add your repository module
+  schema_name: "guardian_tokens", # default
+  token_types: ["refresh_token"], # store all token types if not set
+  sweep_interval: 60 # default: 60 minutes

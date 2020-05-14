@@ -4,7 +4,7 @@ defmodule Eshop.Auth.UserManager do
     import Ecto.Query, only: [from: 2]
 
     def authenticate_user(email, plain_text_password) do
-        query = %{}
+        query = 
         if validate(email) do
             query = from u in Eshop.Users.User, where: u.email == ^email
         else
