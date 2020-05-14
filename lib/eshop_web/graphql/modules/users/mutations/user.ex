@@ -1,7 +1,8 @@
 defmodule EshopWeb.Schema.Mutations.User do
 	use Absinthe.Schema.Notation
   
-	alias EshopWeb.Schema.Resolvers.User, as: User
+  alias EshopWeb.Schema.Resolvers.User, as: User
+  alias EshopWeb.Schema.Resolvers.UserProfile, as: UserProfile
   
 	object :user_mutations do
 	  @desc "Create a user"
@@ -17,7 +18,7 @@ defmodule EshopWeb.Schema.Mutations.User do
       arg :pin, :integer
       arg :verified_email, :datetime 
       arg :verified_phone, :datetime 
-      arg :verified_user, :datetime 
+      arg :verified_user, :datetime  
       
 		  resolve &User.create_user/3
 	  end
