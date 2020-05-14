@@ -42,13 +42,14 @@ defmodule Eshop.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:guardian, "~> 2.1"},
+      {:argon2_elixir, "~> 2.0"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:absinthe, "~> 1.4"},
       {:absinthe_plug, "~> 1.4"},
       {:absinthe_ecto, "~> 0.1.3"},
-      {:corsica, "~> 1.1"},
-      {:argon2_elixir, "~> 2.0"},
+      {:corsica, "~> 1.1"}, 
+      {:dataloader, "~> 1.0.0"}
     ]
   end
 
