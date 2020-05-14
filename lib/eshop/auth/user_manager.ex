@@ -5,7 +5,11 @@ defmodule Eshop.Auth.UserManager do
     import Ecto.Query, only: [from: 2]
 
     def authenticate_user(email, plain_text_password) do
-        query = from u in User, where: u.email == ^email
+        if validate(email) do
+            query = from u in User, where: u.email == ^email
+        else
+            query = from u in User, where: u.phone == ^email
+        end
         case Repo.one(query) do
             nil ->
             Argon2.no_user_verify()
@@ -18,4 +22,9 @@ defmodule Eshop.Auth.UserManager do
             end
         end
     end
+
+    def validate(email) do
+        String.match?(email, ~r/.+@[^\.]+.*/)
+    end
 end
+
