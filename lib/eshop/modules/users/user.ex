@@ -16,7 +16,7 @@ defmodule Eshop.Users.User do
     field :verified_phone, :utc_datetime
     field :verified_user, :utc_datetime
     
-    has_one :profile, Eshop.Users.UserProfile
+    #has_one :profile, Eshop.Users.UserProfile
 
     timestamps()
   end

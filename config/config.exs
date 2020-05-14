@@ -42,7 +42,7 @@ config :eshop, Eshop.Auth.UserManager.Guardian,
 
 
 config :guardian, Guardian.DB,
-  repo: MyApp.Repo, # Add your repository module
+  repo: Eshop.Repo, # Add your repository module
   schema_name: "guardian_tokens", # default
-  token_types: ["refresh_token"], # store all token types if not set
+  #token_types: ["refresh_token"], # store all token types if not set
   sweep_interval: 60 # default: 60 minutes
