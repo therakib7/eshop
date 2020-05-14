@@ -1,7 +1,7 @@
 defmodule Eshop.Auth.UserManager.Guardian do
-  use Guardian, otp_app: :auth_me
+  use Guardian, otp_app: :eshop
 
-  alias AuthMe.UserManager
+  alias Eshop.Auth.UserManager
 
   def subject_for_token(user, _claims) do
     {:ok, to_string(user.id)}
@@ -13,4 +13,5 @@ defmodule Eshop.Auth.UserManager.Guardian do
   rescue
     Ecto.NoResultsError -> {:error, :resource_not_found}
   end
+
 end

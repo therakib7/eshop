@@ -241,9 +241,6 @@ defmodule EshopWeb.Schema do
         import_fields(:user_role_queries)
         import_fields(:login_detail_queries)
 
-        #Auth
-        import_fields(:auth_login_mutations)
-
         # Geo
         import_fields(:country_stage_queries)
         import_fields(:location_queries)
@@ -320,6 +317,9 @@ defmodule EshopWeb.Schema do
         import_fields(:role_mutations)
         import_fields(:user_role_mutations)
         import_fields(:login_detail_mutations)
+
+        #Auth
+        import_fields(:auth_login_mutations)
 
         # Geo
         import_fields(:country_stage_mutations)
