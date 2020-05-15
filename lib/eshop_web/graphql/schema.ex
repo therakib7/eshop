@@ -10,6 +10,9 @@ defmodule EshopWeb.Schema do
         UserRole,
         LoginDetail,
 
+        # Auth
+        AuthLogin,
+
         # Geo
         CountryStage,
         Location,

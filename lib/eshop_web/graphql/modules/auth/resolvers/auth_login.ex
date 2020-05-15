@@ -8,8 +8,8 @@ defmodule EshopWeb.Schema.Resolvers.AuthLogin do
         # end
         with {:ok, user} <- Eshop.AuthHelper.authenticate_user(email, password),
             {:ok, jwt, claims} <- Eshop.Guardian.encode_and_sign(user),
-            {:ok, token} <- Eshop.Guardian.after_encode_and_sign(%{"sub" => user.id}, claims, jwt,user) do
-            {:ok, %{id: token}}
+            {:ok, token} <- Eshop.Guardian.after_encode_and_sign(%{"sub" => user.id}, claims, jwt) do
+            {:ok, %{jwt: jwt}}
         end
     end
 end

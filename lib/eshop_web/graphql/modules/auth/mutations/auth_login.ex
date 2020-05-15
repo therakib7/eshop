@@ -3,7 +3,7 @@ defmodule EshopWeb.Schema.Mutations.AuthLogin do
   
 	object :auth_login_mutations do
 	  @desc "Create a login"
-	  field :create_login, type: :user do 
+	  field :create_login, type: :auth_login do 
 		  arg(:email, non_null(:string))
           arg(:password, non_null(:string))
   

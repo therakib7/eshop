@@ -10,7 +10,7 @@ defmodule EshopWeb.Router do
   end
 
   scope "/api" do
-    pipe_through(:graphql) 
+    #pipe_through(:graphql) 
     pipe_through :api
     
 
