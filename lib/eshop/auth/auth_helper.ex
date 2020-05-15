@@ -1,5 +1,5 @@
 ## lib/auth_me/user_manager.ex
-defmodule Eshop.Auth.UserManager do
+defmodule Eshop.AuthHelper do
 
     import Ecto.Query, only: [from: 2]
 

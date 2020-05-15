@@ -30,7 +30,7 @@ config :phoenix, :json_library, Jason
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
 
-config :eshop, Eshop.Auth.UserManager.Guardian,
+config :eshop, Eshop.Guardian,
   issuer: "eshop",
   verify_module: Guardian.JWT,
   ttl: {30, :days},
@@ -38,11 +38,10 @@ config :eshop, Eshop.Auth.UserManager.Guardian,
   allowed_drift: 2000,
   allowed_algos: ["HS512"],
   secret_key: "DJMITTwb0aO0MLmxWfbQZSprPfHOBiXHwd2+S8HvCi88slKqrk5tBwF5e+2EhNr0",
-  serializer: Eshop.Auth.UserManager.Guardian
-
+  serializer: Eshop.Guardian
 
 config :guardian, Guardian.DB,
-  repo: MyApp.Repo, # Add your repository module
+  repo: Eshop.Repo, # Add your repository module
   schema_name: "guardian_tokens", # default
-  token_types: ["refresh_token"], # store all token types if not set
+  #token_types: ["refresh_token"], # store all token types if not set
   sweep_interval: 60 # default: 60 minutes

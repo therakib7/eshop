@@ -5,14 +5,20 @@ defmodule EshopWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/graphql" do
-    pipe_through :api
+  pipeline :graphql do
+    plug Eshop.Auth.Context
+  end
 
-    forward "/ide",
+  scope "/api" do
+    pipe_through(:graphql) 
+    pipe_through :api
+    
+
+    forward "/graphiql",
       Absinthe.Plug.GraphiQL,
       schema: EshopWeb.Schema
 
-    forward "/", Absinthe.Plug,
+    forward "/graphql", Absinthe.Plug,
       schema: EshopWeb.Schema
   end
 

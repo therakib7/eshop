@@ -12,11 +12,12 @@ defmodule Eshop.Users.User do
     field :password_confirmation, :string, virtual: true
     field :password_hash, :string
     field :pin, :integer
+    field :token, :string
     field :verified_email, :utc_datetime
     field :verified_phone, :utc_datetime
     field :verified_user, :utc_datetime
     
-    has_one :profile, Eshop.Users.UserProfile
+    #has_one :profile, Eshop.Users.UserProfile
 
     timestamps()
   end
