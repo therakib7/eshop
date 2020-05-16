@@ -1,7 +1,9 @@
-* All Routers
-* done - Views folder module separate
-* Casting data validation
-* Queries data first in graphql.
+# all search arguments
+# has one, has_many and belongs to data
+# Pagination data
+# Role permission
+
+* All Routers   
 * Seed data (Role and Permission and others)
 * Gurdian Authentication Api and graphql 
 * Mix test fixing later

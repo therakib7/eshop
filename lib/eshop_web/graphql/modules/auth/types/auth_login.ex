@@ -3,6 +3,6 @@ defmodule EshopWeb.Schema.Types.AuthLogin do
   
     @desc "A auth_login"
     object :auth_login do  
-      field :jwt, :string 
+      field :token, :string 
     end 
 end
