@@ -22,13 +22,13 @@ defmodule Eshop.Guardian do
     end
   end
 
-  def on_verify(claims, token, _options) do
+  def on_verify(claims, token) do
     with {:ok, _} <- Guardian.DB.on_verify(claims, token) do
       {:ok, claims}
     end
   end
 
-  def on_revoke(claims, token, _options) do
+  def on_revoke(claims, token) do
     with {:ok, _} <- Guardian.DB.on_revoke(claims, token) do
       {:ok, claims}
     end
