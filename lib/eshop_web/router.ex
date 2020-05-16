@@ -9,10 +9,8 @@ defmodule EshopWeb.Router do
     plug Eshop.Auth.Context
   end
 
-  scope "/api" do
-    #pipe_through(:graphql) 
-    pipe_through :api
-    
+  scope "/api" do 
+    pipe_through [:api, :graphql] 
 
     forward "/graphiql",
       Absinthe.Plug.GraphiQL,

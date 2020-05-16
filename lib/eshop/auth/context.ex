@@ -1,37 +1,24 @@
 defmodule Eshop.Auth.Context do
-    @behaviour Plug
-   
-    import Plug.Conn
-    import Ecto.Query, only: [where: 2]
-   
-    alias Eshop.Repo
-    alias Eshop.Users.User
-   
-    def init(opts), do: opts
-   
-    def call(conn, _) do
-     case build_context(conn) do
+  @behaviour Plug
+  
+  import Plug.Conn
+  
+  def init(opts), do: opts
+  
+  def call(conn, _) do
+    case build_context(conn) do
       {:ok, context} ->
-       put_private(conn, :absinthe, %{context: context})
+      put_private(conn, :absinthe, %{context: context})
       _ ->
-       conn
-     end
+      conn
     end
-   
-    defp build_context(conn) do
-     with ["Bearer " <> token] <- get_req_header(conn, "authorization"),
-          {:ok, current_user} <- authorize(token) do
-      {:ok, %{current_user: current_user, token: token}}
-     end
+  end
+  
+  defp build_context(conn) do
+    with ["Bearer " <> token] <- get_req_header(conn, "authorization"),
+    {:ok, claims} <- Eshop.Guardian.decode_and_verify(token),
+    {:ok, current_user} <- Eshop.Guardian.on_verify(claims,token) do
+    {:ok, %{current_user: current_user, token: token}}
     end
-   
-    defp authorize(token) do
-       User
-       |> where(token: ^token) 
-       |> Repo.one()
-     |> case do
-          nil -> {:error, "Invalid authorization token"}
-       user -> {:ok, user}
-        end
-    end
-   end
+  end
+end
