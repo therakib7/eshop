@@ -11,6 +11,4 @@ Enum.each(model_lists, fn(m) ->
             slug: String.downcase(m) <> "_" <> p, 
         } |> Repo.insert! 
     end) 
-end)
-
-
+end) 
