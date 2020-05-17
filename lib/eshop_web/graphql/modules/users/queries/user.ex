@@ -6,8 +6,7 @@ defmodule EshopWeb.Schema.Queries.User do
   object :user_queries do
     @desc "Get all users"
     field :users, list_of(:user) do
-      #middleware(EshopWeb.Graphql.Middleware.Authorize)
-      middleware(EshopWeb.Graphql.Middleware.Permission, hello: "sdfsd")
+      middleware(EshopWeb.Graphql.Middleware.Authorize, "123456")
       resolve(&User.list_users/3)
     end
 
