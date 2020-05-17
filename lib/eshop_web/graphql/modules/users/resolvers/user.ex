@@ -1,5 +1,5 @@
 defmodule EshopWeb.Schema.Resolvers.User do
-
+  alias Eshop.Users
   def list_users(_parent, _args, _resolution) do
     {:ok, Eshop.Users.list_users()}
   end

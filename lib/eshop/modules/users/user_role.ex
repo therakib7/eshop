@@ -3,8 +3,8 @@ defmodule Eshop.Users.UserRole do
   import Ecto.Changeset
 
   schema "user_roles" do
-    belongs_to :user_id, Eshop.Users.User
-    belongs_to :role_id, Eshop.Users.Role
+    belongs_to :user, Eshop.Users.User
+    belongs_to :role, Eshop.Users.Role
     timestamps()
   end
 
