@@ -11,9 +11,11 @@ defmodule EshopWeb.WarehouseVariantView do
   end
 
   def render("warehouse_variant.json", %{warehouse_variant: warehouse_variant}) do
-    %{id: warehouse_variant.id,
+    %{
+      id: warehouse_variant.id,
       type: warehouse_variant.type,
       name: warehouse_variant.name,
-      native_name: warehouse_variant.native_name}
+      native_name: warehouse_variant.native_name
+    }
   end
 end

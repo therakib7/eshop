@@ -11,7 +11,8 @@ defmodule EshopWeb.UserView do
   end
 
   def render("user.json", %{user: user}) do
-    %{id: user.id,
+    %{
+      id: user.id,
       is_active: user.is_active,
       first_name: user.first_name,
       surname: user.surname,
@@ -21,6 +22,7 @@ defmodule EshopWeb.UserView do
       password_hash: user.password_hash,
       verified_user: user.verified_user,
       verified_email: user.verified_email,
-      verified_phone: user.verified_phone}
+      verified_phone: user.verified_phone
+    }
   end
 end

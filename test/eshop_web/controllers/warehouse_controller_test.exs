@@ -56,7 +56,10 @@ defmodule EshopWeb.WarehouseControllerTest do
   describe "update warehouse" do
     setup [:create_warehouse]
 
-    test "renders warehouse when data is valid", %{conn: conn, warehouse: %Warehouse{id: id} = warehouse} do
+    test "renders warehouse when data is valid", %{
+      conn: conn,
+      warehouse: %Warehouse{id: id} = warehouse
+    } do
       conn = put(conn, Routes.warehouse_path(conn, :update, warehouse), warehouse: @update_attrs)
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 

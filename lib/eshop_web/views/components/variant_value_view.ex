@@ -11,8 +11,6 @@ defmodule EshopWeb.VariantValueView do
   end
 
   def render("variant_value.json", %{variant_value: variant_value}) do
-    %{id: variant_value.id,
-      value: variant_value.value,
-      native_value: variant_value.native_value}
+    %{id: variant_value.id, value: variant_value.value, native_value: variant_value.native_value}
   end
 end

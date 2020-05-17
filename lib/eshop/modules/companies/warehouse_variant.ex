@@ -6,7 +6,7 @@ defmodule Eshop.Companies.WarehouseVariant do
     field :name, :string
     field :native_name, :string
     field :type, :integer
-    belongs_to :company, Eshop.Companies.Company 
+    belongs_to :company, Eshop.Companies.Company
     belongs_to :parent, Eshop.Companies.WarehouseVariant
 
     timestamps()

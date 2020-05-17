@@ -11,8 +11,6 @@ defmodule EshopWeb.PackageItemView do
   end
 
   def render("package_item.json", %{package_item: package_item}) do
-    %{id: package_item.id,
-      name: package_item.name,
-      native_name: package_item.native_name}
+    %{id: package_item.id, name: package_item.name, native_name: package_item.native_name}
   end
 end

@@ -11,13 +11,15 @@ defmodule EshopWeb.CompanyView do
   end
 
   def render("company.json", %{company: company}) do
-    %{id: company.id,
+    %{
+      id: company.id,
       is_active: company.is_active,
       is_verifed: company.is_verifed,
       name: company.name,
       trade_assurance: company.trade_assurance,
       highest_assurance: company.highest_assurance,
       golden_supplier: company.golden_supplier,
-      created_at: company.created_at}
+      created_at: company.created_at
+    }
   end
 end

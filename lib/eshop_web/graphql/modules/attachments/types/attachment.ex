@@ -4,7 +4,7 @@ defmodule EshopWeb.Schema.Types.Attachment do
   @desc "A attachment by a type"
   object :attachment do
     field :id, :integer
-    field :file_name, :string 
+    field :file_name, :string
     field :orginal_size, :string
     field :resized_size, :string
     field :type, :integer
@@ -14,8 +14,8 @@ defmodule EshopWeb.Schema.Types.Attachment do
   end
 
   @desc "A attachment update by a type"
-  input_object :attachment_params do 
-    field :file_name, :string 
+  input_object :attachment_params do
+    field :file_name, :string
     field :orginal_size, :string
     field :resized_size, :string
     field :type, :integer

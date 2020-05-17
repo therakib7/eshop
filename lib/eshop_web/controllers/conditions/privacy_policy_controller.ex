@@ -12,7 +12,8 @@ defmodule EshopWeb.PrivacyPolicyController do
   end
 
   def create(conn, %{"privacy_policy" => privacy_policy_params}) do
-    with {:ok, %PrivacyPolicy{} = privacy_policy} <- Conditions.create_privacy_policy(privacy_policy_params) do
+    with {:ok, %PrivacyPolicy{} = privacy_policy} <-
+           Conditions.create_privacy_policy(privacy_policy_params) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.privacy_policy_path(conn, :show, privacy_policy))
@@ -28,7 +29,8 @@ defmodule EshopWeb.PrivacyPolicyController do
   def update(conn, %{"id" => id, "privacy_policy" => privacy_policy_params}) do
     privacy_policy = Conditions.get_privacy_policy!(id)
 
-    with {:ok, %PrivacyPolicy{} = privacy_policy} <- Conditions.update_privacy_policy(privacy_policy, privacy_policy_params) do
+    with {:ok, %PrivacyPolicy{} = privacy_policy} <-
+           Conditions.update_privacy_policy(privacy_policy, privacy_policy_params) do
       render(conn, "show.json", privacy_policy: privacy_policy)
     end
   end

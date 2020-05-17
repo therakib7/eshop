@@ -11,7 +11,7 @@ defmodule EshopWeb.Schema.Types.Permission do
   end
 
   @desc "A permission update"
-  input_object :permission_params do 
+  input_object :permission_params do
     field :name, :string
     field :slug, :string
   end

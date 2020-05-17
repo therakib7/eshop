@@ -11,7 +11,6 @@ defmodule EshopWeb.TrackingInvoiceView do
   end
 
   def render("tracking_invoice.json", %{tracking_invoice: tracking_invoice}) do
-    %{id: tracking_invoice.id,
-      tracking_id: tracking_invoice.tracking_id}
+    %{id: tracking_invoice.id, tracking_id: tracking_invoice.tracking_id}
   end
 end

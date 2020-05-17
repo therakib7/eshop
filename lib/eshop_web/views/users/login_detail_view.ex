@@ -11,12 +11,14 @@ defmodule EshopWeb.LoginDetailView do
   end
 
   def render("login_detail.json", %{login_detail: login_detail}) do
-    %{id: login_detail.id,
+    %{
+      id: login_detail.id,
       is_active: login_detail.is_active,
       user_agent: login_detail.user_agent,
       ip_address: login_detail.ip_address,
       ip_location: login_detail.ip_location,
       login_at: login_detail.login_at,
-      last_activity: login_detail.last_activity}
+      last_activity: login_detail.last_activity
+    }
   end
 end

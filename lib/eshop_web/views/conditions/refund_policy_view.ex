@@ -11,10 +11,12 @@ defmodule EshopWeb.RefundPolicyView do
   end
 
   def render("refund_policy.json", %{refund_policy: refund_policy}) do
-    %{id: refund_policy.id,
+    %{
+      id: refund_policy.id,
       type: refund_policy.type,
       type_id: refund_policy.type_id,
       content: refund_policy.content,
-      native_content: refund_policy.native_content}
+      native_content: refund_policy.native_content
+    }
   end
 end

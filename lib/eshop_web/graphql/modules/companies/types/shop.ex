@@ -22,7 +22,7 @@ defmodule EshopWeb.Schema.Types.Shop do
   end
 
   @desc "A shop update"
-  input_object :shop_params do 
+  input_object :shop_params do
     field :created_at, :datetime
     field :golden_supplier, :boolean
     field :highest_assurance, :decimal

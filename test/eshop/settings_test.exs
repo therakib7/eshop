@@ -102,14 +102,20 @@ defmodule Eshop.SettingsTest do
 
     test "update_user_setting/2 with valid data updates the user_setting" do
       user_setting = user_setting_fixture()
-      assert {:ok, %UserSetting{} = user_setting} = Settings.update_user_setting(user_setting, @update_attrs)
+
+      assert {:ok, %UserSetting{} = user_setting} =
+               Settings.update_user_setting(user_setting, @update_attrs)
+
       assert user_setting.key == "some updated key"
       assert user_setting.value == "some updated value"
     end
 
     test "update_user_setting/2 with invalid data returns error changeset" do
       user_setting = user_setting_fixture()
-      assert {:error, %Ecto.Changeset{}} = Settings.update_user_setting(user_setting, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Settings.update_user_setting(user_setting, @invalid_attrs)
+
       assert user_setting == Settings.get_user_setting!(user_setting.id)
     end
 
@@ -152,7 +158,9 @@ defmodule Eshop.SettingsTest do
     end
 
     test "create_company_setting/1 with valid data creates a company_setting" do
-      assert {:ok, %CompanySetting{} = company_setting} = Settings.create_company_setting(@valid_attrs)
+      assert {:ok, %CompanySetting{} = company_setting} =
+               Settings.create_company_setting(@valid_attrs)
+
       assert company_setting.key == "some key"
       assert company_setting.type == 42
       assert company_setting.type_id == 42
@@ -165,7 +173,10 @@ defmodule Eshop.SettingsTest do
 
     test "update_company_setting/2 with valid data updates the company_setting" do
       company_setting = company_setting_fixture()
-      assert {:ok, %CompanySetting{} = company_setting} = Settings.update_company_setting(company_setting, @update_attrs)
+
+      assert {:ok, %CompanySetting{} = company_setting} =
+               Settings.update_company_setting(company_setting, @update_attrs)
+
       assert company_setting.key == "some updated key"
       assert company_setting.type == 43
       assert company_setting.type_id == 43
@@ -174,14 +185,20 @@ defmodule Eshop.SettingsTest do
 
     test "update_company_setting/2 with invalid data returns error changeset" do
       company_setting = company_setting_fixture()
-      assert {:error, %Ecto.Changeset{}} = Settings.update_company_setting(company_setting, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Settings.update_company_setting(company_setting, @invalid_attrs)
+
       assert company_setting == Settings.get_company_setting!(company_setting.id)
     end
 
     test "delete_company_setting/1 deletes the company_setting" do
       company_setting = company_setting_fixture()
       assert {:ok, %CompanySetting{}} = Settings.delete_company_setting(company_setting)
-      assert_raise Ecto.NoResultsError, fn -> Settings.get_company_setting!(company_setting.id) end
+
+      assert_raise Ecto.NoResultsError, fn ->
+        Settings.get_company_setting!(company_setting.id)
+      end
     end
 
     test "change_company_setting/1 returns a company_setting changeset" do

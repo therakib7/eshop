@@ -59,8 +59,15 @@ defmodule EshopWeb.NotificationControllerTest do
   describe "update notification" do
     setup [:create_notification]
 
-    test "renders notification when data is valid", %{conn: conn, notification: %Notification{id: id} = notification} do
-      conn = put(conn, Routes.notification_path(conn, :update, notification), notification: @update_attrs)
+    test "renders notification when data is valid", %{
+      conn: conn,
+      notification: %Notification{id: id} = notification
+    } do
+      conn =
+        put(conn, Routes.notification_path(conn, :update, notification),
+          notification: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.notification_path(conn, :show, id))
@@ -75,7 +82,11 @@ defmodule EshopWeb.NotificationControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, notification: notification} do
-      conn = put(conn, Routes.notification_path(conn, :update, notification), notification: @invalid_attrs)
+      conn =
+        put(conn, Routes.notification_path(conn, :update, notification),
+          notification: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

@@ -20,7 +20,14 @@ defmodule EshopWeb.UpdateHistoryControllerTest do
     type: 43,
     type_id: 43
   }
-  @invalid_attrs %{created_at: nil, key: nil, new_value: nil, old_value: nil, type: nil, type_id: nil}
+  @invalid_attrs %{
+    created_at: nil,
+    key: nil,
+    new_value: nil,
+    old_value: nil,
+    type: nil,
+    type_id: nil
+  }
 
   def fixture(:update_history) do
     {:ok, update_history} = Users.create_update_history(@create_attrs)
@@ -65,8 +72,15 @@ defmodule EshopWeb.UpdateHistoryControllerTest do
   describe "update update_history" do
     setup [:create_update_history]
 
-    test "renders update_history when data is valid", %{conn: conn, update_history: %UpdateHistory{id: id} = update_history} do
-      conn = put(conn, Routes.update_history_path(conn, :update, update_history), update_history: @update_attrs)
+    test "renders update_history when data is valid", %{
+      conn: conn,
+      update_history: %UpdateHistory{id: id} = update_history
+    } do
+      conn =
+        put(conn, Routes.update_history_path(conn, :update, update_history),
+          update_history: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.update_history_path(conn, :show, id))
@@ -83,7 +97,11 @@ defmodule EshopWeb.UpdateHistoryControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, update_history: update_history} do
-      conn = put(conn, Routes.update_history_path(conn, :update, update_history), update_history: @invalid_attrs)
+      conn =
+        put(conn, Routes.update_history_path(conn, :update, update_history),
+          update_history: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

@@ -20,7 +20,14 @@ defmodule EshopWeb.AttachmentControllerTest do
     type: 43,
     type_id: 43
   }
-  @invalid_attrs %{file_name: nil, name: nil, orginal_size: nil, resized_size: nil, type: nil, type_id: nil}
+  @invalid_attrs %{
+    file_name: nil,
+    name: nil,
+    orginal_size: nil,
+    resized_size: nil,
+    type: nil,
+    type_id: nil
+  }
 
   def fixture(:attachment) do
     {:ok, attachment} = Attachments.create_attachment(@create_attrs)
@@ -65,8 +72,13 @@ defmodule EshopWeb.AttachmentControllerTest do
   describe "update attachment" do
     setup [:create_attachment]
 
-    test "renders attachment when data is valid", %{conn: conn, attachment: %Attachment{id: id} = attachment} do
-      conn = put(conn, Routes.attachment_path(conn, :update, attachment), attachment: @update_attrs)
+    test "renders attachment when data is valid", %{
+      conn: conn,
+      attachment: %Attachment{id: id} = attachment
+    } do
+      conn =
+        put(conn, Routes.attachment_path(conn, :update, attachment), attachment: @update_attrs)
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.attachment_path(conn, :show, id))
@@ -83,7 +95,9 @@ defmodule EshopWeb.AttachmentControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, attachment: attachment} do
-      conn = put(conn, Routes.attachment_path(conn, :update, attachment), attachment: @invalid_attrs)
+      conn =
+        put(conn, Routes.attachment_path(conn, :update, attachment), attachment: @invalid_attrs)
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

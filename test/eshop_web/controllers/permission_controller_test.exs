@@ -53,8 +53,13 @@ defmodule EshopWeb.PermissionControllerTest do
   describe "update permission" do
     setup [:create_permission]
 
-    test "renders permission when data is valid", %{conn: conn, permission: %Permission{id: id} = permission} do
-      conn = put(conn, Routes.permission_path(conn, :update, permission), permission: @update_attrs)
+    test "renders permission when data is valid", %{
+      conn: conn,
+      permission: %Permission{id: id} = permission
+    } do
+      conn =
+        put(conn, Routes.permission_path(conn, :update, permission), permission: @update_attrs)
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.permission_path(conn, :show, id))
@@ -67,7 +72,9 @@ defmodule EshopWeb.PermissionControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, permission: permission} do
-      conn = put(conn, Routes.permission_path(conn, :update, permission), permission: @invalid_attrs)
+      conn =
+        put(conn, Routes.permission_path(conn, :update, permission), permission: @invalid_attrs)
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

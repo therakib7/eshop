@@ -35,7 +35,7 @@ defmodule EshopWeb.Schema.Types.Item do
   end
 
   @desc "A item update"
-  input_object :item_params do 
+  input_object :item_params do
     field :asin_id, :string
     field :cost_price, :decimal
     field :desc, :string

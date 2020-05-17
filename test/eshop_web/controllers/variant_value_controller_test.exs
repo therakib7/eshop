@@ -53,8 +53,15 @@ defmodule EshopWeb.VariantValueControllerTest do
   describe "update variant_value" do
     setup [:create_variant_value]
 
-    test "renders variant_value when data is valid", %{conn: conn, variant_value: %VariantValue{id: id} = variant_value} do
-      conn = put(conn, Routes.variant_value_path(conn, :update, variant_value), variant_value: @update_attrs)
+    test "renders variant_value when data is valid", %{
+      conn: conn,
+      variant_value: %VariantValue{id: id} = variant_value
+    } do
+      conn =
+        put(conn, Routes.variant_value_path(conn, :update, variant_value),
+          variant_value: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.variant_value_path(conn, :show, id))
@@ -67,7 +74,11 @@ defmodule EshopWeb.VariantValueControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, variant_value: variant_value} do
-      conn = put(conn, Routes.variant_value_path(conn, :update, variant_value), variant_value: @invalid_attrs)
+      conn =
+        put(conn, Routes.variant_value_path(conn, :update, variant_value),
+          variant_value: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

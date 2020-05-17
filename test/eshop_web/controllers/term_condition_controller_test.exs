@@ -59,8 +59,15 @@ defmodule EshopWeb.TermConditionControllerTest do
   describe "update term_condition" do
     setup [:create_term_condition]
 
-    test "renders term_condition when data is valid", %{conn: conn, term_condition: %TermCondition{id: id} = term_condition} do
-      conn = put(conn, Routes.term_condition_path(conn, :update, term_condition), term_condition: @update_attrs)
+    test "renders term_condition when data is valid", %{
+      conn: conn,
+      term_condition: %TermCondition{id: id} = term_condition
+    } do
+      conn =
+        put(conn, Routes.term_condition_path(conn, :update, term_condition),
+          term_condition: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.term_condition_path(conn, :show, id))
@@ -75,7 +82,11 @@ defmodule EshopWeb.TermConditionControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, term_condition: term_condition} do
-      conn = put(conn, Routes.term_condition_path(conn, :update, term_condition), term_condition: @invalid_attrs)
+      conn =
+        put(conn, Routes.term_condition_path(conn, :update, term_condition),
+          term_condition: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

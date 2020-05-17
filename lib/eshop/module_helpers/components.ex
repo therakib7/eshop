@@ -1058,7 +1058,10 @@ defmodule Eshop.Components do
       %Ecto.Changeset{data: %ItemWarehouseVariant{}}
 
   """
-  def change_item_warehouse_variant(%ItemWarehouseVariant{} = item_warehouse_variant, attrs \\ %{}) do
+  def change_item_warehouse_variant(
+        %ItemWarehouseVariant{} = item_warehouse_variant,
+        attrs \\ %{}
+      ) do
     ItemWarehouseVariant.changeset(item_warehouse_variant, attrs)
   end
 
@@ -1445,5 +1448,4 @@ defmodule Eshop.Components do
   def change_invoice_status(%InvoiceStatus{} = invoice_status, attrs \\ %{}) do
     InvoiceStatus.changeset(invoice_status, attrs)
   end
-  
 end

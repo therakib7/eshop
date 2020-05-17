@@ -28,7 +28,8 @@ defmodule EshopWeb.PermissionController do
   def update(conn, %{"id" => id, "permission" => permission_params}) do
     permission = Users.get_permission!(id)
 
-    with {:ok, %Permission{} = permission} <- Users.update_permission(permission, permission_params) do
+    with {:ok, %Permission{} = permission} <-
+           Users.update_permission(permission, permission_params) do
       render(conn, "show.json", permission: permission)
     end
   end

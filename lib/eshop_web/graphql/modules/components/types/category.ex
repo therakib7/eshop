@@ -17,7 +17,7 @@ defmodule EshopWeb.Schema.Types.Category do
   end
 
   @desc "A category update"
-  input_object :category_params do 
+  input_object :category_params do
     field :is_active, :boolean
     field :order, :integer
     field :name, :string

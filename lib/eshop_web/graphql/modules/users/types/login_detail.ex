@@ -16,7 +16,7 @@ defmodule EshopWeb.Schema.Types.LoginDetail do
   end
 
   @desc "A login_detail update"
-  input_object :login_detail_params do 
+  input_object :login_detail_params do
     field :ip_address, :string
     field :ip_location, :string
     field :is_active, :boolean

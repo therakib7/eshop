@@ -34,7 +34,9 @@ defmodule EshopWeb.ShippingAddressControllerTest do
 
   describe "create shipping_address" do
     test "renders shipping_address when data is valid", %{conn: conn} do
-      conn = post(conn, Routes.shipping_address_path(conn, :create), shipping_address: @create_attrs)
+      conn =
+        post(conn, Routes.shipping_address_path(conn, :create), shipping_address: @create_attrs)
+
       assert %{"id" => id} = json_response(conn, 201)["data"]
 
       conn = get(conn, Routes.shipping_address_path(conn, :show, id))
@@ -48,7 +50,9 @@ defmodule EshopWeb.ShippingAddressControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = post(conn, Routes.shipping_address_path(conn, :create), shipping_address: @invalid_attrs)
+      conn =
+        post(conn, Routes.shipping_address_path(conn, :create), shipping_address: @invalid_attrs)
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
@@ -56,8 +60,15 @@ defmodule EshopWeb.ShippingAddressControllerTest do
   describe "update shipping_address" do
     setup [:create_shipping_address]
 
-    test "renders shipping_address when data is valid", %{conn: conn, shipping_address: %ShippingAddress{id: id} = shipping_address} do
-      conn = put(conn, Routes.shipping_address_path(conn, :update, shipping_address), shipping_address: @update_attrs)
+    test "renders shipping_address when data is valid", %{
+      conn: conn,
+      shipping_address: %ShippingAddress{id: id} = shipping_address
+    } do
+      conn =
+        put(conn, Routes.shipping_address_path(conn, :update, shipping_address),
+          shipping_address: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.shipping_address_path(conn, :show, id))
@@ -71,7 +82,11 @@ defmodule EshopWeb.ShippingAddressControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, shipping_address: shipping_address} do
-      conn = put(conn, Routes.shipping_address_path(conn, :update, shipping_address), shipping_address: @invalid_attrs)
+      conn =
+        put(conn, Routes.shipping_address_path(conn, :update, shipping_address),
+          shipping_address: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

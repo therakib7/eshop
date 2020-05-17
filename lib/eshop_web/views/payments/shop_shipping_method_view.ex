@@ -3,7 +3,10 @@ defmodule EshopWeb.ShopShippingMethodView do
   alias EshopWeb.ShopShippingMethodView
 
   def render("index.json", %{shop_shipping_methods: shop_shipping_methods}) do
-    %{data: render_many(shop_shipping_methods, ShopShippingMethodView, "shop_shipping_method.json")}
+    %{
+      data:
+        render_many(shop_shipping_methods, ShopShippingMethodView, "shop_shipping_method.json")
+    }
   end
 
   def render("show.json", %{shop_shipping_method: shop_shipping_method}) do

@@ -18,7 +18,7 @@ defmodule EshopWeb.Schema.Types.Invoice do
   end
 
   @desc "A invoice update"
-  input_object :invoice_params do 
+  input_object :invoice_params do
     field :discount, :decimal
     field :user_note, :string
     field :shop_note, :string

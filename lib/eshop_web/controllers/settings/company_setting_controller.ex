@@ -12,7 +12,8 @@ defmodule EshopWeb.CompanySettingController do
   end
 
   def create(conn, %{"company_setting" => company_setting_params}) do
-    with {:ok, %CompanySetting{} = company_setting} <- Settings.create_company_setting(company_setting_params) do
+    with {:ok, %CompanySetting{} = company_setting} <-
+           Settings.create_company_setting(company_setting_params) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.company_setting_path(conn, :show, company_setting))
@@ -28,7 +29,8 @@ defmodule EshopWeb.CompanySettingController do
   def update(conn, %{"id" => id, "company_setting" => company_setting_params}) do
     company_setting = Settings.get_company_setting!(id)
 
-    with {:ok, %CompanySetting{} = company_setting} <- Settings.update_company_setting(company_setting, company_setting_params) do
+    with {:ok, %CompanySetting{} = company_setting} <-
+           Settings.update_company_setting(company_setting, company_setting_params) do
       render(conn, "show.json", company_setting: company_setting)
     end
   end

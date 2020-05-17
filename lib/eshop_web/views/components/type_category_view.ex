@@ -11,8 +11,6 @@ defmodule EshopWeb.TypeCategoryView do
   end
 
   def render("type_category.json", %{type_category: type_category}) do
-    %{id: type_category.id,
-      type: type_category.type,
-      type_id: type_category.type_id}
+    %{id: type_category.id, type: type_category.type, type_id: type_category.type_id}
   end
 end

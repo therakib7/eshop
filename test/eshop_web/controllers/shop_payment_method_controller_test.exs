@@ -36,7 +36,11 @@ defmodule EshopWeb.ShopPaymentMethodControllerTest do
 
   describe "create shop_payment_method" do
     test "renders shop_payment_method when data is valid", %{conn: conn} do
-      conn = post(conn, Routes.shop_payment_method_path(conn, :create), shop_payment_method: @create_attrs)
+      conn =
+        post(conn, Routes.shop_payment_method_path(conn, :create),
+          shop_payment_method: @create_attrs
+        )
+
       assert %{"id" => id} = json_response(conn, 201)["data"]
 
       conn = get(conn, Routes.shop_payment_method_path(conn, :show, id))
@@ -51,7 +55,11 @@ defmodule EshopWeb.ShopPaymentMethodControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = post(conn, Routes.shop_payment_method_path(conn, :create), shop_payment_method: @invalid_attrs)
+      conn =
+        post(conn, Routes.shop_payment_method_path(conn, :create),
+          shop_payment_method: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
@@ -59,8 +67,15 @@ defmodule EshopWeb.ShopPaymentMethodControllerTest do
   describe "update shop_payment_method" do
     setup [:create_shop_payment_method]
 
-    test "renders shop_payment_method when data is valid", %{conn: conn, shop_payment_method: %ShopPaymentMethod{id: id} = shop_payment_method} do
-      conn = put(conn, Routes.shop_payment_method_path(conn, :update, shop_payment_method), shop_payment_method: @update_attrs)
+    test "renders shop_payment_method when data is valid", %{
+      conn: conn,
+      shop_payment_method: %ShopPaymentMethod{id: id} = shop_payment_method
+    } do
+      conn =
+        put(conn, Routes.shop_payment_method_path(conn, :update, shop_payment_method),
+          shop_payment_method: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.shop_payment_method_path(conn, :show, id))
@@ -74,8 +89,15 @@ defmodule EshopWeb.ShopPaymentMethodControllerTest do
              } = json_response(conn, 200)["data"]
     end
 
-    test "renders errors when data is invalid", %{conn: conn, shop_payment_method: shop_payment_method} do
-      conn = put(conn, Routes.shop_payment_method_path(conn, :update, shop_payment_method), shop_payment_method: @invalid_attrs)
+    test "renders errors when data is invalid", %{
+      conn: conn,
+      shop_payment_method: shop_payment_method
+    } do
+      conn =
+        put(conn, Routes.shop_payment_method_path(conn, :update, shop_payment_method),
+          shop_payment_method: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
@@ -83,7 +105,10 @@ defmodule EshopWeb.ShopPaymentMethodControllerTest do
   describe "delete shop_payment_method" do
     setup [:create_shop_payment_method]
 
-    test "deletes chosen shop_payment_method", %{conn: conn, shop_payment_method: shop_payment_method} do
+    test "deletes chosen shop_payment_method", %{
+      conn: conn,
+      shop_payment_method: shop_payment_method
+    } do
       conn = delete(conn, Routes.shop_payment_method_path(conn, :delete, shop_payment_method))
       assert response(conn, 204)
 

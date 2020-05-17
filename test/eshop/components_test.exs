@@ -6,8 +6,18 @@ defmodule Eshop.ComponentsTest do
   describe "categories" do
     alias Eshop.Components.Category
 
-    @valid_attrs %{is_active: true, name: "some name", native_name: "some native_name", slug: "some slug"}
-    @update_attrs %{is_active: false, name: "some updated name", native_name: "some updated native_name", slug: "some updated slug"}
+    @valid_attrs %{
+      is_active: true,
+      name: "some name",
+      native_name: "some native_name",
+      slug: "some slug"
+    }
+    @update_attrs %{
+      is_active: false,
+      name: "some updated name",
+      native_name: "some updated native_name",
+      slug: "some updated slug"
+    }
     @invalid_attrs %{is_active: nil, name: nil, native_name: nil, slug: nil}
 
     def category_fixture(attrs \\ %{}) do
@@ -71,8 +81,20 @@ defmodule Eshop.ComponentsTest do
   describe "brands" do
     alias Eshop.Components.Brand
 
-    @valid_attrs %{is_active: true, loves: 42, name: "some name", native_name: "some native_name", slug: "some slug"}
-    @update_attrs %{is_active: false, loves: 43, name: "some updated name", native_name: "some updated native_name", slug: "some updated slug"}
+    @valid_attrs %{
+      is_active: true,
+      loves: 42,
+      name: "some name",
+      native_name: "some native_name",
+      slug: "some slug"
+    }
+    @update_attrs %{
+      is_active: false,
+      loves: 43,
+      name: "some updated name",
+      native_name: "some updated native_name",
+      slug: "some updated slug"
+    }
     @invalid_attrs %{is_active: nil, loves: nil, name: nil, native_name: nil, slug: nil}
 
     def brand_fixture(attrs \\ %{}) do
@@ -173,7 +195,10 @@ defmodule Eshop.ComponentsTest do
 
     test "update_unit_type/2 with valid data updates the unit_type" do
       unit_type = unit_type_fixture()
-      assert {:ok, %UnitType{} = unit_type} = Components.update_unit_type(unit_type, @update_attrs)
+
+      assert {:ok, %UnitType{} = unit_type} =
+               Components.update_unit_type(unit_type, @update_attrs)
+
       assert unit_type.name == "some updated name"
       assert unit_type.native_name == "some updated native_name"
     end
@@ -223,7 +248,9 @@ defmodule Eshop.ComponentsTest do
     end
 
     test "create_type_category/1 with valid data creates a type_category" do
-      assert {:ok, %TypeCategory{} = type_category} = Components.create_type_category(@valid_attrs)
+      assert {:ok, %TypeCategory{} = type_category} =
+               Components.create_type_category(@valid_attrs)
+
       assert type_category.type == 42
       assert type_category.type_id == 42
     end
@@ -234,14 +261,20 @@ defmodule Eshop.ComponentsTest do
 
     test "update_type_category/2 with valid data updates the type_category" do
       type_category = type_category_fixture()
-      assert {:ok, %TypeCategory{} = type_category} = Components.update_type_category(type_category, @update_attrs)
+
+      assert {:ok, %TypeCategory{} = type_category} =
+               Components.update_type_category(type_category, @update_attrs)
+
       assert type_category.type == 43
       assert type_category.type_id == 43
     end
 
     test "update_type_category/2 with invalid data returns error changeset" do
       type_category = type_category_fixture()
-      assert {:error, %Ecto.Changeset{}} = Components.update_type_category(type_category, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Components.update_type_category(type_category, @invalid_attrs)
+
       assert type_category == Components.get_type_category!(type_category.id)
     end
 
@@ -347,7 +380,9 @@ defmodule Eshop.ComponentsTest do
     end
 
     test "create_variant_value/1 with valid data creates a variant_value" do
-      assert {:ok, %VariantValue{} = variant_value} = Components.create_variant_value(@valid_attrs)
+      assert {:ok, %VariantValue{} = variant_value} =
+               Components.create_variant_value(@valid_attrs)
+
       assert variant_value.native_value == "some native_value"
       assert variant_value.value == "some value"
     end
@@ -358,14 +393,20 @@ defmodule Eshop.ComponentsTest do
 
     test "update_variant_value/2 with valid data updates the variant_value" do
       variant_value = variant_value_fixture()
-      assert {:ok, %VariantValue{} = variant_value} = Components.update_variant_value(variant_value, @update_attrs)
+
+      assert {:ok, %VariantValue{} = variant_value} =
+               Components.update_variant_value(variant_value, @update_attrs)
+
       assert variant_value.native_value == "some updated native_value"
       assert variant_value.value == "some updated value"
     end
 
     test "update_variant_value/2 with invalid data returns error changeset" do
       variant_value = variant_value_fixture()
-      assert {:error, %Ecto.Changeset{}} = Components.update_variant_value(variant_value, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Components.update_variant_value(variant_value, @invalid_attrs)
+
       assert variant_value == Components.get_variant_value!(variant_value.id)
     end
 
@@ -408,7 +449,8 @@ defmodule Eshop.ComponentsTest do
     end
 
     test "create_item_category/1 with valid data creates a item_category" do
-      assert {:ok, %ItemCategory{} = item_category} = Components.create_item_category(@valid_attrs)
+      assert {:ok, %ItemCategory{} = item_category} =
+               Components.create_item_category(@valid_attrs)
     end
 
     test "create_item_category/1 with invalid data returns error changeset" do
@@ -417,12 +459,17 @@ defmodule Eshop.ComponentsTest do
 
     test "update_item_category/2 with valid data updates the item_category" do
       item_category = item_category_fixture()
-      assert {:ok, %ItemCategory{} = item_category} = Components.update_item_category(item_category, @update_attrs)
+
+      assert {:ok, %ItemCategory{} = item_category} =
+               Components.update_item_category(item_category, @update_attrs)
     end
 
     test "update_item_category/2 with invalid data returns error changeset" do
       item_category = item_category_fixture()
-      assert {:error, %Ecto.Changeset{}} = Components.update_item_category(item_category, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Components.update_item_category(item_category, @invalid_attrs)
+
       assert item_category == Components.get_item_category!(item_category.id)
     end
 
@@ -539,14 +586,20 @@ defmodule Eshop.ComponentsTest do
 
     test "update_package_item/2 with valid data updates the package_item" do
       package_item = package_item_fixture()
-      assert {:ok, %PackageItem{} = package_item} = Components.update_package_item(package_item, @update_attrs)
+
+      assert {:ok, %PackageItem{} = package_item} =
+               Components.update_package_item(package_item, @update_attrs)
+
       assert package_item.name == "some updated name"
       assert package_item.native_name == "some updated native_name"
     end
 
     test "update_package_item/2 with invalid data returns error changeset" do
       package_item = package_item_fixture()
-      assert {:error, %Ecto.Changeset{}} = Components.update_package_item(package_item, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Components.update_package_item(package_item, @invalid_attrs)
+
       assert package_item == Components.get_package_item!(package_item.id)
     end
 
@@ -601,7 +654,10 @@ defmodule Eshop.ComponentsTest do
 
     test "update_item_variant/2 with valid data updates the item_variant" do
       item_variant = item_variant_fixture()
-      assert {:ok, %ItemVariant{} = item_variant} = Components.update_item_variant(item_variant, @update_attrs)
+
+      assert {:ok, %ItemVariant{} = item_variant} =
+               Components.update_item_variant(item_variant, @update_attrs)
+
       assert item_variant.cost_price == Decimal.new("456.7")
       assert item_variant.sale_price == Decimal.new("456.7")
       assert item_variant.unit_price == Decimal.new("456.7")
@@ -609,7 +665,10 @@ defmodule Eshop.ComponentsTest do
 
     test "update_item_variant/2 with invalid data returns error changeset" do
       item_variant = item_variant_fixture()
-      assert {:error, %Ecto.Changeset{}} = Components.update_item_variant(item_variant, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Components.update_item_variant(item_variant, @invalid_attrs)
+
       assert item_variant == Components.get_item_variant!(item_variant.id)
     end
 
@@ -648,32 +707,47 @@ defmodule Eshop.ComponentsTest do
 
     test "get_item_warehouse_variant!/1 returns the item_warehouse_variant with given id" do
       item_warehouse_variant = item_warehouse_variant_fixture()
-      assert Components.get_item_warehouse_variant!(item_warehouse_variant.id) == item_warehouse_variant
+
+      assert Components.get_item_warehouse_variant!(item_warehouse_variant.id) ==
+               item_warehouse_variant
     end
 
     test "create_item_warehouse_variant/1 with valid data creates a item_warehouse_variant" do
-      assert {:ok, %ItemWarehouseVariant{} = item_warehouse_variant} = Components.create_item_warehouse_variant(@valid_attrs)
+      assert {:ok, %ItemWarehouseVariant{} = item_warehouse_variant} =
+               Components.create_item_warehouse_variant(@valid_attrs)
     end
 
     test "create_item_warehouse_variant/1 with invalid data returns error changeset" do
-      assert {:error, %Ecto.Changeset{}} = Components.create_item_warehouse_variant(@invalid_attrs)
+      assert {:error, %Ecto.Changeset{}} =
+               Components.create_item_warehouse_variant(@invalid_attrs)
     end
 
     test "update_item_warehouse_variant/2 with valid data updates the item_warehouse_variant" do
       item_warehouse_variant = item_warehouse_variant_fixture()
-      assert {:ok, %ItemWarehouseVariant{} = item_warehouse_variant} = Components.update_item_warehouse_variant(item_warehouse_variant, @update_attrs)
+
+      assert {:ok, %ItemWarehouseVariant{} = item_warehouse_variant} =
+               Components.update_item_warehouse_variant(item_warehouse_variant, @update_attrs)
     end
 
     test "update_item_warehouse_variant/2 with invalid data returns error changeset" do
       item_warehouse_variant = item_warehouse_variant_fixture()
-      assert {:error, %Ecto.Changeset{}} = Components.update_item_warehouse_variant(item_warehouse_variant, @invalid_attrs)
-      assert item_warehouse_variant == Components.get_item_warehouse_variant!(item_warehouse_variant.id)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Components.update_item_warehouse_variant(item_warehouse_variant, @invalid_attrs)
+
+      assert item_warehouse_variant ==
+               Components.get_item_warehouse_variant!(item_warehouse_variant.id)
     end
 
     test "delete_item_warehouse_variant/1 deletes the item_warehouse_variant" do
       item_warehouse_variant = item_warehouse_variant_fixture()
-      assert {:ok, %ItemWarehouseVariant{}} = Components.delete_item_warehouse_variant(item_warehouse_variant)
-      assert_raise Ecto.NoResultsError, fn -> Components.get_item_warehouse_variant!(item_warehouse_variant.id) end
+
+      assert {:ok, %ItemWarehouseVariant{}} =
+               Components.delete_item_warehouse_variant(item_warehouse_variant)
+
+      assert_raise Ecto.NoResultsError, fn ->
+        Components.get_item_warehouse_variant!(item_warehouse_variant.id)
+      end
     end
 
     test "change_item_warehouse_variant/1 returns a item_warehouse_variant changeset" do
@@ -685,8 +759,18 @@ defmodule Eshop.ComponentsTest do
   describe "faqs" do
     alias Eshop.Components.Faq
 
-    @valid_attrs %{content: "some content", native_content: "some native_content", native_question: "some native_question", question: "some question"}
-    @update_attrs %{content: "some updated content", native_content: "some updated native_content", native_question: "some updated native_question", question: "some updated question"}
+    @valid_attrs %{
+      content: "some content",
+      native_content: "some native_content",
+      native_question: "some native_question",
+      question: "some question"
+    }
+    @update_attrs %{
+      content: "some updated content",
+      native_content: "some updated native_content",
+      native_question: "some updated native_question",
+      question: "some updated question"
+    }
     @invalid_attrs %{content: nil, native_content: nil, native_question: nil, question: nil}
 
     def faq_fixture(attrs \\ %{}) do
@@ -750,9 +834,30 @@ defmodule Eshop.ComponentsTest do
   describe "discount_codes" do
     alias Eshop.Components.DiscountCode
 
-    @valid_attrs %{amount: 42, code: "some code", created_at: "2010-04-17T14:00:00Z", is_active: true, used_at: "2010-04-17T14:00:00Z", validity: 42}
-    @update_attrs %{amount: 43, code: "some updated code", created_at: "2011-05-18T15:01:01Z", is_active: false, used_at: "2011-05-18T15:01:01Z", validity: 43}
-    @invalid_attrs %{amount: nil, code: nil, created_at: nil, is_active: nil, used_at: nil, validity: nil}
+    @valid_attrs %{
+      amount: 42,
+      code: "some code",
+      created_at: "2010-04-17T14:00:00Z",
+      is_active: true,
+      used_at: "2010-04-17T14:00:00Z",
+      validity: 42
+    }
+    @update_attrs %{
+      amount: 43,
+      code: "some updated code",
+      created_at: "2011-05-18T15:01:01Z",
+      is_active: false,
+      used_at: "2011-05-18T15:01:01Z",
+      validity: 43
+    }
+    @invalid_attrs %{
+      amount: nil,
+      code: nil,
+      created_at: nil,
+      is_active: nil,
+      used_at: nil,
+      validity: nil
+    }
 
     def discount_code_fixture(attrs \\ %{}) do
       {:ok, discount_code} =
@@ -774,7 +879,9 @@ defmodule Eshop.ComponentsTest do
     end
 
     test "create_discount_code/1 with valid data creates a discount_code" do
-      assert {:ok, %DiscountCode{} = discount_code} = Components.create_discount_code(@valid_attrs)
+      assert {:ok, %DiscountCode{} = discount_code} =
+               Components.create_discount_code(@valid_attrs)
+
       assert discount_code.amount == 42
       assert discount_code.code == "some code"
       assert discount_code.created_at == DateTime.from_naive!(~N[2010-04-17T14:00:00Z], "Etc/UTC")
@@ -789,7 +896,10 @@ defmodule Eshop.ComponentsTest do
 
     test "update_discount_code/2 with valid data updates the discount_code" do
       discount_code = discount_code_fixture()
-      assert {:ok, %DiscountCode{} = discount_code} = Components.update_discount_code(discount_code, @update_attrs)
+
+      assert {:ok, %DiscountCode{} = discount_code} =
+               Components.update_discount_code(discount_code, @update_attrs)
+
       assert discount_code.amount == 43
       assert discount_code.code == "some updated code"
       assert discount_code.created_at == DateTime.from_naive!(~N[2011-05-18T15:01:01Z], "Etc/UTC")
@@ -800,7 +910,10 @@ defmodule Eshop.ComponentsTest do
 
     test "update_discount_code/2 with invalid data returns error changeset" do
       discount_code = discount_code_fixture()
-      assert {:error, %Ecto.Changeset{}} = Components.update_discount_code(discount_code, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Components.update_discount_code(discount_code, @invalid_attrs)
+
       assert discount_code == Components.get_discount_code!(discount_code.id)
     end
 
@@ -819,8 +932,20 @@ defmodule Eshop.ComponentsTest do
   describe "type_statuses" do
     alias Eshop.Components.TypeStatus
 
-    @valid_attrs %{is_active: true, name: "some name", native_name: "some native_name", order: 42, type: 42}
-    @update_attrs %{is_active: false, name: "some updated name", native_name: "some updated native_name", order: 43, type: 43}
+    @valid_attrs %{
+      is_active: true,
+      name: "some name",
+      native_name: "some native_name",
+      order: 42,
+      type: 42
+    }
+    @update_attrs %{
+      is_active: false,
+      name: "some updated name",
+      native_name: "some updated native_name",
+      order: 43,
+      type: 43
+    }
     @invalid_attrs %{is_active: nil, name: nil, native_name: nil, order: nil, type: nil}
 
     def type_status_fixture(attrs \\ %{}) do
@@ -857,7 +982,10 @@ defmodule Eshop.ComponentsTest do
 
     test "update_type_status/2 with valid data updates the type_status" do
       type_status = type_status_fixture()
-      assert {:ok, %TypeStatus{} = type_status} = Components.update_type_status(type_status, @update_attrs)
+
+      assert {:ok, %TypeStatus{} = type_status} =
+               Components.update_type_status(type_status, @update_attrs)
+
       assert type_status.is_active == false
       assert type_status.name == "some updated name"
       assert type_status.native_name == "some updated native_name"
@@ -867,7 +995,10 @@ defmodule Eshop.ComponentsTest do
 
     test "update_type_status/2 with invalid data returns error changeset" do
       type_status = type_status_fixture()
-      assert {:error, %Ecto.Changeset{}} = Components.update_type_status(type_status, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Components.update_type_status(type_status, @invalid_attrs)
+
       assert type_status == Components.get_type_status!(type_status.id)
     end
 
@@ -910,7 +1041,9 @@ defmodule Eshop.ComponentsTest do
     end
 
     test "create_invoice_status/1 with valid data creates a invoice_status" do
-      assert {:ok, %InvoiceStatus{} = invoice_status} = Components.create_invoice_status(@valid_attrs)
+      assert {:ok, %InvoiceStatus{} = invoice_status} =
+               Components.create_invoice_status(@valid_attrs)
+
       assert invoice_status.type == 42
       assert invoice_status.type_id == 42
     end
@@ -921,21 +1054,30 @@ defmodule Eshop.ComponentsTest do
 
     test "update_invoice_status/2 with valid data updates the invoice_status" do
       invoice_status = invoice_status_fixture()
-      assert {:ok, %InvoiceStatus{} = invoice_status} = Components.update_invoice_status(invoice_status, @update_attrs)
+
+      assert {:ok, %InvoiceStatus{} = invoice_status} =
+               Components.update_invoice_status(invoice_status, @update_attrs)
+
       assert invoice_status.type == 43
       assert invoice_status.type_id == 43
     end
 
     test "update_invoice_status/2 with invalid data returns error changeset" do
       invoice_status = invoice_status_fixture()
-      assert {:error, %Ecto.Changeset{}} = Components.update_invoice_status(invoice_status, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Components.update_invoice_status(invoice_status, @invalid_attrs)
+
       assert invoice_status == Components.get_invoice_status!(invoice_status.id)
     end
 
     test "delete_invoice_status/1 deletes the invoice_status" do
       invoice_status = invoice_status_fixture()
       assert {:ok, %InvoiceStatus{}} = Components.delete_invoice_status(invoice_status)
-      assert_raise Ecto.NoResultsError, fn -> Components.get_invoice_status!(invoice_status.id) end
+
+      assert_raise Ecto.NoResultsError, fn ->
+        Components.get_invoice_status!(invoice_status.id)
+      end
     end
 
     test "change_invoice_status/1 returns a invoice_status changeset" do

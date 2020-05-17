@@ -4,12 +4,8 @@ defmodule EshopWeb.RolePermissionControllerTest do
   alias Eshop.Users
   alias Eshop.Users.RolePermission
 
-  @create_attrs %{
-
-  }
-  @update_attrs %{
-
-  }
+  @create_attrs %{}
+  @update_attrs %{}
   @invalid_attrs %{}
 
   def fixture(:role_permission) do
@@ -30,7 +26,9 @@ defmodule EshopWeb.RolePermissionControllerTest do
 
   describe "create role_permission" do
     test "renders role_permission when data is valid", %{conn: conn} do
-      conn = post(conn, Routes.role_permission_path(conn, :create), role_permission: @create_attrs)
+      conn =
+        post(conn, Routes.role_permission_path(conn, :create), role_permission: @create_attrs)
+
       assert %{"id" => id} = json_response(conn, 201)["data"]
 
       conn = get(conn, Routes.role_permission_path(conn, :show, id))
@@ -41,7 +39,9 @@ defmodule EshopWeb.RolePermissionControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = post(conn, Routes.role_permission_path(conn, :create), role_permission: @invalid_attrs)
+      conn =
+        post(conn, Routes.role_permission_path(conn, :create), role_permission: @invalid_attrs)
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
@@ -49,8 +49,15 @@ defmodule EshopWeb.RolePermissionControllerTest do
   describe "update role_permission" do
     setup [:create_role_permission]
 
-    test "renders role_permission when data is valid", %{conn: conn, role_permission: %RolePermission{id: id} = role_permission} do
-      conn = put(conn, Routes.role_permission_path(conn, :update, role_permission), role_permission: @update_attrs)
+    test "renders role_permission when data is valid", %{
+      conn: conn,
+      role_permission: %RolePermission{id: id} = role_permission
+    } do
+      conn =
+        put(conn, Routes.role_permission_path(conn, :update, role_permission),
+          role_permission: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.role_permission_path(conn, :show, id))
@@ -61,7 +68,11 @@ defmodule EshopWeb.RolePermissionControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, role_permission: role_permission} do
-      conn = put(conn, Routes.role_permission_path(conn, :update, role_permission), role_permission: @invalid_attrs)
+      conn =
+        put(conn, Routes.role_permission_path(conn, :update, role_permission),
+          role_permission: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

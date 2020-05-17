@@ -20,6 +20,5 @@ defmodule Eshop.Components.TypeStatus do
     |> validate_required([:is_active, :order, :type, :name, :native_name])
     |> validate_length(:name, min: 1, max: 50)
     |> validate_length(:native_name, min: 1, max: 50)
-
   end
 end

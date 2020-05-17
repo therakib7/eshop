@@ -13,7 +13,7 @@ defmodule EshopWeb.Schema.Types.Notification do
   end
 
   @desc "A notification update"
-  input_object :notification_params do 
+  input_object :notification_params do
     field :notification_msg_id, :integer
     field :read, :boolean
     field :type, :integer

@@ -11,11 +11,13 @@ defmodule EshopWeb.TypeStatusView do
   end
 
   def render("type_status.json", %{type_status: type_status}) do
-    %{id: type_status.id,
+    %{
+      id: type_status.id,
       is_active: type_status.is_active,
       order: type_status.order,
       type: type_status.type,
       name: type_status.name,
-      native_name: type_status.native_name}
+      native_name: type_status.native_name
+    }
   end
 end

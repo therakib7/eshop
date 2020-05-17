@@ -12,7 +12,7 @@ defmodule EshopWeb.Schema.Types.PackageItem do
   end
 
   @desc "A package_item update"
-  input_object :package_item_params do 
+  input_object :package_item_params do
     field :name, :string
     field :native_name, :string
     field :package_id, :id

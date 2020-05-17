@@ -12,7 +12,7 @@ defmodule EshopWeb.Schema.Types.ItemWarehouseVariant do
   end
 
   @desc "A item_warehouse_variant update"
-  input_object :item_warehouse_variant_params do 
+  input_object :item_warehouse_variant_params do
     field :item_id, :id
     field :warehouse_variant_id, :id
     field :warehouse_variant_value_id, :id

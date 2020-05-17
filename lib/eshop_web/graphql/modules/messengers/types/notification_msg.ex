@@ -11,7 +11,7 @@ defmodule EshopWeb.Schema.Types.NotificationMsg do
   end
 
   @desc "A notification_msg update"
-  input_object :notification_msg_params do 
+  input_object :notification_msg_params do
     field :for, :integer
     field :msg, :string
   end

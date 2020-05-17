@@ -10,12 +10,12 @@ defmodule Eshop.Companies.Shop do
     field :is_verifed, :boolean, default: false
     field :name, :string
     field :native_name, :string
-    field :trade_assurance, :boolean, default: false 
-    belongs_to :company, Eshop.Companies.Company 
+    field :trade_assurance, :boolean, default: false
+    belongs_to :company, Eshop.Companies.Company
     belongs_to :user, Eshop.Users.User
     belongs_to :location, Eshop.Geo.Location
     belongs_to :attachment, Eshop.Attachments.Attachment
-    belongs_to :term_condition, Eshop.Conditions.TermCondition 
+    belongs_to :term_condition, Eshop.Conditions.TermCondition
 
     timestamps()
   end
@@ -23,8 +23,26 @@ defmodule Eshop.Companies.Shop do
   @doc false
   def changeset(shop, attrs) do
     shop
-    |> cast(attrs, [:is_active, :is_verifed, :name, :native_name, :trade_assurance, :highest_assurance, :golden_supplier, :created_at])
-    |> validate_required([:is_active, :is_verifed, :name, :native_name, :trade_assurance, :highest_assurance, :golden_supplier, :created_at])
+    |> cast(attrs, [
+      :is_active,
+      :is_verifed,
+      :name,
+      :native_name,
+      :trade_assurance,
+      :highest_assurance,
+      :golden_supplier,
+      :created_at
+    ])
+    |> validate_required([
+      :is_active,
+      :is_verifed,
+      :name,
+      :native_name,
+      :trade_assurance,
+      :highest_assurance,
+      :golden_supplier,
+      :created_at
+    ])
     |> validate_length(:name, min: 2, max: 200)
     |> validate_length(:native_name, min: 2, max: 200)
   end

@@ -11,10 +11,12 @@ defmodule EshopWeb.TermConditionView do
   end
 
   def render("term_condition.json", %{term_condition: term_condition}) do
-    %{id: term_condition.id,
+    %{
+      id: term_condition.id,
       type: term_condition.type,
       type_id: term_condition.type_id,
       content: term_condition.content,
-      native_content: term_condition.native_content}
+      native_content: term_condition.native_content
+    }
   end
 end

@@ -52,7 +52,30 @@ defmodule EshopWeb.ItemControllerTest do
     vat_type: 43,
     views: 43
   }
-  @invalid_attrs %{asin_id: nil, cost_price: nil, desc: nil, extra_fields: nil, has_package: nil, has_variant: nil, has_warehouse: nil, is_active: nil, loves: nil, low_stock: nil, name: nil, native_desc: nil, native_name: nil, sell_price: nil, total_order: nil, type: nil, type_id: nil, unit: nil, unit_price: nil, vat: nil, vat_type: nil, views: nil}
+  @invalid_attrs %{
+    asin_id: nil,
+    cost_price: nil,
+    desc: nil,
+    extra_fields: nil,
+    has_package: nil,
+    has_variant: nil,
+    has_warehouse: nil,
+    is_active: nil,
+    loves: nil,
+    low_stock: nil,
+    name: nil,
+    native_desc: nil,
+    native_name: nil,
+    sell_price: nil,
+    total_order: nil,
+    type: nil,
+    type_id: nil,
+    unit: nil,
+    unit_price: nil,
+    vat: nil,
+    vat_type: nil,
+    views: nil
+  }
 
   def fixture(:item) do
     {:ok, item} = Objects.create_item(@create_attrs)

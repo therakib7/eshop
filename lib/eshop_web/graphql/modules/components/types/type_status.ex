@@ -15,7 +15,7 @@ defmodule EshopWeb.Schema.Types.TypeStatus do
   end
 
   @desc "A type_status update"
-  input_object :type_status_params do 
+  input_object :type_status_params do
     field :is_active, :boolean
     field :order, :integer
     field :type, :integer

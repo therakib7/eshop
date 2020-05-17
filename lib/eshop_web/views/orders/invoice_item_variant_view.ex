@@ -3,7 +3,10 @@ defmodule EshopWeb.InvoiceItemVariantView do
   alias EshopWeb.InvoiceItemVariantView
 
   def render("index.json", %{invoice_item_variants: invoice_item_variants}) do
-    %{data: render_many(invoice_item_variants, InvoiceItemVariantView, "invoice_item_variant.json")}
+    %{
+      data:
+        render_many(invoice_item_variants, InvoiceItemVariantView, "invoice_item_variant.json")
+    }
   end
 
   def render("show.json", %{invoice_item_variant: invoice_item_variant}) do

@@ -13,7 +13,7 @@ defmodule EshopWeb.Schema.Types.TypeUserRole do
   end
 
   @desc "A type_user_role update"
-  input_object :type_user_role_params do 
+  input_object :type_user_role_params do
     field :type, :integer
     field :type_id, :integer
     field :user_id, :id

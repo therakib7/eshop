@@ -11,12 +11,14 @@ defmodule EshopWeb.AttachmentView do
   end
 
   def render("attachment.json", %{attachment: attachment}) do
-    %{id: attachment.id,
+    %{
+      id: attachment.id,
       type: attachment.type,
       type_id: attachment.type_id,
       file_name: attachment.file_name,
       resized_size: attachment.resized_size,
       orginal_size: attachment.orginal_size,
-      name: attachment.name}
+      name: attachment.name
+    }
   end
 end

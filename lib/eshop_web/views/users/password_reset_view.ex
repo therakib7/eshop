@@ -11,8 +11,6 @@ defmodule EshopWeb.PasswordResetView do
   end
 
   def render("password_reset.json", %{password_reset: password_reset}) do
-    %{id: password_reset.id,
-      token: password_reset.token,
-      created_at: password_reset.created_at}
+    %{id: password_reset.id, token: password_reset.token, created_at: password_reset.created_at}
   end
 end

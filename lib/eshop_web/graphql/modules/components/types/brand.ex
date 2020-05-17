@@ -18,7 +18,7 @@ defmodule EshopWeb.Schema.Types.Brand do
   end
 
   @desc "A brand update"
-  input_object :brand_params do 
+  input_object :brand_params do
     field :is_active, :boolean
     field :order, :integer
     field :loves, :integer

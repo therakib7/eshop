@@ -11,9 +11,11 @@ defmodule EshopWeb.ShippingMethodView do
   end
 
   def render("shipping_method.json", %{shipping_method: shipping_method}) do
-    %{id: shipping_method.id,
+    %{
+      id: shipping_method.id,
       is_active: shipping_method.is_active,
       name: shipping_method.name,
-      native_name: shipping_method.native_name}
+      native_name: shipping_method.native_name
+    }
   end
 end

@@ -11,12 +11,14 @@ defmodule EshopWeb.DiscountCodeView do
   end
 
   def render("discount_code.json", %{discount_code: discount_code}) do
-    %{id: discount_code.id,
+    %{
+      id: discount_code.id,
       is_active: discount_code.is_active,
       code: discount_code.code,
       amount: discount_code.amount,
       validity: discount_code.validity,
       created_at: discount_code.created_at,
-      used_at: discount_code.used_at}
+      used_at: discount_code.used_at
+    }
   end
 end

@@ -14,10 +14,10 @@ defmodule EshopWeb.Schema.Types.Rating do
   end
 
   @desc "A rating update by a type"
-  input_object :rating_params do 
+  input_object :rating_params do
     field :comment, :string
     field :star, :integer
     field :type, :integer
-    field :type_id, :integer 
+    field :type_id, :integer
   end
 end

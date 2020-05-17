@@ -28,7 +28,8 @@ defmodule EshopWeb.TypeStatusController do
   def update(conn, %{"id" => id, "type_status" => type_status_params}) do
     type_status = Components.get_type_status!(id)
 
-    with {:ok, %TypeStatus{} = type_status} <- Components.update_type_status(type_status, type_status_params) do
+    with {:ok, %TypeStatus{} = type_status} <-
+           Components.update_type_status(type_status, type_status_params) do
       render(conn, "show.json", type_status: type_status)
     end
   end

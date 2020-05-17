@@ -28,7 +28,8 @@ defmodule EshopWeb.UnitTypeController do
   def update(conn, %{"id" => id, "unit_type" => unit_type_params}) do
     unit_type = Components.get_unit_type!(id)
 
-    with {:ok, %UnitType{} = unit_type} <- Components.update_unit_type(unit_type, unit_type_params) do
+    with {:ok, %UnitType{} = unit_type} <-
+           Components.update_unit_type(unit_type, unit_type_params) do
       render(conn, "show.json", unit_type: unit_type)
     end
   end

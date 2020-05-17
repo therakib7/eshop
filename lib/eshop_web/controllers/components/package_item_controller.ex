@@ -12,7 +12,8 @@ defmodule EshopWeb.PackageItemController do
   end
 
   def create(conn, %{"package_item" => package_item_params}) do
-    with {:ok, %PackageItem{} = package_item} <- Components.create_package_item(package_item_params) do
+    with {:ok, %PackageItem{} = package_item} <-
+           Components.create_package_item(package_item_params) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.package_item_path(conn, :show, package_item))
@@ -28,7 +29,8 @@ defmodule EshopWeb.PackageItemController do
   def update(conn, %{"id" => id, "package_item" => package_item_params}) do
     package_item = Components.get_package_item!(id)
 
-    with {:ok, %PackageItem{} = package_item} <- Components.update_package_item(package_item, package_item_params) do
+    with {:ok, %PackageItem{} = package_item} <-
+           Components.update_package_item(package_item, package_item_params) do
       render(conn, "show.json", package_item: package_item)
     end
   end

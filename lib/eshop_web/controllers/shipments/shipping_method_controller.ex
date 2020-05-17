@@ -12,7 +12,8 @@ defmodule EshopWeb.ShippingMethodController do
   end
 
   def create(conn, %{"shipping_method" => shipping_method_params}) do
-    with {:ok, %ShippingMethod{} = shipping_method} <- Shipments.create_shipping_method(shipping_method_params) do
+    with {:ok, %ShippingMethod{} = shipping_method} <-
+           Shipments.create_shipping_method(shipping_method_params) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.shipping_method_path(conn, :show, shipping_method))
@@ -28,7 +29,8 @@ defmodule EshopWeb.ShippingMethodController do
   def update(conn, %{"id" => id, "shipping_method" => shipping_method_params}) do
     shipping_method = Shipments.get_shipping_method!(id)
 
-    with {:ok, %ShippingMethod{} = shipping_method} <- Shipments.update_shipping_method(shipping_method, shipping_method_params) do
+    with {:ok, %ShippingMethod{} = shipping_method} <-
+           Shipments.update_shipping_method(shipping_method, shipping_method_params) do
       render(conn, "show.json", shipping_method: shipping_method)
     end
   end

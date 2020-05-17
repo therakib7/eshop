@@ -28,7 +28,8 @@ defmodule EshopWeb.GuaranteeController do
   def update(conn, %{"id" => id, "guarantee" => guarantee_params}) do
     guarantee = Conditions.get_guarantee!(id)
 
-    with {:ok, %Guarantee{} = guarantee} <- Conditions.update_guarantee(guarantee, guarantee_params) do
+    with {:ok, %Guarantee{} = guarantee} <-
+           Conditions.update_guarantee(guarantee, guarantee_params) do
       render(conn, "show.json", guarantee: guarantee)
     end
   end

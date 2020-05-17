@@ -11,7 +11,8 @@ defmodule EshopWeb.ShopView do
   end
 
   def render("shop.json", %{shop: shop}) do
-    %{id: shop.id,
+    %{
+      id: shop.id,
       is_active: shop.is_active,
       is_verifed: shop.is_verifed,
       name: shop.name,
@@ -19,6 +20,7 @@ defmodule EshopWeb.ShopView do
       trade_assurance: shop.trade_assurance,
       highest_assurance: shop.highest_assurance,
       golden_supplier: shop.golden_supplier,
-      created_at: shop.created_at}
+      created_at: shop.created_at
+    }
   end
 end

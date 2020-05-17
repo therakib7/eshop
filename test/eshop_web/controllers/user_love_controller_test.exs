@@ -53,7 +53,10 @@ defmodule EshopWeb.UserLoveControllerTest do
   describe "update user_love" do
     setup [:create_user_love]
 
-    test "renders user_love when data is valid", %{conn: conn, user_love: %UserLove{id: id} = user_love} do
+    test "renders user_love when data is valid", %{
+      conn: conn,
+      user_love: %UserLove{id: id} = user_love
+    } do
       conn = put(conn, Routes.user_love_path(conn, :update, user_love), user_love: @update_attrs)
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 

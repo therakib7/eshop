@@ -36,7 +36,9 @@ defmodule EshopWeb.CompanySettingControllerTest do
 
   describe "create company_setting" do
     test "renders company_setting when data is valid", %{conn: conn} do
-      conn = post(conn, Routes.company_setting_path(conn, :create), company_setting: @create_attrs)
+      conn =
+        post(conn, Routes.company_setting_path(conn, :create), company_setting: @create_attrs)
+
       assert %{"id" => id} = json_response(conn, 201)["data"]
 
       conn = get(conn, Routes.company_setting_path(conn, :show, id))
@@ -51,7 +53,9 @@ defmodule EshopWeb.CompanySettingControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = post(conn, Routes.company_setting_path(conn, :create), company_setting: @invalid_attrs)
+      conn =
+        post(conn, Routes.company_setting_path(conn, :create), company_setting: @invalid_attrs)
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
@@ -59,8 +63,15 @@ defmodule EshopWeb.CompanySettingControllerTest do
   describe "update company_setting" do
     setup [:create_company_setting]
 
-    test "renders company_setting when data is valid", %{conn: conn, company_setting: %CompanySetting{id: id} = company_setting} do
-      conn = put(conn, Routes.company_setting_path(conn, :update, company_setting), company_setting: @update_attrs)
+    test "renders company_setting when data is valid", %{
+      conn: conn,
+      company_setting: %CompanySetting{id: id} = company_setting
+    } do
+      conn =
+        put(conn, Routes.company_setting_path(conn, :update, company_setting),
+          company_setting: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.company_setting_path(conn, :show, id))
@@ -75,7 +86,11 @@ defmodule EshopWeb.CompanySettingControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, company_setting: company_setting} do
-      conn = put(conn, Routes.company_setting_path(conn, :update, company_setting), company_setting: @invalid_attrs)
+      conn =
+        put(conn, Routes.company_setting_path(conn, :update, company_setting),
+          company_setting: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

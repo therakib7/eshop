@@ -53,8 +53,15 @@ defmodule EshopWeb.InvoiceStatusControllerTest do
   describe "update invoice_status" do
     setup [:create_invoice_status]
 
-    test "renders invoice_status when data is valid", %{conn: conn, invoice_status: %InvoiceStatus{id: id} = invoice_status} do
-      conn = put(conn, Routes.invoice_status_path(conn, :update, invoice_status), invoice_status: @update_attrs)
+    test "renders invoice_status when data is valid", %{
+      conn: conn,
+      invoice_status: %InvoiceStatus{id: id} = invoice_status
+    } do
+      conn =
+        put(conn, Routes.invoice_status_path(conn, :update, invoice_status),
+          invoice_status: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.invoice_status_path(conn, :show, id))
@@ -67,7 +74,11 @@ defmodule EshopWeb.InvoiceStatusControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, invoice_status: invoice_status} do
-      conn = put(conn, Routes.invoice_status_path(conn, :update, invoice_status), invoice_status: @invalid_attrs)
+      conn =
+        put(conn, Routes.invoice_status_path(conn, :update, invoice_status),
+          invoice_status: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

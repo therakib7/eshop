@@ -6,13 +6,13 @@ defmodule EshopWeb.Schema.Queries.PasswordReset do
   object :password_reset_queries do
     @desc "Get all password_resets"
     field :password_resets, list_of(:password_reset) do
-      resolve &PasswordReset.list_password_resets/3
+      resolve(&PasswordReset.list_password_resets/3)
     end
 
     @desc "Get a password_reset by its id"
     field :password_reset, :password_reset do
-      arg :id, non_null(:id)
-      resolve &PasswordReset.get_password_reset/3
-    end 
+      arg(:id, non_null(:id))
+      resolve(&PasswordReset.get_password_reset/3)
+    end
   end
 end

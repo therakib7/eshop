@@ -11,7 +11,7 @@ defmodule EshopWeb.Schema.Types.ChatRoom do
   end
 
   @desc "A chat_room update"
-  input_object :chat_room_params do 
+  input_object :chat_room_params do
     field :shop_id, :id
     field :customer_id, :id
   end

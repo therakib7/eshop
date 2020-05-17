@@ -7,7 +7,7 @@ defmodule Eshop.Users.UserProfile do
     field :gender, :integer
     field :lat, :float
     field :long, :float
-    field :merital_status, :integer  
+    field :merital_status, :integer
 
     belongs_to :user, Eshop.Users.User
     belongs_to :pre_location, Eshop.Geo.Location
@@ -24,6 +24,5 @@ defmodule Eshop.Users.UserProfile do
     |> validate_number(:long, greater_than_or_equal_to: -180, less_than_or_equal_to: 180)
     |> validate_inclusion(:merital_status, 1..4)
     |> validate_inclusion(:gender, 1..3)
-
   end
 end

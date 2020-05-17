@@ -11,11 +11,13 @@ defmodule EshopWeb.CountryStageView do
   end
 
   def render("country_stage.json", %{country_stage: country_stage}) do
-    %{id: country_stage.id,
+    %{
+      id: country_stage.id,
       country_id: country_stage.country_id,
       stage: country_stage.stage,
       name: country_stage.name,
       native_name: country_stage.native_name,
-      user_id: country_stage.user_id}
+      user_id: country_stage.user_id
+    }
   end
 end

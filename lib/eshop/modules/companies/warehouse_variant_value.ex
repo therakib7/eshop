@@ -4,7 +4,7 @@ defmodule Eshop.Companies.WarehouseVariantValue do
 
   schema "warehouse_variant_values" do
     field :native_value, :string
-    field :value, :string 
+    field :value, :string
     belongs_to :warehouse_variant, Eshop.Companies.WarehouseVariant
 
     timestamps()

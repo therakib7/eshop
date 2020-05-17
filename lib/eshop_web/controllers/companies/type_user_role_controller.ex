@@ -12,7 +12,8 @@ defmodule EshopWeb.TypeUserRoleController do
   end
 
   def create(conn, %{"type_user_role" => type_user_role_params}) do
-    with {:ok, %TypeUserRole{} = type_user_role} <- Companies.create_type_user_role(type_user_role_params) do
+    with {:ok, %TypeUserRole{} = type_user_role} <-
+           Companies.create_type_user_role(type_user_role_params) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.type_user_role_path(conn, :show, type_user_role))
@@ -28,7 +29,8 @@ defmodule EshopWeb.TypeUserRoleController do
   def update(conn, %{"id" => id, "type_user_role" => type_user_role_params}) do
     type_user_role = Companies.get_type_user_role!(id)
 
-    with {:ok, %TypeUserRole{} = type_user_role} <- Companies.update_type_user_role(type_user_role, type_user_role_params) do
+    with {:ok, %TypeUserRole{} = type_user_role} <-
+           Companies.update_type_user_role(type_user_role, type_user_role_params) do
       render(conn, "show.json", type_user_role: type_user_role)
     end
   end

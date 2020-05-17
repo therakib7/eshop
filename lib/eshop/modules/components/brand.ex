@@ -23,6 +23,5 @@ defmodule Eshop.Components.Brand do
     |> validate_required([:is_active, :name, :native_name, :slug, :loves])
     |> validate_length(:name, min: 2, max: 200)
     |> validate_length(:native_name, min: 2, max: 200)
-
   end
 end

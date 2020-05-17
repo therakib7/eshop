@@ -13,7 +13,7 @@ defmodule EshopWeb.Schema.Types.InvoiceStatus do
   end
 
   @desc "A invoice_status update"
-  input_object :invoice_status_params do 
+  input_object :invoice_status_params do
     field :invoice_id, :integer
     field :type, :integer
     field :type_id, :integer

@@ -59,7 +59,10 @@ defmodule EshopWeb.GuaranteeControllerTest do
   describe "update guarantee" do
     setup [:create_guarantee]
 
-    test "renders guarantee when data is valid", %{conn: conn, guarantee: %Guarantee{id: id} = guarantee} do
+    test "renders guarantee when data is valid", %{
+      conn: conn,
+      guarantee: %Guarantee{id: id} = guarantee
+    } do
       conn = put(conn, Routes.guarantee_path(conn, :update, guarantee), guarantee: @update_attrs)
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 

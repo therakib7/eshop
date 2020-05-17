@@ -14,7 +14,7 @@ defmodule EshopWeb.Schema.Types.ShippingMethod do
   end
 
   @desc "A shipping_method update"
-  input_object :shipping_method_params do 
+  input_object :shipping_method_params do
     field :is_active, :boolean
     field :name, :string
     field :native_name, :string

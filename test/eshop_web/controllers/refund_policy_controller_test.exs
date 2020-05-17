@@ -59,8 +59,15 @@ defmodule EshopWeb.RefundPolicyControllerTest do
   describe "update refund_policy" do
     setup [:create_refund_policy]
 
-    test "renders refund_policy when data is valid", %{conn: conn, refund_policy: %RefundPolicy{id: id} = refund_policy} do
-      conn = put(conn, Routes.refund_policy_path(conn, :update, refund_policy), refund_policy: @update_attrs)
+    test "renders refund_policy when data is valid", %{
+      conn: conn,
+      refund_policy: %RefundPolicy{id: id} = refund_policy
+    } do
+      conn =
+        put(conn, Routes.refund_policy_path(conn, :update, refund_policy),
+          refund_policy: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.refund_policy_path(conn, :show, id))
@@ -75,7 +82,11 @@ defmodule EshopWeb.RefundPolicyControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, refund_policy: refund_policy} do
-      conn = put(conn, Routes.refund_policy_path(conn, :update, refund_policy), refund_policy: @invalid_attrs)
+      conn =
+        put(conn, Routes.refund_policy_path(conn, :update, refund_policy),
+          refund_policy: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

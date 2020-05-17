@@ -12,7 +12,8 @@ defmodule EshopWeb.ItemVariantController do
   end
 
   def create(conn, %{"item_variant" => item_variant_params}) do
-    with {:ok, %ItemVariant{} = item_variant} <- Components.create_item_variant(item_variant_params) do
+    with {:ok, %ItemVariant{} = item_variant} <-
+           Components.create_item_variant(item_variant_params) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.item_variant_path(conn, :show, item_variant))
@@ -28,7 +29,8 @@ defmodule EshopWeb.ItemVariantController do
   def update(conn, %{"id" => id, "item_variant" => item_variant_params}) do
     item_variant = Components.get_item_variant!(id)
 
-    with {:ok, %ItemVariant{} = item_variant} <- Components.update_item_variant(item_variant, item_variant_params) do
+    with {:ok, %ItemVariant{} = item_variant} <-
+           Components.update_item_variant(item_variant, item_variant_params) do
       render(conn, "show.json", item_variant: item_variant)
     end
   end

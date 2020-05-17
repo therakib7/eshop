@@ -11,10 +11,12 @@ defmodule EshopWeb.NotificationView do
   end
 
   def render("notification.json", %{notification: notification}) do
-    %{id: notification.id,
+    %{
+      id: notification.id,
       type: notification.type,
       type_id: notification.type_id,
       notification_msg_id: notification.notification_msg_id,
-      read: notification.read}
+      read: notification.read
+    }
   end
 end

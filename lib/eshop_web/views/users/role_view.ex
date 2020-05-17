@@ -11,10 +11,12 @@ defmodule EshopWeb.RoleView do
   end
 
   def render("role.json", %{role: role}) do
-    %{id: role.id,
+    %{
+      id: role.id,
       name: role.name,
       native_name: role.native_name,
       desc: role.desc,
-      is_company: role.is_company}
+      is_company: role.is_company
+    }
   end
 end

@@ -11,11 +11,13 @@ defmodule EshopWeb.BankingProviderView do
   end
 
   def render("banking_provider.json", %{banking_provider: banking_provider}) do
-    %{id: banking_provider.id,
+    %{
+      id: banking_provider.id,
       is_active: banking_provider.is_active,
       type: banking_provider.type,
       name: banking_provider.name,
       native_name: banking_provider.native_name,
-      order: banking_provider.order}
+      order: banking_provider.order
+    }
   end
 end

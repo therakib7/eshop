@@ -12,7 +12,7 @@ defmodule EshopWeb.Schema.Types.VariantValue do
   end
 
   @desc "A variant_value update"
-  input_object :variant_value_params do 
+  input_object :variant_value_params do
     field :native_value, :string
     field :value, :string
     field :variant_id, :id

@@ -12,7 +12,8 @@ defmodule EshopWeb.ShippingAddressController do
   end
 
   def create(conn, %{"shipping_address" => shipping_address_params}) do
-    with {:ok, %ShippingAddress{} = shipping_address} <- Shipments.create_shipping_address(shipping_address_params) do
+    with {:ok, %ShippingAddress{} = shipping_address} <-
+           Shipments.create_shipping_address(shipping_address_params) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.shipping_address_path(conn, :show, shipping_address))
@@ -28,7 +29,8 @@ defmodule EshopWeb.ShippingAddressController do
   def update(conn, %{"id" => id, "shipping_address" => shipping_address_params}) do
     shipping_address = Shipments.get_shipping_address!(id)
 
-    with {:ok, %ShippingAddress{} = shipping_address} <- Shipments.update_shipping_address(shipping_address, shipping_address_params) do
+    with {:ok, %ShippingAddress{} = shipping_address} <-
+           Shipments.update_shipping_address(shipping_address, shipping_address_params) do
       render(conn, "show.json", shipping_address: shipping_address)
     end
   end

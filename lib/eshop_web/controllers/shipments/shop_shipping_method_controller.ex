@@ -12,10 +12,14 @@ defmodule EshopWeb.ShopShippingMethodController do
   end
 
   def create(conn, %{"shop_shipping_method" => shop_shipping_method_params}) do
-    with {:ok, %ShopShippingMethod{} = shop_shipping_method} <- Shipments.create_shop_shipping_method(shop_shipping_method_params) do
+    with {:ok, %ShopShippingMethod{} = shop_shipping_method} <-
+           Shipments.create_shop_shipping_method(shop_shipping_method_params) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", Routes.shop_shipping_method_path(conn, :show, shop_shipping_method))
+      |> put_resp_header(
+        "location",
+        Routes.shop_shipping_method_path(conn, :show, shop_shipping_method)
+      )
       |> render("show.json", shop_shipping_method: shop_shipping_method)
     end
   end
@@ -28,7 +32,11 @@ defmodule EshopWeb.ShopShippingMethodController do
   def update(conn, %{"id" => id, "shop_shipping_method" => shop_shipping_method_params}) do
     shop_shipping_method = Shipments.get_shop_shipping_method!(id)
 
-    with {:ok, %ShopShippingMethod{} = shop_shipping_method} <- Shipments.update_shop_shipping_method(shop_shipping_method, shop_shipping_method_params) do
+    with {:ok, %ShopShippingMethod{} = shop_shipping_method} <-
+           Shipments.update_shop_shipping_method(
+             shop_shipping_method,
+             shop_shipping_method_params
+           ) do
       render(conn, "show.json", shop_shipping_method: shop_shipping_method)
     end
   end
@@ -36,7 +44,8 @@ defmodule EshopWeb.ShopShippingMethodController do
   def delete(conn, %{"id" => id}) do
     shop_shipping_method = Shipments.get_shop_shipping_method!(id)
 
-    with {:ok, %ShopShippingMethod{}} <- Shipments.delete_shop_shipping_method(shop_shipping_method) do
+    with {:ok, %ShopShippingMethod{}} <-
+           Shipments.delete_shop_shipping_method(shop_shipping_method) do
       send_resp(conn, :no_content, "")
     end
   end

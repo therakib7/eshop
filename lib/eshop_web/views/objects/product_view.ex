@@ -11,10 +11,12 @@ defmodule EshopWeb.ProductView do
   end
 
   def render("product.json", %{product: product}) do
-    %{id: product.id,
+    %{
+      id: product.id,
       mfg_date: product.mfg_date,
       exp_date: product.exp_date,
       sku: product.sku,
-      barcode: product.barcode}
+      barcode: product.barcode
+    }
   end
 end

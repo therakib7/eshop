@@ -12,10 +12,14 @@ defmodule EshopWeb.ItemWarehouseVariantController do
   end
 
   def create(conn, %{"item_warehouse_variant" => item_warehouse_variant_params}) do
-    with {:ok, %ItemWarehouseVariant{} = item_warehouse_variant} <- Components.create_item_warehouse_variant(item_warehouse_variant_params) do
+    with {:ok, %ItemWarehouseVariant{} = item_warehouse_variant} <-
+           Components.create_item_warehouse_variant(item_warehouse_variant_params) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", Routes.item_warehouse_variant_path(conn, :show, item_warehouse_variant))
+      |> put_resp_header(
+        "location",
+        Routes.item_warehouse_variant_path(conn, :show, item_warehouse_variant)
+      )
       |> render("show.json", item_warehouse_variant: item_warehouse_variant)
     end
   end
@@ -28,7 +32,11 @@ defmodule EshopWeb.ItemWarehouseVariantController do
   def update(conn, %{"id" => id, "item_warehouse_variant" => item_warehouse_variant_params}) do
     item_warehouse_variant = Components.get_item_warehouse_variant!(id)
 
-    with {:ok, %ItemWarehouseVariant{} = item_warehouse_variant} <- Components.update_item_warehouse_variant(item_warehouse_variant, item_warehouse_variant_params) do
+    with {:ok, %ItemWarehouseVariant{} = item_warehouse_variant} <-
+           Components.update_item_warehouse_variant(
+             item_warehouse_variant,
+             item_warehouse_variant_params
+           ) do
       render(conn, "show.json", item_warehouse_variant: item_warehouse_variant)
     end
   end
@@ -36,7 +44,8 @@ defmodule EshopWeb.ItemWarehouseVariantController do
   def delete(conn, %{"id" => id}) do
     item_warehouse_variant = Components.get_item_warehouse_variant!(id)
 
-    with {:ok, %ItemWarehouseVariant{}} <- Components.delete_item_warehouse_variant(item_warehouse_variant) do
+    with {:ok, %ItemWarehouseVariant{}} <-
+           Components.delete_item_warehouse_variant(item_warehouse_variant) do
       send_resp(conn, :no_content, "")
     end
   end

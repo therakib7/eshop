@@ -11,11 +11,13 @@ defmodule EshopWeb.UserProfileView do
   end
 
   def render("user_profile.json", %{user_profile: user_profile}) do
-    %{id: user_profile.id,
+    %{
+      id: user_profile.id,
       lat: user_profile.lat,
       long: user_profile.long,
       date_of_birth: user_profile.date_of_birth,
       merital_status: user_profile.merital_status,
-      gender: user_profile.gender}
+      gender: user_profile.gender
+    }
   end
 end

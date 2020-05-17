@@ -14,12 +14,12 @@ defmodule Eshop.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Eshop.PubSub},
       # Start the Endpoint (http/https)
-      EshopWeb.Endpoint,
+      EshopWeb.Endpoint
       # Start a worker by calling: Eshop.Worker.start_link(arg)
       # {Eshop.Worker, arg}
 
       # guardin db sweeper
-      #worker(GuardianDb.ExpiredSweeper, [])
+      # worker(GuardianDb.ExpiredSweeper, [])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

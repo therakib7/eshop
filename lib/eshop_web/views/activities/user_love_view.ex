@@ -11,8 +11,6 @@ defmodule EshopWeb.UserLoveView do
   end
 
   def render("user_love.json", %{user_love: user_love}) do
-    %{id: user_love.id,
-      type: user_love.type,
-      type_id: user_love.type_id}
+    %{id: user_love.id, type: user_love.type, type_id: user_love.type_id}
   end
 end

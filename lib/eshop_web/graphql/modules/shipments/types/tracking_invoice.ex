@@ -12,7 +12,7 @@ defmodule EshopWeb.Schema.Types.TrackingInvoice do
   end
 
   @desc "A tracking_invoice update"
-  input_object :tracking_invoice_params do 
+  input_object :tracking_invoice_params do
     field :tracking_id, :string
     field :invoice_id, :id
     field :shipping_method_id, :id

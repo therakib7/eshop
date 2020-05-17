@@ -11,8 +11,6 @@ defmodule EshopWeb.InvoiceStatusView do
   end
 
   def render("invoice_status.json", %{invoice_status: invoice_status}) do
-    %{id: invoice_status.id,
-      type: invoice_status.type,
-      type_id: invoice_status.type_id}
+    %{id: invoice_status.id, type: invoice_status.type, type_id: invoice_status.type_id}
   end
 end

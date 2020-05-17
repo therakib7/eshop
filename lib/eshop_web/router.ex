@@ -11,13 +11,12 @@ defmodule EshopWeb.Router do
 
   scope "/api" do
     pipe_through [:api, :graphql]
-    
-    forward "/graphiql",
-      Absinthe.Plug.GraphiQL,
-      schema: EshopWeb.Schema
 
-    forward "/graphql", Absinthe.Plug,
-      schema: EshopWeb.Schema
+    forward "/graphiql",
+            Absinthe.Plug.GraphiQL,
+            schema: EshopWeb.Schema
+
+    forward "/graphql", Absinthe.Plug, schema: EshopWeb.Schema
   end
 
   scope "/api", EshopWeb do
@@ -40,14 +39,8 @@ defmodule EshopWeb.Router do
     resources "/activities/ratings", RatingController, except: [:new, :edit]
     resources "/activities/type_comments", TypeCommentController, except: [:new, :edit]
     resources "/activities/user_loves", UserLoveController, except: [:new, :edit]
-    
-
-
-
   end
-  
 
-  
   # Enables LiveDashboard only for development
   #
   # If you want to use the LiveDashboard in production, you should put

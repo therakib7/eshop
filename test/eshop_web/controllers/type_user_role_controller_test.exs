@@ -53,8 +53,15 @@ defmodule EshopWeb.TypeUserRoleControllerTest do
   describe "update type_user_role" do
     setup [:create_type_user_role]
 
-    test "renders type_user_role when data is valid", %{conn: conn, type_user_role: %TypeUserRole{id: id} = type_user_role} do
-      conn = put(conn, Routes.type_user_role_path(conn, :update, type_user_role), type_user_role: @update_attrs)
+    test "renders type_user_role when data is valid", %{
+      conn: conn,
+      type_user_role: %TypeUserRole{id: id} = type_user_role
+    } do
+      conn =
+        put(conn, Routes.type_user_role_path(conn, :update, type_user_role),
+          type_user_role: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.type_user_role_path(conn, :show, id))
@@ -67,7 +74,11 @@ defmodule EshopWeb.TypeUserRoleControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, type_user_role: type_user_role} do
-      conn = put(conn, Routes.type_user_role_path(conn, :update, type_user_role), type_user_role: @invalid_attrs)
+      conn =
+        put(conn, Routes.type_user_role_path(conn, :update, type_user_role),
+          type_user_role: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

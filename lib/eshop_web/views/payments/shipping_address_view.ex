@@ -11,9 +11,11 @@ defmodule EshopWeb.ShippingAddressView do
   end
 
   def render("shipping_address.json", %{shipping_address: shipping_address}) do
-    %{id: shipping_address.id,
+    %{
+      id: shipping_address.id,
       lat: shipping_address.lat,
       long: shipping_address.long,
-      address: shipping_address.address}
+      address: shipping_address.address
+    }
   end
 end

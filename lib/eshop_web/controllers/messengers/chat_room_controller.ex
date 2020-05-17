@@ -28,7 +28,8 @@ defmodule EshopWeb.ChatRoomController do
   def update(conn, %{"id" => id, "chat_room" => chat_room_params}) do
     chat_room = Messengers.get_chat_room!(id)
 
-    with {:ok, %ChatRoom{} = chat_room} <- Messengers.update_chat_room(chat_room, chat_room_params) do
+    with {:ok, %ChatRoom{} = chat_room} <-
+           Messengers.update_chat_room(chat_room, chat_room_params) do
       render(conn, "show.json", chat_room: chat_room)
     end
   end

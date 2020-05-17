@@ -23,6 +23,5 @@ defmodule Eshop.Orders.Invoice do
     |> validate_required([:type, :total, :discount, :note, :paid, :company_id, :shop_id])
     |> validate_length(:user_note, min: 2, max: 500)
     |> validate_length(:shop_note, min: 2, max: 500)
-
   end
 end

@@ -13,7 +13,7 @@ defmodule EshopWeb.Schema.Types.TermCondition do
   end
 
   @desc "A term_condition update"
-  input_object :term_condition_params do 
+  input_object :term_condition_params do
     field :content, :string
     field :native_content, :string
     field :type, :integer

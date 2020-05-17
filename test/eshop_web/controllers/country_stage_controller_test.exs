@@ -62,8 +62,15 @@ defmodule EshopWeb.CountryStageControllerTest do
   describe "update country_stage" do
     setup [:create_country_stage]
 
-    test "renders country_stage when data is valid", %{conn: conn, country_stage: %CountryStage{id: id} = country_stage} do
-      conn = put(conn, Routes.country_stage_path(conn, :update, country_stage), country_stage: @update_attrs)
+    test "renders country_stage when data is valid", %{
+      conn: conn,
+      country_stage: %CountryStage{id: id} = country_stage
+    } do
+      conn =
+        put(conn, Routes.country_stage_path(conn, :update, country_stage),
+          country_stage: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.country_stage_path(conn, :show, id))
@@ -79,7 +86,11 @@ defmodule EshopWeb.CountryStageControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, country_stage: country_stage} do
-      conn = put(conn, Routes.country_stage_path(conn, :update, country_stage), country_stage: @invalid_attrs)
+      conn =
+        put(conn, Routes.country_stage_path(conn, :update, country_stage),
+          country_stage: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

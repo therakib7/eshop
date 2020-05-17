@@ -12,7 +12,8 @@ defmodule EshopWeb.BankingProviderController do
   end
 
   def create(conn, %{"banking_provider" => banking_provider_params}) do
-    with {:ok, %BankingProvider{} = banking_provider} <- Payments.create_banking_provider(banking_provider_params) do
+    with {:ok, %BankingProvider{} = banking_provider} <-
+           Payments.create_banking_provider(banking_provider_params) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.banking_provider_path(conn, :show, banking_provider))
@@ -28,7 +29,8 @@ defmodule EshopWeb.BankingProviderController do
   def update(conn, %{"id" => id, "banking_provider" => banking_provider_params}) do
     banking_provider = Payments.get_banking_provider!(id)
 
-    with {:ok, %BankingProvider{} = banking_provider} <- Payments.update_banking_provider(banking_provider, banking_provider_params) do
+    with {:ok, %BankingProvider{} = banking_provider} <-
+           Payments.update_banking_provider(banking_provider, banking_provider_params) do
       render(conn, "show.json", banking_provider: banking_provider)
     end
   end

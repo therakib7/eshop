@@ -12,7 +12,7 @@ defmodule EshopWeb.Schema.Types.PrivacyPolicy do
   end
 
   @desc "A privacy_policy update"
-  input_object :privacy_policy_params do 
+  input_object :privacy_policy_params do
     field :content, :string
     field :native_content, :string
     field :shop_id, :id

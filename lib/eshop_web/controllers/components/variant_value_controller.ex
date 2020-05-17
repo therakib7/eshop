@@ -12,7 +12,8 @@ defmodule EshopWeb.VariantValueController do
   end
 
   def create(conn, %{"variant_value" => variant_value_params}) do
-    with {:ok, %VariantValue{} = variant_value} <- Components.create_variant_value(variant_value_params) do
+    with {:ok, %VariantValue{} = variant_value} <-
+           Components.create_variant_value(variant_value_params) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.variant_value_path(conn, :show, variant_value))
@@ -28,7 +29,8 @@ defmodule EshopWeb.VariantValueController do
   def update(conn, %{"id" => id, "variant_value" => variant_value_params}) do
     variant_value = Components.get_variant_value!(id)
 
-    with {:ok, %VariantValue{} = variant_value} <- Components.update_variant_value(variant_value, variant_value_params) do
+    with {:ok, %VariantValue{} = variant_value} <-
+           Components.update_variant_value(variant_value, variant_value_params) do
       render(conn, "show.json", variant_value: variant_value)
     end
   end

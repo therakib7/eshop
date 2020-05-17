@@ -12,7 +12,7 @@ defmodule EshopWeb.Schema.Types.Gallery do
   end
 
   @desc "A gallery update by a type"
-  input_object :gallery_params do 
+  input_object :gallery_params do
     field :type, :integer
     field :type_id, :integer
     field :attachment_id, :id

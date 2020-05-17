@@ -15,7 +15,7 @@ defmodule EshopWeb.Schema.Types.Variant do
   end
 
   @desc "A variant update"
-  input_object :variant_params do 
+  input_object :variant_params do
     field :order, :integer
     field :name, :string
     field :native_name, :string

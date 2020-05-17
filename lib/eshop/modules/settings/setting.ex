@@ -16,6 +16,5 @@ defmodule Eshop.Settings.Setting do
     |> validate_required([:key, :value])
     |> validate_length(:key, min: 200, max: 100)
     |> validate_length(:value, min: 200, max: 200)
-    
   end
 end

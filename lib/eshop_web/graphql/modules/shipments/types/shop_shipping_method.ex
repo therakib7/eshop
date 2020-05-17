@@ -11,7 +11,7 @@ defmodule EshopWeb.Schema.Types.ShopShippingMethod do
   end
 
   @desc "A shop_shipping_method update"
-  input_object :shop_shipping_method_params do 
+  input_object :shop_shipping_method_params do
     field :shipping_method_id, :id
     field :shop_id, :id
   end

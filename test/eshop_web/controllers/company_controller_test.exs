@@ -22,7 +22,15 @@ defmodule EshopWeb.CompanyControllerTest do
     name: "some updated name",
     trade_assurance: false
   }
-  @invalid_attrs %{created_at: nil, golden_supplier: nil, highest_assurance: nil, is_active: nil, is_verifed: nil, name: nil, trade_assurance: nil}
+  @invalid_attrs %{
+    created_at: nil,
+    golden_supplier: nil,
+    highest_assurance: nil,
+    is_active: nil,
+    is_verifed: nil,
+    name: nil,
+    trade_assurance: nil
+  }
 
   def fixture(:company) do
     {:ok, company} = Companies.create_company(@create_attrs)

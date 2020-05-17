@@ -12,7 +12,7 @@ defmodule EshopWeb.Schema.Types.InvoiceItemVariant do
   end
 
   @desc "A invoice_item_variant update"
-  input_object :invoice_item_variant_params do 
+  input_object :invoice_item_variant_params do
     field :invoice_item_id, :id
     field :variant_id, :id
     field :variant_value_id, :id

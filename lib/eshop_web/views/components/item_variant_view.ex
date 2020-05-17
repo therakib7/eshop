@@ -11,9 +11,11 @@ defmodule EshopWeb.ItemVariantView do
   end
 
   def render("item_variant.json", %{item_variant: item_variant}) do
-    %{id: item_variant.id,
+    %{
+      id: item_variant.id,
       unit_price: item_variant.unit_price,
       cost_price: item_variant.cost_price,
-      sale_price: item_variant.sale_price}
+      sale_price: item_variant.sale_price
+    }
   end
 end

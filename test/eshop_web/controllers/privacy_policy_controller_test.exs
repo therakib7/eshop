@@ -53,8 +53,15 @@ defmodule EshopWeb.PrivacyPolicyControllerTest do
   describe "update privacy_policy" do
     setup [:create_privacy_policy]
 
-    test "renders privacy_policy when data is valid", %{conn: conn, privacy_policy: %PrivacyPolicy{id: id} = privacy_policy} do
-      conn = put(conn, Routes.privacy_policy_path(conn, :update, privacy_policy), privacy_policy: @update_attrs)
+    test "renders privacy_policy when data is valid", %{
+      conn: conn,
+      privacy_policy: %PrivacyPolicy{id: id} = privacy_policy
+    } do
+      conn =
+        put(conn, Routes.privacy_policy_path(conn, :update, privacy_policy),
+          privacy_policy: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.privacy_policy_path(conn, :show, id))
@@ -67,7 +74,11 @@ defmodule EshopWeb.PrivacyPolicyControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, privacy_policy: privacy_policy} do
-      conn = put(conn, Routes.privacy_policy_path(conn, :update, privacy_policy), privacy_policy: @invalid_attrs)
+      conn =
+        put(conn, Routes.privacy_policy_path(conn, :update, privacy_policy),
+          privacy_policy: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

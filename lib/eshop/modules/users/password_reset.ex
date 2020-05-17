@@ -6,7 +6,6 @@ defmodule Eshop.Users.PasswordReset do
     field :created_at, :utc_datetime
     field :token, :string
     belongs_to :user, Eshop.Users.User
-
   end
 
   @doc false

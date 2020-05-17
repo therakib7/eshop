@@ -20,7 +20,7 @@ defmodule EshopWeb.Schema.Types.Company do
   end
 
   @desc "A company update"
-  input_object :company_params do 
+  input_object :company_params do
     field :created_at, :datetime
     field :golden_supplier, :boolean
     field :highest_assurance, :decimal

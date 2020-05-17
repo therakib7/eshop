@@ -17,7 +17,7 @@ defmodule EshopWeb.Schema.Types.UserProfile do
   end
 
   @desc "A user_profile update"
-  input_object :user_profile_params do 
+  input_object :user_profile_params do
     field :date_of_birth, :datetime
     field :gender, :integer
     field :lat, :float

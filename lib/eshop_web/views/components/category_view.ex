@@ -11,10 +11,12 @@ defmodule EshopWeb.CategoryView do
   end
 
   def render("category.json", %{category: category}) do
-    %{id: category.id,
+    %{
+      id: category.id,
       is_active: category.is_active,
       name: category.name,
       native_name: category.native_name,
-      slug: category.slug}
+      slug: category.slug
+    }
   end
 end
