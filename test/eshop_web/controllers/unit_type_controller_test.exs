@@ -53,7 +53,10 @@ defmodule EshopWeb.UnitTypeControllerTest do
   describe "update unit_type" do
     setup [:create_unit_type]
 
-    test "renders unit_type when data is valid", %{conn: conn, unit_type: %UnitType{id: id} = unit_type} do
+    test "renders unit_type when data is valid", %{
+      conn: conn,
+      unit_type: %UnitType{id: id} = unit_type
+    } do
       conn = put(conn, Routes.unit_type_path(conn, :update, unit_type), unit_type: @update_attrs)
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 

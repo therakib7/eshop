@@ -15,7 +15,7 @@ defmodule EshopWeb.Schema.Types.ItemVariant do
   end
 
   @desc "A item_variant update"
-  input_object :item_variant_params do 
+  input_object :item_variant_params do
     field :cost_price, :decimal
     field :sale_price, :decimal
     field :unit_price, :decimal

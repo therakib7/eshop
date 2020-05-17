@@ -6,9 +6,42 @@ defmodule Eshop.UsersTest do
   describe "users" do
     alias Eshop.Users.User
 
-    @valid_attrs %{email: "some email", first_name: "some first_name", is_active: true, surname: "some surname", mobile: "some mobile", password_hash: "some password_hash", pin: 42, verified_email: "2010-04-17T14:00:00Z", verified_phone: "2010-04-17T14:00:00Z", verified_user: "2010-04-17T14:00:00Z"}
-    @update_attrs %{email: "some updated email", first_name: "some updated first_name", is_active: false, surname: "some updated surname", mobile: "some updated mobile", password_hash: "some updated password_hash", pin: 43, verified_email: "2011-05-18T15:01:01Z", verified_phone: "2011-05-18T15:01:01Z", verified_user: "2011-05-18T15:01:01Z"}
-    @invalid_attrs %{email: nil, first_name: nil, is_active: nil, surname: nil, mobile: nil, password_hash: nil, pin: nil, verified_email: nil, verified_phone: nil, verified_user: nil}
+    @valid_attrs %{
+      email: "some email",
+      first_name: "some first_name",
+      is_active: true,
+      surname: "some surname",
+      mobile: "some mobile",
+      password_hash: "some password_hash",
+      pin: 42,
+      verified_email: "2010-04-17T14:00:00Z",
+      verified_phone: "2010-04-17T14:00:00Z",
+      verified_user: "2010-04-17T14:00:00Z"
+    }
+    @update_attrs %{
+      email: "some updated email",
+      first_name: "some updated first_name",
+      is_active: false,
+      surname: "some updated surname",
+      mobile: "some updated mobile",
+      password_hash: "some updated password_hash",
+      pin: 43,
+      verified_email: "2011-05-18T15:01:01Z",
+      verified_phone: "2011-05-18T15:01:01Z",
+      verified_user: "2011-05-18T15:01:01Z"
+    }
+    @invalid_attrs %{
+      email: nil,
+      first_name: nil,
+      is_active: nil,
+      surname: nil,
+      mobile: nil,
+      password_hash: nil,
+      pin: nil,
+      verified_email: nil,
+      verified_phone: nil,
+      verified_user: nil
+    }
 
     def user_fixture(attrs \\ %{}) do
       {:ok, user} =
@@ -83,8 +116,20 @@ defmodule Eshop.UsersTest do
   describe "user_profiles" do
     alias Eshop.Users.UserProfile
 
-    @valid_attrs %{date_of_birth: "2010-04-17T14:00:00Z", gender: 42, lat: 120.5, long: 120.5, merital_status: 42}
-    @update_attrs %{date_of_birth: "2011-05-18T15:01:01Z", gender: 43, lat: 456.7, long: 456.7, merital_status: 43}
+    @valid_attrs %{
+      date_of_birth: "2010-04-17T14:00:00Z",
+      gender: 42,
+      lat: 120.5,
+      long: 120.5,
+      merital_status: 42
+    }
+    @update_attrs %{
+      date_of_birth: "2011-05-18T15:01:01Z",
+      gender: 43,
+      lat: 456.7,
+      long: 456.7,
+      merital_status: 43
+    }
     @invalid_attrs %{date_of_birth: nil, gender: nil, lat: nil, long: nil, merital_status: nil}
 
     def user_profile_fixture(attrs \\ %{}) do
@@ -108,7 +153,10 @@ defmodule Eshop.UsersTest do
 
     test "create_user_profile/1 with valid data creates a user_profile" do
       assert {:ok, %UserProfile{} = user_profile} = Users.create_user_profile(@valid_attrs)
-      assert user_profile.date_of_birth == DateTime.from_naive!(~N[2010-04-17T14:00:00Z], "Etc/UTC")
+
+      assert user_profile.date_of_birth ==
+               DateTime.from_naive!(~N[2010-04-17T14:00:00Z], "Etc/UTC")
+
       assert user_profile.gender == 42
       assert user_profile.lat == 120.5
       assert user_profile.long == 120.5
@@ -121,8 +169,13 @@ defmodule Eshop.UsersTest do
 
     test "update_user_profile/2 with valid data updates the user_profile" do
       user_profile = user_profile_fixture()
-      assert {:ok, %UserProfile{} = user_profile} = Users.update_user_profile(user_profile, @update_attrs)
-      assert user_profile.date_of_birth == DateTime.from_naive!(~N[2011-05-18T15:01:01Z], "Etc/UTC")
+
+      assert {:ok, %UserProfile{} = user_profile} =
+               Users.update_user_profile(user_profile, @update_attrs)
+
+      assert user_profile.date_of_birth ==
+               DateTime.from_naive!(~N[2011-05-18T15:01:01Z], "Etc/UTC")
+
       assert user_profile.gender == 43
       assert user_profile.lat == 456.7
       assert user_profile.long == 456.7
@@ -147,12 +200,21 @@ defmodule Eshop.UsersTest do
     end
   end
 
-
   describe "roles" do
     alias Eshop.Users.Role
 
-    @valid_attrs %{desc: "some desc", is_company: true, name: "some name", native_name: "some native_name"}
-    @update_attrs %{desc: "some updated desc", is_company: false, name: "some updated name", native_name: "some updated native_name"}
+    @valid_attrs %{
+      desc: "some desc",
+      is_company: true,
+      name: "some name",
+      native_name: "some native_name"
+    }
+    @update_attrs %{
+      desc: "some updated desc",
+      is_company: false,
+      name: "some updated name",
+      native_name: "some updated native_name"
+    }
     @invalid_attrs %{desc: nil, is_company: nil, name: nil, native_name: nil}
 
     def role_fixture(attrs \\ %{}) do
@@ -251,7 +313,10 @@ defmodule Eshop.UsersTest do
 
     test "update_permission/2 with valid data updates the permission" do
       permission = permission_fixture()
-      assert {:ok, %Permission{} = permission} = Users.update_permission(permission, @update_attrs)
+
+      assert {:ok, %Permission{} = permission} =
+               Users.update_permission(permission, @update_attrs)
+
       assert permission.name == "some updated name"
       assert permission.slug == "some updated slug"
     end
@@ -301,7 +366,8 @@ defmodule Eshop.UsersTest do
     end
 
     test "create_role_permission/1 with valid data creates a role_permission" do
-      assert {:ok, %RolePermission{} = role_permission} = Users.create_role_permission(@valid_attrs)
+      assert {:ok, %RolePermission{} = role_permission} =
+               Users.create_role_permission(@valid_attrs)
     end
 
     test "create_role_permission/1 with invalid data returns error changeset" do
@@ -310,12 +376,17 @@ defmodule Eshop.UsersTest do
 
     test "update_role_permission/2 with valid data updates the role_permission" do
       role_permission = role_permission_fixture()
-      assert {:ok, %RolePermission{} = role_permission} = Users.update_role_permission(role_permission, @update_attrs)
+
+      assert {:ok, %RolePermission{} = role_permission} =
+               Users.update_role_permission(role_permission, @update_attrs)
     end
 
     test "update_role_permission/2 with invalid data returns error changeset" do
       role_permission = role_permission_fixture()
-      assert {:error, %Ecto.Changeset{}} = Users.update_role_permission(role_permission, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Users.update_role_permission(role_permission, @invalid_attrs)
+
       assert role_permission == Users.get_role_permission!(role_permission.id)
     end
 
@@ -415,7 +486,8 @@ defmodule Eshop.UsersTest do
     end
 
     test "create_user_permission/1 with valid data creates a user_permission" do
-      assert {:ok, %UserPermission{} = user_permission} = Users.create_user_permission(@valid_attrs)
+      assert {:ok, %UserPermission{} = user_permission} =
+               Users.create_user_permission(@valid_attrs)
     end
 
     test "create_user_permission/1 with invalid data returns error changeset" do
@@ -424,12 +496,17 @@ defmodule Eshop.UsersTest do
 
     test "update_user_permission/2 with valid data updates the user_permission" do
       user_permission = user_permission_fixture()
-      assert {:ok, %UserPermission{} = user_permission} = Users.update_user_permission(user_permission, @update_attrs)
+
+      assert {:ok, %UserPermission{} = user_permission} =
+               Users.update_user_permission(user_permission, @update_attrs)
     end
 
     test "update_user_permission/2 with invalid data returns error changeset" do
       user_permission = user_permission_fixture()
-      assert {:error, %Ecto.Changeset{}} = Users.update_user_permission(user_permission, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Users.update_user_permission(user_permission, @invalid_attrs)
+
       assert user_permission == Users.get_user_permission!(user_permission.id)
     end
 
@@ -473,7 +550,10 @@ defmodule Eshop.UsersTest do
 
     test "create_password_reset/1 with valid data creates a password_reset" do
       assert {:ok, %PasswordReset{} = password_reset} = Users.create_password_reset(@valid_attrs)
-      assert password_reset.created_at == DateTime.from_naive!(~N[2010-04-17T14:00:00Z], "Etc/UTC")
+
+      assert password_reset.created_at ==
+               DateTime.from_naive!(~N[2010-04-17T14:00:00Z], "Etc/UTC")
+
       assert password_reset.token == "some token"
     end
 
@@ -483,14 +563,22 @@ defmodule Eshop.UsersTest do
 
     test "update_password_reset/2 with valid data updates the password_reset" do
       password_reset = password_reset_fixture()
-      assert {:ok, %PasswordReset{} = password_reset} = Users.update_password_reset(password_reset, @update_attrs)
-      assert password_reset.created_at == DateTime.from_naive!(~N[2011-05-18T15:01:01Z], "Etc/UTC")
+
+      assert {:ok, %PasswordReset{} = password_reset} =
+               Users.update_password_reset(password_reset, @update_attrs)
+
+      assert password_reset.created_at ==
+               DateTime.from_naive!(~N[2011-05-18T15:01:01Z], "Etc/UTC")
+
       assert password_reset.token == "some updated token"
     end
 
     test "update_password_reset/2 with invalid data returns error changeset" do
       password_reset = password_reset_fixture()
-      assert {:error, %Ecto.Changeset{}} = Users.update_password_reset(password_reset, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Users.update_password_reset(password_reset, @invalid_attrs)
+
       assert password_reset == Users.get_password_reset!(password_reset.id)
     end
 
@@ -509,9 +597,30 @@ defmodule Eshop.UsersTest do
   describe "login_details" do
     alias Eshop.Users.LoginDetail
 
-    @valid_attrs %{ip_address: "some ip_address", ip_location: "some ip_location", is_active: true, last_activity: "2010-04-17T14:00:00Z", login_at: "2010-04-17T14:00:00Z", user_agent: "some user_agent"}
-    @update_attrs %{ip_address: "some updated ip_address", ip_location: "some updated ip_location", is_active: false, last_activity: "2011-05-18T15:01:01Z", login_at: "2011-05-18T15:01:01Z", user_agent: "some updated user_agent"}
-    @invalid_attrs %{ip_address: nil, ip_location: nil, is_active: nil, last_activity: nil, login_at: nil, user_agent: nil}
+    @valid_attrs %{
+      ip_address: "some ip_address",
+      ip_location: "some ip_location",
+      is_active: true,
+      last_activity: "2010-04-17T14:00:00Z",
+      login_at: "2010-04-17T14:00:00Z",
+      user_agent: "some user_agent"
+    }
+    @update_attrs %{
+      ip_address: "some updated ip_address",
+      ip_location: "some updated ip_location",
+      is_active: false,
+      last_activity: "2011-05-18T15:01:01Z",
+      login_at: "2011-05-18T15:01:01Z",
+      user_agent: "some updated user_agent"
+    }
+    @invalid_attrs %{
+      ip_address: nil,
+      ip_location: nil,
+      is_active: nil,
+      last_activity: nil,
+      login_at: nil,
+      user_agent: nil
+    }
 
     def login_detail_fixture(attrs \\ %{}) do
       {:ok, login_detail} =
@@ -537,7 +646,10 @@ defmodule Eshop.UsersTest do
       assert login_detail.ip_address == "some ip_address"
       assert login_detail.ip_location == "some ip_location"
       assert login_detail.is_active == true
-      assert login_detail.last_activity == DateTime.from_naive!(~N[2010-04-17T14:00:00Z], "Etc/UTC")
+
+      assert login_detail.last_activity ==
+               DateTime.from_naive!(~N[2010-04-17T14:00:00Z], "Etc/UTC")
+
       assert login_detail.login_at == DateTime.from_naive!(~N[2010-04-17T14:00:00Z], "Etc/UTC")
       assert login_detail.user_agent == "some user_agent"
     end
@@ -548,11 +660,17 @@ defmodule Eshop.UsersTest do
 
     test "update_login_detail/2 with valid data updates the login_detail" do
       login_detail = login_detail_fixture()
-      assert {:ok, %LoginDetail{} = login_detail} = Users.update_login_detail(login_detail, @update_attrs)
+
+      assert {:ok, %LoginDetail{} = login_detail} =
+               Users.update_login_detail(login_detail, @update_attrs)
+
       assert login_detail.ip_address == "some updated ip_address"
       assert login_detail.ip_location == "some updated ip_location"
       assert login_detail.is_active == false
-      assert login_detail.last_activity == DateTime.from_naive!(~N[2011-05-18T15:01:01Z], "Etc/UTC")
+
+      assert login_detail.last_activity ==
+               DateTime.from_naive!(~N[2011-05-18T15:01:01Z], "Etc/UTC")
+
       assert login_detail.login_at == DateTime.from_naive!(~N[2011-05-18T15:01:01Z], "Etc/UTC")
       assert login_detail.user_agent == "some updated user_agent"
     end
@@ -578,9 +696,30 @@ defmodule Eshop.UsersTest do
   describe "update_histories" do
     alias Eshop.Users.UpdateHistory
 
-    @valid_attrs %{created_at: "2010-04-17T14:00:00Z", key: "some key", new_value: "some new_value", old_value: "some old_value", type: 42, type_id: 42}
-    @update_attrs %{created_at: "2011-05-18T15:01:01Z", key: "some updated key", new_value: "some updated new_value", old_value: "some updated old_value", type: 43, type_id: 43}
-    @invalid_attrs %{created_at: nil, key: nil, new_value: nil, old_value: nil, type: nil, type_id: nil}
+    @valid_attrs %{
+      created_at: "2010-04-17T14:00:00Z",
+      key: "some key",
+      new_value: "some new_value",
+      old_value: "some old_value",
+      type: 42,
+      type_id: 42
+    }
+    @update_attrs %{
+      created_at: "2011-05-18T15:01:01Z",
+      key: "some updated key",
+      new_value: "some updated new_value",
+      old_value: "some updated old_value",
+      type: 43,
+      type_id: 43
+    }
+    @invalid_attrs %{
+      created_at: nil,
+      key: nil,
+      new_value: nil,
+      old_value: nil,
+      type: nil,
+      type_id: nil
+    }
 
     def update_history_fixture(attrs \\ %{}) do
       {:ok, update_history} =
@@ -603,7 +742,10 @@ defmodule Eshop.UsersTest do
 
     test "create_update_history/1 with valid data creates a update_history" do
       assert {:ok, %UpdateHistory{} = update_history} = Users.create_update_history(@valid_attrs)
-      assert update_history.created_at == DateTime.from_naive!(~N[2010-04-17T14:00:00Z], "Etc/UTC")
+
+      assert update_history.created_at ==
+               DateTime.from_naive!(~N[2010-04-17T14:00:00Z], "Etc/UTC")
+
       assert update_history.key == "some key"
       assert update_history.new_value == "some new_value"
       assert update_history.old_value == "some old_value"
@@ -617,8 +759,13 @@ defmodule Eshop.UsersTest do
 
     test "update_update_history/2 with valid data updates the update_history" do
       update_history = update_history_fixture()
-      assert {:ok, %UpdateHistory{} = update_history} = Users.update_update_history(update_history, @update_attrs)
-      assert update_history.created_at == DateTime.from_naive!(~N[2011-05-18T15:01:01Z], "Etc/UTC")
+
+      assert {:ok, %UpdateHistory{} = update_history} =
+               Users.update_update_history(update_history, @update_attrs)
+
+      assert update_history.created_at ==
+               DateTime.from_naive!(~N[2011-05-18T15:01:01Z], "Etc/UTC")
+
       assert update_history.key == "some updated key"
       assert update_history.new_value == "some updated new_value"
       assert update_history.old_value == "some updated old_value"
@@ -628,7 +775,10 @@ defmodule Eshop.UsersTest do
 
     test "update_update_history/2 with invalid data returns error changeset" do
       update_history = update_history_fixture()
-      assert {:error, %Ecto.Changeset{}} = Users.update_update_history(update_history, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Users.update_update_history(update_history, @invalid_attrs)
+
       assert update_history == Users.get_update_history!(update_history.id)
     end
 
@@ -644,4 +794,3 @@ defmodule Eshop.UsersTest do
     end
   end
 end
- 

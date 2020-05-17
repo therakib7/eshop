@@ -11,9 +11,11 @@ defmodule EshopWeb.TypeCommentView do
   end
 
   def render("type_comment.json", %{type_comment: type_comment}) do
-    %{id: type_comment.id,
+    %{
+      id: type_comment.id,
       type: type_comment.type,
       type_id: type_comment.type_id,
-      comment: type_comment.comment}
+      comment: type_comment.comment
+    }
   end
 end

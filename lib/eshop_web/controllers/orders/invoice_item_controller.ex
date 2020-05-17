@@ -28,7 +28,8 @@ defmodule EshopWeb.InvoiceItemController do
   def update(conn, %{"id" => id, "invoice_item" => invoice_item_params}) do
     invoice_item = Orders.get_invoice_item!(id)
 
-    with {:ok, %InvoiceItem{} = invoice_item} <- Orders.update_invoice_item(invoice_item, invoice_item_params) do
+    with {:ok, %InvoiceItem{} = invoice_item} <-
+           Orders.update_invoice_item(invoice_item, invoice_item_params) do
       render(conn, "show.json", invoice_item: invoice_item)
     end
   end

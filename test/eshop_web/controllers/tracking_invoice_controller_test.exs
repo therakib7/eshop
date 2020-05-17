@@ -30,7 +30,9 @@ defmodule EshopWeb.TrackingInvoiceControllerTest do
 
   describe "create tracking_invoice" do
     test "renders tracking_invoice when data is valid", %{conn: conn} do
-      conn = post(conn, Routes.tracking_invoice_path(conn, :create), tracking_invoice: @create_attrs)
+      conn =
+        post(conn, Routes.tracking_invoice_path(conn, :create), tracking_invoice: @create_attrs)
+
       assert %{"id" => id} = json_response(conn, 201)["data"]
 
       conn = get(conn, Routes.tracking_invoice_path(conn, :show, id))
@@ -42,7 +44,9 @@ defmodule EshopWeb.TrackingInvoiceControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = post(conn, Routes.tracking_invoice_path(conn, :create), tracking_invoice: @invalid_attrs)
+      conn =
+        post(conn, Routes.tracking_invoice_path(conn, :create), tracking_invoice: @invalid_attrs)
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
@@ -50,8 +54,15 @@ defmodule EshopWeb.TrackingInvoiceControllerTest do
   describe "update tracking_invoice" do
     setup [:create_tracking_invoice]
 
-    test "renders tracking_invoice when data is valid", %{conn: conn, tracking_invoice: %TrackingInvoice{id: id} = tracking_invoice} do
-      conn = put(conn, Routes.tracking_invoice_path(conn, :update, tracking_invoice), tracking_invoice: @update_attrs)
+    test "renders tracking_invoice when data is valid", %{
+      conn: conn,
+      tracking_invoice: %TrackingInvoice{id: id} = tracking_invoice
+    } do
+      conn =
+        put(conn, Routes.tracking_invoice_path(conn, :update, tracking_invoice),
+          tracking_invoice: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.tracking_invoice_path(conn, :show, id))
@@ -63,7 +74,11 @@ defmodule EshopWeb.TrackingInvoiceControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, tracking_invoice: tracking_invoice} do
-      conn = put(conn, Routes.tracking_invoice_path(conn, :update, tracking_invoice), tracking_invoice: @invalid_attrs)
+      conn =
+        put(conn, Routes.tracking_invoice_path(conn, :update, tracking_invoice),
+          tracking_invoice: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

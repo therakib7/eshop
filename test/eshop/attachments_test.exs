@@ -6,9 +6,30 @@ defmodule Eshop.AttachmentsTest do
   describe "attachments" do
     alias Eshop.Attachments.Attachment
 
-    @valid_attrs %{file_name: "some file_name", name: "some name", orginal_size: "some orginal_size", resized_size: "some resized_size", type: 42, type_id: 42}
-    @update_attrs %{file_name: "some updated file_name", name: "some updated name", orginal_size: "some updated orginal_size", resized_size: "some updated resized_size", type: 43, type_id: 43}
-    @invalid_attrs %{file_name: nil, name: nil, orginal_size: nil, resized_size: nil, type: nil, type_id: nil}
+    @valid_attrs %{
+      file_name: "some file_name",
+      name: "some name",
+      orginal_size: "some orginal_size",
+      resized_size: "some resized_size",
+      type: 42,
+      type_id: 42
+    }
+    @update_attrs %{
+      file_name: "some updated file_name",
+      name: "some updated name",
+      orginal_size: "some updated orginal_size",
+      resized_size: "some updated resized_size",
+      type: 43,
+      type_id: 43
+    }
+    @invalid_attrs %{
+      file_name: nil,
+      name: nil,
+      orginal_size: nil,
+      resized_size: nil,
+      type: nil,
+      type_id: nil
+    }
 
     def attachment_fixture(attrs \\ %{}) do
       {:ok, attachment} =
@@ -45,7 +66,10 @@ defmodule Eshop.AttachmentsTest do
 
     test "update_attachment/2 with valid data updates the attachment" do
       attachment = attachment_fixture()
-      assert {:ok, %Attachment{} = attachment} = Attachments.update_attachment(attachment, @update_attrs)
+
+      assert {:ok, %Attachment{} = attachment} =
+               Attachments.update_attachment(attachment, @update_attrs)
+
       assert attachment.file_name == "some updated file_name"
       assert attachment.name == "some updated name"
       assert attachment.orginal_size == "some updated orginal_size"
@@ -56,7 +80,10 @@ defmodule Eshop.AttachmentsTest do
 
     test "update_attachment/2 with invalid data returns error changeset" do
       attachment = attachment_fixture()
-      assert {:error, %Ecto.Changeset{}} = Attachments.update_attachment(attachment, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Attachments.update_attachment(attachment, @invalid_attrs)
+
       assert attachment == Attachments.get_attachment!(attachment.id)
     end
 

@@ -16,7 +16,7 @@ defmodule EshopWeb.Schema.Types.ShopPaymentMethod do
   end
 
   @desc "A shop_payment_method update"
-  input_object :shop_payment_method_params do 
+  input_object :shop_payment_method_params do
     field :ac_holder_name, :string
     field :ac_no, :integer
     field :account_type, :string

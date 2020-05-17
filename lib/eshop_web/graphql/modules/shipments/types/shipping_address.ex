@@ -14,7 +14,7 @@ defmodule EshopWeb.Schema.Types.ShippingAddress do
   end
 
   @desc "A shipping_address update"
-  input_object :shipping_address_params do 
+  input_object :shipping_address_params do
     field :address, :string
     field :lat, :float
     field :long, :float

@@ -41,7 +41,10 @@ defmodule Eshop.ActivitiesTest do
 
     test "update_user_love/2 with valid data updates the user_love" do
       user_love = user_love_fixture()
-      assert {:ok, %UserLove{} = user_love} = Activities.update_user_love(user_love, @update_attrs)
+
+      assert {:ok, %UserLove{} = user_love} =
+               Activities.update_user_love(user_love, @update_attrs)
+
       assert user_love.type == 43
       assert user_love.type_id == 43
     end
@@ -168,7 +171,10 @@ defmodule Eshop.ActivitiesTest do
 
     test "update_type_comment/2 with valid data updates the type_comment" do
       type_comment = type_comment_fixture()
-      assert {:ok, %TypeComment{} = type_comment} = Activities.update_type_comment(type_comment, @update_attrs)
+
+      assert {:ok, %TypeComment{} = type_comment} =
+               Activities.update_type_comment(type_comment, @update_attrs)
+
       assert type_comment.comment == "some updated comment"
       assert type_comment.type == 43
       assert type_comment.type_id == 43
@@ -176,7 +182,10 @@ defmodule Eshop.ActivitiesTest do
 
     test "update_type_comment/2 with invalid data returns error changeset" do
       type_comment = type_comment_fixture()
-      assert {:error, %Ecto.Changeset{}} = Activities.update_type_comment(type_comment, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Activities.update_type_comment(type_comment, @invalid_attrs)
+
       assert type_comment == Activities.get_type_comment!(type_comment.id)
     end
 

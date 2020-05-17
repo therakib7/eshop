@@ -11,8 +11,6 @@ defmodule EshopWeb.UserSettingView do
   end
 
   def render("user_setting.json", %{user_setting: user_setting}) do
-    %{id: user_setting.id,
-      key: user_setting.key,
-      value: user_setting.value}
+    %{id: user_setting.id, key: user_setting.key, value: user_setting.value}
   end
 end

@@ -9,7 +9,7 @@ defmodule Eshop.Components.InvoiceStatus do
     belongs_to :type_status, Eshop.Components.TypeStatus
 
     timestamps()
-  end 
+  end
 
   @doc false
   def changeset(invoice_status, attrs) do

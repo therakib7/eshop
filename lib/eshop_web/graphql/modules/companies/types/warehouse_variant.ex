@@ -14,7 +14,7 @@ defmodule EshopWeb.Schema.Types.WarehouseVariant do
   end
 
   @desc "A warehouse_variant update"
-  input_object :warehouse_variant_params do 
+  input_object :warehouse_variant_params do
     field :name, :string
     field :native_name, :string
     field :type, :integer

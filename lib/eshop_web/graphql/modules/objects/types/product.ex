@@ -14,7 +14,7 @@ defmodule EshopWeb.Schema.Types.Product do
   end
 
   @desc "A product update"
-  input_object :product_params do 
+  input_object :product_params do
     field :barcode, :string
     field :exp_date, :naive_datetime
     field :mfg_date, :naive_datetime

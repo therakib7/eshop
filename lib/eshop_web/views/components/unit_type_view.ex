@@ -11,8 +11,6 @@ defmodule EshopWeb.UnitTypeView do
   end
 
   def render("unit_type.json", %{unit_type: unit_type}) do
-    %{id: unit_type.id,
-      name: unit_type.name,
-      native_name: unit_type.native_name}
+    %{id: unit_type.id, name: unit_type.name, native_name: unit_type.native_name}
   end
 end

@@ -28,7 +28,8 @@ defmodule EshopWeb.LoginDetailController do
   def update(conn, %{"id" => id, "login_detail" => login_detail_params}) do
     login_detail = Users.get_login_detail!(id)
 
-    with {:ok, %LoginDetail{} = login_detail} <- Users.update_login_detail(login_detail, login_detail_params) do
+    with {:ok, %LoginDetail{} = login_detail} <-
+           Users.update_login_detail(login_detail, login_detail_params) do
       render(conn, "show.json", login_detail: login_detail)
     end
   end

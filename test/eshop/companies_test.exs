@@ -6,9 +6,33 @@ defmodule Eshop.CompaniesTest do
   describe "companies" do
     alias Eshop.Companies.Company
 
-    @valid_attrs %{created_at: "2010-04-17T14:00:00Z", golden_supplier: true, highest_assurance: "120.5", is_active: true, is_verifed: true, name: "some name", trade_assurance: true}
-    @update_attrs %{created_at: "2011-05-18T15:01:01Z", golden_supplier: false, highest_assurance: "456.7", is_active: false, is_verifed: false, name: "some updated name", trade_assurance: false}
-    @invalid_attrs %{created_at: nil, golden_supplier: nil, highest_assurance: nil, is_active: nil, is_verifed: nil, name: nil, trade_assurance: nil}
+    @valid_attrs %{
+      created_at: "2010-04-17T14:00:00Z",
+      golden_supplier: true,
+      highest_assurance: "120.5",
+      is_active: true,
+      is_verifed: true,
+      name: "some name",
+      trade_assurance: true
+    }
+    @update_attrs %{
+      created_at: "2011-05-18T15:01:01Z",
+      golden_supplier: false,
+      highest_assurance: "456.7",
+      is_active: false,
+      is_verifed: false,
+      name: "some updated name",
+      trade_assurance: false
+    }
+    @invalid_attrs %{
+      created_at: nil,
+      golden_supplier: nil,
+      highest_assurance: nil,
+      is_active: nil,
+      is_verifed: nil,
+      name: nil,
+      trade_assurance: nil
+    }
 
     def company_fixture(attrs \\ %{}) do
       {:ok, company} =
@@ -77,9 +101,36 @@ defmodule Eshop.CompaniesTest do
   describe "shops" do
     alias Eshop.Companies.Shop
 
-    @valid_attrs %{created_at: "2010-04-17T14:00:00Z", golden_supplier: true, highest_assurance: "120.5", is_active: true, is_verifed: true, name: "some name", native_name: "some native_name", trade_assurance: true}
-    @update_attrs %{created_at: "2011-05-18T15:01:01Z", golden_supplier: false, highest_assurance: "456.7", is_active: false, is_verifed: false, name: "some updated name", native_name: "some updated native_name", trade_assurance: false}
-    @invalid_attrs %{created_at: nil, golden_supplier: nil, highest_assurance: nil, is_active: nil, is_verifed: nil, name: nil, native_name: nil, trade_assurance: nil}
+    @valid_attrs %{
+      created_at: "2010-04-17T14:00:00Z",
+      golden_supplier: true,
+      highest_assurance: "120.5",
+      is_active: true,
+      is_verifed: true,
+      name: "some name",
+      native_name: "some native_name",
+      trade_assurance: true
+    }
+    @update_attrs %{
+      created_at: "2011-05-18T15:01:01Z",
+      golden_supplier: false,
+      highest_assurance: "456.7",
+      is_active: false,
+      is_verifed: false,
+      name: "some updated name",
+      native_name: "some updated native_name",
+      trade_assurance: false
+    }
+    @invalid_attrs %{
+      created_at: nil,
+      golden_supplier: nil,
+      highest_assurance: nil,
+      is_active: nil,
+      is_verifed: nil,
+      name: nil,
+      native_name: nil,
+      trade_assurance: nil
+    }
 
     def shop_fixture(attrs \\ %{}) do
       {:ok, shop} =
@@ -174,7 +225,9 @@ defmodule Eshop.CompaniesTest do
     end
 
     test "create_type_user_role/1 with valid data creates a type_user_role" do
-      assert {:ok, %TypeUserRole{} = type_user_role} = Companies.create_type_user_role(@valid_attrs)
+      assert {:ok, %TypeUserRole{} = type_user_role} =
+               Companies.create_type_user_role(@valid_attrs)
+
       assert type_user_role.type == 42
       assert type_user_role.type_id == 42
     end
@@ -185,14 +238,20 @@ defmodule Eshop.CompaniesTest do
 
     test "update_type_user_role/2 with valid data updates the type_user_role" do
       type_user_role = type_user_role_fixture()
-      assert {:ok, %TypeUserRole{} = type_user_role} = Companies.update_type_user_role(type_user_role, @update_attrs)
+
+      assert {:ok, %TypeUserRole{} = type_user_role} =
+               Companies.update_type_user_role(type_user_role, @update_attrs)
+
       assert type_user_role.type == 43
       assert type_user_role.type_id == 43
     end
 
     test "update_type_user_role/2 with invalid data returns error changeset" do
       type_user_role = type_user_role_fixture()
-      assert {:error, %Ecto.Changeset{}} = Companies.update_type_user_role(type_user_role, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Companies.update_type_user_role(type_user_role, @invalid_attrs)
+
       assert type_user_role == Companies.get_type_user_role!(type_user_role.id)
     end
 
@@ -212,7 +271,11 @@ defmodule Eshop.CompaniesTest do
     alias Eshop.Companies.Warehouse
 
     @valid_attrs %{is_active: true, name: "some name", native_name: "some native_name"}
-    @update_attrs %{is_active: false, name: "some updated name", native_name: "some updated native_name"}
+    @update_attrs %{
+      is_active: false,
+      name: "some updated name",
+      native_name: "some updated native_name"
+    }
     @invalid_attrs %{is_active: nil, name: nil, native_name: nil}
 
     def warehouse_fixture(attrs \\ %{}) do
@@ -247,7 +310,10 @@ defmodule Eshop.CompaniesTest do
 
     test "update_warehouse/2 with valid data updates the warehouse" do
       warehouse = warehouse_fixture()
-      assert {:ok, %Warehouse{} = warehouse} = Companies.update_warehouse(warehouse, @update_attrs)
+
+      assert {:ok, %Warehouse{} = warehouse} =
+               Companies.update_warehouse(warehouse, @update_attrs)
+
       assert warehouse.is_active == false
       assert warehouse.name == "some updated name"
       assert warehouse.native_name == "some updated native_name"
@@ -298,7 +364,9 @@ defmodule Eshop.CompaniesTest do
     end
 
     test "create_warehouse_variant/1 with valid data creates a warehouse_variant" do
-      assert {:ok, %WarehouseVariant{} = warehouse_variant} = Companies.create_warehouse_variant(@valid_attrs)
+      assert {:ok, %WarehouseVariant{} = warehouse_variant} =
+               Companies.create_warehouse_variant(@valid_attrs)
+
       assert warehouse_variant.name == "some name"
       assert warehouse_variant.native_name == "some native_name"
       assert warehouse_variant.type == 42
@@ -310,7 +378,10 @@ defmodule Eshop.CompaniesTest do
 
     test "update_warehouse_variant/2 with valid data updates the warehouse_variant" do
       warehouse_variant = warehouse_variant_fixture()
-      assert {:ok, %WarehouseVariant{} = warehouse_variant} = Companies.update_warehouse_variant(warehouse_variant, @update_attrs)
+
+      assert {:ok, %WarehouseVariant{} = warehouse_variant} =
+               Companies.update_warehouse_variant(warehouse_variant, @update_attrs)
+
       assert warehouse_variant.name == "some updated name"
       assert warehouse_variant.native_name == "some updated native_name"
       assert warehouse_variant.type == 43
@@ -318,14 +389,20 @@ defmodule Eshop.CompaniesTest do
 
     test "update_warehouse_variant/2 with invalid data returns error changeset" do
       warehouse_variant = warehouse_variant_fixture()
-      assert {:error, %Ecto.Changeset{}} = Companies.update_warehouse_variant(warehouse_variant, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Companies.update_warehouse_variant(warehouse_variant, @invalid_attrs)
+
       assert warehouse_variant == Companies.get_warehouse_variant!(warehouse_variant.id)
     end
 
     test "delete_warehouse_variant/1 deletes the warehouse_variant" do
       warehouse_variant = warehouse_variant_fixture()
       assert {:ok, %WarehouseVariant{}} = Companies.delete_warehouse_variant(warehouse_variant)
-      assert_raise Ecto.NoResultsError, fn -> Companies.get_warehouse_variant!(warehouse_variant.id) end
+
+      assert_raise Ecto.NoResultsError, fn ->
+        Companies.get_warehouse_variant!(warehouse_variant.id)
+      end
     end
 
     test "change_warehouse_variant/1 returns a warehouse_variant changeset" do
@@ -357,36 +434,53 @@ defmodule Eshop.CompaniesTest do
 
     test "get_warehouse_variant_value!/1 returns the warehouse_variant_value with given id" do
       warehouse_variant_value = warehouse_variant_value_fixture()
-      assert Companies.get_warehouse_variant_value!(warehouse_variant_value.id) == warehouse_variant_value
+
+      assert Companies.get_warehouse_variant_value!(warehouse_variant_value.id) ==
+               warehouse_variant_value
     end
 
     test "create_warehouse_variant_value/1 with valid data creates a warehouse_variant_value" do
-      assert {:ok, %WarehouseVariantValue{} = warehouse_variant_value} = Companies.create_warehouse_variant_value(@valid_attrs)
+      assert {:ok, %WarehouseVariantValue{} = warehouse_variant_value} =
+               Companies.create_warehouse_variant_value(@valid_attrs)
+
       assert warehouse_variant_value.native_value == "some native_value"
       assert warehouse_variant_value.value == "some value"
     end
 
     test "create_warehouse_variant_value/1 with invalid data returns error changeset" do
-      assert {:error, %Ecto.Changeset{}} = Companies.create_warehouse_variant_value(@invalid_attrs)
+      assert {:error, %Ecto.Changeset{}} =
+               Companies.create_warehouse_variant_value(@invalid_attrs)
     end
 
     test "update_warehouse_variant_value/2 with valid data updates the warehouse_variant_value" do
       warehouse_variant_value = warehouse_variant_value_fixture()
-      assert {:ok, %WarehouseVariantValue{} = warehouse_variant_value} = Companies.update_warehouse_variant_value(warehouse_variant_value, @update_attrs)
+
+      assert {:ok, %WarehouseVariantValue{} = warehouse_variant_value} =
+               Companies.update_warehouse_variant_value(warehouse_variant_value, @update_attrs)
+
       assert warehouse_variant_value.native_value == "some updated native_value"
       assert warehouse_variant_value.value == "some updated value"
     end
 
     test "update_warehouse_variant_value/2 with invalid data returns error changeset" do
       warehouse_variant_value = warehouse_variant_value_fixture()
-      assert {:error, %Ecto.Changeset{}} = Companies.update_warehouse_variant_value(warehouse_variant_value, @invalid_attrs)
-      assert warehouse_variant_value == Companies.get_warehouse_variant_value!(warehouse_variant_value.id)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Companies.update_warehouse_variant_value(warehouse_variant_value, @invalid_attrs)
+
+      assert warehouse_variant_value ==
+               Companies.get_warehouse_variant_value!(warehouse_variant_value.id)
     end
 
     test "delete_warehouse_variant_value/1 deletes the warehouse_variant_value" do
       warehouse_variant_value = warehouse_variant_value_fixture()
-      assert {:ok, %WarehouseVariantValue{}} = Companies.delete_warehouse_variant_value(warehouse_variant_value)
-      assert_raise Ecto.NoResultsError, fn -> Companies.get_warehouse_variant_value!(warehouse_variant_value.id) end
+
+      assert {:ok, %WarehouseVariantValue{}} =
+               Companies.delete_warehouse_variant_value(warehouse_variant_value)
+
+      assert_raise Ecto.NoResultsError, fn ->
+        Companies.get_warehouse_variant_value!(warehouse_variant_value.id)
+      end
     end
 
     test "change_warehouse_variant_value/1 returns a warehouse_variant_value changeset" do

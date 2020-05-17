@@ -53,8 +53,15 @@ defmodule EshopWeb.UserSettingControllerTest do
   describe "update user_setting" do
     setup [:create_user_setting]
 
-    test "renders user_setting when data is valid", %{conn: conn, user_setting: %UserSetting{id: id} = user_setting} do
-      conn = put(conn, Routes.user_setting_path(conn, :update, user_setting), user_setting: @update_attrs)
+    test "renders user_setting when data is valid", %{
+      conn: conn,
+      user_setting: %UserSetting{id: id} = user_setting
+    } do
+      conn =
+        put(conn, Routes.user_setting_path(conn, :update, user_setting),
+          user_setting: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.user_setting_path(conn, :show, id))
@@ -67,7 +74,11 @@ defmodule EshopWeb.UserSettingControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, user_setting: user_setting} do
-      conn = put(conn, Routes.user_setting_path(conn, :update, user_setting), user_setting: @invalid_attrs)
+      conn =
+        put(conn, Routes.user_setting_path(conn, :update, user_setting),
+          user_setting: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

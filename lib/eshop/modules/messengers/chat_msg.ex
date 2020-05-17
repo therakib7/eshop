@@ -21,6 +21,5 @@ defmodule Eshop.Messengers.ChatMsg do
     |> validate_required([:msg_type, :msg, :read, :deleted_at])
     |> validate_length(:msg, min: 1, max: 500)
     |> validate_inclusion(:msg_type, 1..2)
-
   end
 end

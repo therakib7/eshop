@@ -9,7 +9,7 @@ defmodule Eshop.Users.UpdateHistory do
     field :old_value, :string
     field :type, :integer
     field :type_id, :integer
-    
+
     timestamps()
   end
 

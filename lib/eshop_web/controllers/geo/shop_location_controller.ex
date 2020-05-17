@@ -28,7 +28,8 @@ defmodule EshopWeb.ShopLocationController do
   def update(conn, %{"id" => id, "shop_location" => shop_location_params}) do
     shop_location = Geo.get_shop_location!(id)
 
-    with {:ok, %ShopLocation{} = shop_location} <- Geo.update_shop_location(shop_location, shop_location_params) do
+    with {:ok, %ShopLocation{} = shop_location} <-
+           Geo.update_shop_location(shop_location, shop_location_params) do
       render(conn, "show.json", shop_location: shop_location)
     end
   end

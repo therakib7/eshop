@@ -12,7 +12,8 @@ defmodule EshopWeb.ItemCategoryController do
   end
 
   def create(conn, %{"item_category" => item_category_params}) do
-    with {:ok, %ItemCategory{} = item_category} <- Components.create_item_category(item_category_params) do
+    with {:ok, %ItemCategory{} = item_category} <-
+           Components.create_item_category(item_category_params) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.item_category_path(conn, :show, item_category))
@@ -28,7 +29,8 @@ defmodule EshopWeb.ItemCategoryController do
   def update(conn, %{"id" => id, "item_category" => item_category_params}) do
     item_category = Components.get_item_category!(id)
 
-    with {:ok, %ItemCategory{} = item_category} <- Components.update_item_category(item_category, item_category_params) do
+    with {:ok, %ItemCategory{} = item_category} <-
+           Components.update_item_category(item_category, item_category_params) do
       render(conn, "show.json", item_category: item_category)
     end
   end

@@ -11,10 +11,12 @@ defmodule EshopWeb.ChatMsgView do
   end
 
   def render("chat_msg.json", %{chat_msg: chat_msg}) do
-    %{id: chat_msg.id,
+    %{
+      id: chat_msg.id,
       msg_type: chat_msg.msg_type,
       msg: chat_msg.msg,
       read: chat_msg.read,
-      deleted_at: chat_msg.deleted_at}
+      deleted_at: chat_msg.deleted_at
+    }
   end
 end

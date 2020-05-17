@@ -4,12 +4,8 @@ defmodule EshopWeb.InvoiceItemVariantControllerTest do
   alias Eshop.Orders
   alias Eshop.Orders.InvoiceItemVariant
 
-  @create_attrs %{
-
-  }
-  @update_attrs %{
-
-  }
+  @create_attrs %{}
+  @update_attrs %{}
   @invalid_attrs %{}
 
   def fixture(:invoice_item_variant) do
@@ -30,7 +26,11 @@ defmodule EshopWeb.InvoiceItemVariantControllerTest do
 
   describe "create invoice_item_variant" do
     test "renders invoice_item_variant when data is valid", %{conn: conn} do
-      conn = post(conn, Routes.invoice_item_variant_path(conn, :create), invoice_item_variant: @create_attrs)
+      conn =
+        post(conn, Routes.invoice_item_variant_path(conn, :create),
+          invoice_item_variant: @create_attrs
+        )
+
       assert %{"id" => id} = json_response(conn, 201)["data"]
 
       conn = get(conn, Routes.invoice_item_variant_path(conn, :show, id))
@@ -41,7 +41,11 @@ defmodule EshopWeb.InvoiceItemVariantControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = post(conn, Routes.invoice_item_variant_path(conn, :create), invoice_item_variant: @invalid_attrs)
+      conn =
+        post(conn, Routes.invoice_item_variant_path(conn, :create),
+          invoice_item_variant: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
@@ -49,8 +53,15 @@ defmodule EshopWeb.InvoiceItemVariantControllerTest do
   describe "update invoice_item_variant" do
     setup [:create_invoice_item_variant]
 
-    test "renders invoice_item_variant when data is valid", %{conn: conn, invoice_item_variant: %InvoiceItemVariant{id: id} = invoice_item_variant} do
-      conn = put(conn, Routes.invoice_item_variant_path(conn, :update, invoice_item_variant), invoice_item_variant: @update_attrs)
+    test "renders invoice_item_variant when data is valid", %{
+      conn: conn,
+      invoice_item_variant: %InvoiceItemVariant{id: id} = invoice_item_variant
+    } do
+      conn =
+        put(conn, Routes.invoice_item_variant_path(conn, :update, invoice_item_variant),
+          invoice_item_variant: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.invoice_item_variant_path(conn, :show, id))
@@ -60,8 +71,15 @@ defmodule EshopWeb.InvoiceItemVariantControllerTest do
              } = json_response(conn, 200)["data"]
     end
 
-    test "renders errors when data is invalid", %{conn: conn, invoice_item_variant: invoice_item_variant} do
-      conn = put(conn, Routes.invoice_item_variant_path(conn, :update, invoice_item_variant), invoice_item_variant: @invalid_attrs)
+    test "renders errors when data is invalid", %{
+      conn: conn,
+      invoice_item_variant: invoice_item_variant
+    } do
+      conn =
+        put(conn, Routes.invoice_item_variant_path(conn, :update, invoice_item_variant),
+          invoice_item_variant: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
@@ -69,7 +87,10 @@ defmodule EshopWeb.InvoiceItemVariantControllerTest do
   describe "delete invoice_item_variant" do
     setup [:create_invoice_item_variant]
 
-    test "deletes chosen invoice_item_variant", %{conn: conn, invoice_item_variant: invoice_item_variant} do
+    test "deletes chosen invoice_item_variant", %{
+      conn: conn,
+      invoice_item_variant: invoice_item_variant
+    } do
       conn = delete(conn, Routes.invoice_item_variant_path(conn, :delete, invoice_item_variant))
       assert response(conn, 204)
 

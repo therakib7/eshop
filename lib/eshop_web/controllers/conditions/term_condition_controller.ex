@@ -12,7 +12,8 @@ defmodule EshopWeb.TermConditionController do
   end
 
   def create(conn, %{"term_condition" => term_condition_params}) do
-    with {:ok, %TermCondition{} = term_condition} <- Conditions.create_term_condition(term_condition_params) do
+    with {:ok, %TermCondition{} = term_condition} <-
+           Conditions.create_term_condition(term_condition_params) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.term_condition_path(conn, :show, term_condition))
@@ -28,7 +29,8 @@ defmodule EshopWeb.TermConditionController do
   def update(conn, %{"id" => id, "term_condition" => term_condition_params}) do
     term_condition = Conditions.get_term_condition!(id)
 
-    with {:ok, %TermCondition{} = term_condition} <- Conditions.update_term_condition(term_condition, term_condition_params) do
+    with {:ok, %TermCondition{} = term_condition} <-
+           Conditions.update_term_condition(term_condition, term_condition_params) do
       render(conn, "show.json", term_condition: term_condition)
     end
   end

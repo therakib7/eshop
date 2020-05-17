@@ -14,7 +14,7 @@ defmodule EshopWeb.Schema.Types.Guarantee do
   end
 
   @desc "A guarantee update"
-  input_object :guarantee_params do 
+  input_object :guarantee_params do
     field :content, :string
     field :duration, :integer
     field :gurantee_type, :integer

@@ -4,12 +4,8 @@ defmodule EshopWeb.ChatRoomControllerTest do
   alias Eshop.Messengers
   alias Eshop.Messengers.ChatRoom
 
-  @create_attrs %{
-
-  }
-  @update_attrs %{
-
-  }
+  @create_attrs %{}
+  @update_attrs %{}
   @invalid_attrs %{}
 
   def fixture(:chat_room) do
@@ -49,7 +45,10 @@ defmodule EshopWeb.ChatRoomControllerTest do
   describe "update chat_room" do
     setup [:create_chat_room]
 
-    test "renders chat_room when data is valid", %{conn: conn, chat_room: %ChatRoom{id: id} = chat_room} do
+    test "renders chat_room when data is valid", %{
+      conn: conn,
+      chat_room: %ChatRoom{id: id} = chat_room
+    } do
       conn = put(conn, Routes.chat_room_path(conn, :update, chat_room), chat_room: @update_attrs)
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 

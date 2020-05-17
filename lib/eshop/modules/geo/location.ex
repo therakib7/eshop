@@ -22,8 +22,32 @@ defmodule Eshop.Geo.Location do
   @doc false
   def changeset(location, attrs) do
     location
-    |> cast(attrs, [:is_active, :country_id, :stage_id, :parent_id, :name, :native_name, :order, :code, :lat, :long, :web, ])
-    |> validate_required([:is_active, :country_id, :stage_id, :parent_id, :name, :native_name, :order, :code, :lat, :long, :web])
+    |> cast(attrs, [
+      :is_active,
+      :country_id,
+      :stage_id,
+      :parent_id,
+      :name,
+      :native_name,
+      :order,
+      :code,
+      :lat,
+      :long,
+      :web
+    ])
+    |> validate_required([
+      :is_active,
+      :country_id,
+      :stage_id,
+      :parent_id,
+      :name,
+      :native_name,
+      :order,
+      :code,
+      :lat,
+      :long,
+      :web
+    ])
     |> validate_number(:lat, greater_than_or_equal_to: -90, less_than_or_equal_to: 90)
     |> validate_number(:long, greater_than_or_equal_to: -180, less_than_or_equal_to: 180)
   end

@@ -11,8 +11,6 @@ defmodule EshopWeb.NotificationMsgView do
   end
 
   def render("notification_msg.json", %{notification_msg: notification_msg}) do
-    %{id: notification_msg.id,
-      msg: notification_msg.msg,
-      for: notification_msg.for}
+    %{id: notification_msg.id, msg: notification_msg.msg, for: notification_msg.for}
   end
 end

@@ -12,7 +12,8 @@ defmodule EshopWeb.TypeCommentController do
   end
 
   def create(conn, %{"type_comment" => type_comment_params}) do
-    with {:ok, %TypeComment{} = type_comment} <- Activities.create_type_comment(type_comment_params) do
+    with {:ok, %TypeComment{} = type_comment} <-
+           Activities.create_type_comment(type_comment_params) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.type_comment_path(conn, :show, type_comment))
@@ -28,7 +29,8 @@ defmodule EshopWeb.TypeCommentController do
   def update(conn, %{"id" => id, "type_comment" => type_comment_params}) do
     type_comment = Activities.get_type_comment!(id)
 
-    with {:ok, %TypeComment{} = type_comment} <- Activities.update_type_comment(type_comment, type_comment_params) do
+    with {:ok, %TypeComment{} = type_comment} <-
+           Activities.update_type_comment(type_comment, type_comment_params) do
       render(conn, "show.json", type_comment: type_comment)
     end
   end

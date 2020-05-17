@@ -4,12 +4,8 @@ defmodule EshopWeb.ItemCategoryControllerTest do
   alias Eshop.Components
   alias Eshop.Components.ItemCategory
 
-  @create_attrs %{
-
-  }
-  @update_attrs %{
-
-  }
+  @create_attrs %{}
+  @update_attrs %{}
   @invalid_attrs %{}
 
   def fixture(:item_category) do
@@ -49,8 +45,15 @@ defmodule EshopWeb.ItemCategoryControllerTest do
   describe "update item_category" do
     setup [:create_item_category]
 
-    test "renders item_category when data is valid", %{conn: conn, item_category: %ItemCategory{id: id} = item_category} do
-      conn = put(conn, Routes.item_category_path(conn, :update, item_category), item_category: @update_attrs)
+    test "renders item_category when data is valid", %{
+      conn: conn,
+      item_category: %ItemCategory{id: id} = item_category
+    } do
+      conn =
+        put(conn, Routes.item_category_path(conn, :update, item_category),
+          item_category: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.item_category_path(conn, :show, id))
@@ -61,7 +64,11 @@ defmodule EshopWeb.ItemCategoryControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, item_category: item_category} do
-      conn = put(conn, Routes.item_category_path(conn, :update, item_category), item_category: @invalid_attrs)
+      conn =
+        put(conn, Routes.item_category_path(conn, :update, item_category),
+          item_category: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

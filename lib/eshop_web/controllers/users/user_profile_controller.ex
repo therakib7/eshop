@@ -28,7 +28,8 @@ defmodule EshopWeb.UserProfileController do
   def update(conn, %{"id" => id, "user_profile" => user_profile_params}) do
     user_profile = Users.get_user_profile!(id)
 
-    with {:ok, %UserProfile{} = user_profile} <- Users.update_user_profile(user_profile, user_profile_params) do
+    with {:ok, %UserProfile{} = user_profile} <-
+           Users.update_user_profile(user_profile, user_profile_params) do
       render(conn, "show.json", user_profile: user_profile)
     end
   end

@@ -7,7 +7,13 @@ defmodule Eshop.OrdersTest do
     alias Eshop.Orders.Invoice
 
     @valid_attrs %{discount: "120.5", note: "some note", paid: "120.5", total: "120.5", type: 42}
-    @update_attrs %{discount: "456.7", note: "some updated note", paid: "456.7", total: "456.7", type: 43}
+    @update_attrs %{
+      discount: "456.7",
+      note: "some updated note",
+      paid: "456.7",
+      total: "456.7",
+      type: 43
+    }
     @invalid_attrs %{discount: nil, note: nil, paid: nil, total: nil, type: nil}
 
     def invoice_fixture(attrs \\ %{}) do
@@ -73,9 +79,30 @@ defmodule Eshop.OrdersTest do
   describe "invoice_items" do
     alias Eshop.Orders.InvoiceItem
 
-    @valid_attrs %{price: "120.5", qty: 42, shipping_charge: "120.5", status: 42, vat: "120.5", vat_type: 42}
-    @update_attrs %{price: "456.7", qty: 43, shipping_charge: "456.7", status: 43, vat: "456.7", vat_type: 43}
-    @invalid_attrs %{price: nil, qty: nil, shipping_charge: nil, status: nil, vat: nil, vat_type: nil}
+    @valid_attrs %{
+      price: "120.5",
+      qty: 42,
+      shipping_charge: "120.5",
+      status: 42,
+      vat: "120.5",
+      vat_type: 42
+    }
+    @update_attrs %{
+      price: "456.7",
+      qty: 43,
+      shipping_charge: "456.7",
+      status: 43,
+      vat: "456.7",
+      vat_type: 43
+    }
+    @invalid_attrs %{
+      price: nil,
+      qty: nil,
+      shipping_charge: nil,
+      status: nil,
+      vat: nil,
+      vat_type: nil
+    }
 
     def invoice_item_fixture(attrs \\ %{}) do
       {:ok, invoice_item} =
@@ -112,7 +139,10 @@ defmodule Eshop.OrdersTest do
 
     test "update_invoice_item/2 with valid data updates the invoice_item" do
       invoice_item = invoice_item_fixture()
-      assert {:ok, %InvoiceItem{} = invoice_item} = Orders.update_invoice_item(invoice_item, @update_attrs)
+
+      assert {:ok, %InvoiceItem{} = invoice_item} =
+               Orders.update_invoice_item(invoice_item, @update_attrs)
+
       assert invoice_item.price == Decimal.new("456.7")
       assert invoice_item.qty == 43
       assert invoice_item.shipping_charge == Decimal.new("456.7")
@@ -123,7 +153,10 @@ defmodule Eshop.OrdersTest do
 
     test "update_invoice_item/2 with invalid data returns error changeset" do
       invoice_item = invoice_item_fixture()
-      assert {:error, %Ecto.Changeset{}} = Orders.update_invoice_item(invoice_item, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Orders.update_invoice_item(invoice_item, @invalid_attrs)
+
       assert invoice_item == Orders.get_invoice_item!(invoice_item.id)
     end
 
@@ -166,7 +199,8 @@ defmodule Eshop.OrdersTest do
     end
 
     test "create_invoice_item_variant/1 with valid data creates a invoice_item_variant" do
-      assert {:ok, %InvoiceItemVariant{} = invoice_item_variant} = Orders.create_invoice_item_variant(@valid_attrs)
+      assert {:ok, %InvoiceItemVariant{} = invoice_item_variant} =
+               Orders.create_invoice_item_variant(@valid_attrs)
     end
 
     test "create_invoice_item_variant/1 with invalid data returns error changeset" do
@@ -175,19 +209,29 @@ defmodule Eshop.OrdersTest do
 
     test "update_invoice_item_variant/2 with valid data updates the invoice_item_variant" do
       invoice_item_variant = invoice_item_variant_fixture()
-      assert {:ok, %InvoiceItemVariant{} = invoice_item_variant} = Orders.update_invoice_item_variant(invoice_item_variant, @update_attrs)
+
+      assert {:ok, %InvoiceItemVariant{} = invoice_item_variant} =
+               Orders.update_invoice_item_variant(invoice_item_variant, @update_attrs)
     end
 
     test "update_invoice_item_variant/2 with invalid data returns error changeset" do
       invoice_item_variant = invoice_item_variant_fixture()
-      assert {:error, %Ecto.Changeset{}} = Orders.update_invoice_item_variant(invoice_item_variant, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Orders.update_invoice_item_variant(invoice_item_variant, @invalid_attrs)
+
       assert invoice_item_variant == Orders.get_invoice_item_variant!(invoice_item_variant.id)
     end
 
     test "delete_invoice_item_variant/1 deletes the invoice_item_variant" do
       invoice_item_variant = invoice_item_variant_fixture()
-      assert {:ok, %InvoiceItemVariant{}} = Orders.delete_invoice_item_variant(invoice_item_variant)
-      assert_raise Ecto.NoResultsError, fn -> Orders.get_invoice_item_variant!(invoice_item_variant.id) end
+
+      assert {:ok, %InvoiceItemVariant{}} =
+               Orders.delete_invoice_item_variant(invoice_item_variant)
+
+      assert_raise Ecto.NoResultsError, fn ->
+        Orders.get_invoice_item_variant!(invoice_item_variant.id)
+      end
     end
 
     test "change_invoice_item_variant/1 returns a invoice_item_variant changeset" do

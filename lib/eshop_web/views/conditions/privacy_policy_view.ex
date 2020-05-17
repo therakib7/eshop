@@ -11,8 +11,10 @@ defmodule EshopWeb.PrivacyPolicyView do
   end
 
   def render("privacy_policy.json", %{privacy_policy: privacy_policy}) do
-    %{id: privacy_policy.id,
+    %{
+      id: privacy_policy.id,
       content: privacy_policy.content,
-      native_content: privacy_policy.native_content}
+      native_content: privacy_policy.native_content
+    }
   end
 end

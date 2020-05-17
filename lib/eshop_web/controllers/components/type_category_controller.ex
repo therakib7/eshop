@@ -12,7 +12,8 @@ defmodule EshopWeb.TypeCategoryController do
   end
 
   def create(conn, %{"type_category" => type_category_params}) do
-    with {:ok, %TypeCategory{} = type_category} <- Components.create_type_category(type_category_params) do
+    with {:ok, %TypeCategory{} = type_category} <-
+           Components.create_type_category(type_category_params) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.type_category_path(conn, :show, type_category))
@@ -28,7 +29,8 @@ defmodule EshopWeb.TypeCategoryController do
   def update(conn, %{"id" => id, "type_category" => type_category_params}) do
     type_category = Components.get_type_category!(id)
 
-    with {:ok, %TypeCategory{} = type_category} <- Components.update_type_category(type_category, type_category_params) do
+    with {:ok, %TypeCategory{} = type_category} <-
+           Components.update_type_category(type_category, type_category_params) do
       render(conn, "show.json", type_category: type_category)
     end
   end

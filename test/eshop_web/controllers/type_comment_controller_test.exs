@@ -56,8 +56,15 @@ defmodule EshopWeb.TypeCommentControllerTest do
   describe "update type_comment" do
     setup [:create_type_comment]
 
-    test "renders type_comment when data is valid", %{conn: conn, type_comment: %TypeComment{id: id} = type_comment} do
-      conn = put(conn, Routes.type_comment_path(conn, :update, type_comment), type_comment: @update_attrs)
+    test "renders type_comment when data is valid", %{
+      conn: conn,
+      type_comment: %TypeComment{id: id} = type_comment
+    } do
+      conn =
+        put(conn, Routes.type_comment_path(conn, :update, type_comment),
+          type_comment: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.type_comment_path(conn, :show, id))
@@ -71,7 +78,11 @@ defmodule EshopWeb.TypeCommentControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, type_comment: type_comment} do
-      conn = put(conn, Routes.type_comment_path(conn, :update, type_comment), type_comment: @invalid_attrs)
+      conn =
+        put(conn, Routes.type_comment_path(conn, :update, type_comment),
+          type_comment: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

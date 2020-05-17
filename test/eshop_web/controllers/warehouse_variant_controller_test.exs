@@ -34,7 +34,9 @@ defmodule EshopWeb.WarehouseVariantControllerTest do
 
   describe "create warehouse_variant" do
     test "renders warehouse_variant when data is valid", %{conn: conn} do
-      conn = post(conn, Routes.warehouse_variant_path(conn, :create), warehouse_variant: @create_attrs)
+      conn =
+        post(conn, Routes.warehouse_variant_path(conn, :create), warehouse_variant: @create_attrs)
+
       assert %{"id" => id} = json_response(conn, 201)["data"]
 
       conn = get(conn, Routes.warehouse_variant_path(conn, :show, id))
@@ -48,7 +50,9 @@ defmodule EshopWeb.WarehouseVariantControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = post(conn, Routes.warehouse_variant_path(conn, :create), warehouse_variant: @invalid_attrs)
+      conn =
+        post(conn, Routes.warehouse_variant_path(conn, :create), warehouse_variant: @invalid_attrs)
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
@@ -56,8 +60,15 @@ defmodule EshopWeb.WarehouseVariantControllerTest do
   describe "update warehouse_variant" do
     setup [:create_warehouse_variant]
 
-    test "renders warehouse_variant when data is valid", %{conn: conn, warehouse_variant: %WarehouseVariant{id: id} = warehouse_variant} do
-      conn = put(conn, Routes.warehouse_variant_path(conn, :update, warehouse_variant), warehouse_variant: @update_attrs)
+    test "renders warehouse_variant when data is valid", %{
+      conn: conn,
+      warehouse_variant: %WarehouseVariant{id: id} = warehouse_variant
+    } do
+      conn =
+        put(conn, Routes.warehouse_variant_path(conn, :update, warehouse_variant),
+          warehouse_variant: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.warehouse_variant_path(conn, :show, id))
@@ -70,8 +81,15 @@ defmodule EshopWeb.WarehouseVariantControllerTest do
              } = json_response(conn, 200)["data"]
     end
 
-    test "renders errors when data is invalid", %{conn: conn, warehouse_variant: warehouse_variant} do
-      conn = put(conn, Routes.warehouse_variant_path(conn, :update, warehouse_variant), warehouse_variant: @invalid_attrs)
+    test "renders errors when data is invalid", %{
+      conn: conn,
+      warehouse_variant: warehouse_variant
+    } do
+      conn =
+        put(conn, Routes.warehouse_variant_path(conn, :update, warehouse_variant),
+          warehouse_variant: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

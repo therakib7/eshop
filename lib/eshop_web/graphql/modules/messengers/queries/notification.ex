@@ -6,13 +6,13 @@ defmodule EshopWeb.Schema.Queries.Notification do
   object :notification_queries do
     @desc "Get all notifications"
     field :notifications, list_of(:notification) do
-      resolve &Notification.list_notifications/3
+      resolve(&Notification.list_notifications/3)
     end
 
     @desc "Get a notification by its id"
     field :notification, :notification do
-      arg :id, non_null(:id)
-      resolve &Notification.get_notification/3
-    end 
+      arg(:id, non_null(:id))
+      resolve(&Notification.get_notification/3)
+    end
   end
 end

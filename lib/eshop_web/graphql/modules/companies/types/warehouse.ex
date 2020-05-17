@@ -15,7 +15,7 @@ defmodule EshopWeb.Schema.Types.Warehouse do
   end
 
   @desc "A warehouse update"
-  input_object :warehouse_params do 
+  input_object :warehouse_params do
     field :is_active, :boolean
     field :name, :string
     field :native_name, :string

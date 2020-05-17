@@ -11,7 +11,7 @@ defmodule EshopWeb.Schema.Types.RolePermission do
   end
 
   @desc "A role_permission update"
-  input_object :role_permission_params do 
+  input_object :role_permission_params do
     field :role_id, :id
     field :permission_id, :id
   end

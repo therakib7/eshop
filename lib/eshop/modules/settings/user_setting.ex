@@ -7,7 +7,6 @@ defmodule Eshop.Settings.UserSetting do
     field :value, :string
     belongs_to :user, Eshop.Users.User
 
-
     timestamps()
   end
 

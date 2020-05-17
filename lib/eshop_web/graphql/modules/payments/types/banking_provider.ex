@@ -15,7 +15,7 @@ defmodule EshopWeb.Schema.Types.BankingProvider do
   end
 
   @desc "A banking_provider update"
-  input_object :banking_provider_params do 
+  input_object :banking_provider_params do
     field :is_active, :boolean
     field :name, :string
     field :native_name, :string

@@ -11,9 +11,11 @@ defmodule EshopWeb.PackageView do
   end
 
   def render("package.json", %{package: package}) do
-    %{id: package.id,
+    %{
+      id: package.id,
       cost_price: package.cost_price,
       unit_price: package.unit_price,
-      sale_price: package.sale_price}
+      sale_price: package.sale_price
+    }
   end
 end

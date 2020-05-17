@@ -11,10 +11,12 @@ defmodule EshopWeb.RatingView do
   end
 
   def render("rating.json", %{rating: rating}) do
-    %{id: rating.id,
+    %{
+      id: rating.id,
       type: rating.type,
       type_id: rating.type_id,
       comment: rating.comment,
-      star: rating.star}
+      star: rating.star
+    }
   end
 end

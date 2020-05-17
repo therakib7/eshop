@@ -11,10 +11,12 @@ defmodule EshopWeb.ShopPaymentMethodView do
   end
 
   def render("shop_payment_method.json", %{shop_payment_method: shop_payment_method}) do
-    %{id: shop_payment_method.id,
+    %{
+      id: shop_payment_method.id,
       is_active: shop_payment_method.is_active,
       ac_holder_name: shop_payment_method.ac_holder_name,
       ac_no: shop_payment_method.ac_no,
-      account_type: shop_payment_method.account_type}
+      account_type: shop_payment_method.account_type
+    }
   end
 end

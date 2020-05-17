@@ -578,7 +578,10 @@ defmodule Eshop.Companies do
       %Ecto.Changeset{data: %WarehouseVariantValue{}}
 
   """
-  def change_warehouse_variant_value(%WarehouseVariantValue{} = warehouse_variant_value, attrs \\ %{}) do
+  def change_warehouse_variant_value(
+        %WarehouseVariantValue{} = warehouse_variant_value,
+        attrs \\ %{}
+      ) do
     WarehouseVariantValue.changeset(warehouse_variant_value, attrs)
   end
 end

@@ -59,7 +59,10 @@ defmodule EshopWeb.ChatMsgControllerTest do
   describe "update chat_msg" do
     setup [:create_chat_msg]
 
-    test "renders chat_msg when data is valid", %{conn: conn, chat_msg: %ChatMsg{id: id} = chat_msg} do
+    test "renders chat_msg when data is valid", %{
+      conn: conn,
+      chat_msg: %ChatMsg{id: id} = chat_msg
+    } do
       conn = put(conn, Routes.chat_msg_path(conn, :update, chat_msg), chat_msg: @update_attrs)
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 

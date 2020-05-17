@@ -16,6 +16,5 @@ defmodule Eshop.Users.Permission do
     |> validate_required([:name, :slug])
     |> validate_length(:name, min: 1, max: 100)
     |> unique_constraint(:slug)
-
   end
 end

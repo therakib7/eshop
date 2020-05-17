@@ -11,10 +11,12 @@ defmodule EshopWeb.CompanySettingView do
   end
 
   def render("company_setting.json", %{company_setting: company_setting}) do
-    %{id: company_setting.id,
+    %{
+      id: company_setting.id,
       type: company_setting.type,
       type_id: company_setting.type_id,
       key: company_setting.key,
-      value: company_setting.value}
+      value: company_setting.value
+    }
   end
 end

@@ -43,13 +43,20 @@ defmodule Eshop.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:guardian, "~> 2.1"}, # custom
-      {:guardian_db, "~> 2.0"}, # custom
-      {:argon2_elixir, "~> 2.0"}, # custom 
-      {:absinthe, "~> 1.4"}, # custom
-      {:absinthe_plug, "~> 1.4"}, # custom
-      {:dataloader, "~> 1.0.0"}, # custom
-      {:corsica, "~> 1.1"}, # custom
+      # custom
+      {:guardian, "~> 2.1"},
+      # custom
+      {:guardian_db, "~> 2.0"},
+      # custom 
+      {:argon2_elixir, "~> 2.0"},
+      # custom
+      {:absinthe, "~> 1.4"},
+      # custom
+      {:absinthe_plug, "~> 1.4"},
+      # custom
+      {:dataloader, "~> 1.0.0"},
+      # custom
+      {:corsica, "~> 1.1"}
     ]
   end
 

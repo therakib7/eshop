@@ -28,7 +28,8 @@ defmodule EshopWeb.WarehouseController do
   def update(conn, %{"id" => id, "warehouse" => warehouse_params}) do
     warehouse = Companies.get_warehouse!(id)
 
-    with {:ok, %Warehouse{} = warehouse} <- Companies.update_warehouse(warehouse, warehouse_params) do
+    with {:ok, %Warehouse{} = warehouse} <-
+           Companies.update_warehouse(warehouse, warehouse_params) do
       render(conn, "show.json", warehouse: warehouse)
     end
   end

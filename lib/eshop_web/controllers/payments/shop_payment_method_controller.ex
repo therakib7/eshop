@@ -12,10 +12,14 @@ defmodule EshopWeb.ShopPaymentMethodController do
   end
 
   def create(conn, %{"shop_payment_method" => shop_payment_method_params}) do
-    with {:ok, %ShopPaymentMethod{} = shop_payment_method} <- Payments.create_shop_payment_method(shop_payment_method_params) do
+    with {:ok, %ShopPaymentMethod{} = shop_payment_method} <-
+           Payments.create_shop_payment_method(shop_payment_method_params) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", Routes.shop_payment_method_path(conn, :show, shop_payment_method))
+      |> put_resp_header(
+        "location",
+        Routes.shop_payment_method_path(conn, :show, shop_payment_method)
+      )
       |> render("show.json", shop_payment_method: shop_payment_method)
     end
   end
@@ -28,7 +32,8 @@ defmodule EshopWeb.ShopPaymentMethodController do
   def update(conn, %{"id" => id, "shop_payment_method" => shop_payment_method_params}) do
     shop_payment_method = Payments.get_shop_payment_method!(id)
 
-    with {:ok, %ShopPaymentMethod{} = shop_payment_method} <- Payments.update_shop_payment_method(shop_payment_method, shop_payment_method_params) do
+    with {:ok, %ShopPaymentMethod{} = shop_payment_method} <-
+           Payments.update_shop_payment_method(shop_payment_method, shop_payment_method_params) do
       render(conn, "show.json", shop_payment_method: shop_payment_method)
     end
   end

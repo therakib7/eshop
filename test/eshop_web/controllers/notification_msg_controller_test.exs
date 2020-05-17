@@ -32,7 +32,9 @@ defmodule EshopWeb.NotificationMsgControllerTest do
 
   describe "create notification_msg" do
     test "renders notification_msg when data is valid", %{conn: conn} do
-      conn = post(conn, Routes.notification_msg_path(conn, :create), notification_msg: @create_attrs)
+      conn =
+        post(conn, Routes.notification_msg_path(conn, :create), notification_msg: @create_attrs)
+
       assert %{"id" => id} = json_response(conn, 201)["data"]
 
       conn = get(conn, Routes.notification_msg_path(conn, :show, id))
@@ -45,7 +47,9 @@ defmodule EshopWeb.NotificationMsgControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = post(conn, Routes.notification_msg_path(conn, :create), notification_msg: @invalid_attrs)
+      conn =
+        post(conn, Routes.notification_msg_path(conn, :create), notification_msg: @invalid_attrs)
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
@@ -53,8 +57,15 @@ defmodule EshopWeb.NotificationMsgControllerTest do
   describe "update notification_msg" do
     setup [:create_notification_msg]
 
-    test "renders notification_msg when data is valid", %{conn: conn, notification_msg: %NotificationMsg{id: id} = notification_msg} do
-      conn = put(conn, Routes.notification_msg_path(conn, :update, notification_msg), notification_msg: @update_attrs)
+    test "renders notification_msg when data is valid", %{
+      conn: conn,
+      notification_msg: %NotificationMsg{id: id} = notification_msg
+    } do
+      conn =
+        put(conn, Routes.notification_msg_path(conn, :update, notification_msg),
+          notification_msg: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.notification_msg_path(conn, :show, id))
@@ -67,7 +78,11 @@ defmodule EshopWeb.NotificationMsgControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, notification_msg: notification_msg} do
-      conn = put(conn, Routes.notification_msg_path(conn, :update, notification_msg), notification_msg: @invalid_attrs)
+      conn =
+        put(conn, Routes.notification_msg_path(conn, :update, notification_msg),
+          notification_msg: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

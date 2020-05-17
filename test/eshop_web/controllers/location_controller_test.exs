@@ -32,7 +32,20 @@ defmodule EshopWeb.LocationControllerTest do
     user_id: 43,
     web: "some updated web"
   }
-  @invalid_attrs %{code: nil, country_id: nil, is_active: nil, lat: nil, long: nil, name: nil, native_name: nil, order: nil, parent_id: nil, stage_id: nil, user_id: nil, web: nil}
+  @invalid_attrs %{
+    code: nil,
+    country_id: nil,
+    is_active: nil,
+    lat: nil,
+    long: nil,
+    name: nil,
+    native_name: nil,
+    order: nil,
+    parent_id: nil,
+    stage_id: nil,
+    user_id: nil,
+    web: nil
+  }
 
   def fixture(:location) do
     {:ok, location} = Geo.create_location(@create_attrs)
@@ -83,7 +96,10 @@ defmodule EshopWeb.LocationControllerTest do
   describe "update location" do
     setup [:create_location]
 
-    test "renders location when data is valid", %{conn: conn, location: %Location{id: id} = location} do
+    test "renders location when data is valid", %{
+      conn: conn,
+      location: %Location{id: id} = location
+    } do
       conn = put(conn, Routes.location_path(conn, :update, location), location: @update_attrs)
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 

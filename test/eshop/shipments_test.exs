@@ -7,7 +7,11 @@ defmodule Eshop.ShipmentsTest do
     alias Eshop.Shipments.ShippingMethod
 
     @valid_attrs %{is_active: true, name: "some name", native_name: "some native_name"}
-    @update_attrs %{is_active: false, name: "some updated name", native_name: "some updated native_name"}
+    @update_attrs %{
+      is_active: false,
+      name: "some updated name",
+      native_name: "some updated native_name"
+    }
     @invalid_attrs %{is_active: nil, name: nil, native_name: nil}
 
     def shipping_method_fixture(attrs \\ %{}) do
@@ -30,7 +34,9 @@ defmodule Eshop.ShipmentsTest do
     end
 
     test "create_shipping_method/1 with valid data creates a shipping_method" do
-      assert {:ok, %ShippingMethod{} = shipping_method} = Shipments.create_shipping_method(@valid_attrs)
+      assert {:ok, %ShippingMethod{} = shipping_method} =
+               Shipments.create_shipping_method(@valid_attrs)
+
       assert shipping_method.is_active == true
       assert shipping_method.name == "some name"
       assert shipping_method.native_name == "some native_name"
@@ -42,7 +48,10 @@ defmodule Eshop.ShipmentsTest do
 
     test "update_shipping_method/2 with valid data updates the shipping_method" do
       shipping_method = shipping_method_fixture()
-      assert {:ok, %ShippingMethod{} = shipping_method} = Shipments.update_shipping_method(shipping_method, @update_attrs)
+
+      assert {:ok, %ShippingMethod{} = shipping_method} =
+               Shipments.update_shipping_method(shipping_method, @update_attrs)
+
       assert shipping_method.is_active == false
       assert shipping_method.name == "some updated name"
       assert shipping_method.native_name == "some updated native_name"
@@ -50,14 +59,20 @@ defmodule Eshop.ShipmentsTest do
 
     test "update_shipping_method/2 with invalid data returns error changeset" do
       shipping_method = shipping_method_fixture()
-      assert {:error, %Ecto.Changeset{}} = Shipments.update_shipping_method(shipping_method, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Shipments.update_shipping_method(shipping_method, @invalid_attrs)
+
       assert shipping_method == Shipments.get_shipping_method!(shipping_method.id)
     end
 
     test "delete_shipping_method/1 deletes the shipping_method" do
       shipping_method = shipping_method_fixture()
       assert {:ok, %ShippingMethod{}} = Shipments.delete_shipping_method(shipping_method)
-      assert_raise Ecto.NoResultsError, fn -> Shipments.get_shipping_method!(shipping_method.id) end
+
+      assert_raise Ecto.NoResultsError, fn ->
+        Shipments.get_shipping_method!(shipping_method.id)
+      end
     end
 
     test "change_shipping_method/1 returns a shipping_method changeset" do
@@ -93,7 +108,8 @@ defmodule Eshop.ShipmentsTest do
     end
 
     test "create_shop_shipping_method/1 with valid data creates a shop_shipping_method" do
-      assert {:ok, %ShopShippingMethod{} = shop_shipping_method} = Shipments.create_shop_shipping_method(@valid_attrs)
+      assert {:ok, %ShopShippingMethod{} = shop_shipping_method} =
+               Shipments.create_shop_shipping_method(@valid_attrs)
     end
 
     test "create_shop_shipping_method/1 with invalid data returns error changeset" do
@@ -102,19 +118,29 @@ defmodule Eshop.ShipmentsTest do
 
     test "update_shop_shipping_method/2 with valid data updates the shop_shipping_method" do
       shop_shipping_method = shop_shipping_method_fixture()
-      assert {:ok, %ShopShippingMethod{} = shop_shipping_method} = Shipments.update_shop_shipping_method(shop_shipping_method, @update_attrs)
+
+      assert {:ok, %ShopShippingMethod{} = shop_shipping_method} =
+               Shipments.update_shop_shipping_method(shop_shipping_method, @update_attrs)
     end
 
     test "update_shop_shipping_method/2 with invalid data returns error changeset" do
       shop_shipping_method = shop_shipping_method_fixture()
-      assert {:error, %Ecto.Changeset{}} = Shipments.update_shop_shipping_method(shop_shipping_method, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Shipments.update_shop_shipping_method(shop_shipping_method, @invalid_attrs)
+
       assert shop_shipping_method == Shipments.get_shop_shipping_method!(shop_shipping_method.id)
     end
 
     test "delete_shop_shipping_method/1 deletes the shop_shipping_method" do
       shop_shipping_method = shop_shipping_method_fixture()
-      assert {:ok, %ShopShippingMethod{}} = Shipments.delete_shop_shipping_method(shop_shipping_method)
-      assert_raise Ecto.NoResultsError, fn -> Shipments.get_shop_shipping_method!(shop_shipping_method.id) end
+
+      assert {:ok, %ShopShippingMethod{}} =
+               Shipments.delete_shop_shipping_method(shop_shipping_method)
+
+      assert_raise Ecto.NoResultsError, fn ->
+        Shipments.get_shop_shipping_method!(shop_shipping_method.id)
+      end
     end
 
     test "change_shop_shipping_method/1 returns a shop_shipping_method changeset" do
@@ -150,7 +176,9 @@ defmodule Eshop.ShipmentsTest do
     end
 
     test "create_shipping_address/1 with valid data creates a shipping_address" do
-      assert {:ok, %ShippingAddress{} = shipping_address} = Shipments.create_shipping_address(@valid_attrs)
+      assert {:ok, %ShippingAddress{} = shipping_address} =
+               Shipments.create_shipping_address(@valid_attrs)
+
       assert shipping_address.address == "some address"
       assert shipping_address.lat == 120.5
       assert shipping_address.long == 120.5
@@ -162,7 +190,10 @@ defmodule Eshop.ShipmentsTest do
 
     test "update_shipping_address/2 with valid data updates the shipping_address" do
       shipping_address = shipping_address_fixture()
-      assert {:ok, %ShippingAddress{} = shipping_address} = Shipments.update_shipping_address(shipping_address, @update_attrs)
+
+      assert {:ok, %ShippingAddress{} = shipping_address} =
+               Shipments.update_shipping_address(shipping_address, @update_attrs)
+
       assert shipping_address.address == "some updated address"
       assert shipping_address.lat == 456.7
       assert shipping_address.long == 456.7
@@ -170,14 +201,20 @@ defmodule Eshop.ShipmentsTest do
 
     test "update_shipping_address/2 with invalid data returns error changeset" do
       shipping_address = shipping_address_fixture()
-      assert {:error, %Ecto.Changeset{}} = Shipments.update_shipping_address(shipping_address, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Shipments.update_shipping_address(shipping_address, @invalid_attrs)
+
       assert shipping_address == Shipments.get_shipping_address!(shipping_address.id)
     end
 
     test "delete_shipping_address/1 deletes the shipping_address" do
       shipping_address = shipping_address_fixture()
       assert {:ok, %ShippingAddress{}} = Shipments.delete_shipping_address(shipping_address)
-      assert_raise Ecto.NoResultsError, fn -> Shipments.get_shipping_address!(shipping_address.id) end
+
+      assert_raise Ecto.NoResultsError, fn ->
+        Shipments.get_shipping_address!(shipping_address.id)
+      end
     end
 
     test "change_shipping_address/1 returns a shipping_address changeset" do
@@ -213,7 +250,9 @@ defmodule Eshop.ShipmentsTest do
     end
 
     test "create_tracking_invoice/1 with valid data creates a tracking_invoice" do
-      assert {:ok, %TrackingInvoice{} = tracking_invoice} = Shipments.create_tracking_invoice(@valid_attrs)
+      assert {:ok, %TrackingInvoice{} = tracking_invoice} =
+               Shipments.create_tracking_invoice(@valid_attrs)
+
       assert tracking_invoice.tracking_id == "some tracking_id"
     end
 
@@ -223,20 +262,29 @@ defmodule Eshop.ShipmentsTest do
 
     test "update_tracking_invoice/2 with valid data updates the tracking_invoice" do
       tracking_invoice = tracking_invoice_fixture()
-      assert {:ok, %TrackingInvoice{} = tracking_invoice} = Shipments.update_tracking_invoice(tracking_invoice, @update_attrs)
+
+      assert {:ok, %TrackingInvoice{} = tracking_invoice} =
+               Shipments.update_tracking_invoice(tracking_invoice, @update_attrs)
+
       assert tracking_invoice.tracking_id == "some updated tracking_id"
     end
 
     test "update_tracking_invoice/2 with invalid data returns error changeset" do
       tracking_invoice = tracking_invoice_fixture()
-      assert {:error, %Ecto.Changeset{}} = Shipments.update_tracking_invoice(tracking_invoice, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Shipments.update_tracking_invoice(tracking_invoice, @invalid_attrs)
+
       assert tracking_invoice == Shipments.get_tracking_invoice!(tracking_invoice.id)
     end
 
     test "delete_tracking_invoice/1 deletes the tracking_invoice" do
       tracking_invoice = tracking_invoice_fixture()
       assert {:ok, %TrackingInvoice{}} = Shipments.delete_tracking_invoice(tracking_invoice)
-      assert_raise Ecto.NoResultsError, fn -> Shipments.get_tracking_invoice!(tracking_invoice.id) end
+
+      assert_raise Ecto.NoResultsError, fn ->
+        Shipments.get_tracking_invoice!(tracking_invoice.id)
+      end
     end
 
     test "change_tracking_invoice/1 returns a tracking_invoice changeset" do

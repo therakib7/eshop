@@ -16,16 +16,25 @@ defmodule Eshop.Users.User do
     field :verified_email, :utc_datetime
     field :verified_phone, :utc_datetime
     field :verified_user, :utc_datetime
-    
-    #has_one :profile, Eshop.Users.UserProfile
+
+    # has_one :profile, Eshop.Users.UserProfile
 
     timestamps()
   end
 
   @doc false
   def changeset(user, attrs) do
-    user 
-    |> cast(attrs, [:is_active, :first_name, :surname, :email, :mobile, :password, :password_confirmation, :pin])
+    user
+    |> cast(attrs, [
+      :is_active,
+      :first_name,
+      :surname,
+      :email,
+      :mobile,
+      :password,
+      :password_confirmation,
+      :pin
+    ])
     |> validate_required([:first_name, :password])
     |> validate_confirmation(:password)
     |> validate_format(:email, ~r/@/)
@@ -35,11 +44,12 @@ defmodule Eshop.Users.User do
     |> validate_length(:pin, min: 4, max: 10)
     |> put_password_hash()
   end
-  
-  defp put_password_hash(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do
+
+  defp put_password_hash(
+         %Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset
+       ) do
     change(changeset, password_hash: Argon2.hash_pwd_salt(password))
   end
 
   defp put_password_hash(changeset), do: changeset
-
 end

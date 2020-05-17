@@ -39,7 +39,9 @@ defmodule Eshop.MessengersTest do
 
     test "update_chat_room/2 with valid data updates the chat_room" do
       chat_room = chat_room_fixture()
-      assert {:ok, %ChatRoom{} = chat_room} = Messengers.update_chat_room(chat_room, @update_attrs)
+
+      assert {:ok, %ChatRoom{} = chat_room} =
+               Messengers.update_chat_room(chat_room, @update_attrs)
     end
 
     test "update_chat_room/2 with invalid data returns error changeset" do
@@ -64,7 +66,12 @@ defmodule Eshop.MessengersTest do
     alias Eshop.Messengers.ChatMsg
 
     @valid_attrs %{deleted_at: "2010-04-17T14:00:00Z", msg: "some msg", msg_type: 42, read: true}
-    @update_attrs %{deleted_at: "2011-05-18T15:01:01Z", msg: "some updated msg", msg_type: 43, read: false}
+    @update_attrs %{
+      deleted_at: "2011-05-18T15:01:01Z",
+      msg: "some updated msg",
+      msg_type: 43,
+      read: false
+    }
     @invalid_attrs %{deleted_at: nil, msg: nil, msg_type: nil, read: nil}
 
     def chat_msg_fixture(attrs \\ %{}) do
@@ -152,7 +159,9 @@ defmodule Eshop.MessengersTest do
     end
 
     test "create_notification_msg/1 with valid data creates a notification_msg" do
-      assert {:ok, %NotificationMsg{} = notification_msg} = Messengers.create_notification_msg(@valid_attrs)
+      assert {:ok, %NotificationMsg{} = notification_msg} =
+               Messengers.create_notification_msg(@valid_attrs)
+
       assert notification_msg.for == 42
       assert notification_msg.msg == "some msg"
     end
@@ -163,21 +172,30 @@ defmodule Eshop.MessengersTest do
 
     test "update_notification_msg/2 with valid data updates the notification_msg" do
       notification_msg = notification_msg_fixture()
-      assert {:ok, %NotificationMsg{} = notification_msg} = Messengers.update_notification_msg(notification_msg, @update_attrs)
+
+      assert {:ok, %NotificationMsg{} = notification_msg} =
+               Messengers.update_notification_msg(notification_msg, @update_attrs)
+
       assert notification_msg.for == 43
       assert notification_msg.msg == "some updated msg"
     end
 
     test "update_notification_msg/2 with invalid data returns error changeset" do
       notification_msg = notification_msg_fixture()
-      assert {:error, %Ecto.Changeset{}} = Messengers.update_notification_msg(notification_msg, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Messengers.update_notification_msg(notification_msg, @invalid_attrs)
+
       assert notification_msg == Messengers.get_notification_msg!(notification_msg.id)
     end
 
     test "delete_notification_msg/1 deletes the notification_msg" do
       notification_msg = notification_msg_fixture()
       assert {:ok, %NotificationMsg{}} = Messengers.delete_notification_msg(notification_msg)
-      assert_raise Ecto.NoResultsError, fn -> Messengers.get_notification_msg!(notification_msg.id) end
+
+      assert_raise Ecto.NoResultsError, fn ->
+        Messengers.get_notification_msg!(notification_msg.id)
+      end
     end
 
     test "change_notification_msg/1 returns a notification_msg changeset" do
@@ -226,7 +244,10 @@ defmodule Eshop.MessengersTest do
 
     test "update_notification/2 with valid data updates the notification" do
       notification = notification_fixture()
-      assert {:ok, %Notification{} = notification} = Messengers.update_notification(notification, @update_attrs)
+
+      assert {:ok, %Notification{} = notification} =
+               Messengers.update_notification(notification, @update_attrs)
+
       assert notification.notification_msg_id == 43
       assert notification.read == false
       assert notification.type == 43
@@ -235,7 +256,10 @@ defmodule Eshop.MessengersTest do
 
     test "update_notification/2 with invalid data returns error changeset" do
       notification = notification_fixture()
-      assert {:error, %Ecto.Changeset{}} = Messengers.update_notification(notification, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Messengers.update_notification(notification, @invalid_attrs)
+
       assert notification == Messengers.get_notification!(notification.id)
     end
 

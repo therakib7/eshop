@@ -14,7 +14,7 @@ defmodule EshopWeb.Schema.Types.CountryStage do
   end
 
   @desc "A country_stage update"
-  input_object :country_stage_params do 
+  input_object :country_stage_params do
     field :country_id, :integer
     field :name, :string
     field :native_name, :string

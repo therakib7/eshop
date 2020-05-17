@@ -28,7 +28,8 @@ defmodule EshopWeb.AttachmentController do
   def update(conn, %{"id" => id, "attachment" => attachment_params}) do
     attachment = Attachments.get_attachment!(id)
 
-    with {:ok, %Attachment{} = attachment} <- Attachments.update_attachment(attachment, attachment_params) do
+    with {:ok, %Attachment{} = attachment} <-
+           Attachments.update_attachment(attachment, attachment_params) do
       render(conn, "show.json", attachment: attachment)
     end
   end

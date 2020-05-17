@@ -4,12 +4,8 @@ defmodule EshopWeb.ShopLocationControllerTest do
   alias Eshop.Geo
   alias Eshop.Geo.ShopLocation
 
-  @create_attrs %{
-
-  }
-  @update_attrs %{
-
-  }
+  @create_attrs %{}
+  @update_attrs %{}
   @invalid_attrs %{}
 
   def fixture(:shop_location) do
@@ -49,8 +45,15 @@ defmodule EshopWeb.ShopLocationControllerTest do
   describe "update shop_location" do
     setup [:create_shop_location]
 
-    test "renders shop_location when data is valid", %{conn: conn, shop_location: %ShopLocation{id: id} = shop_location} do
-      conn = put(conn, Routes.shop_location_path(conn, :update, shop_location), shop_location: @update_attrs)
+    test "renders shop_location when data is valid", %{
+      conn: conn,
+      shop_location: %ShopLocation{id: id} = shop_location
+    } do
+      conn =
+        put(conn, Routes.shop_location_path(conn, :update, shop_location),
+          shop_location: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.shop_location_path(conn, :show, id))
@@ -61,7 +64,11 @@ defmodule EshopWeb.ShopLocationControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, shop_location: shop_location} do
-      conn = put(conn, Routes.shop_location_path(conn, :update, shop_location), shop_location: @invalid_attrs)
+      conn =
+        put(conn, Routes.shop_location_path(conn, :update, shop_location),
+          shop_location: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

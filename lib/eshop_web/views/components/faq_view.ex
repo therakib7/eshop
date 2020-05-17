@@ -11,10 +11,12 @@ defmodule EshopWeb.FaqView do
   end
 
   def render("faq.json", %{faq: faq}) do
-    %{id: faq.id,
+    %{
+      id: faq.id,
       question: faq.question,
       native_question: faq.native_question,
       content: faq.content,
-      native_content: faq.native_content}
+      native_content: faq.native_content
+    }
   end
 end

@@ -11,7 +11,7 @@ defmodule EshopWeb.Schema.Types.Setting do
   end
 
   @desc "A setting update"
-  input_object :setting_params do 
+  input_object :setting_params do
     field :key, :string
     field :value, :string
   end

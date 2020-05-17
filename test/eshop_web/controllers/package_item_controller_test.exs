@@ -53,8 +53,15 @@ defmodule EshopWeb.PackageItemControllerTest do
   describe "update package_item" do
     setup [:create_package_item]
 
-    test "renders package_item when data is valid", %{conn: conn, package_item: %PackageItem{id: id} = package_item} do
-      conn = put(conn, Routes.package_item_path(conn, :update, package_item), package_item: @update_attrs)
+    test "renders package_item when data is valid", %{
+      conn: conn,
+      package_item: %PackageItem{id: id} = package_item
+    } do
+      conn =
+        put(conn, Routes.package_item_path(conn, :update, package_item),
+          package_item: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.package_item_path(conn, :show, id))
@@ -67,7 +74,11 @@ defmodule EshopWeb.PackageItemControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, package_item: package_item} do
-      conn = put(conn, Routes.package_item_path(conn, :update, package_item), package_item: @invalid_attrs)
+      conn =
+        put(conn, Routes.package_item_path(conn, :update, package_item),
+          package_item: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

@@ -12,7 +12,8 @@ defmodule EshopWeb.NotificationController do
   end
 
   def create(conn, %{"notification" => notification_params}) do
-    with {:ok, %Notification{} = notification} <- Messengers.create_notification(notification_params) do
+    with {:ok, %Notification{} = notification} <-
+           Messengers.create_notification(notification_params) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.notification_path(conn, :show, notification))
@@ -28,7 +29,8 @@ defmodule EshopWeb.NotificationController do
   def update(conn, %{"id" => id, "notification" => notification_params}) do
     notification = Messengers.get_notification!(id)
 
-    with {:ok, %Notification{} = notification} <- Messengers.update_notification(notification, notification_params) do
+    with {:ok, %Notification{} = notification} <-
+           Messengers.update_notification(notification, notification_params) do
       render(conn, "show.json", notification: notification)
     end
   end

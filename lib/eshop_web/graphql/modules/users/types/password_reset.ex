@@ -12,7 +12,7 @@ defmodule EshopWeb.Schema.Types.PasswordReset do
   end
 
   @desc "A password_reset update"
-  input_object :password_reset_params do 
+  input_object :password_reset_params do
     field :created_at, :datetime
     field :token, :string
     field :user_id, :id

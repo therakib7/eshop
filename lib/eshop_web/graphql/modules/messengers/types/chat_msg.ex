@@ -16,7 +16,7 @@ defmodule EshopWeb.Schema.Types.ChatMsg do
   end
 
   @desc "A chat_msg update"
-  input_object :chat_msg_params do 
+  input_object :chat_msg_params do
     field :deleted_at, :datetime
     field :msg, :string
     field :msg_type, :integer

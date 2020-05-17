@@ -11,11 +11,13 @@ defmodule EshopWeb.BrandView do
   end
 
   def render("brand.json", %{brand: brand}) do
-    %{id: brand.id,
+    %{
+      id: brand.id,
       is_active: brand.is_active,
       name: brand.name,
       native_name: brand.native_name,
       slug: brand.slug,
-      loves: brand.loves}
+      loves: brand.loves
+    }
   end
 end

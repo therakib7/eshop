@@ -11,10 +11,12 @@ defmodule EshopWeb.GuaranteeView do
   end
 
   def render("guarantee.json", %{guarantee: guarantee}) do
-    %{id: guarantee.id,
+    %{
+      id: guarantee.id,
       content: guarantee.content,
       native_content: guarantee.native_content,
       duration: guarantee.duration,
-      gurantee_type: guarantee.gurantee_type}
+      gurantee_type: guarantee.gurantee_type
+    }
   end
 end

@@ -11,7 +11,8 @@ defmodule EshopWeb.ItemView do
   end
 
   def render("item.json", %{item: item}) do
-    %{id: item.id,
+    %{
+      id: item.id,
       is_active: item.is_active,
       name: item.name,
       native_name: item.native_name,
@@ -33,6 +34,7 @@ defmodule EshopWeb.ItemView do
       type: item.type,
       type_id: item.type_id,
       extra_fields: item.extra_fields,
-      asin_id: item.asin_id}
+      asin_id: item.asin_id
+    }
   end
 end

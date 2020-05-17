@@ -11,9 +11,6 @@ defmodule EshopWeb.VariantView do
   end
 
   def render("variant.json", %{variant: variant}) do
-    %{id: variant.id,
-      name: variant.name,
-      native_name: variant.native_name,
-      type: variant.type}
+    %{id: variant.id, name: variant.name, native_name: variant.native_name, type: variant.type}
   end
 end

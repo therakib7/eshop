@@ -6,9 +6,78 @@ defmodule Eshop.ObjectsTest do
   describe "items" do
     alias Eshop.Objects.Item
 
-    @valid_attrs %{asin_id: 42, cost_price: "120.5", desc: "some desc", extra_fields: %{}, has_package: true, has_variant: true, has_warehouse: true, is_active: true, loves: 42, low_stock: 42, name: "some name", native_desc: "some native_desc", native_name: "some native_name", sell_price: "120.5", total_order: 42, type: 42, type_id: 42, unit: 42, unit_price: "120.5", vat: 42, vat_type: 42, views: 42}
-    @update_attrs %{asin_id: 43, cost_price: "456.7", desc: "some updated desc", extra_fields: %{}, has_package: false, has_variant: false, has_warehouse: false, is_active: false, loves: 43, low_stock: 43, name: "some updated name", native_desc: "some updated native_desc", native_name: "some updated native_name", sell_price: "456.7", total_order: 43, type: 43, type_id: 43, unit: 43, unit_price: "456.7", vat: 43, vat_type: 43, views: 43}
-    @invalid_attrs %{asin_id: nil, cost_price: nil, desc: nil, extra_fields: nil, has_package: nil, has_variant: nil, has_warehouse: nil, is_active: nil, loves: nil, low_stock: nil, name: nil, native_desc: nil, native_name: nil, sell_price: nil, total_order: nil, type: nil, type_id: nil, unit: nil, unit_price: nil, vat: nil, vat_type: nil, views: nil}
+    @valid_attrs %{
+      asin_id: 42,
+      cost_price: "120.5",
+      desc: "some desc",
+      extra_fields: %{},
+      has_package: true,
+      has_variant: true,
+      has_warehouse: true,
+      is_active: true,
+      loves: 42,
+      low_stock: 42,
+      name: "some name",
+      native_desc: "some native_desc",
+      native_name: "some native_name",
+      sell_price: "120.5",
+      total_order: 42,
+      type: 42,
+      type_id: 42,
+      unit: 42,
+      unit_price: "120.5",
+      vat: 42,
+      vat_type: 42,
+      views: 42
+    }
+    @update_attrs %{
+      asin_id: 43,
+      cost_price: "456.7",
+      desc: "some updated desc",
+      extra_fields: %{},
+      has_package: false,
+      has_variant: false,
+      has_warehouse: false,
+      is_active: false,
+      loves: 43,
+      low_stock: 43,
+      name: "some updated name",
+      native_desc: "some updated native_desc",
+      native_name: "some updated native_name",
+      sell_price: "456.7",
+      total_order: 43,
+      type: 43,
+      type_id: 43,
+      unit: 43,
+      unit_price: "456.7",
+      vat: 43,
+      vat_type: 43,
+      views: 43
+    }
+    @invalid_attrs %{
+      asin_id: nil,
+      cost_price: nil,
+      desc: nil,
+      extra_fields: nil,
+      has_package: nil,
+      has_variant: nil,
+      has_warehouse: nil,
+      is_active: nil,
+      loves: nil,
+      low_stock: nil,
+      name: nil,
+      native_desc: nil,
+      native_name: nil,
+      sell_price: nil,
+      total_order: nil,
+      type: nil,
+      type_id: nil,
+      unit: nil,
+      unit_price: nil,
+      vat: nil,
+      vat_type: nil,
+      views: nil
+    }
 
     def item_fixture(attrs \\ %{}) do
       {:ok, item} =
@@ -107,8 +176,18 @@ defmodule Eshop.ObjectsTest do
   describe "products" do
     alias Eshop.Objects.Product
 
-    @valid_attrs %{barcode: "some barcode", exp_date: ~N[2010-04-17 14:00:00], mfg_date: ~N[2010-04-17 14:00:00], sku: "some sku"}
-    @update_attrs %{barcode: "some updated barcode", exp_date: ~N[2011-05-18 15:01:01], mfg_date: ~N[2011-05-18 15:01:01], sku: "some updated sku"}
+    @valid_attrs %{
+      barcode: "some barcode",
+      exp_date: ~N[2010-04-17 14:00:00],
+      mfg_date: ~N[2010-04-17 14:00:00],
+      sku: "some sku"
+    }
+    @update_attrs %{
+      barcode: "some updated barcode",
+      exp_date: ~N[2011-05-18 15:01:01],
+      mfg_date: ~N[2011-05-18 15:01:01],
+      sku: "some updated sku"
+    }
     @invalid_attrs %{barcode: nil, exp_date: nil, mfg_date: nil, sku: nil}
 
     def product_fixture(attrs \\ %{}) do

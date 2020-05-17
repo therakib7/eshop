@@ -4,12 +4,8 @@ defmodule EshopWeb.UserRoleControllerTest do
   alias Eshop.Users
   alias Eshop.Users.UserRole
 
-  @create_attrs %{
-
-  }
-  @update_attrs %{
-
-  }
+  @create_attrs %{}
+  @update_attrs %{}
   @invalid_attrs %{}
 
   def fixture(:user_role) do
@@ -49,7 +45,10 @@ defmodule EshopWeb.UserRoleControllerTest do
   describe "update user_role" do
     setup [:create_user_role]
 
-    test "renders user_role when data is valid", %{conn: conn, user_role: %UserRole{id: id} = user_role} do
+    test "renders user_role when data is valid", %{
+      conn: conn,
+      user_role: %UserRole{id: id} = user_role
+    } do
       conn = put(conn, Routes.user_role_path(conn, :update, user_role), user_role: @update_attrs)
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 

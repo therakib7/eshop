@@ -12,7 +12,8 @@ defmodule EshopWeb.UpdateHistoryController do
   end
 
   def create(conn, %{"update_history" => update_history_params}) do
-    with {:ok, %UpdateHistory{} = update_history} <- Users.create_update_history(update_history_params) do
+    with {:ok, %UpdateHistory{} = update_history} <-
+           Users.create_update_history(update_history_params) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.update_history_path(conn, :show, update_history))
@@ -28,7 +29,8 @@ defmodule EshopWeb.UpdateHistoryController do
   def update(conn, %{"id" => id, "update_history" => update_history_params}) do
     update_history = Users.get_update_history!(id)
 
-    with {:ok, %UpdateHistory{} = update_history} <- Users.update_update_history(update_history, update_history_params) do
+    with {:ok, %UpdateHistory{} = update_history} <-
+           Users.update_update_history(update_history, update_history_params) do
       render(conn, "show.json", update_history: update_history)
     end
   end

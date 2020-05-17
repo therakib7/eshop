@@ -14,7 +14,7 @@ defmodule EshopWeb.Schema.Types.UpdateHistory do
   end
 
   @desc "A update_history update"
-  input_object :update_history_params do 
+  input_object :update_history_params do
     field :key, :string
     field :new_value, :string
     field :old_value, :string

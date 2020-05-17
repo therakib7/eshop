@@ -62,8 +62,13 @@ defmodule EshopWeb.TypeStatusControllerTest do
   describe "update type_status" do
     setup [:create_type_status]
 
-    test "renders type_status when data is valid", %{conn: conn, type_status: %TypeStatus{id: id} = type_status} do
-      conn = put(conn, Routes.type_status_path(conn, :update, type_status), type_status: @update_attrs)
+    test "renders type_status when data is valid", %{
+      conn: conn,
+      type_status: %TypeStatus{id: id} = type_status
+    } do
+      conn =
+        put(conn, Routes.type_status_path(conn, :update, type_status), type_status: @update_attrs)
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.type_status_path(conn, :show, id))
@@ -79,7 +84,9 @@ defmodule EshopWeb.TypeStatusControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, type_status: type_status} do
-      conn = put(conn, Routes.type_status_path(conn, :update, type_status), type_status: @invalid_attrs)
+      conn =
+        put(conn, Routes.type_status_path(conn, :update, type_status), type_status: @invalid_attrs)
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

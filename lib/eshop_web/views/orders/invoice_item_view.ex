@@ -11,12 +11,14 @@ defmodule EshopWeb.InvoiceItemView do
   end
 
   def render("invoice_item.json", %{invoice_item: invoice_item}) do
-    %{id: invoice_item.id,
+    %{
+      id: invoice_item.id,
       qty: invoice_item.qty,
       price: invoice_item.price,
       vat: invoice_item.vat,
       vat_type: invoice_item.vat_type,
       shipping_charge: invoice_item.shipping_charge,
-      status: invoice_item.status}
+      status: invoice_item.status
+    }
   end
 end

@@ -28,7 +28,8 @@ defmodule EshopWeb.UserSettingController do
   def update(conn, %{"id" => id, "user_setting" => user_setting_params}) do
     user_setting = Settings.get_user_setting!(id)
 
-    with {:ok, %UserSetting{} = user_setting} <- Settings.update_user_setting(user_setting, user_setting_params) do
+    with {:ok, %UserSetting{} = user_setting} <-
+           Settings.update_user_setting(user_setting, user_setting_params) do
       render(conn, "show.json", user_setting: user_setting)
     end
   end

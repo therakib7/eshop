@@ -11,8 +11,6 @@ defmodule EshopWeb.SettingView do
   end
 
   def render("setting.json", %{setting: setting}) do
-    %{id: setting.id,
-      key: setting.key,
-      value: setting.value}
+    %{id: setting.id, key: setting.key, value: setting.value}
   end
 end

@@ -24,7 +24,16 @@ defmodule EshopWeb.ShopControllerTest do
     native_name: "some updated native_name",
     trade_assurance: false
   }
-  @invalid_attrs %{created_at: nil, golden_supplier: nil, highest_assurance: nil, is_active: nil, is_verifed: nil, name: nil, native_name: nil, trade_assurance: nil}
+  @invalid_attrs %{
+    created_at: nil,
+    golden_supplier: nil,
+    highest_assurance: nil,
+    is_active: nil,
+    is_verifed: nil,
+    name: nil,
+    native_name: nil,
+    trade_assurance: nil
+  }
 
   def fixture(:shop) do
     {:ok, shop} = Companies.create_shop(@create_attrs)

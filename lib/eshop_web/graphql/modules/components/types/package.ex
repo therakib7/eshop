@@ -13,7 +13,7 @@ defmodule EshopWeb.Schema.Types.Package do
   end
 
   @desc "A package update"
-  input_object :package_params do 
+  input_object :package_params do
     field :cost_price, :decimal
     field :sale_price, :decimal
     field :unit_price, :decimal

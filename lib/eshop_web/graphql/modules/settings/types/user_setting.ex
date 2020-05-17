@@ -12,7 +12,7 @@ defmodule EshopWeb.Schema.Types.UserSetting do
   end
 
   @desc "A user_setting update"
-  input_object :user_setting_params do 
+  input_object :user_setting_params do
     field :key, :string
     field :value, :string
     field :user_id, :id

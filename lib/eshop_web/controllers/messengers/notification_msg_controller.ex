@@ -12,7 +12,8 @@ defmodule EshopWeb.NotificationMsgController do
   end
 
   def create(conn, %{"notification_msg" => notification_msg_params}) do
-    with {:ok, %NotificationMsg{} = notification_msg} <- Messengers.create_notification_msg(notification_msg_params) do
+    with {:ok, %NotificationMsg{} = notification_msg} <-
+           Messengers.create_notification_msg(notification_msg_params) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.notification_msg_path(conn, :show, notification_msg))
@@ -28,7 +29,8 @@ defmodule EshopWeb.NotificationMsgController do
   def update(conn, %{"id" => id, "notification_msg" => notification_msg_params}) do
     notification_msg = Messengers.get_notification_msg!(id)
 
-    with {:ok, %NotificationMsg{} = notification_msg} <- Messengers.update_notification_msg(notification_msg, notification_msg_params) do
+    with {:ok, %NotificationMsg{} = notification_msg} <-
+           Messengers.update_notification_msg(notification_msg, notification_msg_params) do
       render(conn, "show.json", notification_msg: notification_msg)
     end
   end

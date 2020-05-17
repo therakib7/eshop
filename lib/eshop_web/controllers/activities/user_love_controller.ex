@@ -28,7 +28,8 @@ defmodule EshopWeb.UserLoveController do
   def update(conn, %{"id" => id, "user_love" => user_love_params}) do
     user_love = Activities.get_user_love!(id)
 
-    with {:ok, %UserLove{} = user_love} <- Activities.update_user_love(user_love, user_love_params) do
+    with {:ok, %UserLove{} = user_love} <-
+           Activities.update_user_love(user_love, user_love_params) do
       render(conn, "show.json", user_love: user_love)
     end
   end

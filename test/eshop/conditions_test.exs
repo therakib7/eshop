@@ -6,8 +6,18 @@ defmodule Eshop.ConditionsTest do
   describe "term_conditions" do
     alias Eshop.Conditions.TermCondition
 
-    @valid_attrs %{content: "some content", native_content: "some native_content", type: 42, type_id: 42}
-    @update_attrs %{content: "some updated content", native_content: "some updated native_content", type: 43, type_id: 43}
+    @valid_attrs %{
+      content: "some content",
+      native_content: "some native_content",
+      type: 42,
+      type_id: 42
+    }
+    @update_attrs %{
+      content: "some updated content",
+      native_content: "some updated native_content",
+      type: 43,
+      type_id: 43
+    }
     @invalid_attrs %{content: nil, native_content: nil, type: nil, type_id: nil}
 
     def term_condition_fixture(attrs \\ %{}) do
@@ -30,7 +40,9 @@ defmodule Eshop.ConditionsTest do
     end
 
     test "create_term_condition/1 with valid data creates a term_condition" do
-      assert {:ok, %TermCondition{} = term_condition} = Conditions.create_term_condition(@valid_attrs)
+      assert {:ok, %TermCondition{} = term_condition} =
+               Conditions.create_term_condition(@valid_attrs)
+
       assert term_condition.content == "some content"
       assert term_condition.native_content == "some native_content"
       assert term_condition.type == 42
@@ -43,7 +55,10 @@ defmodule Eshop.ConditionsTest do
 
     test "update_term_condition/2 with valid data updates the term_condition" do
       term_condition = term_condition_fixture()
-      assert {:ok, %TermCondition{} = term_condition} = Conditions.update_term_condition(term_condition, @update_attrs)
+
+      assert {:ok, %TermCondition{} = term_condition} =
+               Conditions.update_term_condition(term_condition, @update_attrs)
+
       assert term_condition.content == "some updated content"
       assert term_condition.native_content == "some updated native_content"
       assert term_condition.type == 43
@@ -52,14 +67,20 @@ defmodule Eshop.ConditionsTest do
 
     test "update_term_condition/2 with invalid data returns error changeset" do
       term_condition = term_condition_fixture()
-      assert {:error, %Ecto.Changeset{}} = Conditions.update_term_condition(term_condition, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Conditions.update_term_condition(term_condition, @invalid_attrs)
+
       assert term_condition == Conditions.get_term_condition!(term_condition.id)
     end
 
     test "delete_term_condition/1 deletes the term_condition" do
       term_condition = term_condition_fixture()
       assert {:ok, %TermCondition{}} = Conditions.delete_term_condition(term_condition)
-      assert_raise Ecto.NoResultsError, fn -> Conditions.get_term_condition!(term_condition.id) end
+
+      assert_raise Ecto.NoResultsError, fn ->
+        Conditions.get_term_condition!(term_condition.id)
+      end
     end
 
     test "change_term_condition/1 returns a term_condition changeset" do
@@ -71,8 +92,18 @@ defmodule Eshop.ConditionsTest do
   describe "refund_policies" do
     alias Eshop.Conditions.RefundPolicy
 
-    @valid_attrs %{content: "some content", native_content: "some native_content", type: 42, type_id: 42}
-    @update_attrs %{content: "some updated content", native_content: "some updated native_content", type: 43, type_id: 43}
+    @valid_attrs %{
+      content: "some content",
+      native_content: "some native_content",
+      type: 42,
+      type_id: 42
+    }
+    @update_attrs %{
+      content: "some updated content",
+      native_content: "some updated native_content",
+      type: 43,
+      type_id: 43
+    }
     @invalid_attrs %{content: nil, native_content: nil, type: nil, type_id: nil}
 
     def refund_policy_fixture(attrs \\ %{}) do
@@ -95,7 +126,9 @@ defmodule Eshop.ConditionsTest do
     end
 
     test "create_refund_policy/1 with valid data creates a refund_policy" do
-      assert {:ok, %RefundPolicy{} = refund_policy} = Conditions.create_refund_policy(@valid_attrs)
+      assert {:ok, %RefundPolicy{} = refund_policy} =
+               Conditions.create_refund_policy(@valid_attrs)
+
       assert refund_policy.content == "some content"
       assert refund_policy.native_content == "some native_content"
       assert refund_policy.type == 42
@@ -108,7 +141,10 @@ defmodule Eshop.ConditionsTest do
 
     test "update_refund_policy/2 with valid data updates the refund_policy" do
       refund_policy = refund_policy_fixture()
-      assert {:ok, %RefundPolicy{} = refund_policy} = Conditions.update_refund_policy(refund_policy, @update_attrs)
+
+      assert {:ok, %RefundPolicy{} = refund_policy} =
+               Conditions.update_refund_policy(refund_policy, @update_attrs)
+
       assert refund_policy.content == "some updated content"
       assert refund_policy.native_content == "some updated native_content"
       assert refund_policy.type == 43
@@ -117,7 +153,10 @@ defmodule Eshop.ConditionsTest do
 
     test "update_refund_policy/2 with invalid data returns error changeset" do
       refund_policy = refund_policy_fixture()
-      assert {:error, %Ecto.Changeset{}} = Conditions.update_refund_policy(refund_policy, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Conditions.update_refund_policy(refund_policy, @invalid_attrs)
+
       assert refund_policy == Conditions.get_refund_policy!(refund_policy.id)
     end
 
@@ -137,7 +176,10 @@ defmodule Eshop.ConditionsTest do
     alias Eshop.Conditions.PrivacyPolicy
 
     @valid_attrs %{content: "some content", native_content: "some native_content"}
-    @update_attrs %{content: "some updated content", native_content: "some updated native_content"}
+    @update_attrs %{
+      content: "some updated content",
+      native_content: "some updated native_content"
+    }
     @invalid_attrs %{content: nil, native_content: nil}
 
     def privacy_policy_fixture(attrs \\ %{}) do
@@ -160,7 +202,9 @@ defmodule Eshop.ConditionsTest do
     end
 
     test "create_privacy_policy/1 with valid data creates a privacy_policy" do
-      assert {:ok, %PrivacyPolicy{} = privacy_policy} = Conditions.create_privacy_policy(@valid_attrs)
+      assert {:ok, %PrivacyPolicy{} = privacy_policy} =
+               Conditions.create_privacy_policy(@valid_attrs)
+
       assert privacy_policy.content == "some content"
       assert privacy_policy.native_content == "some native_content"
     end
@@ -171,21 +215,30 @@ defmodule Eshop.ConditionsTest do
 
     test "update_privacy_policy/2 with valid data updates the privacy_policy" do
       privacy_policy = privacy_policy_fixture()
-      assert {:ok, %PrivacyPolicy{} = privacy_policy} = Conditions.update_privacy_policy(privacy_policy, @update_attrs)
+
+      assert {:ok, %PrivacyPolicy{} = privacy_policy} =
+               Conditions.update_privacy_policy(privacy_policy, @update_attrs)
+
       assert privacy_policy.content == "some updated content"
       assert privacy_policy.native_content == "some updated native_content"
     end
 
     test "update_privacy_policy/2 with invalid data returns error changeset" do
       privacy_policy = privacy_policy_fixture()
-      assert {:error, %Ecto.Changeset{}} = Conditions.update_privacy_policy(privacy_policy, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Conditions.update_privacy_policy(privacy_policy, @invalid_attrs)
+
       assert privacy_policy == Conditions.get_privacy_policy!(privacy_policy.id)
     end
 
     test "delete_privacy_policy/1 deletes the privacy_policy" do
       privacy_policy = privacy_policy_fixture()
       assert {:ok, %PrivacyPolicy{}} = Conditions.delete_privacy_policy(privacy_policy)
-      assert_raise Ecto.NoResultsError, fn -> Conditions.get_privacy_policy!(privacy_policy.id) end
+
+      assert_raise Ecto.NoResultsError, fn ->
+        Conditions.get_privacy_policy!(privacy_policy.id)
+      end
     end
 
     test "change_privacy_policy/1 returns a privacy_policy changeset" do
@@ -197,8 +250,18 @@ defmodule Eshop.ConditionsTest do
   describe "guarantees" do
     alias Eshop.Conditions.Guarantee
 
-    @valid_attrs %{content: "some content", duration: 42, gurantee_type: 42, native_content: "some native_content"}
-    @update_attrs %{content: "some updated content", duration: 43, gurantee_type: 43, native_content: "some updated native_content"}
+    @valid_attrs %{
+      content: "some content",
+      duration: 42,
+      gurantee_type: 42,
+      native_content: "some native_content"
+    }
+    @update_attrs %{
+      content: "some updated content",
+      duration: 43,
+      gurantee_type: 43,
+      native_content: "some updated native_content"
+    }
     @invalid_attrs %{content: nil, duration: nil, gurantee_type: nil, native_content: nil}
 
     def guarantee_fixture(attrs \\ %{}) do
@@ -234,7 +297,10 @@ defmodule Eshop.ConditionsTest do
 
     test "update_guarantee/2 with valid data updates the guarantee" do
       guarantee = guarantee_fixture()
-      assert {:ok, %Guarantee{} = guarantee} = Conditions.update_guarantee(guarantee, @update_attrs)
+
+      assert {:ok, %Guarantee{} = guarantee} =
+               Conditions.update_guarantee(guarantee, @update_attrs)
+
       assert guarantee.content == "some updated content"
       assert guarantee.duration == 43
       assert guarantee.gurantee_type == 43

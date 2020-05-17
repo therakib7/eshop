@@ -20,7 +20,14 @@ defmodule EshopWeb.DiscountCodeControllerTest do
     used_at: "2011-05-18T15:01:01Z",
     validity: 43
   }
-  @invalid_attrs %{amount: nil, code: nil, created_at: nil, is_active: nil, used_at: nil, validity: nil}
+  @invalid_attrs %{
+    amount: nil,
+    code: nil,
+    created_at: nil,
+    is_active: nil,
+    used_at: nil,
+    validity: nil
+  }
 
   def fixture(:discount_code) do
     {:ok, discount_code} = Components.create_discount_code(@create_attrs)
@@ -65,8 +72,15 @@ defmodule EshopWeb.DiscountCodeControllerTest do
   describe "update discount_code" do
     setup [:create_discount_code]
 
-    test "renders discount_code when data is valid", %{conn: conn, discount_code: %DiscountCode{id: id} = discount_code} do
-      conn = put(conn, Routes.discount_code_path(conn, :update, discount_code), discount_code: @update_attrs)
+    test "renders discount_code when data is valid", %{
+      conn: conn,
+      discount_code: %DiscountCode{id: id} = discount_code
+    } do
+      conn =
+        put(conn, Routes.discount_code_path(conn, :update, discount_code),
+          discount_code: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.discount_code_path(conn, :show, id))
@@ -83,7 +97,11 @@ defmodule EshopWeb.DiscountCodeControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, discount_code: discount_code} do
-      conn = put(conn, Routes.discount_code_path(conn, :update, discount_code), discount_code: @invalid_attrs)
+      conn =
+        put(conn, Routes.discount_code_path(conn, :update, discount_code),
+          discount_code: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

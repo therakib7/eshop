@@ -11,8 +11,6 @@ defmodule EshopWeb.PermissionView do
   end
 
   def render("permission.json", %{permission: permission}) do
-    %{id: permission.id,
-      name: permission.name,
-      slug: permission.slug}
+    %{id: permission.id, name: permission.name, slug: permission.slug}
   end
 end

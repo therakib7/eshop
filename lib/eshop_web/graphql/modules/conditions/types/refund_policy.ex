@@ -13,7 +13,7 @@ defmodule EshopWeb.Schema.Types.RefundPolicy do
   end
 
   @desc "A refund_policy update"
-  input_object :refund_policy_params do 
+  input_object :refund_policy_params do
     field :content, :string
     field :native_content, :string
     field :type, :integer

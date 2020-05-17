@@ -28,7 +28,8 @@ defmodule EshopWeb.CountryStageController do
   def update(conn, %{"id" => id, "country_stage" => country_stage_params}) do
     country_stage = Geo.get_country_stage!(id)
 
-    with {:ok, %CountryStage{} = country_stage} <- Geo.update_country_stage(country_stage, country_stage_params) do
+    with {:ok, %CountryStage{} = country_stage} <-
+           Geo.update_country_stage(country_stage, country_stage_params) do
       render(conn, "show.json", country_stage: country_stage)
     end
   end

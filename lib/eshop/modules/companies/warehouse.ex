@@ -5,7 +5,7 @@ defmodule Eshop.Companies.Warehouse do
   schema "warehouses" do
     field :is_active, :boolean, default: false
     field :name, :string
-    field :native_name, :string 
+    field :native_name, :string
     belongs_to :shop, Eshop.Companies.Shop
     belongs_to :user, Eshop.Users.User
     belongs_to :location, Eshop.Geo.Location

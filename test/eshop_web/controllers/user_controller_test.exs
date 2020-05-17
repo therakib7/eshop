@@ -28,7 +28,18 @@ defmodule EshopWeb.UserControllerTest do
     verified_phone: "2011-05-18T15:01:01Z",
     verified_user: "2011-05-18T15:01:01Z"
   }
-  @invalid_attrs %{email: nil, first_name: nil, is_active: nil, surname: nil, mobile: nil, password_hash: nil, pin: nil, verified_email: nil, verified_phone: nil, verified_user: nil}
+  @invalid_attrs %{
+    email: nil,
+    first_name: nil,
+    is_active: nil,
+    surname: nil,
+    mobile: nil,
+    password_hash: nil,
+    pin: nil,
+    verified_email: nil,
+    verified_phone: nil,
+    verified_user: nil
+  }
 
   def fixture(:user) do
     {:ok, user} = Users.create_user(@create_attrs)

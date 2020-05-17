@@ -13,7 +13,7 @@ defmodule EshopWeb.Schema.Types.CompanySetting do
   end
 
   @desc "A company_setting update"
-  input_object :company_setting_params do 
+  input_object :company_setting_params do
     field :key, :string
     field :type, :integer
     field :type_id, :integer

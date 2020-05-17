@@ -15,7 +15,7 @@ defmodule EshopWeb.Schema.Types.Faq do
   end
 
   @desc "A faq update"
-  input_object :faq_params do 
+  input_object :faq_params do
     field :content, :string
     field :native_content, :string
     field :native_question, :string

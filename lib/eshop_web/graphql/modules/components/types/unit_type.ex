@@ -12,7 +12,7 @@ defmodule EshopWeb.Schema.Types.UnitType do
   end
 
   @desc "A unit_type update"
-  input_object :unit_type_params do 
+  input_object :unit_type_params do
     field :name, :string
     field :native_name, :string
     field :user_id, :id

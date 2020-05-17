@@ -38,7 +38,9 @@ defmodule EshopWeb.BankingProviderControllerTest do
 
   describe "create banking_provider" do
     test "renders banking_provider when data is valid", %{conn: conn} do
-      conn = post(conn, Routes.banking_provider_path(conn, :create), banking_provider: @create_attrs)
+      conn =
+        post(conn, Routes.banking_provider_path(conn, :create), banking_provider: @create_attrs)
+
       assert %{"id" => id} = json_response(conn, 201)["data"]
 
       conn = get(conn, Routes.banking_provider_path(conn, :show, id))
@@ -54,7 +56,9 @@ defmodule EshopWeb.BankingProviderControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = post(conn, Routes.banking_provider_path(conn, :create), banking_provider: @invalid_attrs)
+      conn =
+        post(conn, Routes.banking_provider_path(conn, :create), banking_provider: @invalid_attrs)
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
@@ -62,8 +66,15 @@ defmodule EshopWeb.BankingProviderControllerTest do
   describe "update banking_provider" do
     setup [:create_banking_provider]
 
-    test "renders banking_provider when data is valid", %{conn: conn, banking_provider: %BankingProvider{id: id} = banking_provider} do
-      conn = put(conn, Routes.banking_provider_path(conn, :update, banking_provider), banking_provider: @update_attrs)
+    test "renders banking_provider when data is valid", %{
+      conn: conn,
+      banking_provider: %BankingProvider{id: id} = banking_provider
+    } do
+      conn =
+        put(conn, Routes.banking_provider_path(conn, :update, banking_provider),
+          banking_provider: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.banking_provider_path(conn, :show, id))
@@ -79,7 +90,11 @@ defmodule EshopWeb.BankingProviderControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, banking_provider: banking_provider} do
-      conn = put(conn, Routes.banking_provider_path(conn, :update, banking_provider), banking_provider: @invalid_attrs)
+      conn =
+        put(conn, Routes.banking_provider_path(conn, :update, banking_provider),
+          banking_provider: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

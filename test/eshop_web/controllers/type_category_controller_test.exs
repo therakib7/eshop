@@ -53,8 +53,15 @@ defmodule EshopWeb.TypeCategoryControllerTest do
   describe "update type_category" do
     setup [:create_type_category]
 
-    test "renders type_category when data is valid", %{conn: conn, type_category: %TypeCategory{id: id} = type_category} do
-      conn = put(conn, Routes.type_category_path(conn, :update, type_category), type_category: @update_attrs)
+    test "renders type_category when data is valid", %{
+      conn: conn,
+      type_category: %TypeCategory{id: id} = type_category
+    } do
+      conn =
+        put(conn, Routes.type_category_path(conn, :update, type_category),
+          type_category: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.type_category_path(conn, :show, id))
@@ -67,7 +74,11 @@ defmodule EshopWeb.TypeCategoryControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, type_category: type_category} do
-      conn = put(conn, Routes.type_category_path(conn, :update, type_category), type_category: @invalid_attrs)
+      conn =
+        put(conn, Routes.type_category_path(conn, :update, type_category),
+          type_category: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

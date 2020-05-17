@@ -12,10 +12,14 @@ defmodule EshopWeb.WarehouseVariantController do
   end
 
   def create(conn, %{"warehouse_variant" => warehouse_variant_params}) do
-    with {:ok, %WarehouseVariant{} = warehouse_variant} <- Companies.create_warehouse_variant(warehouse_variant_params) do
+    with {:ok, %WarehouseVariant{} = warehouse_variant} <-
+           Companies.create_warehouse_variant(warehouse_variant_params) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", Routes.warehouse_variant_path(conn, :show, warehouse_variant))
+      |> put_resp_header(
+        "location",
+        Routes.warehouse_variant_path(conn, :show, warehouse_variant)
+      )
       |> render("show.json", warehouse_variant: warehouse_variant)
     end
   end
@@ -28,7 +32,8 @@ defmodule EshopWeb.WarehouseVariantController do
   def update(conn, %{"id" => id, "warehouse_variant" => warehouse_variant_params}) do
     warehouse_variant = Companies.get_warehouse_variant!(id)
 
-    with {:ok, %WarehouseVariant{} = warehouse_variant} <- Companies.update_warehouse_variant(warehouse_variant, warehouse_variant_params) do
+    with {:ok, %WarehouseVariant{} = warehouse_variant} <-
+           Companies.update_warehouse_variant(warehouse_variant, warehouse_variant_params) do
       render(conn, "show.json", warehouse_variant: warehouse_variant)
     end
   end

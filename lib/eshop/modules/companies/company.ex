@@ -13,7 +13,7 @@ defmodule Eshop.Companies.Company do
     belongs_to :user, Eshop.Users.User
     belongs_to :location, Eshop.Geo.Location
     belongs_to :attachment, Eshop.Attachments.Attachment
-    belongs_to :term_condition, Eshop.Conditions.TermCondition 
+    belongs_to :term_condition, Eshop.Conditions.TermCondition
 
     timestamps()
   end
@@ -21,8 +21,24 @@ defmodule Eshop.Companies.Company do
   @doc false
   def changeset(company, attrs) do
     company
-    |> cast(attrs, [:is_active, :is_verifed, :name, :trade_assurance, :highest_assurance, :golden_supplier, :created_at])
-    |> validate_required([:is_active, :is_verifed, :name, :trade_assurance, :highest_assurance, :golden_supplier, :created_at])
+    |> cast(attrs, [
+      :is_active,
+      :is_verifed,
+      :name,
+      :trade_assurance,
+      :highest_assurance,
+      :golden_supplier,
+      :created_at
+    ])
+    |> validate_required([
+      :is_active,
+      :is_verifed,
+      :name,
+      :trade_assurance,
+      :highest_assurance,
+      :golden_supplier,
+      :created_at
+    ])
     |> validate_length(:name, min: 2, max: 200)
   end
 end

@@ -11,7 +11,8 @@ defmodule EshopWeb.LocationView do
   end
 
   def render("location.json", %{location: location}) do
-    %{id: location.id,
+    %{
+      id: location.id,
       is_active: location.is_active,
       country_id: location.country_id,
       stage_id: location.stage_id,
@@ -23,6 +24,7 @@ defmodule EshopWeb.LocationView do
       lat: location.lat,
       long: location.long,
       web: location.web,
-      user_id: location.user_id}
+      user_id: location.user_id
+    }
   end
 end

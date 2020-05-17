@@ -6,8 +6,20 @@ defmodule Eshop.GeoTest do
   describe "country_stages" do
     alias Eshop.Geo.CountryStage
 
-    @valid_attrs %{country_id: 42, name: "some name", native_name: "some native_name", stage: 42, user_id: 42}
-    @update_attrs %{country_id: 43, name: "some updated name", native_name: "some updated native_name", stage: 43, user_id: 43}
+    @valid_attrs %{
+      country_id: 42,
+      name: "some name",
+      native_name: "some native_name",
+      stage: 42,
+      user_id: 42
+    }
+    @update_attrs %{
+      country_id: 43,
+      name: "some updated name",
+      native_name: "some updated native_name",
+      stage: 43,
+      user_id: 43
+    }
     @invalid_attrs %{country_id: nil, name: nil, native_name: nil, stage: nil, user_id: nil}
 
     def country_stage_fixture(attrs \\ %{}) do
@@ -44,7 +56,10 @@ defmodule Eshop.GeoTest do
 
     test "update_country_stage/2 with valid data updates the country_stage" do
       country_stage = country_stage_fixture()
-      assert {:ok, %CountryStage{} = country_stage} = Geo.update_country_stage(country_stage, @update_attrs)
+
+      assert {:ok, %CountryStage{} = country_stage} =
+               Geo.update_country_stage(country_stage, @update_attrs)
+
       assert country_stage.country_id == 43
       assert country_stage.name == "some updated name"
       assert country_stage.native_name == "some updated native_name"
@@ -73,9 +88,48 @@ defmodule Eshop.GeoTest do
   describe "locations" do
     alias Eshop.Geo.Location
 
-    @valid_attrs %{code: "some code", country_id: 42, is_active: true, lat: 120.5, long: 120.5, name: "some name", native_name: "some native_name", order: 42, parent_id: 42, stage_id: 42, user_id: 42, web: "some web"}
-    @update_attrs %{code: "some updated code", country_id: 43, is_active: false, lat: 456.7, long: 456.7, name: "some updated name", native_name: "some updated native_name", order: 43, parent_id: 43, stage_id: 43, user_id: 43, web: "some updated web"}
-    @invalid_attrs %{code: nil, country_id: nil, is_active: nil, lat: nil, long: nil, name: nil, native_name: nil, order: nil, parent_id: nil, stage_id: nil, user_id: nil, web: nil}
+    @valid_attrs %{
+      code: "some code",
+      country_id: 42,
+      is_active: true,
+      lat: 120.5,
+      long: 120.5,
+      name: "some name",
+      native_name: "some native_name",
+      order: 42,
+      parent_id: 42,
+      stage_id: 42,
+      user_id: 42,
+      web: "some web"
+    }
+    @update_attrs %{
+      code: "some updated code",
+      country_id: 43,
+      is_active: false,
+      lat: 456.7,
+      long: 456.7,
+      name: "some updated name",
+      native_name: "some updated native_name",
+      order: 43,
+      parent_id: 43,
+      stage_id: 43,
+      user_id: 43,
+      web: "some updated web"
+    }
+    @invalid_attrs %{
+      code: nil,
+      country_id: nil,
+      is_active: nil,
+      lat: nil,
+      long: nil,
+      name: nil,
+      native_name: nil,
+      order: nil,
+      parent_id: nil,
+      stage_id: nil,
+      user_id: nil,
+      web: nil
+    }
 
     def location_fixture(attrs \\ %{}) do
       {:ok, location} =
@@ -187,7 +241,9 @@ defmodule Eshop.GeoTest do
 
     test "update_shop_location/2 with valid data updates the shop_location" do
       shop_location = shop_location_fixture()
-      assert {:ok, %ShopLocation{} = shop_location} = Geo.update_shop_location(shop_location, @update_attrs)
+
+      assert {:ok, %ShopLocation{} = shop_location} =
+               Geo.update_shop_location(shop_location, @update_attrs)
     end
 
     test "update_shop_location/2 with invalid data returns error changeset" do
@@ -244,7 +300,9 @@ defmodule Eshop.GeoTest do
 
     test "update_item_location/2 with valid data updates the item_location" do
       item_location = item_location_fixture()
-      assert {:ok, %ItemLocation{} = item_location} = Geo.update_item_location(item_location, @update_attrs)
+
+      assert {:ok, %ItemLocation{} = item_location} =
+               Geo.update_item_location(item_location, @update_attrs)
     end
 
     test "update_item_location/2 with invalid data returns error changeset" do

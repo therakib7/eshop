@@ -5,8 +5,7 @@ defmodule Eshop.Components.PackageItem do
   schema "package_items" do
     field :name, :string
     field :native_name, :string
-    belongs_to :package, Eshop.Components.Package 
-    
+    belongs_to :package, Eshop.Components.Package
 
     timestamps()
   end

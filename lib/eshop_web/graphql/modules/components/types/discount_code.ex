@@ -19,7 +19,7 @@ defmodule EshopWeb.Schema.Types.DiscountCode do
   end
 
   @desc "A discount_code update"
-  input_object :discount_code_params do 
+  input_object :discount_code_params do
     field :amount, :integer
     field :code, :string
     field :created_at, :datetime

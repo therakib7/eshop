@@ -20,7 +20,14 @@ defmodule EshopWeb.LoginDetailControllerTest do
     login_at: "2011-05-18T15:01:01Z",
     user_agent: "some updated user_agent"
   }
-  @invalid_attrs %{ip_address: nil, ip_location: nil, is_active: nil, last_activity: nil, login_at: nil, user_agent: nil}
+  @invalid_attrs %{
+    ip_address: nil,
+    ip_location: nil,
+    is_active: nil,
+    last_activity: nil,
+    login_at: nil,
+    user_agent: nil
+  }
 
   def fixture(:login_detail) do
     {:ok, login_detail} = Users.create_login_detail(@create_attrs)
@@ -65,8 +72,15 @@ defmodule EshopWeb.LoginDetailControllerTest do
   describe "update login_detail" do
     setup [:create_login_detail]
 
-    test "renders login_detail when data is valid", %{conn: conn, login_detail: %LoginDetail{id: id} = login_detail} do
-      conn = put(conn, Routes.login_detail_path(conn, :update, login_detail), login_detail: @update_attrs)
+    test "renders login_detail when data is valid", %{
+      conn: conn,
+      login_detail: %LoginDetail{id: id} = login_detail
+    } do
+      conn =
+        put(conn, Routes.login_detail_path(conn, :update, login_detail),
+          login_detail: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.login_detail_path(conn, :show, id))
@@ -83,7 +97,11 @@ defmodule EshopWeb.LoginDetailControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, login_detail: login_detail} do
-      conn = put(conn, Routes.login_detail_path(conn, :update, login_detail), login_detail: @invalid_attrs)
+      conn =
+        put(conn, Routes.login_detail_path(conn, :update, login_detail),
+          login_detail: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

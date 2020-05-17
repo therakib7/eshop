@@ -3,7 +3,7 @@ defmodule Eshop.Attachments.Attachment do
   import Ecto.Changeset
 
   schema "attachments" do
-    field :file_name, :string 
+    field :file_name, :string
     field :orginal_size, :string
     field :resized_size, :string
     field :type, :integer

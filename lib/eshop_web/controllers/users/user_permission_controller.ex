@@ -12,7 +12,8 @@ defmodule EshopWeb.UserPermissionController do
   end
 
   def create(conn, %{"user_permission" => user_permission_params}) do
-    with {:ok, %UserPermission{} = user_permission} <- Users.create_user_permission(user_permission_params) do
+    with {:ok, %UserPermission{} = user_permission} <-
+           Users.create_user_permission(user_permission_params) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.user_permission_path(conn, :show, user_permission))
@@ -28,7 +29,8 @@ defmodule EshopWeb.UserPermissionController do
   def update(conn, %{"id" => id, "user_permission" => user_permission_params}) do
     user_permission = Users.get_user_permission!(id)
 
-    with {:ok, %UserPermission{} = user_permission} <- Users.update_user_permission(user_permission, user_permission_params) do
+    with {:ok, %UserPermission{} = user_permission} <-
+           Users.update_user_permission(user_permission, user_permission_params) do
       render(conn, "show.json", user_permission: user_permission)
     end
   end

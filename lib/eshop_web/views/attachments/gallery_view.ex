@@ -11,8 +11,6 @@ defmodule EshopWeb.GalleryView do
   end
 
   def render("gallery.json", %{gallery: gallery}) do
-    %{id: gallery.id,
-      type: gallery.type,
-      type_id: gallery.type_id}
+    %{id: gallery.id, type: gallery.type, type_id: gallery.type_id}
   end
 end

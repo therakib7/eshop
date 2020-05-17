@@ -12,7 +12,7 @@ defmodule EshopWeb.Schema.Types.TypeCategory do
   end
 
   @desc "A type_category update"
-  input_object :type_category_params do 
+  input_object :type_category_params do
     field :type, :integer
     field :type_id, :integer
     field :category_id, :id
