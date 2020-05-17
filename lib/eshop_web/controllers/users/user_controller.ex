@@ -6,9 +6,14 @@ defmodule EshopWeb.UserController do
 
   action_fallback EshopWeb.FallbackController
 
+  import Ecto.Query, only: [from: 2]
+
   def index(conn, _params) do
-    users = Users.list_users()
-    render(conn, "index.json", users: users)
+    # users = Users.list_users()
+    # render(conn, "index.json", users: users)
+    users = from(m in Eshop.Users.UserRole, where: m.user_id == 1, select: %{role_id: m.role_id, id: m.id}, join: p in Eshop.Users.RolePermission, on: m.role_id == p.role_id, )       
+    hhh = Eshop.Repo.all(users) 
+    render(conn, "index.json", users: hhh)
   end
 
   def create(conn, %{"user" => user_params}) do
