@@ -1,8 +1,16 @@
 defmodule EshopWeb.Schema.Resolvers.User do
+ 
+  alias Eshop.Users 
   import Ecto.Query, only: [from: 2]
 
   def list_users(_parent, _args, _resolution) do
-    {:ok, Eshop.Users.list_users()}
+    # {:ok, Eshop.Users.list_users()}
+    query =
+      from u in Eshop.Users.UserRole,
+        where: u.user_id == 13,
+        select: %{id: u.id, user_id: u.user_id}
+    hello = Eshop.Repo.all(query)
+    {:ok, hello}
   end
 
 
