@@ -13,6 +13,15 @@ defmodule EshopWeb.Graphql.Middleware.Authorize do
   end
 
   defp correct_mobile?(%{}, :any), do: true
-  defp correct_mobile?(%{mobile: mob}, mob), do: true
+
+  defp correct_mobile?(current_user, mob) do 
+    
+    if 4 == 4 do
+      true
+    else 
+      false
+    end
+  end
+
   defp correct_mobile?(_, _), do: false
 end
