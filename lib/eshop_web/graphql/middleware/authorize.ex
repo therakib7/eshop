@@ -1,9 +1,11 @@
 defmodule EshopWeb.Graphql.Middleware.Authorize do
   @behaviour Absinthe.Middleware
 
-  def call(resolution, mob) do
+  import Ecto.Query, only: [from: 2]
+
+  def call(resolution, per) do
     with %{current_user: current_user} <- resolution.context,
-         true <- correct_mobile?(current_user, mob) do
+         true <- correct_per?(current_user, per) do
       resolution
     else
       _ ->
@@ -12,17 +14,40 @@ defmodule EshopWeb.Graphql.Middleware.Authorize do
     end
   end
 
-  defp correct_mobile?(%{}, :any), do: true
+  defp correct_per?(%{}, :any), do: true
 
-  defp correct_mobile?(current_user, mob) do 
-     
-    IO.inspect current_user["sub"] 
-    if current_user["sub"] == "4" do
+  @doc """
+    |> Get Current user_id = current_user["sub"]
+    |> Get current user role_id
+    |> Get permission_id by role_id 
+    |> All query save in redis memory
+
+  """
+  defp correct_per?(current_user, per) do
+    user_id = String.to_integer(current_user["sub"])
+
+    role_ids =
+      from(m in Eshop.Users.UserRole,
+        where: m.user_id == ^user_id,
+        select: %{role_id: m.role_id, id: m.id}
+      )
+      |> Eshop.Repo.all()
+      |> Enum.map(fn x -> x.role_id end)
+
+    per_ids =
+      from(m in Eshop.Users.RolePermission,
+        where: m.role_id in ^role_ids,
+        select: %{permission_id: m.permission_id}
+      )
+      |> Eshop.Repo.all()
+      |> Enum.map(fn x -> x.permission_id end)
+
+    if Enum.member?(per_ids, per) do
       true
-    else 
+    else
       false
     end
   end
 
-  defp correct_mobile?(_, _), do: false
+  defp correct_per?(_, _), do: false
 end

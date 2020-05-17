@@ -5,7 +5,8 @@
 > checking from list slug
 > All query save in redis memory
 
-cre
+#IO.inspect(per_ids)
+IO.puts "Variable a is true!"
 
 # all search arguments
 # has one, has_many and belongs to data
