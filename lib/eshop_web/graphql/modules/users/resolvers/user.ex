@@ -1,8 +1,12 @@
 defmodule EshopWeb.Schema.Resolvers.User do
 	 
-   	def list_users(_parent, _args, _resolution) do
+   	def list_users(_parent, _args, %{context: %{current_user: _current_user}}) do
         {:ok, Eshop.Users.list_users()}
     end
+
+	def list_users(_parent, _args, _resolution) do
+	 {:error, "Not Authorized"}
+	end 
 
     def get_user(_, %{id: id}, %{context: %{current_user: _current_user}}) do
 		{:ok, Eshop.Users.get_user!(id)} 
