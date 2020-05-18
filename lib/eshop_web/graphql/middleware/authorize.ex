@@ -10,7 +10,7 @@ defmodule EshopWeb.Graphql.Middleware.Authorize do
     else
       _ ->
         resolution
-        |> Absinthe.Resolution.put_result({:error, "unauthorized"})
+        |> Absinthe.Resolution.put_result({:error, message: "Unauthorized", code: 401})
     end
   end
 
