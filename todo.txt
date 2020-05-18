@@ -1,11 +1,5 @@
-> Current user id
-> Curent user role_id
-> role permission permission_id
-> permission perission slug by ids
-> checking from list slug
-> All query save in redis memory
-
-cre
+#IO.inspect(per_ids)
+IO.puts "Variable a is true!"
 
 # all search arguments
 # has one, has_many and belongs to data
@@ -97,3 +91,10 @@ query {
 }
 
 
+
+
+# Note
+
+১। সেসন টকেন ডিলিট করার সময় টকেন এর আইডি ব্যবহার করতে হবে।
+২। ইউজার লগইন করলে ইউজার লোকেশান আইপি ইত্যাদি ইনফর্মেশন টেবিল আ সেভ করতে হবে।
+৩। ইউজার সেশন ডিলিট হলে যাতে লগইন ইনফর্মেশন টেবিল এর ডাটা ডিলিট নয়া হই।
