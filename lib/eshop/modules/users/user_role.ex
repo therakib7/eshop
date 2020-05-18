@@ -6,6 +6,8 @@ defmodule Eshop.Users.UserRole do
     belongs_to :user, Eshop.Users.User
     belongs_to :role, Eshop.Users.Role
     timestamps()
+
+    many_to_many :role_permissions, Eshop.Users.RolePermission, join_through: "role_permissions"
   end
 
   @doc false
