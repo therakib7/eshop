@@ -66,35 +66,34 @@ changeset
     |> validate_number(:lat, greater_than_or_equal_to: -90, less_than_or_equal_to: 90)
 
 
-query {
-  roles{
-    id,
-    name,
-    slug,
-    nativeName
-    isCompany
-  }
-}
-
-query {
-  role(id:2){
-    id
-    name,
-    slug,
-    nativeName
-    isCompany
-  }
-}
 
 
-query {
-  role(id:2){
-    id
-    name,
-    slug,
-    nativeName
-    isCompany
-  }
-}
+Features list
+===================
+Product / per item 
+Service / per item
+Ecommerce and Local
+Local Only
+Warehousse
+Shop
+Pacakge
+Service
+Live chat
+Customer Notification
+Mobile App (Android, IOS)
+Web App
+Supplier management
+Customer management
+Ecommerce integration
+Blog App
+Hosting
+Domain
+Support
+Multi Vendor Features
 
+Book
+> Category
+> Brand
+> Product
+> Service
 
