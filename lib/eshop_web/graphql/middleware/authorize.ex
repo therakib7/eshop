@@ -47,6 +47,5 @@ defmodule EshopWeb.Graphql.Middleware.Authorize do
       false
     end
   end
-
   defp correct_per?(_, _), do: false
 end

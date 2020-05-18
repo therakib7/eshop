@@ -2,6 +2,7 @@ defmodule EshopWeb.Schema.Queries.User do
   use Absinthe.Schema.Notation
 
   alias EshopWeb.Schema.Resolvers.User, as: User
+  alias EshopWeb.Graphql.Middleware
 
   input_object :user_filter do
     field :id, :integer
@@ -23,7 +24,7 @@ defmodule EshopWeb.Schema.Queries.User do
 
     @desc "Get a user by its id"
     field :user, :user do
-      middleware(EshopWeb.Graphql.Middleware.Authorize)
+      # middleware(Middleware.Authorize)
       arg(:id, non_null(:id))
       resolve(&User.get_user/3)
     end
