@@ -1,9 +1,9 @@
 defmodule EshopWeb.Graphql.Middleware.Authorize do
   @behaviour Absinthe.Middleware
 
-  def call(resolution, role) do
+  def call(resolution, mob) do
     with %{current_user: current_user} <- resolution.context,
-         true <- correct_role?(current_user, role) do
+         true <- correct_mobile?(current_user, mob) do
       resolution
     else
       _ ->
@@ -12,7 +12,16 @@ defmodule EshopWeb.Graphql.Middleware.Authorize do
     end
   end
 
-  # defp correct_role?(%{}, :any), do: true
-  defp correct_role?(%{current_user: role}, role), do: true
-  defp correct_role?(_, _), do: false
+  defp correct_mobile?(%{}, :any), do: true
+
+  defp correct_mobile?(current_user, mob) do 
+     
+    IO.inspect current_user["sub"] 
+    if current_user["sub"] == "4" do
+      true
+    else 
+      false
+    end
+  end
+  defp correct_mobile?(_, _), do: false
 end
