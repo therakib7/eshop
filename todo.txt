@@ -5,6 +5,12 @@
 > checking from list slug
 > All query save in redis memory
 
+get all permission id in one query 
+
+Repo.all(from m in Eshop.Users.UserRole, join: c in Eshop.Users.RolePermission, on: m.role_id == c.role_id, where: m.user_id == 4, select: c.permission_id)
+
+Repo.all(from m in Eshop.Users.UserRole, join: c in Eshop.Users.RolePermission, on: m.role_id == c.role_id, where: m.user_id == 4, select: %{id: c.permission_id}) 
+
 #IO.inspect(per_ids)
 IO.puts "Variable a is true!"
 

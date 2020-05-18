@@ -25,27 +25,30 @@ defmodule EshopWeb.Graphql.Middleware.Authorize do
   defp correct_per?(current_user, per) do
     user_id = String.to_integer(current_user["sub"])
 
-    role_ids =
-      from(m in Eshop.Users.UserRole,
-        where: m.user_id == ^user_id,
-        select: %{role_id: m.role_id, id: m.id}
-      )
-      |> Eshop.Repo.all()
-      |> Enum.map(fn x -> x.role_id end)
+    # role_ids =
+    #   from(m in Eshop.Users.UserRole,
+    #     where: m.user_id == ^user_id,
+    #     select: %{role_id: m.role_id, id: m.id}
+    #   )
+    #   |> Eshop.Repo.all()
+    #   |> Enum.map(fn x -> x.role_id end)
 
-    per_ids =
-      from(m in Eshop.Users.RolePermission,
-        where: m.role_id in ^role_ids,
-        select: %{permission_id: m.permission_id}
-      )
-      |> Eshop.Repo.all()
-      |> Enum.map(fn x -> x.permission_id end)
+    # per_ids =
+    #   from(m in Eshop.Users.RolePermission,
+    #     where: m.role_id in ^role_ids,
+    #     select: %{permission_id: m.permission_id}
+    #   )
+    #   |> Eshop.Repo.all()
+    #   |> Enum.map(fn x -> x.permission_id end)
+    # if Enum.member?(per_ids, per) do
+    #   true
+    # else
+    #   false
+    # end
 
-    if Enum.member?(per_ids, per) do
-      true
-    else
-      false
-    end
+    Eshop.Repo.all(from m in Eshop.Users.UserRole, join: c in Eshop.Users.RolePermission, on: m.role_id == c.role_id, where: m.user_id == ^user_id, select: c.permission_id)
+    |> Enum.member?(per) 
+    
   end
   defp correct_per?(_, _), do: false
 end
