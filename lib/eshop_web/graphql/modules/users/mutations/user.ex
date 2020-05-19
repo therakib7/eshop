@@ -1,7 +1,8 @@
 defmodule EshopWeb.Schema.Mutations.User do
   use Absinthe.Schema.Notation
 
-  alias EshopWeb.Schema.Resolvers.User
+  alias EshopWeb.Schema.Resolvers.User, as: User
+  alias EshopWeb.Schema.Resolvers.UserProfile, as: UserProfile
 
   object :user_mutations do
     @desc "Create a user"

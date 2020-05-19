@@ -1,12 +1,10 @@
 defmodule EshopWeb.Schema.Queries.User do
   use Absinthe.Schema.Notation
 
+  use Absinthe.Relay.Schema.Notation, :modern
+
   alias EshopWeb.Schema.Resolvers.User
-  alias EshopWeb.Graphql.Middleware.Authorize 
-
-  use Absinthe.Relay.Schema.Notation, :modern 
-
-  connection node_type: :user  
+  alias EshopWeb.Graphql.Middleware
 
   input_object :user_filter do
     field :id, :integer
@@ -15,20 +13,22 @@ defmodule EshopWeb.Schema.Queries.User do
     field :email, :string
     field :inserted_before, :naive_datetime
     field :inserted_after, :naive_datetime
-  end 
-  
-  object :user_queries do 
+  end
 
-    @desc "list trending_posts y"
-    connection field :trending_posts, node_type: :user do 
-      resolve &EshopWeb.Schema.Resolvers.User.trending_posts/3
+  connection(node_type: :user)
+
+  object :user_queries do
+    @desc "list trending_posts"
+    connection field :trending_posts, node_type: :user do
+      middleware(EshopWeb.Graphql.Middleware.Authorize, 2)
+      resolve(&User.trending_posts/3)
     end
 
     @desc "Get all users"
     field :users, list_of(:user) do
       # user_view
-      middleware(Authorize, 2)
-      arg :filter, :user_filter  
+      middleware(EshopWeb.Graphql.Middleware.Authorize, 2)
+      arg(:filter, :user_filter)
       resolve(&User.list_users/3)
     end
 

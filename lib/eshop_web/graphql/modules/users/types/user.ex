@@ -1,6 +1,6 @@
 defmodule EshopWeb.Schema.Types.User do
   use Absinthe.Schema.Notation
-  alias EshopWeb.Schema.Resolvers.UserProfile
+  alias EshopWeb.Schema.Resolvers.UserProfile, as: UserProfile
 
   @desc "A user"
   object :user do
@@ -22,7 +22,7 @@ defmodule EshopWeb.Schema.Types.User do
       # arg :date, :date
       resolve(&UserProfile.list_user_profiles/3)
     end
-  end 
+  end
 
   @desc "A user update"
   input_object :user_params do

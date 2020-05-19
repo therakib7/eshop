@@ -5,5 +5,4 @@ defmodule EshopWeb.Schema.Types.AuthLogin do
   object :auth_login do
     field :token, :string
   end
-  
 end

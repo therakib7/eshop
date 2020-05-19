@@ -45,7 +45,7 @@ defmodule Eshop.MixProject do
       {:plug_cowboy, "~> 2.0"},
       # custom
       {:guardian, "~> 2.1"},
-      {:guardian_db, "~> 2.0"}, 
+      {:guardian_db, "~> 2.0"},
       {:argon2_elixir, "~> 2.0"},
       {:absinthe, "~> 1.5"},
       {:absinthe_plug, "~> 1.5"},
