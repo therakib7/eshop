@@ -45,17 +45,12 @@ defmodule Eshop.MixProject do
       {:plug_cowboy, "~> 2.0"},
       # custom
       {:guardian, "~> 2.1"},
-      # custom
-      {:guardian_db, "~> 2.0"},
-      # custom 
+      {:guardian_db, "~> 2.0"}, 
       {:argon2_elixir, "~> 2.0"},
-      # custom
       {:absinthe, "~> 1.4"},
-      # custom
       {:absinthe_plug, "~> 1.4"},
-      # custom
+      {:absinthe_relay, "~> 1.4.0-rc"},
       {:dataloader, "~> 1.0.0"},
-      # custom
       {:corsica, "~> 1.1"}
     ]
   end

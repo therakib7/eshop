@@ -17,8 +17,7 @@ defmodule EshopWeb.Schema.Types.Role do
   input_object :role_params do
     field :name, :string
     field :desc, :string
-    field :is_company, :boolean
-    field :name, :string
+    field :is_company, :boolean 
     field :slug, :string
     field :native_name, :string
   end

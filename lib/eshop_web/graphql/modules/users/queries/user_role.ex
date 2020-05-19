@@ -3,9 +3,14 @@ defmodule EshopWeb.Schema.Queries.UserRole do
 
   alias EshopWeb.Schema.Resolvers.UserRole, as: UserRole
 
+  # use Absinthe.Relay.Connection
+  # use Absinthe.Relay.Notation
+  # use Absinthe.Relay.Node
+  # connection node_type: :user_role_queries
+
   object :user_role_queries do
     @desc "Get all user_roles"
-    field :user_roles, list_of(:user_role) do
+     field :user_roles, list_of(:user_role) do
       resolve(&UserRole.list_user_roles/3)
     end
 

@@ -1,5 +1,11 @@
 defmodule EshopWeb.Schema do
   use Absinthe.Schema
+
+  #use Absinthe.Relay.Connection
+  #use Absinthe.Relay.Notation
+  #use Absinthe.Relay.Node
+  use Absinthe.Relay.Schema.Notation, :modern
+  
   import_types(Absinthe.Type.Custom)
 
   import_types(__MODULE__.Types.{
