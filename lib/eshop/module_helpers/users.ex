@@ -29,6 +29,17 @@ defmodule Eshop.Users do
         query
     end)
   end
+
+  # def list_users(args) do
+  #   args
+  #   |> Enum.reduce(User, fn
+  #     {:order, order}, query ->
+  #     query |> order_by({^order, :first_name})
+  #     {:filter, filter}, query ->
+  #       query |> filter_with(filter)
+  #     end)
+  #   |> Repo.all
+  # end
   
   def list_users(args) do
     args
