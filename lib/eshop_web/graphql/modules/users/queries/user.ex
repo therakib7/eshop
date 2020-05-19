@@ -18,7 +18,7 @@ defmodule EshopWeb.Schema.Queries.User do
   connection node_type: :user
   object :user_queries do
 
-    @desc "list trending_posts (order_by desc: :total_post_views)"
+    @desc "list trending_posts"
     connection field :trending_posts, node_type: :user do
       middleware(EshopWeb.Graphql.Middleware.Authorize, 2)
       resolve(&User.trending_posts/3)
