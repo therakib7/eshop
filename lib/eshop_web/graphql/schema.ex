@@ -1,23 +1,6 @@
 defmodule EshopWeb.Schema do
   use Absinthe.Schema
-
   use Absinthe.Relay.Schema, :modern
-  use Absinthe.Relay.Schema.Notation, :modern 
-
-  connection node_type: :rakib
-  node object :rakib do
-    field :first_name, :string
-  end
-  
-  node interface do
-    resolve_type fn
-      %Eshop.Users.User{}, _ ->
-        :rakib
-      _, _ ->
-        nil
-    end
-  end
-   
   
   import_types(Absinthe.Type.Custom)
 
@@ -253,12 +236,7 @@ defmodule EshopWeb.Schema do
   })
 
   query do
-
-    @desc "list trending_posts y"
-    connection field :trending_posts, node_type: :rakib do
-      resolve &EshopWeb.Schema.Resolvers.User.trending_posts/3
-    end
-    
+       
     # Users
     import_fields(:user_queries)
     import_fields(:user_profile_queries)
