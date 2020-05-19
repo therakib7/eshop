@@ -1,5 +1,7 @@
 defmodule EshopWeb.Schema do
   use Absinthe.Schema
+  use Absinthe.Relay.Schema, :modern
+  
   import_types(Absinthe.Type.Custom)
 
   import_types(__MODULE__.Types.{
