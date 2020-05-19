@@ -12,9 +12,9 @@ defmodule EshopWeb.Schema.Mutations.AuthLogin do
 
     @desc "logout"
     field :logout, type: :auth_login do
-    arg(:token, non_null(:string))
-    middleware(EshopWeb.Graphql.Middleware.Authorize, :any)
-    resolve(&EshopWeb.Schema.Resolvers.AuthLogin.logout/2)
+      arg(:token, non_null(:string))
+      middleware(EshopWeb.Graphql.Middleware.Authorize, :any)
+      resolve(&EshopWeb.Schema.Resolvers.AuthLogin.logout/2)
     end
   end
 end

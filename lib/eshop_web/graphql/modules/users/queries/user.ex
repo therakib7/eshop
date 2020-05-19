@@ -14,10 +14,10 @@ defmodule EshopWeb.Schema.Queries.User do
     field :inserted_before, :naive_datetime
     field :inserted_after, :naive_datetime
   end
-  
-  connection node_type: :user
-  object :user_queries do
 
+  connection(node_type: :user)
+
+  object :user_queries do
     @desc "list trending_posts"
     connection field :trending_posts, node_type: :user do
       middleware(EshopWeb.Graphql.Middleware.Authorize, 2)
@@ -28,7 +28,7 @@ defmodule EshopWeb.Schema.Queries.User do
     field :users, list_of(:user) do
       # user_view
       middleware(EshopWeb.Graphql.Middleware.Authorize, 2)
-      arg :filter, :user_filter  
+      arg(:filter, :user_filter)
       resolve(&User.list_users/3)
     end
 

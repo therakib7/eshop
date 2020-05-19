@@ -25,6 +25,7 @@ defmodule Eshop.Users do
     Enum.reduce(args, User, fn
       {:order_by, %{sort_order: sort_order, field: field}}, query ->
         query |> order_by({^sort_order, ^field})
+
       _, query ->
         query
     end)
@@ -32,28 +33,33 @@ defmodule Eshop.Users do
 
   def list_users(args) do
     args
-    |> Enum.reduce(User, fn 
+    |> Enum.reduce(User, fn
       {:filter, filter}, query ->
         query |> filter_with(filter)
-      end)
-    |> Repo.all
+    end)
+    |> Repo.all()
   end
-  
+
   defp filter_with(query, filter) do
     Enum.reduce(filter, query, fn
       {:id, id}, query ->
         from q in query, where: q.id == ^id
+
       {:first_name, first_name}, query ->
         from q in query, where: ilike(q.first_name, ^"%#{first_name}%")
+
       {:mobile, mobile}, query ->
         from q in query, where: ilike(q.mobile, ^"%#{mobile}%")
+
       {:email, email}, query ->
         from q in query, where: ilike(q.email, ^"%#{email}%")
+
       {:inserted_before, date}, query ->
         from q in query, where: q.inserted_at <= ^date
-      {:inserted_after, date},  query ->
+
+      {:inserted_after, date}, query ->
         from q in query, where: q.inserted_at >= ^date
-   end)
+    end)
   end
 
   @doc """

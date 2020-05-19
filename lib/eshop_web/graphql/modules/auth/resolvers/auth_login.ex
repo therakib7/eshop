@@ -7,7 +7,6 @@ defmodule EshopWeb.Schema.Resolvers.AuthLogin do
     end
   end
 
-
   def logout(%{token: token}, _info) do
     with {:ok, claims} <- Eshop.Guardian.decode_and_verify(token),
          {:ok, claims} <- Eshop.Guardian.on_revoke(claims, token) do
