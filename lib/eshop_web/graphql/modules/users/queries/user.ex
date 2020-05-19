@@ -1,11 +1,8 @@
 defmodule EshopWeb.Schema.Queries.User do
   use Absinthe.Schema.Notation
-  
 
-  alias EshopWeb.Schema.Resolvers.User, as: User
+  alias EshopWeb.Schema.Resolvers.User
   alias EshopWeb.Graphql.Middleware.Authorize
-
-  
 
   input_object :user_filter do
     field :id, :integer

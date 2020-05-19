@@ -1,6 +1,6 @@
 defmodule EshopWeb.Schema.Types.User do
   use Absinthe.Schema.Notation
-  alias EshopWeb.Schema.Resolvers.UserProfile, as: UserProfile
+  alias EshopWeb.Schema.Resolvers.UserProfile
 
   @desc "A user"
   object :user do
