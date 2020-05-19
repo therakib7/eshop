@@ -22,7 +22,7 @@ defmodule EshopWeb.Schema.Types.User do
       # arg :date, :date
       resolve(&UserProfile.list_user_profiles/3)
     end
-  end
+  end 
 
   @desc "A user update"
   input_object :user_params do

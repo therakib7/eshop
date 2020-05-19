@@ -8,6 +8,16 @@ defmodule Eshop.Users do
 
   alias Eshop.Users.User
 
+
+  def posts_query(args) do
+    Enum.reduce(args, User, fn
+      {:order_by, %{sort_order: sort_order, field: field}}, query ->
+        query |> order_by({^sort_order, ^field})
+      _, query ->
+        query
+    end)
+  end
+
   @doc """
   Returns the list of users.
 
