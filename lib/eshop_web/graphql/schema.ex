@@ -4,6 +4,11 @@ defmodule EshopWeb.Schema do
 
   import_types(Absinthe.Type.Custom)
 
+  enum :sort_order do
+    value :asc
+    value :desc
+  end
+
   import_types(__MODULE__.Types.{
     # Users
     User,

@@ -30,7 +30,7 @@ defmodule EshopWeb.Schema.Queries.User do
       # user_view
       middleware(Authorize, 2)
       arg(:filter, :user_filter)
-      # arg(:order, type: :user_filter, default_value: :asc)
+      arg(:order, type: :sort_order, default_value: :asc)
       resolve(&User.list_users/3)
     end
 
