@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Mutations.Warehouse do
   use Absinthe.Schema.Notation
 
-  alias EshopWeb.Schema.Resolvers.Warehouse, as: Warehouse
+  alias EshopWeb.Schema.Resolvers.Warehouse
 
   object :warehouse_mutations do
     @desc "Create a warehouse"

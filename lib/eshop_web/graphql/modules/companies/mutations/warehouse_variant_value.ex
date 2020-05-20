@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Mutations.WarehouseVariantValue do
   use Absinthe.Schema.Notation
 
-  alias EshopWeb.Schema.Resolvers.WarehouseVariantValue, as: WarehouseVariantValue
+  alias EshopWeb.Schema.Resolvers.WarehouseVariantValue
 
   object :warehouse_variant_value_mutations do
     @desc "Create a warehouse_variant_value"

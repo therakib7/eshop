@@ -1,6 +1,6 @@
 defmodule Eshop.Guardian do
   use Guardian, otp_app: :eshop
-  alias Eshop.Users.User
+  alias Eshop.Users
 
   @behaviour Guardian.Serializer
 
@@ -11,7 +11,7 @@ defmodule Eshop.Guardian do
 
   def resource_from_claims(claims) do
     id = claims["sub"]
-    resource = User.get_user!(id)
+    resource = Users.get_user!(id)
     {:ok, resource}
   end
 

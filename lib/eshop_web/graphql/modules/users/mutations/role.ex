@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Mutations.Role do
   use Absinthe.Schema.Notation
 
-  alias EshopWeb.Schema.Resolvers.Role, as: Role
+  alias EshopWeb.Schema.Resolvers.Role
 
   object :role_mutations do
     @desc "Create a role"

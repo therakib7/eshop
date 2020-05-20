@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Mutations.UnitType do
   use Absinthe.Schema.Notation
 
-  alias EshopWeb.Schema.Resolvers.UnitType, as: UnitType
+  alias EshopWeb.Schema.Resolvers.UnitType
 
   object :unit_type_mutations do
     @desc "Create a unit_type"
