@@ -16,12 +16,11 @@ defmodule EshopWeb.Graphql.Middleware.Authorize do
 
   defp correct_per?(%{}, :any), do: true
 
-  @doc """
-    |> Get Current user_id = current_user["sub"]
-    |> Get current user role_id
-    |> Get permission_id by role_id 
-    |> All query save in redis memory 
-  """
+  # Get Current user_id = current_user["sub"]
+  # Get current user role_id
+  # Get permission_id by role_id 
+  # All query save in redis memory 
+
   defp correct_per?(current_user, per) do
     user_id = String.to_integer(current_user["sub"])
 

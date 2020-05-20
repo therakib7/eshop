@@ -21,11 +21,10 @@ defmodule Eshop.Users do
     Repo.all(User)
   end
 
-  def posts_query(args) do
+  def trending_query(args) do
     Enum.reduce(args, User, fn
       {:order_by, %{sort_order: sort_order, field: field}}, query ->
-        query |> order_by({^sort_order, ^field})
-
+        query |> order_by({^sort_order, ^field}) 
       _, query ->
         query
     end)

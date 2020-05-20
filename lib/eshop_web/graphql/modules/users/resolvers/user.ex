@@ -3,7 +3,7 @@ defmodule EshopWeb.Schema.Resolvers.User do
     args = Map.put(args, :order_by, %{sort_order: :desc})
 
     Absinthe.Relay.Connection.from_query(
-      Eshop.Users.posts_query(args),
+      Eshop.Users.trending_query(args),
       &Eshop.Repo.all/1,
       args
     )
