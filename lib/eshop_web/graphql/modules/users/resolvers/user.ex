@@ -1,9 +1,9 @@
 defmodule EshopWeb.Schema.Resolvers.User do
-  def trending_posts(_, args, _) do
-    args = Map.put(args, :order_by, %{sort_order: :desc})
 
+  def relay_list_users(_, args, _) do
+    #args = Map.put(args, :order_by, %{sort_order: :desc}) 
     Absinthe.Relay.Connection.from_query(
-      Eshop.Users.trending_query(args),
+      Eshop.Users.relay_list_users(args), 
       &Eshop.Repo.all/1,
       args
     )
