@@ -22,17 +22,31 @@ defmodule Eshop.Users do
   end
 
   def trending_query(args) do
+    # %{filter: %{mobile: "123456"}, first: 2, order_by: %{sort_order: :desc}}
+
     Enum.reduce(args, User, fn
       {:order_by, %{sort_order: sort_order, field: field}}, query ->
-        query |> order_by({^sort_order, ^field}) 
+        query |> order_by({^sort_order, ^field})
+
       _, query ->
         query
     end)
   end
 
+  # def list_users(args) do
+  #   args
+  #   |> Enum.reduce(User, fn
+  #     {:filter, filter}, query ->
+  #       query |> filter_with(filter)
+  #   end)
+  #   |> Repo.all()
+  # end
+
   def list_users(args) do
-    args
-    |> Enum.reduce(User, fn
+    Enum.reduce(args, User, fn
+      {:order, order}, query ->
+        query |> order_by({^order, :first_name})
+
       {:filter, filter}, query ->
         query |> filter_with(filter)
     end)

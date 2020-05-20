@@ -75,35 +75,47 @@ changeset
 
 
 Features list
-===================
-Product / per item 
-Service / per item
+=================== 
 Ecommerce and Local
 Local Only
 Warehousse
 Shop
-Pacakge
-Service
 Live chat
-Customer Notification
-Mobile App (Android, IOS)
+Customer Notification 
 Web App
 Supplier management
 Customer management
-Ecommerce integration
-Blog App
+Blog App 
+Support 
+
+=================
+Mobile App (Android, IOS)
+Product / per item 
+Service / per item
+Pacakge 
 Hosting
 Domain
-Support
 Multi Vendor Features
+Premium Support 
+
 
 Book
 > Category
 > Brand
 > Product
+  cost_price	decimal	 
+  unit_price	decimal	 
+  sell_price
+  has_variant
+  has_package
+  has_warehouse
+  Gallery
+  Discount
 > Service
+> Gallery
 
-
+Book type
+> if any one already used this can't delete
 
 # Note
 

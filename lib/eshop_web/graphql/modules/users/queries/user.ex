@@ -18,20 +18,20 @@ defmodule EshopWeb.Schema.Queries.User do
   connection(node_type: :user)
 
   object :user_queries do
-    
-    @desc "list trending_posts" 
+    @desc "list trending_posts"
 
     connection field :trending_posts, node_type: :user do
       middleware(Authorize, 2)
       arg(:filter, :user_filter)
       resolve(&User.trending_posts/3)
     end
-  
+
     @desc "Get all users"
     field :users, list_of(:user) do
       # user_view
-      middleware(Authorize, 2)
+      # middleware(Authorize, 2)
       arg(:filter, :user_filter)
+      arg(:order, type: :sort_order, default_value: :asc)
       resolve(&User.list_users/3)
     end
 
