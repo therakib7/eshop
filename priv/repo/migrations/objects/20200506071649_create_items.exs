@@ -5,8 +5,8 @@ defmodule Eshop.Repo.Migrations.CreateItems do
     create table(:items) do
       add :is_online, :boolean, default: false, null: false
       add :is_active, :boolean, default: false, null: false
-      add :name, :string, null: true, size: 255
-      add :native_name, :string, null: true, size: 255
+      add :title, :string, null: true, size: 255
+      add :native_title, :string, null: true, size: 255
       add :desc, :text, null: true
       add :native_desc, :text, null: true
       add :views, :integer, null: true

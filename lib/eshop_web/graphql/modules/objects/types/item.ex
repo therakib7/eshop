@@ -15,9 +15,9 @@ defmodule EshopWeb.Schema.Types.Item do
     field :is_online, :boolean
     field :loves, :integer
     field :low_stock, :integer
-    field :name, :string
+    field :title, :string
     field :native_desc, :string
-    field :native_name, :string
+    field :native_title, :string
     field :sell_price, :decimal
     field :total_order, :integer
     field :type, :integer
@@ -47,9 +47,9 @@ defmodule EshopWeb.Schema.Types.Item do
     field :is_online, :boolean
     field :loves, :integer
     field :low_stock, :integer
-    field :name, :string
+    field :title, :string
     field :native_desc, :string
-    field :native_name, :string
+    field :native_title, :string
     field :sell_price, :decimal
     field :total_order, :integer
     field :type, :integer

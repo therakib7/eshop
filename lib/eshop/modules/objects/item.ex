@@ -14,9 +14,9 @@ defmodule Eshop.Objects.Item do
     field :is_active, :boolean, default: false
     field :loves, :integer
     field :low_stock, :integer
-    field :name, :string
+    field :title, :string
     field :native_desc, :string
-    field :native_name, :string
+    field :native_title, :string
     field :sell_price, :decimal
     field :total_order, :integer
     field :type, :integer
@@ -39,8 +39,8 @@ defmodule Eshop.Objects.Item do
     |> cast(attrs, [
       :is_online,
       :is_active,
-      :name,
-      :native_name,
+      :title,
+      :native_title,
       :desc,
       :native_desc,
       :views,
@@ -64,8 +64,8 @@ defmodule Eshop.Objects.Item do
     |> validate_required([
       :is_online,
       :is_active,
-      :name,
-      :native_name,
+      :title,
+      :native_title,
       :desc,
       :native_desc,
       :views,
@@ -86,7 +86,7 @@ defmodule Eshop.Objects.Item do
       :extra_fields,
       :asin_id
     ])
-    |> validate_length(:name, min: 2, max: 200)
-    |> validate_length(:native_name, min: 2, max: 200)
+    |> validate_length(:title, min: 2, max: 200)
+    |> validate_length(:native_title, min: 2, max: 200)
   end
 end

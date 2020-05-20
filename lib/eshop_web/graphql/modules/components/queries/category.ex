@@ -4,9 +4,9 @@ defmodule EshopWeb.Schema.Queries.Category do
   alias EshopWeb.Schema.Resolvers.Category, as: Category
 
   object :category_queries do
-    @desc "Get all categorys"
-    field :categorys, list_of(:category) do
-      resolve(&Category.list_categorys/3)
+    @desc "Get all categories"
+    field :categories, list_of(:category) do
+      resolve(&Category.list_categories/3)
     end
 
     @desc "Get a category by its id"
