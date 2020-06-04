@@ -1,0 +1,16 @@
+# Get Users
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+query {
+  users {
+    firstName,
+    verifiedUser 
+  } 
+}
+
+### Create User
+
+
+        
+        

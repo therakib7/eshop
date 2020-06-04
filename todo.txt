@@ -71,7 +71,16 @@ changeset
     |> unique_constraint(:slug)
     |> validate_number(:lat, greater_than_or_equal_to: -90, less_than_or_equal_to: 90)
 
-
+    |> cast(params, @required_fields, @optional_fields)
+    |> validate_format(:email, ~r/@/)
+    |> validate_length(:password, min: 8)
+    |> validate_format(:password, ~r/[0-9]+/, message: "Password must contain a number") # has a number
+    |> validate_format(:password, ~r/[A-Z]+/, message: "Password must contain an upper-case letter") # has an upper case letter
+    |> validate_format(:password, ~r/[a-z]+/, message: "Password must contain a lower-case letter") # has a lower case letter
+    |> validate_format(:password, ~r/[#\!\?&@\$%^&*\(\)]+/, message: "Password must contain a symbol") # Has a symbol
+    |> validate_confirmation(:password)    
+    # and so on
+ 
 
 
 Features list

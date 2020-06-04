@@ -1,15 +1,15 @@
 {
     "workbench.editor.enablePreviewFromQuickOpen": true,
     "workbench.editor.enablePreview": false,
-    "rest-client.environmentVariables": { 
-         
-        "sandbox": { 
-            "host": "http://localhost:4000/api/graphql",
-            "secretKey": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJlc2hvcCIsImF1dGhfdGltZSI6MTU4OTg5MTQ2NywiZXhwIjoxNTkyNDgzNDY3LCJpYXQiOjE1ODk4OTE0NjcsImlzcyI6ImVzaG9wIiwianRpIjoiNGJjMmViNTYtZWQ5NS00Yzg3LTkwNTYtOTc3MDI5OGY1OTVjIiwibmJmIjoxNTg5ODkxNDY2LCJzdWIiOiI0IiwidHlwIjoiYWNjZXNzIn0.piKtgnj2hm2jilAlCAt1MoQlvP8W7HsqWgpKpJ2P4Ol7_PVMHH5KNm0G7us8hzdOiP76zSyaSRjMgModkLoUlA"
+
+    "rest-client.environmentVariables": {
+        "sandbox": {
+            "host": "localhost",
+            "port":"4000",
+            "url": "/api/graphql",
+            "user_token": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJlc2hvcCIsImF1dGhfdGltZSI6MTU4OTU1MTA2MSwiZXhwIjoxNTkyMTQzMDYxLCJpYXQiOjE1ODk1NTEwNjEsImlzcyI6ImVzaG9wIiwianRpIjoiY2JkMzhiNjMtYzU0Yi00ZDk1LWEyMzYtNjFjYTYwNWVkZGRiIiwibmJmIjoxNTg5NTUxMDYwLCJzdWIiOiI0IiwidHlwIjoiYWNjZXNzIn0.RDjyzcD7wIGflcdhMdFyfXjbR43bmQlYlSn9eO9X7zDbwPrzV-PDZC-5a7pDLuAn6WQtgoOcJy_7391M-ZXKZA"
         },
         "production": {
-            "host": "http://localhost:4000/api/graphql",
-            "secretKey" : "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJlc2hvcCIsImF1dGhfdGltZSI6MTU4OTg5MTQ2NywiZXhwIjoxNTkyNDgzNDY3LCJpYXQiOjE1ODk4OTE0NjcsImlzcyI6ImVzaG9wIiwianRpIjoiNGJjMmViNTYtZWQ5NS00Yzg3LTkwNTYtOTc3MDI5OGY1OTVjIiwibmJmIjoxNTg5ODkxNDY2LCJzdWIiOiI0IiwidHlwIjoiYWNjZXNzIn0.piKtgnj2hm2jilAlCAt1MoQlvP8W7HsqWgpKpJ2P4Ol7_PVMHH5KNm0G7us8hzdOiP76zSyaSRjMgModkLoUlA"
-        } 
+        }
     }
 }
