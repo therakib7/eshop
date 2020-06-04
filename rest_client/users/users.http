@@ -1,6 +1,6 @@
-
-POST http://{{ host }}:{{port}}{{url}}
-Authorization: {{ user_token }}
+# Get Users
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
 
 query {
   users {
@@ -9,7 +9,31 @@ query {
   } 
 }
 
-### Get Roles
+### Create User
+
+
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  createUser(
+    surname: "test",
+    firstName: "test",
+    mobile: "0123456789",
+    email: "example@example.com",
+    pin: 12345678,
+    password: "1234567a",
+    passwordConfirmation: "1234567a"
+  ){
+    id,
+    firstName,
+    surname,
+    mobile,
+    email,
+    pin,
+    verifiedUser,
+  }
+}
 
 
         
