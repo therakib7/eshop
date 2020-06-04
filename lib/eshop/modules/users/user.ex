@@ -49,6 +49,29 @@ defmodule Eshop.Users.User do
     |> validate_confirmation(:password)
   end
 
+  def updateChangeset(user, attrs) do
+    user
+    |> cast(attrs, [ 
+      :first_name,
+      :surname,
+      :email,
+      :mobile,
+      :password,
+      :password_confirmation,
+      :pin
+    ]) 
+    |> validate_format(:email, ~r/@/)
+    |> unique_constraint(:email)
+    |> update_change(:email, &String.downcase/1)
+    |> validate_length(:password, min: 8, max: 80)
+    |> validate_inclusion(:pin, 100000..9999999999)
+    |> validate_confirmation(:password)
+    |> put_password_hash()
+    |> validate_format(:password, ~r/[0-9]+/, message: "Password must contain a number")
+    |> validate_format(:password, ~r/[a-zA-Z]+/, message: "Password must contain a letter")
+    |> validate_confirmation(:password)
+  end
+
   defp put_password_hash(
          %Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset
        ) do
