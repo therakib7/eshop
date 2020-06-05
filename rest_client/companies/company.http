@@ -1,0 +1,49 @@
+# Get Companies
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+query {
+  companies {
+    id
+    name, 
+  } 
+}
+
+### Create Company
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  createCompany( 
+    name: "Oxyzone",  
+  ){
+    id,
+    name, 
+  }
+}
+
+
+### Update Company
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  updateCompany(
+    id: 1,
+    companyParams: {
+        golden_supplier: false,
+        highest_assurance: null,
+        is_active: false,
+        is_verifed: false,
+        name: "Oxyzone",
+        trade_assurance: false, 
+        location_id: null,
+        attachment_id: null,
+        term_condition_id: null, 
+    }
+  ){
+    id,
+    name, 
+  }
+}
+

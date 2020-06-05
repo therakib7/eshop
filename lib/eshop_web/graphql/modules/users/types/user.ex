@@ -9,7 +9,7 @@ defmodule EshopWeb.Schema.Types.User do
     field :first_name, :string
     field :is_active, :boolean
     field :surname, :string
-    field :mobile, :string
+    field :mobile, :string 
     field :pin, :integer
     field :verified_email, :datetime
     field :verified_phone, :datetime
@@ -27,12 +27,8 @@ defmodule EshopWeb.Schema.Types.User do
   input_object :user_params do
     field :email, :string
     field :first_name, :string
-    field :is_active, :boolean
     field :surname, :string
-    field :mobile, :string
+    field :mobile, :string 
     field :pin, :integer
-    field :verified_email, :datetime
-    field :verified_phone, :datetime
-    field :verified_user, :datetime
   end
 end

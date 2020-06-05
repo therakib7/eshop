@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Queries.Category do
   use Absinthe.Schema.Notation
 
-  alias EshopWeb.Schema.Resolvers.Category, as: Category
+  alias EshopWeb.Schema.Resolvers.Category
 
   object :category_queries do
     @desc "Get all categories"

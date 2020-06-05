@@ -1,12 +1,13 @@
 {
     "workbench.editor.enablePreviewFromQuickOpen": true,
     "workbench.editor.enablePreview": false,
+
     "rest-client.environmentVariables": {
         "sandbox": {
             "host": "localhost",
             "port":"4000",
             "url": "/api/graphql",
-            "user_token": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJlc2hvcCIsImF1dGhfdGltZSI6MTU4OTk2MTQxMSwiZXhwIjoxNTkyNTUzNDExLCJpYXQiOjE1ODk5NjE0MTEsImlzcyI6ImVzaG9wIiwianRpIjoiMGJhMTUxOGItMzU5MS00ODE4LWFhMWUtMTA1ZDYwYmFhNGQ5IiwibmJmIjoxNTg5OTYxNDEwLCJzdWIiOiIxNCIsInR5cCI6ImFjY2VzcyJ9.G3POGDiL051XGENZqJAQw9Q00-zLQRgZCsy7H9jcqxjwj8IMkq2aGzOKvl6CS6HBSAwR7gKUuR9vH6T591r-FA"
+            "user_token": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJlc2hvcCIsImF1dGhfdGltZSI6MTU4OTU1MTA2MSwiZXhwIjoxNTkyMTQzMDYxLCJpYXQiOjE1ODk1NTEwNjEsImlzcyI6ImVzaG9wIiwianRpIjoiY2JkMzhiNjMtYzU0Yi00ZDk1LWEyMzYtNjFjYTYwNWVkZGRiIiwibmJmIjoxNTg5NTUxMDYwLCJzdWIiOiI0IiwidHlwIjoiYWNjZXNzIn0.RDjyzcD7wIGflcdhMdFyfXjbR43bmQlYlSn9eO9X7zDbwPrzV-PDZC-5a7pDLuAn6WQtgoOcJy_7391M-ZXKZA"
         },
         "production": {
         }

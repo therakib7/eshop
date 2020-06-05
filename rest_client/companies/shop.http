@@ -1,0 +1,51 @@
+# Get Companies
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+query {
+  shops {
+    id
+    name,
+    native_name 
+  } 
+}
+
+### Create Shop
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  createShop( 
+    name: "Mini Bazar",  
+    company_id: 1
+  ){
+    id,
+    name, 
+  }
+}
+
+
+### Update Shop
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  updateShop(
+    id: 1,
+    shopParams: {
+        golden_supplier: false,
+        highest_assurance: null,
+        is_active: false,
+        is_verifed: false,
+        name: "Mini Bazaar",
+        trade_assurance: false, 
+        location_id: null,
+        attachment_id: null,
+        term_condition_id: null, 
+    }
+  ){
+    id,
+    name, 
+  }
+}
+

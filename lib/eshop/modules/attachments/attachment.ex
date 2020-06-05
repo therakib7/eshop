@@ -15,7 +15,7 @@ defmodule Eshop.Attachments.Attachment do
   @doc false
   def changeset(attachment, attrs) do
     attachment
-    |> cast(attrs, [:type, :type_id, :file_name])
+    |> cast(attrs, [:type, :type_id, :file_name, :orginal_size, :resized_size ])
     |> validate_required([:type, :type_id, :file_name])
     |> validate_length(:file_name, min: 1, max: 200)
   end
