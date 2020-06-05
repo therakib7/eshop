@@ -1,3 +1,9 @@
+# Software Owner Admin (Role, Role, Role)
+# Comapny Admin (Role, Role, Role)
+## Shop Admin (Role, Role, Role)
+# User
+
+
 > Current user id
 > Curent user role_id
 > role permission permission_id

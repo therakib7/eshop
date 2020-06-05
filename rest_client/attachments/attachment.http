@@ -1,0 +1,30 @@
+# Get Attachments
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+query {
+  attachments {
+    id,
+    orginal_size
+    resized_size 
+  } 
+}
+
+### Create Attachment
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  createAttachment(
+    type: 1,
+    type_id: 2,
+    file_name: "test",
+    orginal_size: "image.jpg",
+    resized_size: "image100x100.jpg", 
+  ){
+    id,
+    orginal_size
+    resized_size
+  }
+}
+

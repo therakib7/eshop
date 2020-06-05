@@ -24,6 +24,7 @@ defmodule Eshop.Companies.Shop do
   def changeset(shop, attrs) do
     shop
     |> cast(attrs, [
+      :company_id,
       :is_active,
       :is_verifed,
       :name,
@@ -33,15 +34,9 @@ defmodule Eshop.Companies.Shop do
       :golden_supplier,
       :created_at
     ])
-    |> validate_required([
-      :is_active,
-      :is_verifed,
+    |> validate_required([ 
       :name,
-      :native_name,
-      :trade_assurance,
-      :highest_assurance,
-      :golden_supplier,
-      :created_at
+      :company_id, 
     ])
     |> validate_length(:name, min: 2, max: 200)
     |> validate_length(:native_name, min: 2, max: 200)
