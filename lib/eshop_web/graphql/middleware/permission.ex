@@ -4,13 +4,14 @@ defmodule EshopWeb.Graphql.Middleware.Permission do
   import Ecto.Query, only: [from: 2]
 
   def call(resolution, per) do
+    IO.inspect(per) 
     with %{current_user: current_user} <- resolution.context,
          true <- correct_per?(current_user, per) do
       resolution
     else
       _ ->
         resolution
-        |> Absinthe.Resolution.put_result({:error, message: "Unauthorized", code: 401})
+        |> Absinthe.Resolution.put_result({:error, message: "Permission Denied", code: 303})
     end
   end
 
@@ -22,12 +23,7 @@ defmodule EshopWeb.Graphql.Middleware.Permission do
   # All query save in redis memory 
 
   defp correct_per?(current_user, per) do
-    user_id = String.to_integer(current_user["sub"])
-    if user_id === per do
-        true
-    else
-        false
-    end
+    false
   end
 
   defp correct_per?(_, _), do: false

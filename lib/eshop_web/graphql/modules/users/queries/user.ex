@@ -21,7 +21,7 @@ defmodule EshopWeb.Schema.Queries.User do
     @desc "Get all relay users"
     connection field :relay_users, node_type: :user do
       # middleware(Authorize, 2)
-      IO.inspect(:user_filter)
+      # IO.inspect(:user_filter)
       # middleware(Permission, 1)
       arg(:filter, :user_filter)
       resolve(&User.relay_list_users/3) 
@@ -29,7 +29,6 @@ defmodule EshopWeb.Schema.Queries.User do
 
     @desc "Get all users"
     field :users, list_of(:user) do
-      # user_view
       middleware(Authorize, 2)
       arg(:filter, :user_filter)
       arg(:order, type: :sort_order, default_value: :asc)

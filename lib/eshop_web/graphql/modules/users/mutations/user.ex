@@ -1,8 +1,9 @@
 defmodule EshopWeb.Schema.Mutations.User do
   use Absinthe.Schema.Notation
 
+  alias EshopWeb.Graphql.Middleware.Permission
   alias EshopWeb.Schema.Resolvers.User
-  
+
   object :user_mutations do
     @desc "Create a user"
     field :create_user, type: :user do
@@ -20,10 +21,9 @@ defmodule EshopWeb.Schema.Mutations.User do
     end
 
     @desc "Update a user"
-    field :update_user, type: :user do 
+    field :update_user, type: :user do
       arg(:id, non_null(:id))
       arg(:user_params, :user_params)
-
       resolve(&User.update_user/2)
     end
 

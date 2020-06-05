@@ -29,5 +29,6 @@ defmodule EshopWeb.Schema.Types.User do
     field :surname, :string
     field :mobile, :string 
     field :pin, :integer
+
   end
 end
