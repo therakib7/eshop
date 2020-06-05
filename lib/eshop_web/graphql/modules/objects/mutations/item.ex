@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Mutations.Item do
   use Absinthe.Schema.Notation
 
-  alias EshopWeb.Schema.Resolvers.Item, as: Item
+  alias EshopWeb.Schema.Resolvers.Item
 
   object :item_mutations do
     @desc "Create a item"
