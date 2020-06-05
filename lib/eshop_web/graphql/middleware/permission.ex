@@ -4,7 +4,7 @@ defmodule EshopWeb.Graphql.Middleware.Permission do
   import Ecto.Query, only: [from: 2]
 
   def call(resolution, per) do
-    IO.inspect(resolution.context)
+    IO.inspect(resolution.arguments.id)
     with %{current_user: current_user} <- resolution.context,
          true <- correct_per?(current_user, per) do
       resolution
