@@ -20,7 +20,9 @@ defmodule EshopWeb.Schema.Queries.User do
   object :user_queries do
     @desc "Get all relay users"
     connection field :relay_users, node_type: :user do
-      middleware(Authorize, 2)
+      # middleware(Authorize, 2)
+      IO.inspect(:user_filter)
+      # middleware(Permission, 1)
       arg(:filter, :user_filter)
       resolve(&User.relay_list_users/3) 
     end

@@ -1,5 +1,7 @@
 defmodule EshopWeb.Schema.Resolvers.User do
+  use Absinthe.Schema.Notation
   alias EshopWeb.Graphql.Middleware.Authorize
+  alias EshopWeb.Graphql.Middleware.Permission
 
   def relay_list_users(_, args, _) do
     #args = Map.put(args, :order_by, %{sort_order: :desc}) 
@@ -22,18 +24,9 @@ defmodule EshopWeb.Schema.Resolvers.User do
     Eshop.Users.create_user(args)
   end
 
-  def update_user(%{id: id, user_params: user_params}, %{context: %{current_user: current_user}}) do
-    # IO.inspect(String.to_integer())
-    
-    old_user = Eshop.Users.get_user!(id) 
-    # IO.inspect(current_user["sub"] )
-    if String.to_integer(current_user["sub"]) == old_user.id do
-      IO.inspect(old_user.id )
-    else 
-      IO.inspect("tor matha" )
-    end
-
-    case {:ok, old_user} do
+  def update_user(%{id: id, user_params: user_params},_info) do
+    old_user =  
+    case {:ok, Eshop.Users.get_user!(id)} do
       {:ok, user} -> user |> Eshop.Users.update_user(user_params)
     end
   end
