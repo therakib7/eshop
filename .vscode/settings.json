@@ -1,4 +1,15 @@
 {
     "workbench.editor.enablePreviewFromQuickOpen": true,
-    "workbench.editor.enablePreview": false
+    "workbench.editor.enablePreview": false,
+
+    "rest-client.environmentVariables": {
+        "sandbox": {
+            "host": "localhost",
+            "port":"4000",
+            "url": "/api/graphql",
+            "user_token": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJlc2hvcCIsImF1dGhfdGltZSI6MTU4OTU1MTA2MSwiZXhwIjoxNTkyMTQzMDYxLCJpYXQiOjE1ODk1NTEwNjEsImlzcyI6ImVzaG9wIiwianRpIjoiY2JkMzhiNjMtYzU0Yi00ZDk1LWEyMzYtNjFjYTYwNWVkZGRiIiwibmJmIjoxNTg5NTUxMDYwLCJzdWIiOiI0IiwidHlwIjoiYWNjZXNzIn0.RDjyzcD7wIGflcdhMdFyfXjbR43bmQlYlSn9eO9X7zDbwPrzV-PDZC-5a7pDLuAn6WQtgoOcJy_7391M-ZXKZA"
+        },
+        "production": {
+        }
+    }
 }

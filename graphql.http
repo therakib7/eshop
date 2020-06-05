@@ -1,14 +1,13 @@
 
 ### Get Users
-POST http://localhost:4000/graphql
+POST http://localhost:4000/api/graphql
 Content-Type: application/json
-Authorization: Bearer xxx
+Authorization: {{secretKey}}
 X-REQUEST-TYPE: GraphQL
 
 query {
   users {
-    firstName,
-    verifiedUser 
+    firstName, 
   } 
 }
 

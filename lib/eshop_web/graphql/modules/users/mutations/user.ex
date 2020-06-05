@@ -15,15 +15,12 @@ defmodule EshopWeb.Schema.Mutations.User do
       arg(:password, :string)
       arg(:password_confirmation, :string)
       arg(:pin, :integer)
-      arg(:verified_email, :datetime)
-      arg(:verified_phone, :datetime)
-      arg(:verified_user, :datetime)
 
       resolve(&User.create_user/3)
     end
 
     @desc "Update a user"
-    field :update_user, type: :user do
+    field :update_user, type: :user do 
       arg(:id, non_null(:id))
       arg(:user_params, :user_params)
 
