@@ -10,7 +10,6 @@ defmodule EshopWeb.Schema.Types.User do
     field :is_active, :boolean
     field :surname, :string
     field :mobile, :string
-    field :password_hash, :string
     field :pin, :integer
     field :verified_email, :datetime
     field :verified_phone, :datetime
@@ -31,7 +30,6 @@ defmodule EshopWeb.Schema.Types.User do
     field :is_active, :boolean
     field :surname, :string
     field :mobile, :string
-    field :password_hash, :string
     field :pin, :integer
     field :verified_email, :datetime
     field :verified_phone, :datetime
