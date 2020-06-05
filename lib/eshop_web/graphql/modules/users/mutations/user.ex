@@ -3,7 +3,7 @@ defmodule EshopWeb.Schema.Mutations.User do
 
   alias EshopWeb.Graphql.Middleware.Permission
   alias EshopWeb.Schema.Resolvers.User
-
+  
   object :user_mutations do
     @desc "Create a user"
     field :create_user, type: :user do
