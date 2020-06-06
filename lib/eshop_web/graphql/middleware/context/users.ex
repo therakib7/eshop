@@ -12,7 +12,7 @@ defmodule EshopWeb.Graphql.Middleware.Users do
         case args.table do
             "user_create" ->  true 
             "user_view" -> true
-            "user_update" ->  
+            "user_update" -> true
             "user_delete" -> true
         end
     end 
