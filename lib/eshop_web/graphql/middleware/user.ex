@@ -1,4 +1,4 @@
-defmodule EshopWeb.Graphql.Middleware.Permission do
+defmodule EshopWeb.Graphql.Middleware.UserPer do
   @behaviour Absinthe.Middleware
 
   import Ecto.Query, only: [from: 2]

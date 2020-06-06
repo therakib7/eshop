@@ -1,4 +1,4 @@
-defmodule EshopWeb.Schema.Resolvers.User do
+defmodule EshopWeb.Schema.Resolvers.User do 
 
   def relay_list_users(_, args, _) do
     #args = Map.put(args, :order_by, %{sort_order: :desc}) 
