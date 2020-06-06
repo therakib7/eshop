@@ -8,10 +8,7 @@ Authentication
 
 Authentication + Permission
 
-Authentication + Permission + Admin
-
-
-
+Authentication + Permission + Admin  
 
 
 > Current user id

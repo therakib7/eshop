@@ -21,9 +21,9 @@ defmodule Eshop.Users do
     Repo.all(User)
   end
 
-  def relay_list_users(args) do  
-    query = from p in User 
-    filter_with(query, args.filter)  
+  def relay_list_users(args) do
+    query = from(p in User)
+    filter_with(query, args.filter)
   end
 
   def list_users(args) do

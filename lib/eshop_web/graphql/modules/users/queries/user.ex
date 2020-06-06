@@ -18,7 +18,7 @@ defmodule EshopWeb.Schema.Queries.User do
     @desc "Get all relay users"
     connection field :relay_users, node_type: :user do
       arg(:filter, :user_filter)
-      resolve(&User.relay_list_users/3) 
+      resolve(&User.relay_list_users/3)
     end
 
     @desc "Get all users"

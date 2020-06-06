@@ -30,8 +30,8 @@ defmodule Eshop.Companies.Company do
       :golden_supplier,
       :created_at
     ])
-    |> validate_required([ 
-      :name, 
+    |> validate_required([
+      :name
     ])
     |> validate_length(:name, min: 2, max: 200)
   end

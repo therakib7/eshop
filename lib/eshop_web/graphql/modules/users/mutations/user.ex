@@ -24,9 +24,8 @@ defmodule EshopWeb.Schema.Mutations.User do
     @desc "Update a user"
 
     field :update_user, type: :user do 
-      # middleware(Auth)  
-      middleware(UserPer, %{auth: true, per: 50, model: "user"}) 
-      arg(:id, non_null(:id)) 
+      middleware(UserPer, %{per: [3,5]})
+      arg(:id, non_null(:id))
       arg(:user_params, :user_params)
       resolve(&User.update_user/2)
     end
