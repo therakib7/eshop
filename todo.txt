@@ -16,6 +16,34 @@ Authentication + Permission
 Authentication + Permission + Admin  
 
 
+Super Admin
+Model
+create
+edit
+update
+delete
+com_admin = true
+super_admin = true 6
+Model
+
+Super Subsribe
+sdfdsf
+sdf
+
+Compnay Admin
+create
+edit
+update
+delete
+com_admin = true 11
+super_admin
+Company Subsribe
+Comapny Marketer
+sdf
+sdf
+
+
+
 > Current user id
 > Curent user role_id
 > role permission permission_id
