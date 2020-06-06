@@ -48,11 +48,27 @@ defmodule EshopWeb.Graphql.Middleware.UserPer do
         where: m.user_id == ^user_id,
         select: c.permission_id
     )
-    # IO.inspect(Eshop.Users.get_user!(user_id))
+
+    # if self = self per and self_data
+    
+    # if Map.has_key?(args, :self) do
+    #   if Enum.any?(args.per, fn x -> x in per_list end) && res_args.id ==  Eshop.Users.get_user!(user_id) do
+    #     true 
+        
+    #   unless Enum.any?(args.com_admin_per, fn x -> x in per_list end) && Eshop.Users.get_user!(user_id) do
+    #     true
+
+    #   unless Enum.any?(args.super_admin_per, fn x -> x in per_list end) do
+    #     true
+    #   end
+    # else 
+    #   Enum.any?(args.per, fn x -> x in per_list end)
+    # end
+    # IO.inspect()
     # IO.inspect(res_args)
     # IO.inspect(user_id)
     # IO.inspect(res_args.id == user_id)
-    Enum.any?(args.per, fn x -> x in per_list end)
+    
     # can be check match all or one by any or all 
     # Enum.all?(["abc", "z"], fn x -> x in list end)
   end

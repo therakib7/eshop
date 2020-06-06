@@ -23,8 +23,9 @@ defmodule EshopWeb.Schema.Mutations.User do
 
     @desc "Update a user"
 
-    field :update_user, type: :user do 
-      middleware(UserPer, %{per: [3,5], model: "user"})
+    field :update_user, type: :user do  
+      middleware(UserPer, %{auth: true, per: [3], self: true, com_admin_per: [5], super_admin_per: [6],  model: "user"})
+      # middleware(UserPer, %{per: [3,5], model: "user"})
       arg(:id, non_null(:id))
       arg(:user_params, :user_params)
       resolve(&User.update_user/2)
@@ -32,6 +33,7 @@ defmodule EshopWeb.Schema.Mutations.User do
 
     @desc "Delete a user"
     field :delete_user, type: :user do
+      # middleware(UserPer, %{auth:true, per: [4], self: true})
       arg(:id, non_null(:id))
       resolve(&User.delete_user/2)
     end
