@@ -49,25 +49,27 @@ defmodule EshopWeb.Graphql.Middleware.Auth do
         select: c.permission_id
     )
 
+     
     # if self = self per and self_data
     
-    # if Map.has_key?(args, :self) do
-    #   case "user" do
-    #     "user" -> EshopWeb.Graphql.Middleware.user(current_user,)
+    if Map.has_key?(args, :self) do
+      case args.model do
+        "user" -> EshopWeb.Graphql.Middleware.Users.user(args.per, current_user, res_args, args)
           
-    #   end
-    #   if Enum.any?(args.per, fn x -> x in per_list end) && res_args.id ==  Eshop.Users.get_user!(user_id) do
-    #     true 
-        
-    #   unless Enum.any?(args.com_admin_per, fn x -> x in per_list end) && Eshop.Users.get_user!(user_id) do
-    #     true
+      end
 
-    #   unless Enum.any?(args.super_admin_per, fn x -> x in per_list end) do
-    #     true
-    #   end
-    # else 
-    #   Enum.any?(args.per, fn x -> x in per_list end)
-    # end
+      # if Enum.any?(args.per, fn x -> x in per_list end) && res_args.id ==  Eshop.Users.get_user!(user_id) do
+      #   true 
+        
+      # unless Enum.any?(args.com_admin_per, fn x -> x in per_list end) && Eshop.Users.get_user!(user_id) do
+      #   true
+
+      # unless Enum.any?(args.super_admin_per, fn x -> x in per_list end) do
+      #   true
+      # end
+    else 
+      # Enum.any?(args.per, fn x -> x in per_list end)
+    end
     # IO.inspect()
     # IO.inspect(res_args)
     # IO.inspect(user_id)
