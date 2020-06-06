@@ -15,7 +15,7 @@ defmodule EshopWeb.Graphql.Middleware.UserPer do
     end
   end
 
-  defp correct_per?(%{}, :any), do: true
+  defp correct_per?(%{}, :any), do: false
 
   # Get Current user_id = current_user["sub"]
   # Get current user role_id
