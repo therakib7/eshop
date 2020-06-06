@@ -41,7 +41,7 @@ defmodule Eshop.Users.User do
     |> unique_constraint(:email)
     |> update_change(:email, &String.downcase/1)
     |> validate_length(:password, min: 8, max: 80)
-    |> validate_inclusion(:pin, 100000..9999999999)
+    |> validate_inclusion(:pin, 100_000..9_999_999_999)
     |> validate_confirmation(:password)
     |> put_password_hash()
     |> validate_format(:password, ~r/[0-9]+/, message: "Password must contain a number")
@@ -51,7 +51,7 @@ defmodule Eshop.Users.User do
 
   def updateChangeset(user, attrs) do
     user
-    |> cast(attrs, [ 
+    |> cast(attrs, [
       :first_name,
       :surname,
       :email,
@@ -59,12 +59,12 @@ defmodule Eshop.Users.User do
       :password,
       :password_confirmation,
       :pin
-    ]) 
+    ])
     |> validate_format(:email, ~r/@/)
     |> unique_constraint(:email)
     |> update_change(:email, &String.downcase/1)
     |> validate_length(:password, min: 8, max: 80)
-    |> validate_inclusion(:pin, 100000..9999999999)
+    |> validate_inclusion(:pin, 100_000..9_999_999_999)
     |> validate_confirmation(:password)
     |> put_password_hash()
     |> validate_format(:password, ~r/[0-9]+/, message: "Password must contain a number")

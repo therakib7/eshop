@@ -1,8 +1,8 @@
 alias Eshop.Repo
 alias Eshop.Users.Permission
 
-model_lists = ["User", "Role", "Company"]
-per_lists = ["create", "view", "update", "delete", "admin"]
+model_lists = ["User"]
+per_lists = ["create", "view", "update", "delete", "com_admin", "super_admin"]
 
 Enum.each(model_lists, fn(m) -> 
     Enum.each(per_lists, fn(p) -> 

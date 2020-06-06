@@ -1,9 +1,8 @@
-defmodule EshopWeb.Schema.Resolvers.User do 
-
+defmodule EshopWeb.Schema.Resolvers.User do
   def relay_list_users(_, args, _) do
-    #args = Map.put(args, :order_by, %{sort_order: :desc}) 
+    # args = Map.put(args, :order_by, %{sort_order: :desc}) 
     Absinthe.Relay.Connection.from_query(
-      Eshop.Users.relay_list_users(args), 
+      Eshop.Users.relay_list_users(args),
       &Eshop.Repo.all/1,
       args
     )

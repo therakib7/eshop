@@ -34,9 +34,9 @@ defmodule Eshop.Companies.Shop do
       :golden_supplier,
       :created_at
     ])
-    |> validate_required([ 
+    |> validate_required([
       :name,
-      :company_id, 
+      :company_id
     ])
     |> validate_length(:name, min: 2, max: 200)
     |> validate_length(:native_name, min: 2, max: 200)

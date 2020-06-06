@@ -2,16 +2,18 @@
 # Comapny Admin (Role, Role, Role)
 ## Shop Admin (Role, Role, Role)
 # User
-
+create
+edit
+update
+delete
+com_admin
+super_admin
 
 Authentication
 
 Authentication + Permission
 
-Authentication + Permission + Admin
-
-
-
+Authentication + Permission + Admin  
 
 
 > Current user id
