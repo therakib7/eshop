@@ -1,4 +1,4 @@
-defmodule EshopWeb.Graphql.Middleware.UserPer do
+defmodule EshopWeb.Graphql.Middleware.Auth do
   @behaviour Absinthe.Middleware
 
   import Ecto.Query, only: [from: 2]
@@ -52,6 +52,10 @@ defmodule EshopWeb.Graphql.Middleware.UserPer do
     # if self = self per and self_data
     
     # if Map.has_key?(args, :self) do
+    #   case "user" do
+    #     "user" -> EshopWeb.Graphql.Middleware.user(current_user,)
+          
+    #   end
     #   if Enum.any?(args.per, fn x -> x in per_list end) && res_args.id ==  Eshop.Users.get_user!(user_id) do
     #     true 
         
