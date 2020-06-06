@@ -5,37 +5,52 @@ defmodule EshopWeb.Graphql.Middleware.UserPer do
 
 
   def call(resolution, args) do
-    IO.inspect(resolution.arguments.id)
-    with %{current_user: current_user} <- resolution.context,
-         true <- correct_per?(current_user, args) do
+    # IO.inspect(resolution.arguments.id)
+    auth = Map.has_key?(args, :auth)
+    per = Map.has_key?(args, :per)
+    if auth do
+      if per do  
+        # if resolution.context.curent_user do
+        if true do
+          permission(resolution, args)
+        else 
+          auth(resolution) 
+        end
+        
+        # IO.inspect("check permission")
+      else 
+        auth(resolution)
+      end
+    else 
       resolution
-    else
-      _ ->
+    end
+
+  end
+
+  def auth(resolution) do
+    with %{current_user: current_user} <- resolution.context,
+          true do
         resolution
-        |> Absinthe.Resolution.put_result({:error, message: "Permission Denied", code: 303})
+    else
+        _ ->
+          resolution
+          |> Absinthe.Resolution.put_result({:error, message: "Unauthorized", code: 401})
     end
   end
 
-  defp correct_per?(%{}, :any), do: false
-
-  # Get Current user_id = current_user["sub"]
-  # Get current user role_id
-  # Get permission_id by role_id 
-  # All query save in redis memory 
-
-  defp correct_per?(current_user, args) do
-    # if(args.model == 'user') {
-    #   id = Eshop.Users.get_user!(id) 
-    # } else if(args.model == 'company') {
-    #   id = Eshop.Companies.get_company!(id) 
-    # } else if(args.model == 'shop') {
-    #   id = Eshop.Companies.get_shop!(id) 
-    # }
-
-  
-
-    false
+  def permission(resolution, args) do
+    with %{current_user: current_user} <- resolution.context,
+           true <- checkPer(current_user, args) do
+        resolution
+      else
+        _ ->
+          resolution
+          |> Absinthe.Resolution.put_result({:error, message: "Permission Denided", code: 401})
+      end
   end
 
-  defp correct_per?(_, _), do: false
+  defp checkPer(current_user, args) do
+    true
+  end
+
 end
