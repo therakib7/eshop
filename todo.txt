@@ -4,6 +4,16 @@
 # User
 
 
+Authentication
+
+Authentication + Permission
+
+Authentication + Permission + Admin
+
+
+
+
+
 > Current user id
 > Curent user role_id
 > role permission permission_id

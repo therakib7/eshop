@@ -21,7 +21,7 @@ defmodule EshopWeb.Schema.Resolvers.User do
     Eshop.Users.create_user(args)
   end
 
-  def update_user(%{id: id, user_params: user_params}, %{context: %{current_user: current_user}}) do
+  def update_user(%{id: id, user_params: user_params}, __resolution) do
     case {:ok, Eshop.Users.get_user!(id)} do
       {:ok, user} -> user |> Eshop.Users.update_user(user_params)
     end

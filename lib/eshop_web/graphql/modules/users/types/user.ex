@@ -16,7 +16,6 @@ defmodule EshopWeb.Schema.Types.User do
     field :verified_user, :datetime
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
-
     field :profile, list_of(:user_profile) do
       # arg :date, :date
       resolve(&UserProfile.list_user_profiles/3)
@@ -30,5 +29,6 @@ defmodule EshopWeb.Schema.Types.User do
     field :surname, :string
     field :mobile, :string 
     field :pin, :integer
+
   end
 end

@@ -3,6 +3,7 @@ defmodule EshopWeb.Graphql.Middleware.UserPer do
 
   import Ecto.Query, only: [from: 2]
 
+
   def call(resolution, args) do
     IO.inspect(resolution.arguments.id)
     with %{current_user: current_user} <- resolution.context,
