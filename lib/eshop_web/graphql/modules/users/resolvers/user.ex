@@ -1,6 +1,5 @@
 defmodule EshopWeb.Schema.Resolvers.User do
 
-
   def relay_list_users(_, args, _) do
     #args = Map.put(args, :order_by, %{sort_order: :desc}) 
     Absinthe.Relay.Connection.from_query(
@@ -23,7 +22,7 @@ defmodule EshopWeb.Schema.Resolvers.User do
   end
 
   def update_user(%{id: id, user_params: user_params}, __resolution) do
-    case {:ok,  Eshop.Users.get_user!(id) } do
+    case {:ok, Eshop.Users.get_user!(id)} do
       {:ok, user} -> user |> Eshop.Users.update_user(user_params)
     end
   end

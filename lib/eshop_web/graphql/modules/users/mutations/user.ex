@@ -21,7 +21,8 @@ defmodule EshopWeb.Schema.Mutations.User do
     end
 
     @desc "Update a user"
-    field :update_user, type: :user do
+
+    field :update_user, type: :user do 
       arg(:id, non_null(:id))
       arg(:user_params, :user_params)
       resolve(&User.update_user/2)

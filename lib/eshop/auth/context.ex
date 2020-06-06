@@ -6,7 +6,6 @@ defmodule Eshop.Auth.Context do
   def init(opts), do: opts
 
   def call(conn, _) do
-    # IO.inspect(conn.body_params)
     context = build_context(conn)
     Absinthe.Plug.put_options(conn, context: context)
   end
