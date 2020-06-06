@@ -30,7 +30,7 @@ defmodule EshopWeb.Graphql.Middleware.UserPer do
 
   defp permission(resolution, args) do
     with %{current_user: current_user} <- resolution.context,
-         true <- checkPer(current_user, args) do
+         true <- checkPer(current_user, resolution.arguments, args) do
       resolution
     else
       _ ->
@@ -39,7 +39,7 @@ defmodule EshopWeb.Graphql.Middleware.UserPer do
     end
   end
 
-  defp checkPer(current_user, args) do
+  defp checkPer(current_user, res_args, args) do
     user_id = String.to_integer(current_user["sub"])  
     per_list = Eshop.Repo.all(
       from m in Eshop.Users.UserRole,
@@ -48,7 +48,10 @@ defmodule EshopWeb.Graphql.Middleware.UserPer do
         where: m.user_id == ^user_id,
         select: c.permission_id
     )
-    
+    # IO.inspect(Eshop.Users.get_user!(user_id))
+    # IO.inspect(res_args)
+    # IO.inspect(user_id)
+    # IO.inspect(res_args.id == user_id)
     Enum.any?(args.per, fn x -> x in per_list end)
     # can be check match all or one by any or all 
     # Enum.all?(["abc", "z"], fn x -> x in list end)
