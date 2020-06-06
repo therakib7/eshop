@@ -53,9 +53,10 @@ defmodule EshopWeb.Graphql.Middleware.Auth do
     # if self = self per and self_data
     
     if Map.has_key?(args, :self) do
-      case args.model do
-        "user" -> EshopWeb.Graphql.Middleware.Users.user(args.per, current_user, res_args, args)
-        "role" -> EshopWeb.Graphql.Middleware.Users.role(args.per, current_user, res_args, args)
+      case args.context do
+        "users" -> EshopWeb.Graphql.Middleware.Users.context(args.per, current_user, res_args, args)
+
+        # "role" -> EshopWeb.Graphql.Middleware.Users.role(args.per, current_user, res_args, args)
           
       end
     else 

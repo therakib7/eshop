@@ -1,7 +1,15 @@
 defmodule EshopWeb.Graphql.Middleware.Users do
 
-    def user(action, current_user, res_args, args) do
-        case action do
+    def context(action, current_user, res_args, args) do
+        case args.model do
+            "user" ->  users(action, current_user, res_args, args) 
+            "role" -> roles(action, current_user, res_args, args)
+        end
+    end 
+
+
+    defp users(action, current_user, res_args, args) do
+        case args.table do
             "user_create" ->  true 
             "user_view" -> true
             "user_update" ->  
@@ -9,7 +17,7 @@ defmodule EshopWeb.Graphql.Middleware.Users do
         end
     end 
 
-    def role(action, current_user, res_args, args) do
+    defp roles(action, current_user, res_args, args) do
         case action do
             "role_create" ->  true
             "role_view" -> true
