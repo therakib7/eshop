@@ -58,7 +58,9 @@ defmodule EshopWeb.Graphql.Middleware.Auth do
         "role" -> EshopWeb.Graphql.Middleware.Users.role(args.per, current_user, res_args, args)
           
       end
-
+    else 
+      # Enum.any?(args.per, fn x -> x in per_list end)
+    end
       # if Enum.any?(args.per, fn x -> x in per_list end) && res_args.id ==  Eshop.Users.get_user!(user_id) do
       #   true 
         
@@ -68,9 +70,9 @@ defmodule EshopWeb.Graphql.Middleware.Auth do
       # unless Enum.any?(args.super_admin_per, fn x -> x in per_list end) do
       #   true
       # end
-    else 
-      # Enum.any?(args.per, fn x -> x in per_list end)
-    end
+    # else 
+    #   # Enum.any?(args.per, fn x -> x in per_list end)
+    # end
     # IO.inspect()
     # IO.inspect(res_args)
     # IO.inspect(user_id)
