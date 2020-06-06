@@ -22,16 +22,7 @@ defmodule EshopWeb.Schema.Resolvers.User do
   end
 
   def update_user(%{id: id, user_params: user_params}, %{context: %{current_user: current_user}}) do
-       
-    old_user = Eshop.Users.get_user!(id) 
-    # IO.inspect(current_user["sub"] )
-    if String.to_integer(current_user["sub"]) == old_user.id do
-      IO.inspect(old_user.id )
-    else 
-      IO.inspect("tor matha" )
-    end
-
-    case {:ok, old_user} do
+    case {:ok, Eshop.Users.get_user!(id)} do
       {:ok, user} -> user |> Eshop.Users.update_user(user_params)
     end
   end
