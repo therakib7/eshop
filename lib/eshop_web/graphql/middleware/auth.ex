@@ -41,7 +41,7 @@ defmodule EshopWeb.Graphql.Middleware.Auth do
 
   defp checkPer(current_user, res_args, args) do 
     user_id = String.to_integer(current_user["sub"])  
-    per_id = Eshop.Repo.one(from u in Eshop.Users.Permission, where: u.slug == "user_create", select: u.id)
+    per_id = Eshop.Repo.one(from u in Eshop.Users.Permission, where: u.slug == ^args.per, select: u.id)
     per_list = Eshop.Repo.all(
       from m in Eshop.Users.UserRole,
         join: c in Eshop.Users.RolePermission,
