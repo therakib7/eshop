@@ -7,8 +7,8 @@ defmodule EshopWeb.Schema.Resolvers.Company do
     {:ok, Eshop.Companies.get_company!(id)}
   end
 
-  def create_company(_parent, args,_) do
-    args = Map.put(args, :user_id, 13)
+  def create_company(_parent, args, %{context: %{current_user: current_user}}) do
+    args = Map.put(args, :user_id, current_user["sub"]) 
     Eshop.Companies.create_company(args)
   end
 

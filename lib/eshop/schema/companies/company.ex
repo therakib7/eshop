@@ -29,8 +29,9 @@ defmodule Eshop.Companies.Company do
       :highest_assurance,
       :golden_supplier,
       :created_at,
+      :user_id
     ])
-    |> cast_assoc(:user)
+    # |> cast_assoc(:user)
     |> validate_required([
       :name
     ])
