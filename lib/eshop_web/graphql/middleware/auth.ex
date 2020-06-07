@@ -41,6 +41,7 @@ defmodule EshopWeb.Graphql.Middleware.Auth do
 
   defp checkPer(current_user, res_args, args) do 
     user_id = String.to_integer(current_user["sub"])  
+    
     per_id = Eshop.Repo.one(from u in Eshop.Users.Permission, where: u.slug == ^args.per, select: u.id)
     per_list = Eshop.Repo.all(
       from m in Eshop.Users.UserRole,
@@ -49,38 +50,19 @@ defmodule EshopWeb.Graphql.Middleware.Auth do
         where: m.user_id == ^user_id,
         select: c.permission_id
     )
-
-     
-    # if self = self per and self_data
-    true
-    if Map.has_key?(args, :self) do
-      # case args.context do
-      #   # "users" -> EshopWeb.Graphql.Middleware.Users.context(args.per, current_user, res_args, args)
-
-      #   # "role" -> EshopWeb.Graphql.Middleware.Users.role(args.per, current_user, res_args, args)
-          
-      # end
-    else 
-      # Enum.any?(args.per, fn x -> x in per_list end)
-    end
-      # if Enum.any?(args.per, fn x -> x in per_list end) && res_args.id ==  Eshop.Users.get_user!(user_id) do
-      #   true 
-        
-      # unless Enum.any?(args.com_admin_per, fn x -> x in per_list end) && Eshop.Users.get_user!(user_id) do
-      #   true
-
-      # unless Enum.any?(args.super_admin_per, fn x -> x in per_list end) do
-      #   true
-      # end
-    # else 
-    #   # Enum.any?(args.per, fn x -> x in per_list end)
-    # end
-    # IO.inspect()
-    # IO.inspect(res_args)
-    # IO.inspect(user_id)
-    # IO.inspect(res_args.id == user_id)
     
-    # can be check match all or one by any or all 
-    # Enum.all?(["abc", "z"], fn x -> x in list end)
+    if Map.has_key?(args, :per) do 
+      Enum.member?(per_list, per_id) && checkSelf(args, res_args, user_id)   
+    end
+     
+  end
+
+  defp checkSelf(args, res_args, user_id) do
+    case args.context do
+      "users" -> EshopWeb.Graphql.Middleware.Users.context(args, res_args, user_id) 
+
+      # "role" -> EshopWeb.Graphql.Middleware.Users.role(args.per, current_user, res_args, args)
+        
+    end
   end
 end
