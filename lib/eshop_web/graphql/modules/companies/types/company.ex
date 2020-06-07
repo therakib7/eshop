@@ -11,7 +11,7 @@ defmodule EshopWeb.Schema.Types.Company do
     # field :is_verifed, :boolean
     field :name, :string
     field :trade_assurance, :boolean
-    # field :user_id, :id
+    field :user_id, :id
     field :location_id, :id
     field :attachment_id, :id
     field :term_condition_id, :id
