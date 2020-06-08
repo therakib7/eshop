@@ -1,6 +1,6 @@
 defmodule EshopWeb.Schema.Mutations.Company do
   use Absinthe.Schema.Notation
-  
+
   alias EshopWeb.Schema.Resolvers.Company, as: Company
 
   object :company_mutations do

@@ -14,7 +14,7 @@ defmodule Eshop.Companies.TypeUserRole do
   @doc false
   def changeset(type_user_role, attrs) do
     type_user_role
-    |> cast(attrs, [:type, :type_id])
+    |> cast(attrs, [:type, :type_id, :user_id, :role_id])
     |> validate_required([:type, :type_id])
   end
 end

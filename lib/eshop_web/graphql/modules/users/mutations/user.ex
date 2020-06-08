@@ -4,6 +4,7 @@ defmodule EshopWeb.Schema.Mutations.User do
   alias EshopWeb.Graphql.Middleware.Auth
 
   alias EshopWeb.Schema.Resolvers.User
+
   object :user_mutations do
     @desc "Create a user"
     field :create_user, type: :user do
@@ -24,7 +25,7 @@ defmodule EshopWeb.Schema.Mutations.User do
     end
 
     @desc "Update a user"
-    field :update_user, type: :user do  
+    field :update_user, type: :user do
       middleware(Auth, %{per: "user_update", context: "users", model: "user"})
       # , self: true, super_admin_per: "user_super_update", context: "users", model: "user"
 
