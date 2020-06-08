@@ -50,9 +50,13 @@ defmodule Eshop.Companies do
 
   """
   def create_company(attrs \\ %{}) do
-    %Company{}
+   
+    {:ok, result } = %Company{}
     |> Company.changeset(attrs)
-    |> Repo.insert()
+    |> Repo.insert() 
+
+
+    # {:error, message: "Unknown user", code: 21}
   end
 
   @doc """
