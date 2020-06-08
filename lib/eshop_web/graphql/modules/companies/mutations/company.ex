@@ -1,6 +1,6 @@
 defmodule EshopWeb.Schema.Mutations.Company do
   use Absinthe.Schema.Notation
-
+  
   alias EshopWeb.Schema.Resolvers.Company, as: Company
 
   object :company_mutations do
@@ -18,6 +18,8 @@ defmodule EshopWeb.Schema.Mutations.Company do
       arg(:location_id, :id)
       arg(:attachment_id, :id)
       arg(:term_condition_id, :id)
+
+      # resolve handle_errors(&Company.create_company/3)
 
       resolve(&Company.create_company/3)
     end

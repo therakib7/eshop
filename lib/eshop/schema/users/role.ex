@@ -4,7 +4,7 @@ defmodule Eshop.Users.Role do
 
   schema "roles" do
     field :desc, :string
-    field :is_company, :boolean, default: false
+    field :type, :integer
     field :name, :string
     field :slug, :string
     field :native_name, :string
@@ -15,7 +15,7 @@ defmodule Eshop.Users.Role do
   @doc false
   def changeset(role, attrs) do
     role
-    |> cast(attrs, [:name, :slug, :native_name, :desc, :is_company])
+    |> cast(attrs, [:name, :slug, :native_name, :desc, :type])
     |> validate_required([:name])
     |> validate_length(:name, min: 2, max: 100)
     |> validate_length(:native_name, min: 2, max: 100)

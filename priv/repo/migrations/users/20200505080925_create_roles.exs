@@ -7,7 +7,7 @@ defmodule Eshop.Repo.Migrations.CreateRoles do
       add :slug, :string
       add :native_name, :string, null: true, size: 200
       add :desc, :string, null: true, size: 500
-      add :is_company, :boolean, default: false, null: true
+      add :type, :integer
 
       timestamps()
     end

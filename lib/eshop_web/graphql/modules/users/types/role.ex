@@ -5,7 +5,7 @@ defmodule EshopWeb.Schema.Types.Role do
   object :role do
     field :id, :integer
     field :desc, :string
-    field :is_company, :boolean
+    field :type, :integer
     field :name, :string
     field :slug, :string
     field :native_name, :string
@@ -17,7 +17,7 @@ defmodule EshopWeb.Schema.Types.Role do
   input_object :role_params do
     field :name, :string
     field :desc, :string
-    field :is_company, :boolean
+    field :type, :integer
     field :name, :string
     field :slug, :string
     field :native_name, :string
