@@ -60,7 +60,8 @@ defmodule Eshop.Objects.Item do
       :type_id,
       :extra_fields,
       :asin_id,
-      :user_id
+      :user_id,
+      :shop_id
     ])
     |> validate_required([
       :title,

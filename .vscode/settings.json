@@ -7,7 +7,7 @@
             "host": "localhost",
             "port":"4000",
             "url": "/api/graphql",
-            "user_token": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJlc2hvcCIsImF1dGhfdGltZSI6MTU4OTY4ODE3NiwiZXhwIjoxNTkyMjgwMTc2LCJpYXQiOjE1ODk2ODgxNzYsImlzcyI6ImVzaG9wIiwianRpIjoiNDgxOTdiMzUtMjVkOC00ODBlLTllYWYtMzJkYmZhNzEwMDU0IiwibmJmIjoxNTg5Njg4MTc1LCJzdWIiOiI0IiwidHlwIjoiYWNjZXNzIn0.8psxLYmqlVZzG-i_YfIyGH1RxZ7xqnLyumrumBZGA6elFsWjuymAehkKNr0WAxq9o_8x0ldI4M_TI2jMemHr9g"
+            "user_token": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJlc2hvcCIsImF1dGhfdGltZSI6MTU5MTUyNTE3OCwiZXhwIjoxNTk0MTE3MTc4LCJpYXQiOjE1OTE1MjUxNzgsImlzcyI6ImVzaG9wIiwianRpIjoiODA4NzcwOGItYTE1NS00YmQ0LTllZGMtYTliNmNhNzNlOGRmIiwibmJmIjoxNTkxNTI1MTc3LCJzdWIiOiIyNCIsInR5cCI6ImFjY2VzcyJ9.baRVg9z0--_ys6Oi4bTJg1FJQ4t_Zf70KetSUyKdwLrGklS56-J6I3I5Riw7DNhtTJqqaIE-_tZ3H3tlBDGrlg"
         },
         "production": {
         }
