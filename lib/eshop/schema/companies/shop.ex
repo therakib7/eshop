@@ -32,7 +32,7 @@ defmodule Eshop.Companies.Shop do
       :trade_assurance,
       :highest_assurance,
       :golden_supplier,
-      :created_at
+      :user_id
     ])
     |> validate_required([
       :name,

@@ -5,9 +5,10 @@ defmodule EshopWeb.Schema.Resolvers.Category do
 
   def get_category(_, %{id: id}, _) do
     {:ok, Eshop.Components.get_category!(id)}
-  end
+  end 
 
-  def create_category(_parent, args, _resolution) do
+  def create_category(_parent, args, %{context: %{current_user: current_user}}) do
+    args = Map.put(args, :user_id, current_user["sub"])
     Eshop.Components.create_category(args)
   end
 

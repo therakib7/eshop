@@ -1,0 +1,44 @@
+# Get Companies
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+query {
+  categories {
+    id
+    name,
+    native_name 
+  } 
+}
+
+### Create Category
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  createCategory( 
+    name: "Test Category",   
+    slug: "test-cat",
+    native_name: "Native Test Category", 
+  ){
+    id,
+    name, 
+  }
+}
+
+
+### Update Category
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  updateCategory(
+    id: 1,
+    categoryParams: { 
+      name: "Update Category", 
+    }
+  ){
+    id,
+    name, 
+  }
+}
+
