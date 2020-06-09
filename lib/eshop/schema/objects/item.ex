@@ -59,13 +59,14 @@ defmodule Eshop.Objects.Item do
       :type,
       :type_id,
       :extra_fields,
-      :asin_id
+      :asin_id,
+      :user_id
     ])
-    |> validate_required([ 
-      :title, 
+    |> validate_required([
+      :title,
       :cost_price,
       :unit_price,
-      :sell_price, 
+      :sell_price
     ])
     |> validate_length(:title, min: 2, max: 200)
     |> validate_length(:native_title, min: 2, max: 200)

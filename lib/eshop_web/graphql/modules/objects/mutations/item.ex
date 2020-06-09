@@ -33,6 +33,7 @@ defmodule EshopWeb.Schema.Mutations.Item do
       arg(:user_id, :id)
       arg(:shop_id, :id)
       arg(:unit_type_id, :id)
+      arg(:category_id, :integer)
 
       resolve(&Item.create_item/3)
     end

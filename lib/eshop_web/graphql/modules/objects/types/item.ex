@@ -30,8 +30,7 @@ defmodule EshopWeb.Schema.Types.Item do
     field :user_id, :id
     field :shop_id, :id
     field :unit_type_id, :id
-    field :inserted_at, :naive_datetime
-    field :updated_at, :naive_datetime
+    field :category_id, :integer
   end
 
   @desc "A item update"

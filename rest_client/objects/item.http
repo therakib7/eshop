@@ -21,6 +21,7 @@ mutation{
     unit_price: 220,
     cost_price: 100,
     sell_price: 100,
+    category_id: 1
   ){
     id,
     title, 
