@@ -1,0 +1,10 @@
+# Get Users
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  login(email:"example@example.com",password:"1234567a"){
+    token
+  }
+}
+

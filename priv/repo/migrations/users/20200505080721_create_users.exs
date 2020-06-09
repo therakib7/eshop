@@ -13,6 +13,7 @@ defmodule Eshop.Repo.Migrations.CreateUsers do
       add :verified_user, :utc_datetime, null: true
       add :verified_email, :utc_datetime, null: true
       add :verified_phone, :utc_datetime, null: true
+      add :token, :string, null: true, size: 10
 
       timestamps()
     end

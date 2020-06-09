@@ -6,5 +6,5 @@ alias Eshop.Users.Role
   native_name: "প্রশাসক",
   slug: "administrator",
   desc: "Who can manage everything", 
-  is_company: false 
+  type: 1 
 } |> Repo.insert!
