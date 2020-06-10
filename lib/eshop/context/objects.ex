@@ -78,15 +78,7 @@ defmodule Eshop.Objects do
       # |> Item.changeset(attrs)
       # |> Repo.insert()
     
-#       post = Ecto.Changeset.change(%Item{}, title: "Test Item",     
-#       unitPrice: 220,
-#       costPrice: 100,
-#       sellPrice: 100, 
-#       shopId: 1)
-# comment = Ecto.Changeset.change(%Eshop.Components.ItemCategory{}, category_id: 2)
-# post_with_comments = Ecto.Changeset.put_assoc(post, :categories, [comment])
-# Repo.insert!(post_with_comments)
-      
+     
     
     #   # IO.inspect(attrs.category_ids)
     # # Eshop.Components.create_item_category(%{
@@ -96,11 +88,7 @@ defmodule Eshop.Objects do
 
     # {:ok, item}
 
-    # title: "Test Item",     
-    # unitPrice: 220,
-    # costPrice: 100,
-    # sellPrice: 100, 
-    # shopId: 1
+  
 
     # %Item{
     #   title: "Hello world bangladesh",
