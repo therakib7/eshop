@@ -28,7 +28,6 @@ defmodule Eshop.Companies.Company do
       :trade_assurance,
       :highest_assurance,
       :golden_supplier,
-      :created_at,
       :user_id
     ])
     # |> cast_assoc(:user)

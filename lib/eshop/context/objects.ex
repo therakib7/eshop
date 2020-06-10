@@ -49,10 +49,19 @@ defmodule Eshop.Objects do
       {:error, %Ecto.Changeset{}}
 
   """
+
   def create_item(attrs \\ %{}) do
-    %Item{}
-    |> Item.changeset(attrs)
-    |> Repo.insert()
+    {:ok, item} =
+      %Item{}
+      |> Item.changeset(attrs)
+      |> Repo.insert()
+ 
+    Eshop.Components.create_item_category(%{
+      item_id: item.id,
+      category_id: attrs.category_id
+    })
+
+    {:ok, item}
   end
 
   @doc """

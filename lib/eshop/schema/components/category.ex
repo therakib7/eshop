@@ -18,7 +18,7 @@ defmodule Eshop.Components.Category do
   @doc false
   def changeset(category, attrs) do
     category
-    |> cast(attrs, [:is_active, :order, :name, :native_name, :slug])
+    |> cast(attrs, [:is_active, :order, :name, :native_name, :slug, :user_id])
     |> validate_required([:is_active, :name, :native_name, :slug])
     |> validate_length(:name, min: 2, max: 200)
     |> validate_length(:native_name, min: 2, max: 200)

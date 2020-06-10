@@ -160,10 +160,25 @@ defmodule Eshop.Companies do
       {:error, %Ecto.Changeset{}}
 
   """
+
   def create_shop(attrs \\ %{}) do
-    %Shop{}
-    |> Shop.changeset(attrs)
-    |> Repo.insert()
+    {:ok, shop} =
+      %Shop{}
+      |> Shop.changeset(attrs)
+      |> Repo.insert()
+
+    role_id =
+      Eshop.Repo.one(from u in Eshop.Users.Role, where: u.slug == "shop_admin", select: u.id)
+
+    create_type_user_role(%{
+      # 3 = shop
+      type: 3,
+      type_id: shop.id,
+      user_id: shop.user_id,
+      role_id: role_id
+    })
+
+    {:ok, shop}
   end
 
   @doc """

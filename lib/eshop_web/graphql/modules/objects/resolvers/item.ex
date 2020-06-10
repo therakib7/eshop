@@ -7,7 +7,8 @@ defmodule EshopWeb.Schema.Resolvers.Item do
     {:ok, Eshop.Objects.get_item!(id)}
   end
 
-  def create_item(_parent, args, _resolution) do
+  def create_item(_parent, args, %{context: %{current_user: current_user}}) do
+    args = Map.put(args, :user_id, current_user["sub"])
     Eshop.Objects.create_item(args)
   end
 

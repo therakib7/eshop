@@ -19,7 +19,7 @@ defmodule EshopWeb.Schema.Types.User do
 
     field :profile, list_of(:user_profile) do
       # arg :date, :date
-      resolve(&UserProfile.list_user_profiles/3)
+    resolve(&UserProfile.list_user_profiles/3)
     end
   end
 

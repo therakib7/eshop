@@ -59,32 +59,15 @@ defmodule Eshop.Objects.Item do
       :type,
       :type_id,
       :extra_fields,
-      :asin_id
+      :asin_id,
+      :user_id,
+      :shop_id
     ])
     |> validate_required([
-      :is_online,
-      :is_active,
       :title,
-      :native_title,
-      :desc,
-      :native_desc,
-      :views,
-      :loves,
-      :vat,
-      :vat_type,
-      :unit,
-      :has_variant,
-      :has_package,
-      :total_order,
-      :low_stock,
-      :has_warehouse,
       :cost_price,
       :unit_price,
-      :sell_price,
-      :type,
-      :type_id,
-      :extra_fields,
-      :asin_id
+      :sell_price
     ])
     |> validate_length(:title, min: 2, max: 200)
     |> validate_length(:native_title, min: 2, max: 200)
