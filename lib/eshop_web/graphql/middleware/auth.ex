@@ -42,29 +42,15 @@ defmodule EshopWeb.Graphql.Middleware.Auth do
   defp checkPer(current_user, res_args, args) do
     user_id = String.to_integer(current_user["sub"])
 
-    per_id =
-      Eshop.Repo.one(from u in Eshop.Users.Permission, where: u.slug == ^args.per, select: u.id)
-
-    per_list =
-      Eshop.Repo.all(
-        from m in Eshop.Users.UserRole,
-          join: c in Eshop.Users.RolePermission,
-          on: m.role_id == c.role_id,
-          where: m.user_id == ^user_id,
-          select: c.permission_id
-      )
-
     if Map.has_key?(args, :per) do
-      Enum.member?(per_list, per_id) && checkSelf(args, res_args, user_id)
+      checkSelf(args, res_args, user_id)
     end
   end
 
   defp checkSelf(args, res_args, user_id) do
     case args.context do
-      "users" ->
-        EshopWeb.Graphql.Middleware.Users.context(args, res_args, user_id)
-
-        # "role" -> EshopWeb.Graphql.Middleware.Users.role(args.per, current_user, res_args, args)
+      "users" -> EshopWeb.Graphql.Middleware.Users.context(args, res_args, user_id)
+      "objects" -> EshopWeb.Graphql.Middleware.Objects.context(args, res_args, user_id)
     end
   end
 end

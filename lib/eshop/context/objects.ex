@@ -51,11 +51,10 @@ defmodule Eshop.Objects do
   """
 
   def create_item(attrs \\ %{}) do
-
     shop = Eshop.Companies.get_shop!(attrs.shop_id)
 
     %Item{}
-    |> Item.changeset(attrs) 
+    |> Item.changeset(attrs)
     |> Ecto.Changeset.put_assoc(:shop, shop)
     # |> Ecto.Changeset.put_assoc(:categories, [%{category_id: 1}, %{category_id: 2}])
     |> Ecto.Changeset.put_assoc(:categories, attrs.category_ids)
@@ -65,7 +64,7 @@ defmodule Eshop.Objects do
     #   %Item{}
     #   |> Item.changeset(attrs)
     #   |> Repo.insert()
-    
+
     # Eshop.Components.create_item_category(%{
     #   item_id: item.id,
     #   category_id: attrs.category_id
@@ -74,12 +73,10 @@ defmodule Eshop.Objects do
     # {:ok, item}
 
     # {:ok, item} =
-      # %Item{}
-      # |> Item.changeset(attrs)
-      # |> Repo.insert()
-    
-     
-    
+    # %Item{}
+    # |> Item.changeset(attrs)
+    # |> Repo.insert()
+
     #   # IO.inspect(attrs.category_ids)
     # # Eshop.Components.create_item_category(%{
     # #   item_id: item.id,
@@ -87,8 +84,6 @@ defmodule Eshop.Objects do
     # # })
 
     # {:ok, item}
-
-  
 
     # %Item{
     #   title: "Hello world bangladesh",

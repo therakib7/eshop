@@ -3,8 +3,6 @@ defmodule EshopWeb.Schema.Queries.Item do
 
   alias EshopWeb.Schema.Resolvers.Item
 
-
-
   object :item_queries do
     @desc "Get all items"
     field :items, list_of(:item) do

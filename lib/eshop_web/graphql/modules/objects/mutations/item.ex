@@ -1,11 +1,12 @@
 defmodule EshopWeb.Schema.Mutations.Item do
   use Absinthe.Schema.Notation
-
+  alias EshopWeb.Graphql.Middleware.Auth
   alias EshopWeb.Schema.Resolvers.Item
 
   object :item_mutations do
     @desc "Create a item"
     field :create_item, type: :item do
+      middleware(Auth, %{per: "item_create", context: "objects", model: "item"})
       arg(:id, :integer)
       arg(:asin_id, :string)
       arg(:cost_price, :decimal)
@@ -15,7 +16,7 @@ defmodule EshopWeb.Schema.Mutations.Item do
       arg(:has_variant, :boolean)
       arg(:has_warehouse, :boolean)
       arg(:is_online, :boolean)
-      arg(:is_active, :boolean) 
+      arg(:is_active, :boolean)
       arg(:low_stock, :integer)
       arg(:title, :string)
       arg(:native_desc, :string)
@@ -27,7 +28,7 @@ defmodule EshopWeb.Schema.Mutations.Item do
       arg(:unit, :integer)
       arg(:unit_price, :decimal)
       arg(:vat, :integer)
-      arg(:vat_type, :integer) 
+      arg(:vat_type, :integer)
       arg(:shop_id, non_null(:id))
       arg(:unit_type_id, :id)
       arg(:category_ids, list_of(:category_ids))

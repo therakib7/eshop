@@ -29,7 +29,7 @@ defmodule EshopWeb.Schema.Types.Category do
   end
 
   @desc "A item categories"
-  input_object :category_ids do 
-    field :category_id, :integer 
+  input_object :category_ids do
+    field :category_id, :integer
   end
 end
