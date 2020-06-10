@@ -27,4 +27,9 @@ defmodule EshopWeb.Schema.Types.Category do
     field :attachment_id, :id
     field :user_id, :id
   end
+
+  @desc "A item categories"
+  input_object :category_ids do 
+    field :category_id, :integer 
+  end
 end

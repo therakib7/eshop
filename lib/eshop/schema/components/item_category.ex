@@ -13,6 +13,6 @@ defmodule Eshop.Components.ItemCategory do
   def changeset(item_category, attrs) do
     item_category
     |> cast(attrs, [:item_id, :category_id])
-    |> validate_required([])
+    |> validate_required([:item_id, :category_id])
   end
 end
