@@ -6,7 +6,7 @@ query {
   shops {
     id
     name,
-    native_name 
+    nativeName 
   } 
 }
 
@@ -17,7 +17,7 @@ Authorization: {{user_token}}
 mutation{
   createShop( 
     name: "Mini Bazar",  
-    company_id: 1
+    companyId: 1
   ){
     id,
     name, 
@@ -33,15 +33,15 @@ mutation{
   updateShop(
     id: 1,
     shopParams: {
-        golden_supplier: false,
-        highest_assurance: null,
-        is_active: false,
-        is_verifed: false,
+        goldenSupplier: false,
+        highestAssurance: null,
+        isActive: false,
+        isVerifed: false,
         name: "Mini Bazaar",
-        trade_assurance: false, 
-        location_id: null,
-        attachment_id: null,
-        term_condition_id: null, 
+        tradeAssurance: false, 
+        locationId: null,
+        attachmentId: null,
+        term_conditionId: null, 
     }
   ){
     id,

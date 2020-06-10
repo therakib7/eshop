@@ -5,8 +5,8 @@ Authorization: {{user_token}}
 query {
   attachments {
     id,
-    orginal_size
-    resized_size 
+    orginalSize
+    resizedSize 
   } 
 }
 
@@ -17,14 +17,14 @@ Authorization: {{user_token}}
 mutation{
   createAttachment(
     type: 1,
-    type_id: 2,
-    file_name: "test",
-    orginal_size: "image.jpg",
-    resized_size: "image100x100.jpg", 
+    typeId: 2,
+    fileName: "test",
+    orginalSize: "image.jpg",
+    resizedSize: "image100x100.jpg", 
   ){
     id,
-    orginal_size
-    resized_size
+    orginalSize
+    resizedSize
   }
 }
 

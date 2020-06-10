@@ -1,12 +1,12 @@
-# Get Companies
+# Get Item
 POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
 query {
   items {
     id
-    name,
-    native_name 
+    title,
+    nativeTitle
   } 
 }
 

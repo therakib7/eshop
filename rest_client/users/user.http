@@ -6,6 +6,7 @@ query {
   users {
     firstName,
     verifiedUser 
+    pin
   } 
 }
 
@@ -28,7 +29,6 @@ mutation{
     surname, 
     mobile,
     email,
-    pin,
     verifiedUser,
   }
 }

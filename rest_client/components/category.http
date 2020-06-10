@@ -6,7 +6,7 @@ query {
   categories {
     id
     name,
-    native_name 
+    nativeName 
   } 
 }
 
@@ -18,7 +18,7 @@ mutation{
   createCategory( 
     name: "Test Category",   
     slug: "test-cat",
-    native_name: "Native Test Category", 
+    nativeName: "Native Test Category", 
   ){
     id,
     name, 

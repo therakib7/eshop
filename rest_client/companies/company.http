@@ -31,15 +31,15 @@ mutation{
   updateCompany(
     id: 1,
     companyParams: {
-        golden_supplier: false,
-        highest_assurance: null,
-        is_active: false,
-        is_verifed: false,
+        goldenSupplier: false,
+        highestAssurance: null,
+        isActive: false,
+        isVerifed: false,
         name: "Oxyzone",
-        trade_assurance: false, 
-        location_id: null,
-        attachment_id: null,
-        term_condition_id: null, 
+        tradeAssurance: false, 
+        locationId: null,
+        attachmentId: null,
+        term_conditionId: null, 
     }
   ){
     id,

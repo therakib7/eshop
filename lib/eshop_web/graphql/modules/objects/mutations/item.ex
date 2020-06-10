@@ -6,7 +6,6 @@ defmodule EshopWeb.Schema.Mutations.Item do
   object :item_mutations do
     @desc "Create a item"
     field :create_item, type: :item do
-
       arg(:id, :integer)
       arg(:asin_id, :string)
       arg(:cost_price, :decimal)
@@ -32,7 +31,6 @@ defmodule EshopWeb.Schema.Mutations.Item do
       arg(:shop_id, non_null(:id))
       arg(:unit_type_id, :id)
       arg(:category_ids, list_of(:category_ids))
-
       resolve(&Item.create_item/3)
     end
 
