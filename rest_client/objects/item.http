@@ -16,23 +16,21 @@ Authorization: {{user_token}}
 
 mutation{
   createItem( 
-    title: "Test Item",    
-    native_title: "Native Test Item", 
-    unit_price: 220,
-    cost_price: 100,
-    sell_price: 100, 
-    shop_id: 1,
-    category_id: 1
+    title: "Test Item",     
+    unitPrice: 220,
+    costPrice: 100,
+    sellPrice: 100, 
+    shopId: 1,
+    categoryIds: [{ categoryId: 1},{ categoryId: 2}]
   ){
     id,
     title, 
-    unit_price,
-    cost_price,
-    sell_price,
-    shop_id
+    unitPrice,
+    costPrice,
+    sellPrice,
+    shopId
   }
 }
-
 
 ### Update Item
 POST http://{{host}}:{{port}}{{url}}

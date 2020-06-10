@@ -51,17 +51,57 @@ defmodule Eshop.Objects do
   """
 
   def create_item(attrs \\ %{}) do
-    {:ok, item} =
-      %Item{}
-      |> Item.changeset(attrs)
-      |> Repo.insert()
- 
-    Eshop.Components.create_item_category(%{
-      item_id: item.id,
-      category_id: attrs.category_id
-    })
 
-    {:ok, item}
+    shop = Eshop.Companies.get_shop!(attrs.shop_id)
+
+    %Item{}
+    |> Item.changeset(attrs) 
+    |> Ecto.Changeset.put_assoc(:shop, shop)
+    # |> Ecto.Changeset.put_assoc(:categories, [%{category_id: 1}, %{category_id: 2}])
+    |> Ecto.Changeset.put_assoc(:categories, attrs.category_ids)
+    |> Repo.insert()
+
+    # {:ok, item} =
+    #   %Item{}
+    #   |> Item.changeset(attrs)
+    #   |> Repo.insert()
+    
+    # Eshop.Components.create_item_category(%{
+    #   item_id: item.id,
+    #   category_id: attrs.category_id
+    # })
+
+    # {:ok, item}
+
+    # {:ok, item} =
+      # %Item{}
+      # |> Item.changeset(attrs)
+      # |> Repo.insert()
+    
+     
+    
+    #   # IO.inspect(attrs.category_ids)
+    # # Eshop.Components.create_item_category(%{
+    # #   item_id: item.id,
+    # #   category_id: attrs.category_id
+    # # })
+
+    # {:ok, item}
+
+  
+
+    # %Item{
+    #   title: "Hello world bangladesh",
+    #   unit_price: 100,
+    #   cost_price: 100,
+    #   sell_price: 100,
+    #   shop_id: 1,
+    #   # categories: [
+    #   #   %Eshop.Components.ItemCategory{category_id: 1},
+    #   #   %Eshop.Components.ItemCategory{category_id: 1},
+    #   #   %Eshop.Components.ItemCategory{category_id: 1}
+    #   # ]
+    # } |> Repo.insert()
   end
 
   @doc """
