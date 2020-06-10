@@ -3,8 +3,7 @@ alias Eshop.Users.Role
 
 %Role{
   name: "Super Admin",
-  native_name: "প্রশাসক",
-
+  native_name: "প্রশাসক", 
   slug: "super_admin",
   desc: "Who can manage everything super", 
   type: 1 
