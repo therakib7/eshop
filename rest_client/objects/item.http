@@ -39,12 +39,12 @@ Authorization: {{user_token}}
 mutation{
   updateItem(
     id: 1,
-    categoryParams: { 
-      name: "Update Item", 
+    itemParams: { 
+      title: "Update Item", 
     }
   ){
     id,
-    name, 
+    title, 
   }
 }
 
