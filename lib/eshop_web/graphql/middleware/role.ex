@@ -13,6 +13,8 @@ defmodule EshopWeb.Graphql.Middleware.Role do
           where: m.user_id == ^user_id,
           select: c.permission_id
       )
+      
+    Enum.member?(per_list, per_id)
   end
 
   def type_user_role(type, args, res_args, user_id) do

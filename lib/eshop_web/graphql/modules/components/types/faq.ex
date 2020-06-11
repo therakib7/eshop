@@ -4,8 +4,8 @@ defmodule EshopWeb.Schema.Types.Faq do
   @desc "A faq"
   object :faq do
     field :id, :integer
-    field :content, :string
-    field :native_content, :string
+    field :answer, :string
+    field :native_answer, :string
     field :native_question, :string
     field :question, :string
     field :item_id, :integer
@@ -16,8 +16,8 @@ defmodule EshopWeb.Schema.Types.Faq do
 
   @desc "A faq update"
   input_object :faq_params do
-    field :content, :string
-    field :native_content, :string
+    field :answer, :string
+    field :native_answer, :string
     field :native_question, :string
     field :question, :string
     field :item_id, :integer

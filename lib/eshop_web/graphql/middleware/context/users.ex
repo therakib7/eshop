@@ -4,12 +4,12 @@ defmodule EshopWeb.Graphql.Middleware.Users do
   def context(args, res_args, user_id) do
     case args.model do
       "user" ->
-        users(res_args, user_id)
+        user(res_args, user_id)
         # "role" -> roles()
     end
   end
 
-  defp users(res_args, user_id) do
+  defp user(res_args, user_id) do
     # Eshop.Users.get_user!(res_args.id)
     # shuvo = Eshop.Repo.one(from u in Eshop.Users.User, where: u.id == ^user_id, select: u.id)
     # true  

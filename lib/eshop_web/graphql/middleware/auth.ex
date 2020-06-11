@@ -51,6 +51,7 @@ defmodule EshopWeb.Graphql.Middleware.Auth do
     case args.context do
       "users" -> EshopWeb.Graphql.Middleware.Users.context(args, res_args, user_id)
       "objects" -> EshopWeb.Graphql.Middleware.Objects.context(args, res_args, user_id)
+      "components" -> EshopWeb.Graphql.Middleware.Components.context(args, res_args, user_id)
     end
   end
 end

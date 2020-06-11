@@ -26,9 +26,7 @@ defmodule Eshop.Components.Brand do
     |> put_slug()
   end
 
-  defp put_slug(
-         %Ecto.Changeset{valid?: true, changes: %{name: name}} = changeset
-       ) do
+  defp put_slug(%Ecto.Changeset{valid?: true, changes: %{name: name}} = changeset) do
     change(changeset, slug: String.downcase(name) |> String.replace(" ", "-"))
   end
 

@@ -1,0 +1,50 @@
+# Get Companies
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+query {
+  faqs {
+    id
+    question,
+    nativeQuestion 
+  } 
+}
+
+### Create Faq
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  createFaq( 
+    question: "Faq 1",  
+    nativeQuestion: "ফেক ১",  
+    answer: "Answer 1",
+    nativeAnswer: "উত্তর ১"
+    itemId: 1,
+  ){
+    id,
+    question, 
+    nativeQuestion,
+    answer,
+    nativeAnswer,
+    itemId,
+    userId
+  }
+} 
+
+### Update Faq
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  updateFaq(
+    id: 1,
+    categoryParams: { 
+      name: "Update Faq", 
+    }
+  ){
+    id,
+    name, 
+  }
+}
+
