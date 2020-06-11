@@ -13,10 +13,10 @@ defmodule EshopWeb.Schema.Mutations.DiscountCode do
       arg(:is_active, :boolean)
       arg(:used_at, :datetime)
       arg(:validity, :integer)
-      arg(:shop_id, :id)
-      arg(:user_id, :id)
+      arg(:shop_id, :integer)
+      arg(:user_id, :integer)
       arg(:used_by, :id)
-      arg(:invoice_id, :id)
+      arg(:invoice_id, :integer)
 
       resolve(&DiscountCode.create_discount_code/3)
     end

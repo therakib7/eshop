@@ -58,8 +58,8 @@ defmodule EshopWeb.Schema.Types.Item do
     field :vat, :integer
     field :vat_type, :integer
     field :views, :integer
-    field :user_id, :id
-    field :shop_id, :id
-    field :unit_type_id, :id
+    field :user_id, :integer
+    field :shop_id, :integer
+    field :unit_type_id, :integer
   end
 end

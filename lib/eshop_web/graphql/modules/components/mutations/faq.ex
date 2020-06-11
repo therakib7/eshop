@@ -11,8 +11,8 @@ defmodule EshopWeb.Schema.Mutations.Faq do
       arg(:native_content, :string)
       arg(:native_question, :string)
       arg(:question, :string)
-      arg(:item_id, :id)
-      arg(:user_id, :id)
+      arg(:item_id, :integer)
+      arg(:user_id, :integer)
 
       resolve(&Faq.create_faq/3)
     end

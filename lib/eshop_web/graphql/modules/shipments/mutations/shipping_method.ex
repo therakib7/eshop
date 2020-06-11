@@ -10,8 +10,8 @@ defmodule EshopWeb.Schema.Mutations.ShippingMethod do
       arg(:is_active, :boolean)
       arg(:name, :string)
       arg(:native_name, :string)
-      arg(:user_id, :id)
-      arg(:location_id, :id)
+      arg(:user_id, :integer)
+      arg(:location_id, :integer)
 
       resolve(&ShippingMethod.create_shipping_method/3)
     end

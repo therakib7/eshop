@@ -12,7 +12,7 @@ defmodule EshopWeb.Schema.Mutations.TypeStatus do
       arg(:type, :integer)
       arg(:name, :string)
       arg(:native_name, :string)
-      arg(:user_id, :id)
+      arg(:user_id, :integer)
 
       resolve(&TypeStatus.create_type_status/3)
     end

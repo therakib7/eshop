@@ -6,7 +6,7 @@ defmodule EshopWeb.Schema.Types.PasswordReset do
     field :id, :integer
     field :created_at, :datetime
     field :token, :string
-    field :user_id, :id
+    field :user_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -15,6 +15,6 @@ defmodule EshopWeb.Schema.Types.PasswordReset do
   input_object :password_reset_params do
     field :created_at, :datetime
     field :token, :string
-    field :user_id, :id
+    field :user_id, :integer
   end
 end

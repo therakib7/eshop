@@ -14,10 +14,10 @@ defmodule EshopWeb.Schema.Mutations.Company do
       arg(:is_verifed, :boolean)
       arg(:name, :string)
       arg(:trade_assurance, :boolean)
-      arg(:user_id, :id)
-      arg(:location_id, :id)
-      arg(:attachment_id, :id)
-      arg(:term_condition_id, :id)
+      arg(:user_id, :integer)
+      arg(:location_id, :integer)
+      arg(:attachment_id, :integer)
+      arg(:term_condition_id, :integer)
 
       # resolve handle_errors(&Company.create_company/3)
 

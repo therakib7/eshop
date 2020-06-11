@@ -9,7 +9,7 @@ defmodule EshopWeb.Schema.Mutations.VariantValue do
       arg(:id, :integer)
       arg(:native_value, :string)
       arg(:value, :string)
-      arg(:variant_id, :id)
+      arg(:variant_id, :integer)
 
       resolve(&VariantValue.create_variant_value/3)
     end

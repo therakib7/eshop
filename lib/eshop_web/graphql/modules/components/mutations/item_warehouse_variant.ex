@@ -7,9 +7,9 @@ defmodule EshopWeb.Schema.Mutations.ItemWarehouseVariant do
     @desc "Create a item_warehouse_variant"
     field :create_item_warehouse_variant, type: :item_warehouse_variant do
       arg(:id, :integer)
-      arg(:item_id, :id)
-      arg(:warehouse_variant_id, :id)
-      arg(:warehouse_variant_value_id, :id)
+      arg(:item_id, :integer)
+      arg(:warehouse_variant_id, :integer)
+      arg(:warehouse_variant_value_id, :integer)
 
       resolve(&ItemWarehouseVariant.create_item_warehouse_variant/3)
     end

@@ -8,9 +8,9 @@ defmodule EshopWeb.Schema.Types.ChatMsg do
     field :msg, :string
     field :msg_type, :integer
     field :read, :boolean
-    field :chat_room_id, :id
-    field :user_id, :id
-    field :attachment_id, :id
+    field :chat_room_id, :integer
+    field :user_id, :integer
+    field :attachment_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -21,8 +21,8 @@ defmodule EshopWeb.Schema.Types.ChatMsg do
     field :msg, :string
     field :msg_type, :integer
     field :read, :boolean
-    field :chat_room_id, :id
-    field :user_id, :id
-    field :attachment_id, :id
+    field :chat_room_id, :integer
+    field :user_id, :integer
+    field :attachment_id, :integer
   end
 end

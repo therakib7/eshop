@@ -12,11 +12,11 @@ defmodule EshopWeb.Schema.Types.Shop do
     field :name, :string
     field :native_name, :string
     field :trade_assurance, :boolean
-    field :company_id, :id
-    field :user_id, :id
-    field :location_id, :id
-    field :attachment_id, :id
-    field :term_condition_id, :id
+    field :company_id, :integer
+    field :user_id, :integer
+    field :location_id, :integer
+    field :attachment_id, :integer
+    field :term_condition_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -31,10 +31,10 @@ defmodule EshopWeb.Schema.Types.Shop do
     field :name, :string
     field :native_name, :string
     field :trade_assurance, :boolean
-    field :company_id, :id
-    field :user_id, :id
-    field :location_id, :id
-    field :attachment_id, :id
-    field :term_condition_id, :id
+    field :company_id, :integer
+    field :user_id, :integer
+    field :location_id, :integer
+    field :attachment_id, :integer
+    field :term_condition_id, :integer
   end
 end

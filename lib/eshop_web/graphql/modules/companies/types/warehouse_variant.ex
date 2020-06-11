@@ -7,8 +7,8 @@ defmodule EshopWeb.Schema.Types.WarehouseVariant do
     field :name, :string
     field :native_name, :string
     field :type, :integer
-    field :company_id, :id
-    field :parent_id, :id
+    field :company_id, :integer
+    field :parent_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -18,7 +18,7 @@ defmodule EshopWeb.Schema.Types.WarehouseVariant do
     field :name, :string
     field :native_name, :string
     field :type, :integer
-    field :company_id, :id
-    field :parent_id, :id
+    field :company_id, :integer
+    field :parent_id, :integer
   end
 end

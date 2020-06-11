@@ -7,8 +7,8 @@ defmodule EshopWeb.Schema.Mutations.UserPermission do
     @desc "Create a user_permission"
     field :create_user_permission, type: :user_permission do
       arg(:id, :integer)
-      arg(:user_id, :id)
-      arg(:permission_id, :id)
+      arg(:user_id, :integer)
+      arg(:permission_id, :integer)
 
       resolve(&UserPermission.create_user_permission/3)
     end

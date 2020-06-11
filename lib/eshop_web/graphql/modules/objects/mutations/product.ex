@@ -11,7 +11,7 @@ defmodule EshopWeb.Schema.Mutations.Product do
       arg(:exp_date, :naive_datetime)
       arg(:mfg_date, :naive_datetime)
       arg(:sku, :string)
-      arg(:brand_id, :id)
+      arg(:brand_id, :integer)
 
       resolve(&Product.create_product/3)
     end

@@ -7,8 +7,8 @@ defmodule EshopWeb.Schema.Mutations.ItemCategory do
     @desc "Create a item_category"
     field :create_item_category, type: :item_category do
       arg(:id, :integer)
-      arg(:item_id, :id)
-      arg(:category_id, :id)
+      arg(:item_id, :integer)
+      arg(:category_id, :integer)
 
       resolve(&ItemCategory.create_item_category/3)
     end

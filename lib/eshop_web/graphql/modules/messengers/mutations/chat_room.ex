@@ -7,8 +7,8 @@ defmodule EshopWeb.Schema.Mutations.ChatRoom do
     @desc "Create a chat_room"
     field :create_chat_room, type: :chat_room do
       arg(:id, :integer)
-      arg(:shop_id, :id)
-      arg(:customer_id, :id)
+      arg(:shop_id, :integer)
+      arg(:customer_id, :integer)
 
       resolve(&ChatRoom.create_chat_room/3)
     end

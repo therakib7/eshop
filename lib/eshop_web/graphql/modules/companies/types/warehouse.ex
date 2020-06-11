@@ -7,9 +7,9 @@ defmodule EshopWeb.Schema.Types.Warehouse do
     field :is_active, :boolean
     field :name, :string
     field :native_name, :string
-    field :shop_id, :id
-    field :user_id, :id
-    field :location_id, :id
+    field :shop_id, :integer
+    field :user_id, :integer
+    field :location_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -19,8 +19,8 @@ defmodule EshopWeb.Schema.Types.Warehouse do
     field :is_active, :boolean
     field :name, :string
     field :native_name, :string
-    field :shop_id, :id
-    field :user_id, :id
-    field :location_id, :id
+    field :shop_id, :integer
+    field :user_id, :integer
+    field :location_id, :integer
   end
 end

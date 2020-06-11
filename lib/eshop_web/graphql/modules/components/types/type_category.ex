@@ -6,7 +6,7 @@ defmodule EshopWeb.Schema.Types.TypeCategory do
     field :id, :integer
     field :type, :integer
     field :type_id, :integer
-    field :category_id, :id
+    field :category_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -15,6 +15,6 @@ defmodule EshopWeb.Schema.Types.TypeCategory do
   input_object :type_category_params do
     field :type, :integer
     field :type_id, :integer
-    field :category_id, :id
+    field :category_id, :integer
   end
 end

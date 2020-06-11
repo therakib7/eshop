@@ -10,8 +10,8 @@ defmodule EshopWeb.Schema.Types.InvoiceItem do
     field :status, :integer
     field :vat, :decimal
     field :vat_type, :integer
-    field :item_id, :id
-    field :invoice_id, :id
+    field :item_id, :integer
+    field :invoice_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -24,7 +24,7 @@ defmodule EshopWeb.Schema.Types.InvoiceItem do
     field :status, :integer
     field :vat, :decimal
     field :vat_type, :integer
-    field :item_id, :id
-    field :invoice_id, :id
+    field :item_id, :integer
+    field :invoice_id, :integer
   end
 end

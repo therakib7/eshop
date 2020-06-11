@@ -13,8 +13,8 @@ defmodule EshopWeb.Schema.Mutations.InvoiceItem do
       arg(:status, :integer)
       arg(:vat, :decimal)
       arg(:vat_type, :integer)
-      arg(:item_id, :id)
-      arg(:invoice_id, :id)
+      arg(:item_id, :integer)
+      arg(:invoice_id, :integer)
 
       resolve(&InvoiceItem.create_invoice_item/3)
     end

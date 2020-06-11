@@ -7,8 +7,8 @@ defmodule EshopWeb.Schema.Mutations.ShopShippingMethod do
     @desc "Create a shop_shipping_method"
     field :create_shop_shipping_method, type: :shop_shipping_method do
       arg(:id, :integer)
-      arg(:shop_shipping_method_id, :id)
-      arg(:shop_id, :id)
+      arg(:shop_shipping_method_id, :integer)
+      arg(:shop_id, :integer)
 
       resolve(&ShopShippingMethod.create_shop_shipping_method/3)
     end

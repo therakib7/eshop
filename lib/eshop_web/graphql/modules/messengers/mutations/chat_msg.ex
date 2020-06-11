@@ -11,9 +11,9 @@ defmodule EshopWeb.Schema.Mutations.ChatMsg do
       arg(:msg, :string)
       arg(:msg_type, :integer)
       arg(:read, :boolean)
-      arg(:chat_room_id, :id)
-      arg(:user_id, :id)
-      arg(:attachment_id, :id)
+      arg(:chat_room_id, :integer)
+      arg(:user_id, :integer)
+      arg(:attachment_id, :integer)
 
       resolve(&ChatMsg.create_chat_msg/3)
     end

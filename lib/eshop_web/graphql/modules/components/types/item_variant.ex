@@ -7,9 +7,9 @@ defmodule EshopWeb.Schema.Types.ItemVariant do
     field :cost_price, :decimal
     field :sale_price, :decimal
     field :unit_price, :decimal
-    field :item_id, :id
-    field :variant_id, :id
-    field :variant_value_id, :id
+    field :item_id, :integer
+    field :variant_id, :integer
+    field :variant_value_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -19,8 +19,8 @@ defmodule EshopWeb.Schema.Types.ItemVariant do
     field :cost_price, :decimal
     field :sale_price, :decimal
     field :unit_price, :decimal
-    field :item_id, :id
-    field :variant_id, :id
-    field :variant_value_id, :id
+    field :item_id, :integer
+    field :variant_id, :integer
+    field :variant_value_id, :integer
   end
 end

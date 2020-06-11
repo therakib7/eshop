@@ -8,7 +8,7 @@ defmodule EshopWeb.Schema.Types.Product do
     field :exp_date, :naive_datetime
     field :mfg_date, :naive_datetime
     field :sku, :string
-    field :brand_id, :id
+    field :brand_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -19,6 +19,6 @@ defmodule EshopWeb.Schema.Types.Product do
     field :exp_date, :naive_datetime
     field :mfg_date, :naive_datetime
     field :sku, :string
-    field :brand_id, :id
+    field :brand_id, :integer
   end
 end

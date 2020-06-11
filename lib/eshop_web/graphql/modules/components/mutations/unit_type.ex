@@ -9,7 +9,7 @@ defmodule EshopWeb.Schema.Mutations.UnitType do
       arg(:id, :integer)
       arg(:name, :string)
       arg(:native_name, :string)
-      arg(:user_id, :id)
+      arg(:user_id, :integer)
 
       resolve(&UnitType.create_unit_type/3)
     end

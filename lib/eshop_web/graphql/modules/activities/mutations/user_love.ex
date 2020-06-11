@@ -8,7 +8,7 @@ defmodule EshopWeb.Schema.Mutations.UserLove do
     field :create_user_love, type: :user_love do
       arg(:type, :integer)
       arg(:type_id, :integer)
-      arg(:user_id, :id)
+      arg(:user_id, :integer)
 
       resolve(&UserLove.create_user_love/3)
     end

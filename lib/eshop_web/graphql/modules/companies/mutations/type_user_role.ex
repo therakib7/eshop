@@ -9,8 +9,8 @@ defmodule EshopWeb.Schema.Mutations.TypeUserRole do
       arg(:id, :integer)
       arg(:type, :integer)
       arg(:type_id, :integer)
-      arg(:user_id, :id)
-      arg(:role_id, :id)
+      arg(:user_id, :integer)
+      arg(:role_id, :integer)
 
       resolve(&TypeUserRole.create_type_user_role/3)
     end

@@ -15,11 +15,11 @@ defmodule EshopWeb.Schema.Mutations.Shop do
       arg(:name, :string)
       arg(:native_name, :string)
       arg(:trade_assurance, :boolean)
-      arg(:company_id, :id)
-      arg(:user_id, :id)
-      arg(:location_id, :id)
-      arg(:attachment_id, :id)
-      arg(:term_condition_id, :id)
+      arg(:company_id, :integer)
+      arg(:user_id, :integer)
+      arg(:location_id, :integer)
+      arg(:attachment_id, :integer)
+      arg(:term_condition_id, :integer)
 
       resolve(&Shop.create_shop/3)
     end

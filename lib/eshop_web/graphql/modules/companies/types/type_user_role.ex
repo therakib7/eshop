@@ -6,8 +6,8 @@ defmodule EshopWeb.Schema.Types.TypeUserRole do
     field :id, :integer
     field :type, :integer
     field :type_id, :integer
-    field :user_id, :id
-    field :role_id, :id
+    field :user_id, :integer
+    field :role_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -16,7 +16,7 @@ defmodule EshopWeb.Schema.Types.TypeUserRole do
   input_object :type_user_role_params do
     field :type, :integer
     field :type_id, :integer
-    field :user_id, :id
-    field :role_id, :id
+    field :user_id, :integer
+    field :role_id, :integer
   end
 end

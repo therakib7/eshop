@@ -7,7 +7,7 @@ defmodule EshopWeb.Schema.Types.TypeComment do
     field :comment, :string
     field :type, :integer
     field :type_id, :integer
-    field :user_id, :id
+    field :user_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -17,6 +17,6 @@ defmodule EshopWeb.Schema.Types.TypeComment do
     field :comment, :string
     field :type, :integer
     field :type_id, :integer
-    field :user_id, :id
+    field :user_id, :integer
   end
 end

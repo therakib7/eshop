@@ -10,9 +10,9 @@ defmodule EshopWeb.Schema.Mutations.Warehouse do
       arg(:is_active, :boolean)
       arg(:name, :string)
       arg(:native_name, :string)
-      arg(:shop_id, :id)
-      arg(:user_id, :id)
-      arg(:location_id, :id)
+      arg(:shop_id, :integer)
+      arg(:user_id, :integer)
+      arg(:location_id, :integer)
 
       resolve(&Warehouse.create_warehouse/3)
     end

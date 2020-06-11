@@ -10,7 +10,7 @@ defmodule EshopWeb.Schema.Mutations.Package do
       arg(:cost_price, :decimal)
       arg(:sale_price, :decimal)
       arg(:unit_price, :decimal)
-      arg(:item_id, :id)
+      arg(:item_id, :integer)
 
       resolve(&Package.create_package/3)
     end

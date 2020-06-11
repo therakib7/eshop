@@ -9,7 +9,7 @@ defmodule EshopWeb.Schema.Mutations.TypeCategory do
       arg(:id, :integer)
       arg(:type, :integer)
       arg(:type_id, :integer)
-      arg(:category_id, :id)
+      arg(:category_id, :integer)
 
       resolve(&TypeCategory.create_type_category/3)
     end

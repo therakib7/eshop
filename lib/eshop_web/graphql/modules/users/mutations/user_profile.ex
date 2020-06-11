@@ -12,9 +12,9 @@ defmodule EshopWeb.Schema.Mutations.UserProfile do
       arg(:lat, :float)
       arg(:long, :float)
       arg(:merital_status, :integer)
-      arg(:user_id, :id)
-      arg(:pre_location_id, :id)
-      arg(:per_location_id, :id)
+      arg(:user_id, :integer)
+      arg(:pre_location_id, :integer)
+      arg(:per_location_id, :integer)
 
       resolve(&UserProfile.create_user_profile/3)
     end
