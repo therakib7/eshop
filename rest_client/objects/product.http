@@ -1,22 +1,22 @@
-# Get Item
+# Get Product
 POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
 query {
-  items {
+  products {
     id
     title,
     nativeTitle
   } 
 }
 
-### Create Item
+### Create Product
 POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
 mutation{
-  createItem( 
-    title: "Test Item",     
+  createProduct( 
+    title: "Test Product",     
     unitPrice: 220,
     costPrice: 100,
     sellPrice: 100, 
@@ -32,15 +32,15 @@ mutation{
   }
 }
 
-### Update Item
+### Update Product
 POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
 mutation{
-  updateItem(
+  updateProduct(
     id: 1,
     itemParams: { 
-      title: "Update Item", 
+      title: "Update Product", 
     }
   ){
     id,

@@ -132,7 +132,7 @@ defmodule EshopWeb.Schema do
     DiscountCode,
 
     # Objects
-    Item,
+    # Item,
     Product,
 
     # Activities
@@ -210,7 +210,7 @@ defmodule EshopWeb.Schema do
     DiscountCode,
 
     # Objects
-    Item,
+    # Item,
     Product,
 
     # Activities
@@ -285,7 +285,7 @@ defmodule EshopWeb.Schema do
     import_fields(:discount_code_queries)
 
     # Objects
-    import_fields(:item_queries)
+    # import_fields(:item_queries)
     import_fields(:product_queries)
 
     # Activities
@@ -363,7 +363,7 @@ defmodule EshopWeb.Schema do
     import_fields(:discount_code_mutations)
 
     # Objects
-    import_fields(:item_mutations)
+    # import_fields(:item_mutations)
     import_fields(:product_mutations)
 
     # Activities
