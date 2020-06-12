@@ -1,0 +1,68 @@
+# Get Variants
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+{
+  variants(first: 5, filter: {category_id: 1}) {
+    pageInfo{
+      hasPreviousPage
+      hasNextPage
+      endCursor
+      startCursor
+    }
+    edges{
+      node{
+        id
+        name,
+        nativeName
+      }
+      cursor 
+    }
+  }
+}
+
+### Create Variant
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  createVariant( 
+    name: "Color",  
+    nativeName: "রং", 
+    type: 1
+  ){
+    id,
+    name,  
+    userId
+  }
+}
+
+
+### Update Variant
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  updateVariant(
+    id: 1,
+    categoryParams: { 
+      name: "Update Variant", 
+    }
+  ){
+    id,
+    name, 
+  }
+}
+
+### Delete Variant
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  deleteVariant(
+    id: 1, 
+  ){
+    id,
+    name, 
+  }
+}

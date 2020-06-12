@@ -16,9 +16,9 @@ defmodule Eshop.Components.Variant do
   @doc false
   def changeset(variant, attrs) do
     variant
-    |> cast(attrs, [:order, :name, :native_name, :type])
+    |> cast(attrs, [:order, :name, :native_name, :type, :user_id])
     |> validate_required([:name, :native_name, :type])
     |> validate_length(:name, min: 2, max: 200)
-    |> validate_length(:native_name, min: 2, max: 200)
+    |> validate_length(:native_name, min: 1, max: 200)
   end
 end
