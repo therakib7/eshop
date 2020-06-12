@@ -190,8 +190,15 @@ defmodule Eshop.Objects do
 
   """
   def create_product(attrs \\ %{}) do
-    %Product{}
-    |> Product.changeset(attrs)
+    # %Product{}
+    # |> Product.changeset(attrs)
+    # |> Repo.insert()
+    shop = Eshop.Companies.get_shop!(attrs.item.shop_id)
+
+    %Item{}
+    |> Item.changeset(attrs.item)
+    |> Ecto.Changeset.put_assoc(:shop, shop) 
+    |> Ecto.Changeset.put_assoc(:categories, attrs.category_ids)
     |> Repo.insert()
   end
 

@@ -14,23 +14,26 @@ query {
 POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
-mutation{
-  createProduct( 
-    title: "Test Product",     
-    unitPrice: 220,
-    costPrice: 100,
+mutation {
+  createProduct(
+    typeId: 5,
+    item: {
+    title: "Test Item", 
+    unitPrice: 220, 
+    costPrice: 100, 
     sellPrice: 100, 
-    shopId: 1,
-    categoryIds: [{ categoryId: 1},{ categoryId: 2}]
-  ){
-    id,
-    title, 
-    unitPrice,
-    costPrice,
-    sellPrice,
-    shopId
+    shopId: type_id_value
+    }, 
+    categoryIds: [{categoryId: 1}, {categoryId: 3}]
+    ) {
+    id
+    title
+    item {
+      title
+    }
   }
 }
+
 
 ### Update Product
 POST http://{{host}}:{{port}}{{url}}

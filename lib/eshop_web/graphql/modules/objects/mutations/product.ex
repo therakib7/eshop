@@ -1,11 +1,14 @@
 defmodule EshopWeb.Schema.Mutations.Product do
   use Absinthe.Schema.Notation
 
+  alias EshopWeb.Graphql.Middleware.Auth
   alias EshopWeb.Schema.Resolvers.Product, as: Product
 
   object :product_mutations do
     @desc "Create a product"
     field :create_product, type: :product do
+      middleware(Auth, %{per: "product_create", context: "objects", model: "item"})
+      arg :type_id, non_null(:integer)
       arg :item, :item
       arg :barcode, :string
       arg :exp_date, :naive_datetime

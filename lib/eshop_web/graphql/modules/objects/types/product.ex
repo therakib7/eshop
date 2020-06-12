@@ -4,6 +4,7 @@ defmodule EshopWeb.Schema.Types.Product do
   @desc "A product"
   object :product do 
     field :id, :integer
+    field :title, :string
     field :item, :item_type
     field :barcode, :string
     field :exp_date, :naive_datetime
