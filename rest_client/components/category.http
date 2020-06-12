@@ -1,13 +1,24 @@
-# Get Companies
+# Get Categories
 POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
-query {
-  categories {
-    id
-    name,
-    nativeName 
-  } 
+{
+  categories(first: 5, filter: {}) {
+    pageInfo{
+      hasPreviousPage
+      hasNextPage
+      endCursor
+      startCursor
+    }
+    edges{
+      node{
+        id
+        name,
+        nativeName
+      }
+      cursor 
+    }
+  }
 }
 
 ### Create Category
@@ -16,12 +27,13 @@ Authorization: {{user_token}}
 
 mutation{
   createCategory( 
-    name: "Test Category",   
-    slug: "test-cat",
-    nativeName: "Native Test Category", 
+    name: "Fruits",  
+    nativeName: "ফল",  
   ){
     id,
     name, 
+    slug,
+    userId
   }
 }
 
@@ -42,3 +54,15 @@ mutation{
   }
 }
 
+### Delete Category
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  deleteCategory(
+    id: 1, 
+  ){
+    id,
+    name, 
+  }
+}

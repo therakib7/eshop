@@ -2,12 +2,21 @@
 POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
-query {
-  users {
-    firstName,
-    verifiedUser 
-    pin
-  } 
+{
+  relayUsers(first: 5, filter: {}) {
+    pageInfo{
+      hasPreviousPage
+      hasNextPage
+      endCursor
+      startCursor
+    }
+    edges{
+      node{
+        firstName
+      }
+      cursor 
+    }
+  }
 }
 
 ### Create User

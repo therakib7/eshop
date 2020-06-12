@@ -1,6 +1,6 @@
 defmodule EshopWeb.Schema.Mutations.Variant do
   use Absinthe.Schema.Notation
-
+  alias EshopWeb.Graphql.Middleware.Auth
   alias EshopWeb.Schema.Resolvers.Variant, as: Variant
 
   object :variant_mutations do

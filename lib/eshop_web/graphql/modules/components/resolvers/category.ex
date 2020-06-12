@@ -15,7 +15,7 @@ defmodule EshopWeb.Schema.Resolvers.Category do
   def update_category(%{id: id, category_params: category_params}, _info) do
     case {:ok, Eshop.Components.get_category!(id)} do
       {:ok, category} -> category |> Eshop.Components.update_category(category_params)
-    end
+    end 
   end
 
   def delete_category(%{id: id}, _info) do

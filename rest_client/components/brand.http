@@ -1,13 +1,24 @@
-# Get Companies
+# Get Brands
 POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
-
-query {
-  brands {
-    id
-    name,
-    nativeName 
-  } 
+ 
+{
+  brands(first: 5, filter: {id: 3}) {
+    pageInfo{
+      hasPreviousPage
+      hasNextPage
+      endCursor
+      startCursor
+    }
+    edges{
+      node{
+        id
+        name,
+        nativeName
+      }
+      cursor 
+    }
+  }
 }
 
 ### Create Brand
@@ -34,7 +45,7 @@ Authorization: {{user_token}}
 mutation{
   updateBrand(
     id: 1,
-    categoryParams: { 
+    brandParams: { 
       name: "Update Brand", 
     }
   ){
@@ -43,3 +54,15 @@ mutation{
   }
 }
 
+### Delete Brand
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  deleteBrand(
+    id: 2, 
+  ){
+    id,
+    name, 
+  }
+}

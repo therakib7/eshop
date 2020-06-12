@@ -1,6 +1,7 @@
 defmodule EshopWeb.Schema.Mutations.Package do
   use Absinthe.Schema.Notation
 
+  alias EshopWeb.Graphql.Middleware.Auth
   alias EshopWeb.Schema.Resolvers.Package, as: Package
 
   object :package_mutations do

@@ -1,6 +1,6 @@
 defmodule EshopWeb.Schema.Queries.Category do
   use Absinthe.Schema.Notation
-
+  alias EshopWeb.Graphql.Middleware.Auth
   alias EshopWeb.Schema.Resolvers.Category
 
   object :category_queries do
