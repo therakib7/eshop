@@ -34,7 +34,7 @@ mutation{
 
 ### Update Item
 POST http://{{host}}:{{port}}{{url}}
-Authorization: {{user_token}}
+Authorization: {{ user_token }}
 
 mutation{
   updateItem(
@@ -44,7 +44,7 @@ mutation{
     }
   ){
     id,
-    title, 
+    title,
   }
 }
 
