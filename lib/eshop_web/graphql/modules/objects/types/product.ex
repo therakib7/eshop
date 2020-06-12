@@ -2,7 +2,7 @@ defmodule EshopWeb.Schema.Types.Product do
   use Absinthe.Schema.Notation
 
   @desc "A product"
-  object :product do 
+  object :product do
     field :id, :integer
     field :title, :string
     field :item, :item_type

@@ -1,6 +1,10 @@
 defmodule EshopWeb.Schema.Resolvers.Category do
-  def list_categories(_parent, _args, _resolution) do
-    {:ok, Eshop.Components.list_categories()}
+  def list_categories(_parent, args, _resolution) do
+    Absinthe.Relay.Connection.from_query(
+      Eshop.Components.list_categories(args),
+      &Eshop.Repo.all/1,
+      args
+    )
   end
 
   def get_category(_, %{id: id}, _) do
@@ -15,7 +19,7 @@ defmodule EshopWeb.Schema.Resolvers.Category do
   def update_category(%{id: id, category_params: category_params}, _info) do
     case {:ok, Eshop.Components.get_category!(id)} do
       {:ok, category} -> category |> Eshop.Components.update_category(category_params)
-    end 
+    end
   end
 
   def delete_category(%{id: id}, _info) do

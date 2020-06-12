@@ -6,7 +6,7 @@ defmodule EshopWeb.Schema.Queries.Brand do
 
   input_object :brand_filter do
     field :id, :integer
-    field :name, :string 
+    field :name, :string
     field :inserted_before, :naive_datetime
     field :inserted_after, :naive_datetime
   end

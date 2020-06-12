@@ -197,7 +197,7 @@ defmodule Eshop.Objects do
 
     %Item{}
     |> Item.changeset(attrs.item)
-    |> Ecto.Changeset.put_assoc(:shop, shop) 
+    |> Ecto.Changeset.put_assoc(:shop, shop)
     |> Ecto.Changeset.put_assoc(:categories, attrs.category_ids)
     |> Repo.insert()
   end

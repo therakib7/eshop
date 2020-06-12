@@ -24,6 +24,7 @@ defmodule EshopWeb.Schema.Resolvers.User do
     case {:ok, Eshop.Users.get_user!(id)} do
       {:ok, user} -> user |> Eshop.Users.update_user(user_params)
     end
+
     # {:error, message: "Unknown dd user", code: 21}
   end
 

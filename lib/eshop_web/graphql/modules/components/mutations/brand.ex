@@ -9,12 +9,12 @@ defmodule EshopWeb.Schema.Mutations.Brand do
     field :create_brand, type: :brand do
       middleware(Auth, %{per: "component_create", context: "components", model: "brand"})
       arg(:is_active, :boolean)
-      arg(:order, :integer) 
+      arg(:order, :integer)
       arg(:name, non_null(:string))
       arg(:native_name, :string)
       arg(:slug, :string)
       arg(:attachment_id, :integer)
-      arg(:location_id, :integer) 
+      arg(:location_id, :integer)
 
       resolve(&Brand.create_brand/3)
     end

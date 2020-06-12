@@ -31,7 +31,7 @@ defmodule EshopWeb.Schema.Mutations.Category do
     @desc "Delete a category"
     field :delete_category, type: :category do
       middleware(Auth, %{per: "component_delete", context: "components", model: "category"})
-      arg(:id, non_null(:id)) 
+      arg(:id, non_null(:id))
       resolve(&Category.delete_category/2)
     end
   end

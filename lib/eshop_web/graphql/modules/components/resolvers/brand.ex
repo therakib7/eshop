@@ -1,6 +1,5 @@
 defmodule EshopWeb.Schema.Resolvers.Brand do
-  
-  def list_brands(_parent, args, _resolution) do 
+  def list_brands(_parent, args, _resolution) do
     Absinthe.Relay.Connection.from_query(
       Eshop.Components.list_brands(args),
       &Eshop.Repo.all/1,

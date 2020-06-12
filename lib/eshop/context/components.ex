@@ -16,9 +16,10 @@ defmodule Eshop.Components do
       iex> list_categories()
       [%Category{}, ...]
 
-  """
-  def list_categories do
-    Repo.all(Category)
+  """ 
+  def list_categories(args) do
+    query = from(p in Category)
+    filter_with(query, args.filter)
   end
 
   @doc """
@@ -113,7 +114,7 @@ defmodule Eshop.Components do
       [%Brand{}, ...]
 
   """
-  def list_brands(args) do 
+  def list_brands(args) do
     query = from(p in Brand)
     filter_with(query, args.filter)
   end
@@ -124,7 +125,7 @@ defmodule Eshop.Components do
         from q in query, where: q.id == ^id
 
       {:name, name}, query ->
-        from q in query, where: ilike(q.name, ^"%#{name}%") 
+        from q in query, where: ilike(q.name, ^"%#{name}%")
 
       {:inserted_before, date}, query ->
         from q in query, where: q.inserted_at <= ^date
