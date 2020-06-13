@@ -452,9 +452,23 @@ defmodule Eshop.Components do
 
   """
   def create_variant(attrs \\ %{}) do
-    %Variant{}
-    |> Variant.changeset(attrs)
-    |> Repo.insert()
+    # %Variant{}
+    # |> Variant.changeset(attrs)
+    # |> Repo.insert()
+
+    {:ok, variant} =
+      %Variant{}
+      |> Variant.changeset(attrs)
+      |> Repo.insert() 
+
+    create_type_category(%{
+      # 3 = shop
+      type: 3,
+      type_id: variant.id,
+      category_id: 1, 
+    })
+
+    {:ok, variant}
   end
 
   @doc """

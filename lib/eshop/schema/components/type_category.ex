@@ -13,7 +13,7 @@ defmodule Eshop.Components.TypeCategory do
   @doc false
   def changeset(type_category, attrs) do
     type_category
-    |> cast(attrs, [:type, :type_id])
-    |> validate_required([:type, :type_id])
+    |> cast(attrs, [:type, :type_id, :category_id])
+    |> validate_required([:type, :type_id, :category_id])
   end
 end

@@ -1,9 +1,9 @@
-# Get Variants
+# Get VariantValues
 POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
 {
-  variants(first: 5, filter: {variant_id: 1}) {
+  variantValues(first: 5, filter: {variant_id: 1}) {
     pageInfo{
       hasPreviousPage
       hasNextPage
@@ -21,16 +21,15 @@ Authorization: {{user_token}}
   }
 }
 
-### Create Variant
+### Create VariantValue
 POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
 mutation{
-  createVariant( 
-    name: "Color",  
-    nativeName: "রং", 
-    type: 1,
-    categoryIds: [{categoryId: 1}, {categoryId: 3}]
+  createVariantValue( 
+    variantId: 1,
+    name: "Red",  
+    nativeName: "লাল",   
   ){
     id,
     name,  
@@ -39,15 +38,15 @@ mutation{
 }
 
 
-### Update Variant
+### Update VariantValue
 POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
 mutation{
-  updateVariant(
+  updateVariantValue(
     id: 1,
     variantParams: { 
-      name: "Update Variant", 
+      name: "Update VariantValue", 
     }
   ){
     id,
@@ -55,12 +54,12 @@ mutation{
   }
 }
 
-### Delete Variant
+### Delete VariantValue
 POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
 mutation{
-  deleteVariant(
+  deleteVariantValue(
     id: 1, 
   ){
     id,

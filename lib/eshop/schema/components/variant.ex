@@ -9,6 +9,7 @@ defmodule Eshop.Components.Variant do
     field :type, :integer
     belongs_to :user, Eshop.Users.User
     belongs_to :shop, Eshop.Companies.Shop
+    # has_many :categories, Eshop.Components.TypeCategory
 
     timestamps()
   end

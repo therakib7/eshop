@@ -3,9 +3,9 @@ defmodule Eshop.Repo.Migrations.CreateVariantValues do
 
   def change do
     create table(:variant_values) do
-      add :value, :string, null: true, size: 100
-      add :native_value, :string, null: true, size: 100
       add :variant_id, references(:variants, on_delete: :nothing)
+      add :value, :string, null: true, size: 100
+      add :native_value, :string, null: true, size: 100 
 
       timestamps()
     end

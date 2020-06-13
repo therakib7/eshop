@@ -4,10 +4,13 @@ defmodule EshopWeb.Graphql.Middleware.Components do
   def context(args, res_args, user_id) do
     case args.model do
       "category" ->
-        category(args, res_args, user_id)
+        EshopWeb.Graphql.Middleware.Role.user_role(args, user_id)
 
       "brand" ->
-        brand(args, res_args, user_id)
+        EshopWeb.Graphql.Middleware.Role.user_role(args, user_id)
+
+      "variant" ->
+          EshopWeb.Graphql.Middleware.Role.user_role(args, user_id)
 
       "faq" ->
         faq(args, res_args, user_id)
@@ -15,13 +18,7 @@ defmodule EshopWeb.Graphql.Middleware.Components do
     end
   end
 
-  defp category(args, res_args, user_id) do
-    EshopWeb.Graphql.Middleware.Role.user_role(args, user_id)
-  end
-
-  defp brand(args, res_args, user_id) do
-    EshopWeb.Graphql.Middleware.Role.user_role(args, user_id)
-  end
+   
 
   defp faq(args, res_args, user_id) do
     shop_id =
