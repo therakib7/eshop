@@ -1,0 +1,60 @@
+### Get all Warehouse Variant
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{ user_token }}
+
+query{
+  warehouseVariants{
+    id
+    companyId
+    type
+    parentId
+  }
+}
+
+
+### GET warehouse Variant
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+query{
+  warehouseVariant(id:1){
+    id
+    companyId
+    type
+    parentId
+  }
+}
+
+### Create Warehouse Variant
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  createWarehouseVariant(name:"test",nativeName:"test"companyId:1,type:3,parentId:1){
+    id
+    name
+    nativeName
+    parentId
+    type
+  }
+}
+
+
+### Update Warehouse Variant
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  updateWarehouseVariant(id:1,warehouseVariantParams:{
+    name:"test",
+    nativeName:"test",
+    companyId:1,
+    type:3,
+    parentId:1}){
+    id
+    name
+    nativeName
+    companyId
+    parentId
+  }
+}

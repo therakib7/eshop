@@ -1,13 +1,25 @@
-# Get Companies
+### Get all Companies 
 POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
 query {
   companies {
     id
-    name, 
-  } 
+    name,
+  }
 }
+
+
+### Get company
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+query{
+  company(id:1){
+    id
+    name
+  }
+}
+
 
 ### Create Company
 POST http://{{host}}:{{port}}{{url}}

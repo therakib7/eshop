@@ -1,0 +1,53 @@
+### Get all Warehouse Variant Value
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{ user_token }}
+
+query {
+  warehouseVariantValues{
+    id
+    value
+    nativeValue
+    warehouseVariantId
+  }
+}
+
+
+### GET warehouse Variant Value
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+query {
+  warehouseVariantValue(id:1){
+    id
+    value
+    nativeValue
+    warehouseVariantId
+  }
+}
+
+### Create Warehouse Variant Value
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation {
+  createWarehouseVariantValue(nativeValue:"test",value:"tets",warehouseVariantId:1){
+    id
+    nativeValue
+    value
+    warehouseVariantId
+  }
+}
+
+### Update Warehouse Variant Value
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation {
+  updateWarehouseVariantValue(id:1,warehouseVariantValueParams:{
+    nativeValue:"test"
+  }){
+    id
+    nativeValue
+    value
+  }
+}

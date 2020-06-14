@@ -1,16 +1,34 @@
-# Get Warehouse
+### Get all Warehouse
 POST http://{{host}}:{{port}}{{url}}
-Authorization: {{user_token}}
+Authorization: {{ user_token }}
 
 query {
   warehouses{
     id
     name
-    nativeName,
-    isActive,
-    locationId,
-    shopId,
+    nativeName
+    isActive
+    locationId
+    shopId
     userId
+  }
+}
+
+
+### GET Warehouse
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+query{
+  warehouse(id:1){
+    id
+    name
+    nativeName
+    isActive
+    locationId
+    shopId
+    userId
+    locationId
   }
 }
 
@@ -19,12 +37,15 @@ POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
 mutation{
-  createShop( 
-    name: "Mini Bazar",  
-    companyId: 1
-  ){
-    id,
-    name, 
+  createWarehouse(name:"test",nativeName:"test",shopId:1,userId:1,){
+    id
+    name
+    nativeName
+    isActive
+    locationId
+    shopId
+    userId
+    locationId
   }
 }
 
@@ -34,21 +55,14 @@ POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
 mutation{
-  updateShop(
-    id: 1,
-    shopParams: {
-        goldenSupplier: false,
-        highestAssurance: null,
-        isActive: false,
-        isVerifed: false,
-        name: "Mini Bazaar",
-        tradeAssurance: false, 
-        locationId: null,
-        attachmentId: null,
-        term_conditionId: null, 
-    }
-  ){
-    id,
-    name, 
+  updateWarehouse(id:1,warehouseParams:{name:"gest",nativeName:"test",shopId:1,userId:1}){
+    id
+    name
+    nativeName
+    isActive
+    locationId
+    shopId
+    userId
+    locationId
   }
 }

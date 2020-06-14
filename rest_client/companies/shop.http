@@ -1,4 +1,6 @@
-# Get Companies
+
+
+### Get shop all
 POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
@@ -9,6 +11,23 @@ query {
     nativeName 
   } 
 }
+
+### Get shop
+
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+query{
+  shop(id:1){
+    id
+    name
+    nativeName,
+    isActive,
+    locationId,
+    userId,
+    locationId
+  }
+}
+
 
 ### Create Shop
 POST http://{{host}}:{{port}}{{url}}

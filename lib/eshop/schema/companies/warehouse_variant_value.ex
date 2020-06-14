@@ -13,7 +13,7 @@ defmodule Eshop.Companies.WarehouseVariantValue do
   @doc false
   def changeset(warehouse_variant_value, attrs) do
     warehouse_variant_value
-    |> cast(attrs, [:value, :native_value])
+    |> cast(attrs, [:value, :native_value,:warehouse_variant_id])
     |> validate_required([:value, :native_value])
     |> validate_length(:value, min: 1, max: 200)
     |> validate_length(:native_value, min: 1, max: 200)
