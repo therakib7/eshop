@@ -5,7 +5,7 @@ defmodule EshopWeb.Schema.Resolvers.Package do
 
   def get_package(_, %{id: id}, _) do
     {:ok, Eshop.Components.get_package!(id)}
-  end 
+  end
 
   def create_package(_parent, args, %{context: %{current_user: current_user}}) do
     args = Map.put(args, :user_id, current_user["sub"])

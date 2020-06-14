@@ -19,7 +19,17 @@ defmodule Eshop.Components.Package do
   @doc false
   def changeset(package, attrs) do
     package
-    |> cast(attrs, [:cost_price, :unit_price, :sale_price, :title, :native_title, :subtitle, :native_subtitle, :item_id, :user_id])
+    |> cast(attrs, [
+      :cost_price,
+      :unit_price,
+      :sale_price,
+      :title,
+      :native_title,
+      :subtitle,
+      :native_subtitle,
+      :item_id,
+      :user_id
+    ])
     |> validate_required([:item_id, :sale_price])
   end
 end

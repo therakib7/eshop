@@ -8,14 +8,14 @@ defmodule EshopWeb.Schema.Mutations.Package do
     @desc "Create a package"
     field :create_package, type: :package do
       middleware(Auth, %{per: "product_create", context: "components", model: "package"})
-      arg :title, :string
-      arg :native_title, :string
-      arg :subtitle, :string
-      arg :native_subtitle, :string
-      arg :cost_price, :decimal
-      arg :sale_price, :decimal
-      arg :unit_price, :decimal
-      arg :item_id, :integer
+      arg(:title, :string)
+      arg(:native_title, :string)
+      arg(:subtitle, :string)
+      arg(:native_subtitle, :string)
+      arg(:cost_price, :decimal)
+      arg(:sale_price, :decimal)
+      arg(:unit_price, :decimal)
+      arg(:item_id, :integer)
 
       resolve(&Package.create_package/3)
     end

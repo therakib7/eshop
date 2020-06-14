@@ -18,8 +18,7 @@ defmodule EshopWeb.Graphql.Middleware.Role do
   end
 
   def type_user_role(type, type_id, per, user_id) do
-    per_id =
-      Eshop.Repo.one(from u in Eshop.Users.Permission, where: u.slug == ^per, select: u.id)
+    per_id = Eshop.Repo.one(from u in Eshop.Users.Permission, where: u.slug == ^per, select: u.id)
 
     per_list =
       Eshop.Repo.all(

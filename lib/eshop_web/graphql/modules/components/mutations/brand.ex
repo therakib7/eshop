@@ -15,6 +15,7 @@ defmodule EshopWeb.Schema.Mutations.Brand do
       arg(:slug, :string)
       arg(:attachment_id, :integer)
       arg(:location_id, :integer)
+      arg(:category_ids, list_of(:category_ids))
 
       resolve(&Brand.create_brand/3)
     end

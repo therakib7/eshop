@@ -29,6 +29,7 @@ mutation{
   createBrand( 
     name: "RFL",  
     nativeName: "আর আফ এল",  
+    categoryIds: [{categoryId: 1}, {categoryId: 3}]
   ){
     id,
     name, 

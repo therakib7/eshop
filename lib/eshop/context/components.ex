@@ -164,9 +164,25 @@ defmodule Eshop.Components do
 
   """
   def create_brand(attrs \\ %{}) do
-    %Brand{}
-    |> Brand.changeset(attrs)
-    |> Repo.insert()
+    # %Brand{}
+    # |> Brand.changeset(attrs)
+    # |> Repo.insert()
+    {:ok, brand} =
+      %Brand{}
+      |> Brand.changeset(attrs)
+      # |> Ecto.Changeset.put_assoc(:type_categories, [{type_id, 3, type_id: 1, category_id: 1}])
+      |> Repo.insert()
+
+    Enum.each(attrs.category_ids, fn x ->
+      create_type_category(%{
+        # 2 = brand
+        type: 2,
+        type_id: brand.id,
+        category_id: x[:category_id]
+      })
+    end)
+
+    {:ok, brand}
   end
 
   @doc """
@@ -459,14 +475,17 @@ defmodule Eshop.Components do
     {:ok, variant} =
       %Variant{}
       |> Variant.changeset(attrs)
+      # |> Ecto.Changeset.put_assoc(:type_categories, [{type_id, 3, type_id: 1, category_id: 1}])
       |> Repo.insert()
 
-    create_type_category(%{
-      # 3 = shop
-      type: 3,
-      type_id: variant.id,
-      category_id: 1
-    })
+    Enum.each(attrs.category_ids, fn x ->
+      create_type_category(%{
+        # 3 = variant
+        type: 3,
+        type_id: variant.id,
+        category_id: x[:category_id]
+      })
+    end)
 
     {:ok, variant}
   end
