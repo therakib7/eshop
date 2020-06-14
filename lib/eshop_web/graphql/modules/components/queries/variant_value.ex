@@ -1,6 +1,6 @@
 defmodule EshopWeb.Schema.Queries.VariantValue do
   use Absinthe.Schema.Notation
-  
+
   alias EshopWeb.Schema.Resolvers.VariantValue, as: VariantValue
 
   object :variant_value_queries do

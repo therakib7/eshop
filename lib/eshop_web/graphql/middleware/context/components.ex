@@ -10,15 +10,13 @@ defmodule EshopWeb.Graphql.Middleware.Components do
         EshopWeb.Graphql.Middleware.Role.user_role(args, user_id)
 
       "variant" ->
-          EshopWeb.Graphql.Middleware.Role.user_role(args, user_id)
+        EshopWeb.Graphql.Middleware.Role.user_role(args, user_id)
 
       "faq" ->
         faq(args, res_args, user_id)
         # "role" -> roles()
     end
   end
-
-   
 
   defp faq(args, res_args, user_id) do
     shop_id =

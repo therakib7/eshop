@@ -16,7 +16,7 @@ defmodule Eshop.Components do
       iex> list_categories()
       [%Category{}, ...]
 
-  """ 
+  """
   def list_categories(args) do
     query = from(p in Category)
     filter_with(query, args.filter)
@@ -459,13 +459,13 @@ defmodule Eshop.Components do
     {:ok, variant} =
       %Variant{}
       |> Variant.changeset(attrs)
-      |> Repo.insert() 
+      |> Repo.insert()
 
     create_type_category(%{
       # 3 = shop
       type: 3,
       type_id: variant.id,
-      category_id: 1, 
+      category_id: 1
     })
 
     {:ok, variant}
