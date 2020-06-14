@@ -1,0 +1,54 @@
+# Get Warehouse
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+query {
+  warehouses{
+    id
+    name
+    nativeName,
+    isActive,
+    locationId,
+    shopId,
+    userId
+  }
+}
+
+### Create Warehouse
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  createShop( 
+    name: "Mini Bazar",  
+    companyId: 1
+  ){
+    id,
+    name, 
+  }
+}
+
+
+### Update Warehouse
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  updateShop(
+    id: 1,
+    shopParams: {
+        goldenSupplier: false,
+        highestAssurance: null,
+        isActive: false,
+        isVerifed: false,
+        name: "Mini Bazaar",
+        tradeAssurance: false, 
+        locationId: null,
+        attachmentId: null,
+        term_conditionId: null, 
+    }
+  ){
+    id,
+    name, 
+  }
+}

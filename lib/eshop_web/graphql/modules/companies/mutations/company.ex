@@ -7,7 +7,7 @@ defmodule EshopWeb.Schema.Mutations.Company do
     @desc "Create a company"
     field :create_company, type: :company do
       arg(:id, :integer)
-      arg(:created_at, :datetime)
+      # arg(:created_at, :datetime)
       arg(:golden_supplier, :boolean)
       arg(:highest_assurance, :decimal)
       arg(:is_active, :boolean)

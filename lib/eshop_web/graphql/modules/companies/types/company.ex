@@ -7,8 +7,8 @@ defmodule EshopWeb.Schema.Types.Company do
     field :created_at, :datetime
     field :golden_supplier, :boolean
     field :highest_assurance, :decimal
-    # field :is_active, :boolean
-    # field :is_verifed, :boolean
+    field :is_active, :boolean
+    field :is_verifed, :boolean
     field :name, :string
     field :trade_assurance, :boolean
     field :user_id, :integer
