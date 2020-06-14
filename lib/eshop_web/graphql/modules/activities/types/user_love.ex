@@ -6,7 +6,7 @@ defmodule EshopWeb.Schema.Types.UserLove do
     field :id, :integer
     field :type, :integer
     field :type_id, :integer
-    field :user_id, :id
+    field :user_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -15,6 +15,6 @@ defmodule EshopWeb.Schema.Types.UserLove do
   input_object :user_love_params do
     field :type, :integer
     field :type_id, :integer
-    field :user_id, :id
+    field :user_id, :integer
   end
 end

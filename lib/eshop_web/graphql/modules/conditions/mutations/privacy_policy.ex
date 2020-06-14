@@ -9,7 +9,7 @@ defmodule EshopWeb.Schema.Mutations.PrivacyPolicy do
       arg(:id, :integer)
       arg(:content, :string)
       arg(:native_content, :string)
-      arg(:shop_id, :id)
+      arg(:shop_id, :integer)
 
       resolve(&PrivacyPolicy.create_privacy_policy/3)
     end

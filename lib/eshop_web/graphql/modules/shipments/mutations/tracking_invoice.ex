@@ -8,8 +8,8 @@ defmodule EshopWeb.Schema.Mutations.TrackingInvoice do
     field :create_tracking_invoice, type: :tracking_invoice do
       arg(:id, :integer)
       arg(:tracking_id, :string)
-      arg(:invoice_id, :id)
-      arg(:shipping_method_id, :id)
+      arg(:invoice_id, :integer)
+      arg(:shipping_method_id, :integer)
 
       resolve(&TrackingInvoice.create_tracking_invoice/3)
     end

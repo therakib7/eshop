@@ -8,7 +8,7 @@ defmodule EshopWeb.Schema.Types.Guarantee do
     field :duration, :integer
     field :gurantee_type, :integer
     field :native_content, :string
-    field :item_id, :id
+    field :item_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -19,6 +19,6 @@ defmodule EshopWeb.Schema.Types.Guarantee do
     field :duration, :integer
     field :gurantee_type, :integer
     field :native_content, :string
-    field :item_id, :id
+    field :item_id, :integer
   end
 end

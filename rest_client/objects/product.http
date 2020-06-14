@@ -1,0 +1,53 @@
+# Get Product
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+query {
+  products {
+    id
+    title,
+    nativeTitle
+  } 
+}
+
+### Create Product
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation {
+  createProduct(
+    typeId: 5,
+    item: {
+    title: "Test Item", 
+    unitPrice: 220, 
+    costPrice: 100, 
+    sellPrice: 100, 
+    shopId: type_id_value
+    }, 
+    categoryIds: [{categoryId: 1}, {categoryId: 3}]
+    ) {
+    id
+    title
+    item {
+      title
+    }
+  }
+}
+
+
+### Update Product
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  updateProduct(
+    id: 1,
+    itemParams: { 
+      title: "Update Product", 
+    }
+  ){
+    id,
+    title, 
+  }
+}
+

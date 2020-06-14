@@ -9,7 +9,7 @@ defmodule EshopWeb.Schema.Mutations.PackageItem do
       arg(:id, :integer)
       arg(:name, :string)
       arg(:native_name, :string)
-      arg(:package_id, :id)
+      arg(:package_id, :integer)
 
       resolve(&PackageItem.create_package_item/3)
     end

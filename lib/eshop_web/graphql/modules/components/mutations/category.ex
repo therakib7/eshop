@@ -12,9 +12,9 @@ defmodule EshopWeb.Schema.Mutations.Category do
       arg(:name, :string)
       arg(:native_name, :string)
       arg(:slug, :string)
-      arg(:parent_id, :id)
-      arg(:attachment_id, :id)
-      arg(:user_id, :id)
+      arg(:parent_id, :integer)
+      arg(:attachment_id, :integer)
+      arg(:user_id, :integer)
 
       resolve(&Category.create_category/3)
     end

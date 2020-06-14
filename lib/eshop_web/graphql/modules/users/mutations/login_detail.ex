@@ -13,7 +13,7 @@ defmodule EshopWeb.Schema.Mutations.LoginDetail do
       arg(:last_activity, :datetime)
       arg(:login_at, :datetime)
       arg(:user_agent, :string)
-      arg(:user_id, :id)
+      arg(:user_id, :integer)
 
       resolve(&LoginDetail.create_login_detail/3)
     end

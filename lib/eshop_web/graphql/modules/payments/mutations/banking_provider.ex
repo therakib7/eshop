@@ -12,7 +12,7 @@ defmodule EshopWeb.Schema.Mutations.BankingProvider do
       arg(:native_name, :string)
       arg(:order, :integer)
       arg(:type, :integer)
-      arg(:attachement_id, :id)
+      arg(:attachement_id, :integer)
 
       resolve(&BankingProvider.create_banking_provider/3)
     end

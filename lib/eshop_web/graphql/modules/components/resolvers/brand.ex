@@ -7,7 +7,8 @@ defmodule EshopWeb.Schema.Resolvers.Brand do
     {:ok, Eshop.Components.get_brand!(id)}
   end
 
-  def create_brand(_parent, args, _resolution) do
+  def create_brand(_parent, args, %{context: %{current_user: current_user}}) do
+    args = Map.put(args, :user_id, current_user["sub"])
     Eshop.Components.create_brand(args)
   end
 

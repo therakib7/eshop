@@ -10,10 +10,10 @@ defmodule EshopWeb.Schema.Types.DiscountCode do
     field :is_active, :boolean
     field :used_at, :datetime
     field :validity, :integer
-    field :shop_id, :id
-    field :user_id, :id
+    field :shop_id, :integer
+    field :user_id, :integer
     field :used_by, :id
-    field :invoice_id, :id
+    field :invoice_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -26,9 +26,9 @@ defmodule EshopWeb.Schema.Types.DiscountCode do
     field :is_active, :boolean
     field :used_at, :datetime
     field :validity, :integer
-    field :shop_id, :id
-    field :user_id, :id
+    field :shop_id, :integer
+    field :user_id, :integer
     field :used_by, :id
-    field :invoice_id, :id
+    field :invoice_id, :integer
   end
 end

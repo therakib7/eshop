@@ -1,0 +1,45 @@
+# Get Companies
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+query {
+  brands {
+    id
+    name,
+    nativeName 
+  } 
+}
+
+### Create Brand
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  createBrand( 
+    name: "RFL",  
+    nativeName: "আর আফ এল",  
+  ){
+    id,
+    name, 
+    slug,
+    userId
+  }
+}
+
+
+### Update Brand
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  updateBrand(
+    id: 1,
+    categoryParams: { 
+      name: "Update Brand", 
+    }
+  ){
+    id,
+    name, 
+  }
+}
+

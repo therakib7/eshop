@@ -9,9 +9,9 @@ defmodule EshopWeb.Schema.Types.UserProfile do
     field :lat, :float
     field :long, :float
     field :merital_status, :integer
-    field :user_id, :id
-    field :pre_location_id, :id
-    field :per_location_id, :id
+    field :user_id, :integer
+    field :pre_location_id, :integer
+    field :per_location_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -23,8 +23,8 @@ defmodule EshopWeb.Schema.Types.UserProfile do
     field :lat, :float
     field :long, :float
     field :merital_status, :integer
-    field :user_id, :id
-    field :pre_location_id, :id
-    field :per_location_id, :id
+    field :user_id, :integer
+    field :pre_location_id, :integer
+    field :per_location_id, :integer
   end
 end

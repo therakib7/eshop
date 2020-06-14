@@ -9,7 +9,7 @@ defmodule EshopWeb.Schema.Mutations.PasswordReset do
       arg(:id, :integer)
       arg(:created_at, :datetime)
       arg(:token, :string)
-      arg(:user_id, :id)
+      arg(:user_id, :integer)
       arg(:inserted_at, :naive_datetime)
       arg(:updated_at, :naive_datetime)
 

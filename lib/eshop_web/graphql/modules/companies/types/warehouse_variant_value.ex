@@ -6,7 +6,7 @@ defmodule EshopWeb.Schema.Types.WarehouseVariantValue do
     field :id, :integer
     field :native_value, :string
     field :value, :string
-    field :warehouse_variant_id, :id
+    field :warehouse_variant_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -15,6 +15,6 @@ defmodule EshopWeb.Schema.Types.WarehouseVariantValue do
   input_object :warehouse_variant_value_params do
     field :native_value, :string
     field :value, :string
-    field :warehouse_variant_id, :id
+    field :warehouse_variant_id, :integer
   end
 end

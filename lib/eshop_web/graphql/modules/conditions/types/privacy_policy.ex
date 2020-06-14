@@ -6,7 +6,7 @@ defmodule EshopWeb.Schema.Types.PrivacyPolicy do
     field :id, :integer
     field :content, :string
     field :native_content, :string
-    field :shop_id, :id
+    field :shop_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -15,6 +15,6 @@ defmodule EshopWeb.Schema.Types.PrivacyPolicy do
   input_object :privacy_policy_params do
     field :content, :string
     field :native_content, :string
-    field :shop_id, :id
+    field :shop_id, :integer
   end
 end

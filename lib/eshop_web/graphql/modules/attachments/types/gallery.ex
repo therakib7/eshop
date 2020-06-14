@@ -6,7 +6,7 @@ defmodule EshopWeb.Schema.Types.Gallery do
     field :id, :integer
     field :type, :integer
     field :type_id, :integer
-    field :attachment_id, :id
+    field :attachment_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -15,6 +15,6 @@ defmodule EshopWeb.Schema.Types.Gallery do
   input_object :gallery_params do
     field :type, :integer
     field :type_id, :integer
-    field :attachment_id, :id
+    field :attachment_id, :integer
   end
 end

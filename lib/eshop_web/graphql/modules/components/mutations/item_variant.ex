@@ -10,9 +10,9 @@ defmodule EshopWeb.Schema.Mutations.ItemVariant do
       arg(:cost_price, :decimal)
       arg(:sale_price, :decimal)
       arg(:unit_price, :decimal)
-      arg(:item_id, :id)
-      arg(:variant_id, :id)
-      arg(:variant_value_id, :id)
+      arg(:item_id, :integer)
+      arg(:variant_id, :integer)
+      arg(:variant_value_id, :integer)
 
       resolve(&ItemVariant.create_item_variant/3)
     end

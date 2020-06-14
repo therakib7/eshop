@@ -10,8 +10,8 @@ defmodule EshopWeb.Schema.Mutations.ShippingAddress do
       arg(:address, :string)
       arg(:lat, :float)
       arg(:long, :float)
-      arg(:invoice_id, :id)
-      arg(:location_id, :id)
+      arg(:invoice_id, :integer)
+      arg(:location_id, :integer)
 
       resolve(&ShippingAddress.create_shipping_address/3)
     end

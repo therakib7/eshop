@@ -11,7 +11,7 @@ defmodule EshopWeb.Schema.Mutations.Guarantee do
       arg(:duration, :integer)
       arg(:gurantee_type, :integer)
       arg(:native_content, :string)
-      arg(:item_id, :id)
+      arg(:item_id, :integer)
 
       resolve(&Guarantee.create_guarantee/3)
     end

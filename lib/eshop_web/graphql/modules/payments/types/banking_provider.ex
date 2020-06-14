@@ -9,7 +9,7 @@ defmodule EshopWeb.Schema.Types.BankingProvider do
     field :native_name, :string
     field :order, :integer
     field :type, :integer
-    field :attachement_id, :id
+    field :attachement_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -21,6 +21,6 @@ defmodule EshopWeb.Schema.Types.BankingProvider do
     field :native_name, :string
     field :order, :integer
     field :type, :integer
-    field :attachement_id, :id
+    field :attachement_id, :integer
   end
 end

@@ -20,7 +20,7 @@ defmodule Eshop.Components.DiscountCode do
   @doc false
   def changeset(discount_code, attrs) do
     discount_code
-    |> cast(attrs, [:is_active, :code, :amount, :validity, :created_at, :used_at])
-    |> validate_required([:is_active, :code, :amount, :validity, :created_at, :used_at])
+    |> cast(attrs, [:is_active, :code, :amount, :validity, :used_at])
+    |> validate_required([:is_active, :code, :amount, :validity])
   end
 end

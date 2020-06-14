@@ -7,8 +7,8 @@ defmodule EshopWeb.Schema.Types.ShippingAddress do
     field :address, :string
     field :lat, :float
     field :long, :float
-    field :invoice_id, :id
-    field :location_id, :id
+    field :invoice_id, :integer
+    field :location_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -18,7 +18,7 @@ defmodule EshopWeb.Schema.Types.ShippingAddress do
     field :address, :string
     field :lat, :float
     field :long, :float
-    field :invoice_id, :id
-    field :location_id, :id
+    field :invoice_id, :integer
+    field :location_id, :integer
   end
 end

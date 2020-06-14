@@ -10,7 +10,7 @@ defmodule EshopWeb.Schema.Types.LoginDetail do
     field :last_activity, :datetime
     field :login_at, :datetime
     field :user_agent, :string
-    field :user_id, :id
+    field :user_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -23,6 +23,6 @@ defmodule EshopWeb.Schema.Types.LoginDetail do
     field :last_activity, :datetime
     field :login_at, :datetime
     field :user_agent, :string
-    field :user_id, :id
+    field :user_id, :integer
   end
 end

@@ -6,7 +6,7 @@ defmodule EshopWeb.Schema.Types.UserSetting do
     field :id, :integer
     field :key, :string
     field :value, :string
-    field :user_id, :id
+    field :user_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -15,6 +15,6 @@ defmodule EshopWeb.Schema.Types.UserSetting do
   input_object :user_setting_params do
     field :key, :string
     field :value, :string
-    field :user_id, :id
+    field :user_id, :integer
   end
 end

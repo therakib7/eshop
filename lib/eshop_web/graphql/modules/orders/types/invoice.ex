@@ -10,9 +10,9 @@ defmodule EshopWeb.Schema.Types.Invoice do
     field :paid, :decimal
     field :total, :decimal
     field :type, :integer
-    field :company_id, :id
-    field :shop_id, :id
-    field :user_id, :id
+    field :company_id, :integer
+    field :shop_id, :integer
+    field :user_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -25,8 +25,8 @@ defmodule EshopWeb.Schema.Types.Invoice do
     field :paid, :decimal
     field :total, :decimal
     field :type, :integer
-    field :company_id, :id
-    field :shop_id, :id
-    field :user_id, :id
+    field :company_id, :integer
+    field :shop_id, :integer
+    field :user_id, :integer
   end
 end

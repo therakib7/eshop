@@ -13,9 +13,9 @@ defmodule EshopWeb.Schema.Mutations.Brand do
       arg(:name, :string)
       arg(:native_name, :string)
       arg(:slug, :string)
-      arg(:attachment_id, :id)
-      arg(:location_id, :id)
-      arg(:user_id, :id)
+      arg(:attachment_id, :integer)
+      arg(:location_id, :integer)
+      arg(:user_id, :integer)
 
       resolve(&Brand.create_brand/3)
     end

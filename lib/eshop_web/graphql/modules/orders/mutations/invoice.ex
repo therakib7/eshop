@@ -13,9 +13,9 @@ defmodule EshopWeb.Schema.Mutations.Invoice do
       arg(:paid, :decimal)
       arg(:total, :decimal)
       arg(:type, :integer)
-      arg(:company_id, :id)
-      arg(:shop_id, :id)
-      arg(:user_id, :id)
+      arg(:company_id, :integer)
+      arg(:shop_id, :integer)
+      arg(:user_id, :integer)
 
       resolve(&Invoice.create_invoice/3)
     end

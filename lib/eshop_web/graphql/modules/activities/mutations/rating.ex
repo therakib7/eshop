@@ -10,7 +10,7 @@ defmodule EshopWeb.Schema.Mutations.Rating do
       arg(:star, :integer)
       arg(:type, :integer)
       arg(:type_id, :integer)
-      arg(:user_id, :id)
+      arg(:user_id, :integer)
 
       resolve(&Rating.create_rating/3)
     end

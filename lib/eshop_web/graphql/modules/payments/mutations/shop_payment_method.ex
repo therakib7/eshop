@@ -11,9 +11,9 @@ defmodule EshopWeb.Schema.Mutations.ShopPaymentMethod do
       arg(:ac_no, :integer)
       arg(:account_type, :string)
       arg(:is_active, :boolean)
-      arg(:shop_id, :id)
-      arg(:shop_payment_method_id, :id)
-      arg(:user_id, :id)
+      arg(:shop_id, :integer)
+      arg(:shop_payment_method_id, :integer)
+      arg(:user_id, :integer)
 
       resolve(&ShopPaymentMethod.create_shop_payment_method/3)
     end

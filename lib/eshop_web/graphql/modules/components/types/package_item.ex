@@ -6,7 +6,7 @@ defmodule EshopWeb.Schema.Types.PackageItem do
     field :id, :integer
     field :name, :string
     field :native_name, :string
-    field :package_id, :id
+    field :package_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -15,6 +15,6 @@ defmodule EshopWeb.Schema.Types.PackageItem do
   input_object :package_item_params do
     field :name, :string
     field :native_name, :string
-    field :package_id, :id
+    field :package_id, :integer
   end
 end

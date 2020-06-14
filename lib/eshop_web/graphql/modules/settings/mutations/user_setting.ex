@@ -9,7 +9,7 @@ defmodule EshopWeb.Schema.Mutations.UserSetting do
       arg(:id, :integer)
       arg(:key, :string)
       arg(:value, :string)
-      arg(:user_id, :id)
+      arg(:user_id, :integer)
 
       resolve(&UserSetting.create_user_setting/3)
     end

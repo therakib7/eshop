@@ -9,9 +9,9 @@ defmodule EshopWeb.Schema.Types.Category do
     field :name, :string
     field :native_name, :string
     field :slug, :string
-    field :parent_id, :id
-    field :attachment_id, :id
-    field :user_id, :id
+    field :parent_id, :integer
+    field :attachment_id, :integer
+    field :user_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -23,9 +23,9 @@ defmodule EshopWeb.Schema.Types.Category do
     field :name, :string
     field :native_name, :string
     field :slug, :string
-    field :parent_id, :id
-    field :attachment_id, :id
-    field :user_id, :id
+    field :parent_id, :integer
+    field :attachment_id, :integer
+    field :user_id, :integer
   end
 
   @desc "A item categories"

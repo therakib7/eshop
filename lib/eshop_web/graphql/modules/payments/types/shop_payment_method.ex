@@ -8,9 +8,9 @@ defmodule EshopWeb.Schema.Types.ShopPaymentMethod do
     field :ac_no, :integer
     field :account_type, :string
     field :is_active, :boolean
-    field :shop_id, :id
-    field :banking_provider_id, :id
-    field :user_id, :id
+    field :shop_id, :integer
+    field :banking_provider_id, :integer
+    field :user_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -21,8 +21,8 @@ defmodule EshopWeb.Schema.Types.ShopPaymentMethod do
     field :ac_no, :integer
     field :account_type, :string
     field :is_active, :boolean
-    field :shop_id, :id
-    field :banking_provider_id, :id
-    field :user_id, :id
+    field :shop_id, :integer
+    field :banking_provider_id, :integer
+    field :user_id, :integer
   end
 end

@@ -7,7 +7,8 @@ defmodule EshopWeb.Schema.Resolvers.Faq do
     {:ok, Eshop.Components.get_faq!(id)}
   end
 
-  def create_faq(_parent, args, _resolution) do
+  def create_faq(_parent, args, %{context: %{current_user: current_user}}) do
+    args = Map.put(args, :user_id, current_user["sub"])
     Eshop.Components.create_faq(args)
   end
 

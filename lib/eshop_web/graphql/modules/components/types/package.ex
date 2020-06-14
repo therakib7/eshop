@@ -7,7 +7,7 @@ defmodule EshopWeb.Schema.Types.Package do
     field :cost_price, :decimal
     field :sale_price, :decimal
     field :unit_price, :decimal
-    field :item_id, :id
+    field :item_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
   end
@@ -17,6 +17,6 @@ defmodule EshopWeb.Schema.Types.Package do
     field :cost_price, :decimal
     field :sale_price, :decimal
     field :unit_price, :decimal
-    field :item_id, :id
+    field :item_id, :integer
   end
 end

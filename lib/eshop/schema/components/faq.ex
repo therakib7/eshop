@@ -3,8 +3,8 @@ defmodule Eshop.Components.Faq do
   import Ecto.Changeset
 
   schema "faqs" do
-    field :content, :string
-    field :native_content, :string
+    field :answer, :string
+    field :native_answer, :string
     field :native_question, :string
     field :question, :string
     belongs_to :item, Eshop.Objects.Item
@@ -16,10 +16,10 @@ defmodule Eshop.Components.Faq do
   @doc false
   def changeset(faq, attrs) do
     faq
-    |> cast(attrs, [:question, :native_question, :content, :native_content])
-    |> validate_required([:question, :native_question, :content, :native_content])
-    |> validate_length(:content, min: 2, max: 1000)
-    |> validate_length(:native_content, min: 2, max: 1000)
+    |> cast(attrs, [:question, :native_question, :answer, :native_answer, :item_id, :user_id])
+    |> validate_required([:question, :native_question, :answer, :native_answer])
+    |> validate_length(:answer, min: 2, max: 1000)
+    |> validate_length(:native_answer, min: 2, max: 1000)
     |> validate_length(:question, min: 2, max: 500)
     |> validate_length(:native_question, min: 2, max: 500)
   end
