@@ -1,6 +1,6 @@
 defmodule EshopWeb.Schema.Mutations.PackageItem do
   use Absinthe.Schema.Notation
-  
+
   alias EshopWeb.Graphql.Middleware.Auth
   alias EshopWeb.Schema.Resolvers.PackageItem, as: PackageItem
 

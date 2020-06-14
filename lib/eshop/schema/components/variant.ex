@@ -9,7 +9,7 @@ defmodule Eshop.Components.Variant do
     field :type, :integer
     belongs_to :user, Eshop.Users.User
     belongs_to :shop, Eshop.Companies.Shop
-    # has_many :categories, Eshop.Components.TypeCategory
+    # has_many :type_categories, Eshop.Components.TypeCategory, foreign_key: :type_id
 
     timestamps()
   end
