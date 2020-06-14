@@ -5,7 +5,7 @@ defmodule EshopWeb.Schema.Resolvers.Product do
 
   def get_product(_, %{id: id}, _) do
     {:ok, Eshop.Objects.get_product!(id)}
-  end 
+  end
 
   def create_product(_parent, args, %{context: %{current_user: current_user}}) do
     args = Map.put(args, :user_id, current_user["sub"])

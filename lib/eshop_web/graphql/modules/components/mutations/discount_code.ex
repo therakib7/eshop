@@ -1,6 +1,6 @@
 defmodule EshopWeb.Schema.Mutations.DiscountCode do
   use Absinthe.Schema.Notation
-
+  alias EshopWeb.Graphql.Middleware.Auth
   alias EshopWeb.Schema.Resolvers.DiscountCode, as: DiscountCode
 
   object :discount_code_mutations do

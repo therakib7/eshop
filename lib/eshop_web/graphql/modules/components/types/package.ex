@@ -4,6 +4,10 @@ defmodule EshopWeb.Schema.Types.Package do
   @desc "A package"
   object :package do
     field :id, :integer
+    field :title, :string
+    field :native_title, :string
+    field :subtitle, :string
+    field :native_subtitle, :string
     field :cost_price, :decimal
     field :sale_price, :decimal
     field :unit_price, :decimal
@@ -14,6 +18,10 @@ defmodule EshopWeb.Schema.Types.Package do
 
   @desc "A package update"
   input_object :package_params do
+    field :title, :string
+    field :native_title, :string
+    field :subtitle, :string
+    field :native_subtitle, :string
     field :cost_price, :decimal
     field :sale_price, :decimal
     field :unit_price, :decimal

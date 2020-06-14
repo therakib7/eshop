@@ -1,4 +1,4 @@
-# Get Companies
+# Get Faqs
 POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
@@ -20,7 +20,7 @@ mutation{
     nativeQuestion: "ফেক ১",  
     answer: "Answer 1",
     nativeAnswer: "উত্তর ১"
-    itemId: 1,
+    itemId: 12,
   ){
     id,
     question, 

@@ -1,5 +1,5 @@
 defmodule EshopWeb.Graphql.Middleware.Auth do
-  @behaviour Absinthe.Middleware 
+  @behaviour Absinthe.Middleware
 
   def call(resolution, args) do
     # IO.inspect(resolution.arguments.id) 

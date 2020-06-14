@@ -2,7 +2,7 @@ defmodule EshopWeb.Schema.Types.Item do
   use Absinthe.Schema.Notation
 
   @desc "A item"
-  object :item_type do 
+  object :item_type do
     field :cost_price, :decimal
     field :desc, :string
     field :extra_fields, :string
@@ -10,7 +10,7 @@ defmodule EshopWeb.Schema.Types.Item do
     field :has_variant, :boolean
     field :has_warehouse, :boolean
     field :is_active, :boolean
-    field :is_online, :boolean 
+    field :is_online, :boolean
     field :low_stock, :integer
     field :title, :string
     field :native_desc, :string
@@ -22,14 +22,14 @@ defmodule EshopWeb.Schema.Types.Item do
     field :unit, :integer
     field :unit_price, :decimal
     field :vat, :integer
-    field :vat_type, :integer 
+    field :vat_type, :integer
     field :user_id, :integer
     field :shop_id, :integer
-    field :unit_type_id, :integer 
+    field :unit_type_id, :integer
   end
 
   @desc "A item"
-  input_object :item do 
+  input_object :item do
     field :cost_price, :decimal
     field :desc, :string
     field :extra_fields, :string
@@ -37,7 +37,7 @@ defmodule EshopWeb.Schema.Types.Item do
     field :has_variant, :boolean
     field :has_warehouse, :boolean
     field :is_active, :boolean
-    field :is_online, :boolean 
+    field :is_online, :boolean
     field :low_stock, :integer
     field :title, :string
     field :native_desc, :string
@@ -49,10 +49,10 @@ defmodule EshopWeb.Schema.Types.Item do
     field :unit, :integer
     field :unit_price, :decimal
     field :vat, :integer
-    field :vat_type, :integer 
+    field :vat_type, :integer
     field :user_id, :integer
     field :shop_id, :integer
-    field :unit_type_id, :integer 
+    field :unit_type_id, :integer
   end
 
   @desc "A item update"

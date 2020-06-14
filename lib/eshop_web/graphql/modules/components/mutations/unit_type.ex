@@ -1,6 +1,6 @@
 defmodule EshopWeb.Schema.Mutations.UnitType do
   use Absinthe.Schema.Notation
-
+  alias EshopWeb.Graphql.Middleware.Auth
   alias EshopWeb.Schema.Resolvers.UnitType
 
   object :unit_type_mutations do

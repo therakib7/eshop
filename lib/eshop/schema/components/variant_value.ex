@@ -13,8 +13,8 @@ defmodule Eshop.Components.VariantValue do
   @doc false
   def changeset(variant_value, attrs) do
     variant_value
-    |> cast(attrs, [:value, :native_value])
-    |> validate_required([:value, :native_value])
+    |> cast(attrs, [:value, :native_value, :variant_id])
+    |> validate_required([:value, :native_value, :variant_id])
     |> validate_length(:value, min: 2, max: 200)
     |> validate_length(:native_value, min: 2, max: 200)
   end

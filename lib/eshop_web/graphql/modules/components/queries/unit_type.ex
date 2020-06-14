@@ -1,6 +1,6 @@
 defmodule EshopWeb.Schema.Queries.UnitType do
   use Absinthe.Schema.Notation
-
+  alias EshopWeb.Graphql.Middleware.Auth
   alias EshopWeb.Schema.Resolvers.UnitType, as: UnitType
 
   object :unit_type_queries do

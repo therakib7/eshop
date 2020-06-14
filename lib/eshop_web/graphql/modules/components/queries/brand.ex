@@ -1,11 +1,22 @@
 defmodule EshopWeb.Schema.Queries.Brand do
   use Absinthe.Schema.Notation
+  use Absinthe.Relay.Schema.Notation, :modern
+  alias EshopWeb.Graphql.Middleware.Auth
+  alias EshopWeb.Schema.Resolvers.Brand
 
-  alias EshopWeb.Schema.Resolvers.Brand, as: Brand
+  input_object :brand_filter do
+    field :id, :integer
+    field :name, :string
+    field :inserted_before, :naive_datetime
+    field :inserted_after, :naive_datetime
+  end
+
+  connection(node_type: :brand)
 
   object :brand_queries do
     @desc "Get all brands"
-    field :brands, list_of(:brand) do
+    connection field :brands, node_type: :brand do
+      arg(:filter, :brand_filter)
       resolve(&Brand.list_brands/3)
     end
 

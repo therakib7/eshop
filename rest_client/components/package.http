@@ -1,0 +1,56 @@
+# Get Packages
+
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+query {
+  packages {
+    id
+    question,
+    nativeQuestion 
+  } 
+}
+
+### Create Package
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  createPackage(
+    title: "Package Title"
+    nativeTitle: "Package Native Title"
+    subtitle: "Package Subitle"
+    nativeSubtitle: "Package Native Subtitle"
+    costPrice: 200,
+    unitPrice: 150,
+    salePrice: 140
+    itemId: 12
+  ) {
+    id
+    title
+    nativeTitle
+    subtitle
+    nativeSubtitle
+    itemId 
+    costPrice
+    salePrice
+    unitPrice
+  }
+}
+
+### Update Package
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  updatePackage(
+    id: 1,
+    packageParams: { 
+      title: "Update Package", 
+    }
+  ){
+    id,
+    title, 
+  }
+}
+

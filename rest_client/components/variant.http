@@ -1,9 +1,9 @@
-# Get Brands
+# Get Variants
 POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
- 
+
 {
-  brands(first: 5, filter: {id: 3}) {
+  variants(first: 5, filter: {variant_id: 1}) {
     pageInfo{
       hasPreviousPage
       hasNextPage
@@ -21,32 +21,33 @@ Authorization: {{user_token}}
   }
 }
 
-### Create Brand
+### Create Variant
 POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
 mutation{
-  createBrand( 
-    name: "RFL",  
-    nativeName: "আর আফ এল",  
+  createVariant( 
+    name: "Color",  
+    nativeName: "রং", 
+    type: 1,
+    categoryIds: [{categoryId: 1}, {categoryId: 3}]
   ){
     id,
-    name, 
-    slug,
+    name,  
     userId
   }
 }
 
 
-### Update Brand
+### Update Variant
 POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
 mutation{
-  updateBrand(
+  updateVariant(
     id: 1,
-    brandParams: { 
-      name: "Update Brand", 
+    variantParams: { 
+      name: "Update Variant", 
     }
   ){
     id,
@@ -54,13 +55,13 @@ mutation{
   }
 }
 
-### Delete Brand
+### Delete Variant
 POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
 mutation{
-  deleteBrand(
-    id: 2, 
+  deleteVariant(
+    id: 1, 
   ){
     id,
     name, 

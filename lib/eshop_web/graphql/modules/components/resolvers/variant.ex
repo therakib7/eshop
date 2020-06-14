@@ -7,7 +7,8 @@ defmodule EshopWeb.Schema.Resolvers.Variant do
     {:ok, Eshop.Components.get_variant!(id)}
   end
 
-  def create_variant(_parent, args, _resolution) do
+  def create_variant(_parent, args, %{context: %{current_user: current_user}}) do
+    args = Map.put(args, :user_id, current_user["sub"])
     Eshop.Components.create_variant(args)
   end
 
