@@ -7,7 +7,7 @@ defmodule EshopWeb.Schema.Mutations.Package do
   object :package_mutations do
     @desc "Create a package"
     field :create_package, type: :package do
-      arg :id, :integer
+      middleware(Auth, %{per: "product_create", context: "components", model: "package"})
       arg :title, :string
       arg :native_title, :string
       arg :subtitle, :string
@@ -22,6 +22,7 @@ defmodule EshopWeb.Schema.Mutations.Package do
 
     @desc "Update a package"
     field :update_package, type: :package do
+      middleware(Auth, %{per: "product_create", context: "components", model: "package"})
       arg(:id, non_null(:id))
       arg(:package_params, :package_params)
 
@@ -30,6 +31,7 @@ defmodule EshopWeb.Schema.Mutations.Package do
 
     @desc "Delete a package"
     field :delete_package, type: :package do
+      middleware(Auth, %{per: "product_create", context: "components", model: "package"})
       arg(:id, non_null(:id))
       resolve(&Package.delete_package/2)
     end

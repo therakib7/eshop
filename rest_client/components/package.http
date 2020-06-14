@@ -4,7 +4,7 @@ POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
 query {
-  faqs {
+  packages {
     id
     question,
     nativeQuestion 
