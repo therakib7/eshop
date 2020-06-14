@@ -13,8 +13,8 @@ Authorization: {{user_token}}
     edges{
       node{
         id
-        name,
-        nativeName
+        value,
+        nativeValue
       }
       cursor 
     }
@@ -28,12 +28,11 @@ Authorization: {{user_token}}
 mutation{
   createVariantValue( 
     variantId: 1,
-    name: "Red",  
-    nativeName: "লাল",   
+    value: "Red",  
+    nativeValue: "লাল",   
   ){
     id,
-    name,  
-    userId
+    value 
   }
 }
 
