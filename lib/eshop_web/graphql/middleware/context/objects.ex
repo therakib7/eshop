@@ -9,8 +9,8 @@ defmodule EshopWeb.Graphql.Middleware.Objects do
     end
   end
 
-  defp item(args, res_args, user_id) do
-    EshopWeb.Graphql.Middleware.Role.type_user_role(3, args, res_args, user_id) ||
+  defp item(args, res_args, user_id) do  
+    EshopWeb.Graphql.Middleware.Role.type_user_role(3, res_args.type_id, args.per, user_id) ||
       EshopWeb.Graphql.Middleware.Role.user_role(args, user_id)
   end
 end

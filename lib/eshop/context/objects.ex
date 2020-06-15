@@ -193,7 +193,7 @@ defmodule Eshop.Objects do
     # %Product{}
     # |> Product.changeset(attrs)
     # |> Repo.insert()
-    shop = Eshop.Companies.get_shop!(attrs.item.shop_id)
+    shop = Eshop.Companies.get_shop!(attrs.type_id)
 
     %Item{}
     |> Item.changeset(attrs.item)
