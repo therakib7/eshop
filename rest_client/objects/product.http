@@ -16,20 +16,20 @@ Authorization: {{user_token}}
 
 mutation {
   createProduct(
-    typeId: 5,
+    typeId: 1,
     item: {
     title: "Test Item", 
     unitPrice: 220, 
     costPrice: 100, 
-    sellPrice: 100, 
-    shopId: type_id_value
+    sellPrice: 100,  
     }, 
-    categoryIds: [{categoryId: 1}, {categoryId: 3}]
+    brandId: 3
+    categoryIds: [ {categoryId: 2}]
     ) {
     id
-    title
+    title 
     item {
-      title
+      title 
     }
   }
 }

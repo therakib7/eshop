@@ -8,6 +8,7 @@ defmodule EshopWeb.Schema.Mutations.Product do
     @desc "Create a product"
     field :create_product, type: :product do
       middleware(Auth, %{per: "product_create", context: "objects", model: "item"}) 
+      arg(:type_id, :integer)
       arg(:item, :item)
       arg(:barcode, :string)
       arg(:exp_date, :naive_datetime)
