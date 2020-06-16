@@ -6,6 +6,7 @@ defmodule EshopWeb.Schema.Types.UnitType do
     field :id, :integer
     field :name, :string
     field :native_name, :string
+    field :type, :integer
     field :user_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
@@ -15,6 +16,7 @@ defmodule EshopWeb.Schema.Types.UnitType do
   input_object :unit_type_params do
     field :name, :string
     field :native_name, :string
+    field :type, :integer
     field :user_id, :integer
   end
 end

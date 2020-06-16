@@ -5,11 +5,11 @@ defmodule EshopWeb.Schema.Mutations.UnitType do
 
   object :unit_type_mutations do
     @desc "Create a unit_type"
-    field :create_unit_type, type: :unit_type do
-      arg(:id, :integer)
+    field :create_unit_type, type: :unit_type do 
       arg(:name, :string)
       arg(:native_name, :string)
-      arg(:user_id, :integer)
+      arg(:type, :integer) 
+      arg(:category_ids, list_of(:category_ids))
 
       resolve(&UnitType.create_unit_type/3)
     end
