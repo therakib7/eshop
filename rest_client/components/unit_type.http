@@ -46,8 +46,8 @@ Authorization: {{user_token}}
 
 mutation{
   updateUnitType(
-    id: 1,
-    variantParams: { 
+    id: 5,
+    unitTypeParams: { 
       name: "Update UnitType", 
     }
   ){
@@ -62,7 +62,7 @@ Authorization: {{user_token}}
 
 mutation{
   deleteUnitType(
-    id: 1, 
+    id: 5, 
   ){
     id,
     name, 

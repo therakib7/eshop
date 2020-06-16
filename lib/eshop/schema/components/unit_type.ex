@@ -2,7 +2,7 @@ defmodule Eshop.Components.UnitType do
   use Ecto.Schema
   import Ecto.Changeset
 
-  schema "unit_types" do 
+  schema "unit_types" do
     field :name, :string
     field :native_name, :string
     field :type, :integer

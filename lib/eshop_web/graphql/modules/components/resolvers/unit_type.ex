@@ -5,7 +5,7 @@ defmodule EshopWeb.Schema.Resolvers.UnitType do
 
   def get_unit_type(_, %{id: id}, _) do
     {:ok, Eshop.Components.get_unit_type!(id)}
-  end 
+  end
 
   def create_unit_type(_parent, args, %{context: %{current_user: current_user}}) do
     args = Map.put(args, :user_id, current_user["sub"])

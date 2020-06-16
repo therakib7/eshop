@@ -12,6 +12,9 @@ defmodule EshopWeb.Graphql.Middleware.Components do
       "variant" ->
         EshopWeb.Graphql.Middleware.Role.user_role(args, user_id)
 
+      "unit_type" ->
+          EshopWeb.Graphql.Middleware.Role.user_role(args, user_id)
+
       "faq" ->
         faq(args, res_args, user_id)
 
