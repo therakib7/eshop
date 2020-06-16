@@ -23,7 +23,9 @@ defmodule EshopWeb.Graphql.Middleware.Components do
 
       "package_item" ->
         package_item(args, res_args, user_id)
-        # "role" -> roles()
+      
+      "discount_code" ->
+        discount_code(args, res_args, user_id)
     end
   end
 
@@ -57,6 +59,11 @@ defmodule EshopWeb.Graphql.Middleware.Components do
       Eshop.Repo.one(from u in Eshop.Objects.Item, where: u.id == ^item_id, select: u.shop_id)
 
     EshopWeb.Graphql.Middleware.Role.type_user_role(3, shop_id, args.per, user_id) ||
+      EshopWeb.Graphql.Middleware.Role.user_role(args, user_id)
+  end
+
+  defp discount_code(args, res_args, user_id) do
+    EshopWeb.Graphql.Middleware.Role.type_user_role(3, res_args.shop_id, args.per, user_id) ||
       EshopWeb.Graphql.Middleware.Role.user_role(args, user_id)
   end
 end

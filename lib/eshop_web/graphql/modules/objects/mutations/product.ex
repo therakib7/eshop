@@ -22,6 +22,7 @@ defmodule EshopWeb.Schema.Mutations.Product do
 
     @desc "Update a product"
     field :update_product, type: :product do
+      middleware(Auth, %{per: "product_update", context: "objects", model: "item"})
       arg(:id, non_null(:id))
       arg(:product_params, :product_params)
 
@@ -30,6 +31,7 @@ defmodule EshopWeb.Schema.Mutations.Product do
 
     @desc "Delete a product"
     field :delete_product, type: :product do
+      middleware(Auth, %{per: "product_delete", context: "objects", model: "item"})
       arg(:id, non_null(:id))
       resolve(&Product.delete_product/2)
     end
