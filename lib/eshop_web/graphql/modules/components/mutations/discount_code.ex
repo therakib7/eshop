@@ -6,7 +6,7 @@ defmodule EshopWeb.Schema.Mutations.DiscountCode do
   object :discount_code_mutations do
     @desc "Create a discount_code"
     field :create_discount_code, type: :discount_code do
-      arg(:id, :integer)
+      arg(:name, :string)
       arg(:amount, :integer)
       arg(:code, :string)
       arg(:created_at, :datetime)

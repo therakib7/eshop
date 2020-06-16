@@ -4,6 +4,7 @@ defmodule EshopWeb.Schema.Types.DiscountCode do
   @desc "A discount_code"
   object :discount_code do
     field :id, :integer
+    field :name, :string
     field :amount, :integer
     field :code, :string
     field :created_at, :datetime
@@ -12,7 +13,7 @@ defmodule EshopWeb.Schema.Types.DiscountCode do
     field :validity, :integer
     field :shop_id, :integer
     field :user_id, :integer
-    field :used_by, :id
+    field :used_by_id, :id
     field :invoice_id, :integer
     field :inserted_at, :naive_datetime
     field :updated_at, :naive_datetime
@@ -20,6 +21,7 @@ defmodule EshopWeb.Schema.Types.DiscountCode do
 
   @desc "A discount_code update"
   input_object :discount_code_params do
+    field :name, :string
     field :amount, :integer
     field :code, :string
     field :created_at, :datetime
@@ -27,8 +29,7 @@ defmodule EshopWeb.Schema.Types.DiscountCode do
     field :used_at, :datetime
     field :validity, :integer
     field :shop_id, :integer
-    field :user_id, :integer
-    field :used_by, :id
+    field :user_id, :integer 
     field :invoice_id, :integer
   end
 end
