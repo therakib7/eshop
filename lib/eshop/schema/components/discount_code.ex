@@ -3,6 +3,7 @@ defmodule Eshop.Components.DiscountCode do
   import Ecto.Changeset
 
   schema "discount_codes" do
+    field :name, :string
     field :amount, :integer
     field :code, :string
     field :created_at, :utc_datetime
@@ -11,7 +12,7 @@ defmodule Eshop.Components.DiscountCode do
     field :validity, :integer
     belongs_to :shop, Eshop.Companies.Shop
     belongs_to :user, Eshop.Users.User
-    belongs_to :used_by, Eshop.Users.User
+    belongs_to :used_by, Eshop.Users.User 
     belongs_to :invoice, Eshop.Orders.Invoice
 
     timestamps()
@@ -20,7 +21,7 @@ defmodule Eshop.Components.DiscountCode do
   @doc false
   def changeset(discount_code, attrs) do
     discount_code
-    |> cast(attrs, [:is_active, :code, :amount, :validity, :used_at])
-    |> validate_required([:is_active, :code, :amount, :validity])
+    |> cast(attrs, [:name, :is_active, :code, :amount, :validity, :user_id, :shop_id])
+    |> validate_required([:code, :amount, :validity])
   end
 end

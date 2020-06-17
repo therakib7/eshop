@@ -5,6 +5,7 @@ defmodule Eshop.Repo.Migrations.CreateUnitTypes do
     create table(:unit_types) do
       add :name, :string, null: true, size: 50
       add :native_name, :string, null: true, size: 50
+      add :type, :integer
       add :user_id, references(:users, on_delete: :nothing)
 
       timestamps()

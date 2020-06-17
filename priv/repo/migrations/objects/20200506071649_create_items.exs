@@ -21,7 +21,7 @@ defmodule Eshop.Repo.Migrations.CreateItems do
       add :has_warehouse, :boolean, default: false, null: false
       add :cost_price, :decimal, null: true
       add :unit_price, :decimal, null: true
-      add :sell_price, :decimal, null: true
+      add :sale_price, :decimal, null: true
       add :type, :integer, null: true
       add :type_id, :integer, null: true
       add :extra_fields, :map, null: true

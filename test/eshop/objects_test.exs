@@ -20,7 +20,7 @@ defmodule Eshop.ObjectsTest do
       name: "some name",
       native_desc: "some native_desc",
       native_name: "some native_name",
-      sell_price: "120.5",
+      sale_price: "120.5",
       total_order: 42,
       type: 42,
       type_id: 42,
@@ -44,7 +44,7 @@ defmodule Eshop.ObjectsTest do
       name: "some updated name",
       native_desc: "some updated native_desc",
       native_name: "some updated native_name",
-      sell_price: "456.7",
+      sale_price: "456.7",
       total_order: 43,
       type: 43,
       type_id: 43,
@@ -68,7 +68,7 @@ defmodule Eshop.ObjectsTest do
       name: nil,
       native_desc: nil,
       native_name: nil,
-      sell_price: nil,
+      sale_price: nil,
       total_order: nil,
       type: nil,
       type_id: nil,
@@ -113,7 +113,7 @@ defmodule Eshop.ObjectsTest do
       assert item.name == "some name"
       assert item.native_desc == "some native_desc"
       assert item.native_name == "some native_name"
-      assert item.sell_price == Decimal.new("120.5")
+      assert item.sale_price == Decimal.new("120.5")
       assert item.total_order == 42
       assert item.type == 42
       assert item.type_id == 42
@@ -144,7 +144,7 @@ defmodule Eshop.ObjectsTest do
       assert item.name == "some updated name"
       assert item.native_desc == "some updated native_desc"
       assert item.native_name == "some updated native_name"
-      assert item.sell_price == Decimal.new("456.7")
+      assert item.sale_price == Decimal.new("456.7")
       assert item.total_order == 43
       assert item.type == 43
       assert item.type_id == 43

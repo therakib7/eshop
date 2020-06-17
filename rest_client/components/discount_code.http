@@ -1,0 +1,72 @@
+# Get DiscountCodes
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+{
+  variants(first: 5, filter: {variant_id: 1}) {
+    pageInfo{
+      hasPreviousPage
+      hasNextPage
+      endCursor
+      startCursor
+    }
+    edges{
+      node{
+        id
+        name,
+        nativeName
+      }
+      cursor 
+    }
+  }
+}
+
+### Create DiscountCode
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  createDiscountCode( 
+    name: "100 taka discount",  
+    amount: 100, 
+    validity: 100, 
+    shop_id: 1, 
+  ){
+    id,
+    name,  
+    amount
+    validity
+    shopId
+    userId
+  }
+}
+
+
+### Update DiscountCode
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  updateDiscountCode(
+    id: 5,
+    discountCodeParams: { 
+      name: "Update DiscountCode", 
+    }
+  ){
+    id,
+    name, 
+  }
+}
+
+### Delete DiscountCode
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  deleteDiscountCode(
+    id: 5, 
+  ){
+    id,
+    name, 
+  }
+}

@@ -2,8 +2,9 @@ defmodule Eshop.Repo.Migrations.CreateDiscountCodes do
   use Ecto.Migration
 
   def change do
-    create table(:discount_codes) do
+    create table(:discount_codes) do 
       add :is_active, :boolean, default: false, null: false
+      add :name, :string, size: 150
       add :code, :string, size: 50
       add :amount, :integer
       add :validity, :integer, null: true
@@ -11,7 +12,7 @@ defmodule Eshop.Repo.Migrations.CreateDiscountCodes do
       add :used_at, :utc_datetime
       add :shop_id, references(:shops, on_delete: :nothing)
       add :user_id, references(:users, on_delete: :nothing)
-      add :used_by, references(:users, on_delete: :nothing)
+      add :used_by_id, references(:users, on_delete: :nothing)
       add :invoice_id, references(:invoices, on_delete: :nothing)
 
       timestamps()

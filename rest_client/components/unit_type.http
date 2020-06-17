@@ -1,0 +1,70 @@
+# Get UnitTypes
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+{
+  variants(first: 5, filter: {variant_id: 1}) {
+    pageInfo{
+      hasPreviousPage
+      hasNextPage
+      endCursor
+      startCursor
+    }
+    edges{
+      node{
+        id
+        name,
+        nativeName
+      }
+      cursor 
+    }
+  }
+}
+
+### Create UnitType
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  createUnitType( 
+    name: "KG",  
+    nativeName: "কেজি", 
+    type: 1,
+    categoryIds: [{categoryId: 2}]
+  ){
+    id,
+    name,  
+    nativeName
+    userId
+  }
+}
+
+
+### Update UnitType
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  updateUnitType(
+    id: 5,
+    unitTypeParams: { 
+      name: "Update UnitType", 
+    }
+  ){
+    id,
+    name, 
+  }
+}
+
+### Delete UnitType
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  deleteUnitType(
+    id: 5, 
+  ){
+    id,
+    name, 
+  }
+}
