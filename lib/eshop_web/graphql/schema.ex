@@ -213,7 +213,7 @@ defmodule EshopWeb.Schema do
     DiscountCode,
 
     # Objects
-    # Item,
+    Item,
     Product,
 
     # Activities

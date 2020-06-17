@@ -1,8 +1,16 @@
-# defmodule EshopWeb.Schema.Mutations.Item do
-#   use Absinthe.Schema.Notation
-#   alias EshopWeb.Graphql.Middleware.Auth
-#   alias EshopWeb.Schema.Resolvers.Item
+defmodule EshopWeb.Schema.Mutations.Item do
+  use Absinthe.Schema.Notation
+  alias EshopWeb.Graphql.Middleware.Auth
+  alias EshopWeb.Schema.Resolvers.Item
 
+  @desc "A item variant"
+  input_object :item_variants do
+    field :variant_id, :integer
+    field :variant_value_id, :integer
+    field :unit_price, :decimal
+    field :cost_price, :decimal
+    field :sell_price, :decimal
+  end
 #   object :item_mutations do
 #     @desc "Create a item"
 #     field :create_item, type: :item do
@@ -49,4 +57,4 @@
 #       resolve(&Item.delete_item/2)
 #     end
 #   end
-# end
+end

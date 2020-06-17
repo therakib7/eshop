@@ -16,6 +16,7 @@ defmodule EshopWeb.Schema.Mutations.Product do
       arg(:sku, :string)
       arg(:brand_id, :integer)
       arg(:category_ids, list_of(:category_ids))
+      arg(:has_variant, list_of(:item_variants))
 
       resolve(&Product.create_product/3)
     end
