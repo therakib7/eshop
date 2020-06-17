@@ -15,7 +15,7 @@ defmodule EshopWeb.Schema.Types.Item do
     field :title, :string
     field :native_desc, :string
     field :native_title, :string
-    field :sell_price, :decimal
+    field :sale_price, :decimal
     field :total_order, :integer
     field :type, :integer
     field :type_id, :integer
@@ -42,7 +42,7 @@ defmodule EshopWeb.Schema.Types.Item do
     field :title, :string
     field :native_desc, :string
     field :native_title, :string
-    field :sell_price, :decimal
+    field :sale_price, :decimal
     field :total_order, :integer
     field :type, :integer
     field :type_id, :integer
@@ -71,7 +71,7 @@ defmodule EshopWeb.Schema.Types.Item do
     field :title, :string
     field :native_desc, :string
     field :native_title, :string
-    field :sell_price, :decimal
+    field :sale_price, :decimal
     field :total_order, :integer
     field :type, :integer
     field :type_id, :integer

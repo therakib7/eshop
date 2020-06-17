@@ -160,7 +160,7 @@ Book
 > Product
   cost_price	decimal	 
   unit_price	decimal	 
-  sell_price
+  sale_price
   has_variant
   has_package
   has_warehouse

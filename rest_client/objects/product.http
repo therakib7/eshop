@@ -21,7 +21,7 @@ mutation {
       title: "Test Item", 
       unitPrice: 220, 
       costPrice: 100, 
-      sellPrice: 100,  
+      salePrice: 100,  
     }, 
     hasVariant: [
       {
@@ -29,14 +29,25 @@ mutation {
         variantValueId: 1, 
         unitPrice: 220, 
         costPrice: 100, 
-        sellPrice: 100,  
+        salePrice: 100,  
       },
       {
         variantId: 1, 
         variantValueId: 2, 
         unitPrice: 240, 
         costPrice: 130, 
-        sellPrice: 100,  
+        salePrice: 100,  
+      },
+    ], 
+    hasPackage: [
+      {
+        title: "Pack Title",
+        nativeTitle: "Pack Native Title"
+        subtitle: "Subtitle",
+        nativeSubtitle: "Native subtitle"
+        unitPrice: 220, 
+        costPrice: 100, 
+        salePrice: 100,  
       },
     ], 
     brandId: 3
@@ -49,7 +60,6 @@ mutation {
     }
   }
 }
-
 
 ### Update Product
 POST http://{{host}}:{{port}}{{url}}

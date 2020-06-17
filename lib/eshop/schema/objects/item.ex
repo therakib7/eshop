@@ -17,7 +17,7 @@ defmodule Eshop.Objects.Item do
     field :title, :string
     field :native_desc, :string
     field :native_title, :string
-    field :sell_price, :decimal
+    field :sale_price, :decimal
     field :total_order, :integer
     field :type, :integer
     field :type_id, :integer
@@ -27,6 +27,7 @@ defmodule Eshop.Objects.Item do
     field :vat_type, :integer
     field :views, :integer
     has_many :categories, Eshop.Components.ItemCategory
+    has_many :variants, Eshop.Components.ItemVariant
     belongs_to :shop, Eshop.Companies.Shop
     belongs_to :user, Eshop.Users.User
     belongs_to :unit_type, Eshop.Components.UnitType
@@ -56,7 +57,7 @@ defmodule Eshop.Objects.Item do
       :has_warehouse,
       :cost_price,
       :unit_price,
-      :sell_price,
+      :sale_price,
       :type,
       :type_id,
       :extra_fields,
@@ -68,7 +69,7 @@ defmodule Eshop.Objects.Item do
       :title,
       :cost_price,
       :unit_price,
-      :sell_price
+      :sale_price
     ])
     |> validate_length(:title, min: 2, max: 200)
     |> validate_length(:native_title, min: 2, max: 200)

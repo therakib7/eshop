@@ -58,6 +58,7 @@ defmodule Eshop.Objects do
     |> Ecto.Changeset.put_assoc(:shop, shop)
     # |> Ecto.Changeset.put_assoc(:categories, [%{category_id: 1}, %{category_id: 2}])
     |> Ecto.Changeset.put_assoc(:categories, attrs.category_ids)
+    # |> Ecto.Changeset.put_assoc(:variants, attrs.has_variant)
     |> Repo.insert()
 
     # {:ok, item} =
@@ -89,7 +90,7 @@ defmodule Eshop.Objects do
     #   title: "Hello world bangladesh",
     #   unit_price: 100,
     #   cost_price: 100,
-    #   sell_price: 100,
+    #   sale_price: 100,
     #   shop_id: 1,
     #   # categories: [
     #   #   %Eshop.Components.ItemCategory{category_id: 1},
@@ -189,16 +190,22 @@ defmodule Eshop.Objects do
       {:error, %Ecto.Changeset{}}
 
   """
+  defp has_variant(query, ""), do: query
+  defp has_variant(query, has_variant),
+    do: query |> Ecto.Changeset.put_assoc(:variants, has_variant)
+
   def create_product(attrs \\ %{}) do
     # %Product{}
     # |> Product.changeset(attrs)
     # |> Repo.insert()
-    shop = Eshop.Companies.get_shop!(attrs.type_id)
+    shop = Eshop.Companies.get_shop!(attrs.type_id) 
 
     %Item{}
     |> Item.changeset(attrs.item)
     |> Ecto.Changeset.put_assoc(:shop, shop)
     |> Ecto.Changeset.put_assoc(:categories, attrs.category_ids)
+    # |> Ecto.Changeset.put_assoc(:variants, attrs.has_variant)
+    |> has_variant(attrs.has_variant)
     |> Repo.insert()
   end
 

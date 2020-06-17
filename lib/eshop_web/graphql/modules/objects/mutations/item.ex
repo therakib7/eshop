@@ -9,7 +9,18 @@ defmodule EshopWeb.Schema.Mutations.Item do
     field :variant_value_id, :integer
     field :unit_price, :decimal
     field :cost_price, :decimal
-    field :sell_price, :decimal
+    field :sale_price, :decimal
+  end
+
+  @desc "A item package"
+  input_object :item_packages do
+    field :title, :string
+    field :native_title, :string
+    field :subtitle, :string
+    field :native_subtitle, :string
+    field :unit_price, :decimal
+    field :cost_price, :decimal
+    field :sale_price, :decimal
   end
 #   object :item_mutations do
 #     @desc "Create a item"
@@ -29,7 +40,7 @@ defmodule EshopWeb.Schema.Mutations.Item do
 #       arg(:title, :string)
 #       arg(:native_desc, :string)
 #       arg(:native_title, :string)
-#       arg(:sell_price, :decimal)
+#       arg(:sale_price, :decimal)
 #       arg(:total_order, :integer)
 #       arg(:type, :integer)
 #       arg(:type_id, :integer)

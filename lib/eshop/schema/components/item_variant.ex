@@ -15,7 +15,7 @@ defmodule Eshop.Components.ItemVariant do
   @doc false
   def changeset(item_variant, attrs) do
     item_variant
-    |> cast(attrs, [:unit_price, :cost_price, :sale_price])
-    |> validate_required([:unit_price, :cost_price, :sale_price])
+    |> cast(attrs, [:item_id, :variant_id, :variant_value_id, :unit_price, :cost_price, :sale_price])
+    |> validate_required([:variant_id, :variant_value_id, :unit_price, :cost_price, :sale_price])
   end
 end
