@@ -199,7 +199,7 @@ defmodule Eshop.Objects do
     # |> Product.changeset(attrs)
     # |> Repo.insert()
     shop = Eshop.Companies.get_shop!(attrs.type_id) 
-
+    has_varint = ""
     %Item{}
     |> Item.changeset(attrs.item)
     |> Ecto.Changeset.put_assoc(:shop, shop)
