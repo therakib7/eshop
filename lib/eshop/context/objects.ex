@@ -215,7 +215,7 @@ defmodule Eshop.Objects do
     |> Ecto.Changeset.put_assoc(:shop, shop)
     |> Ecto.Changeset.put_assoc(:categories, attrs.category_ids)
     |> has_variant(has_variant)
-    |> has_variant(has_package)
+    |> has_package(has_package)
     |> Repo.insert()
   end
 
