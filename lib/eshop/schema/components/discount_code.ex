@@ -12,7 +12,7 @@ defmodule Eshop.Components.DiscountCode do
     field :validity, :integer
     belongs_to :shop, Eshop.Companies.Shop
     belongs_to :user, Eshop.Users.User
-    belongs_to :used_by, Eshop.Users.User 
+    belongs_to :used_by, Eshop.Users.User
     belongs_to :invoice, Eshop.Orders.Invoice
 
     timestamps()

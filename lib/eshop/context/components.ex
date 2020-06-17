@@ -280,22 +280,22 @@ defmodule Eshop.Components do
     # |> UnitType.changeset(attrs)
     # |> Repo.insert()
     # Repo.transaction(fn ->
-      {:ok, unit_type} =
-        %UnitType{}
-        |> UnitType.changeset(attrs)
-        # |> Ecto.Changeset.put_assoc(:type_categories, [{type_id, 3, type_id: 1, category_id: 1}])
-        |> Repo.insert()
+    {:ok, unit_type} =
+      %UnitType{}
+      |> UnitType.changeset(attrs)
+      # |> Ecto.Changeset.put_assoc(:type_categories, [{type_id, 3, type_id: 1, category_id: 1}])
+      |> Repo.insert()
 
-      Enum.each(attrs.category_ids, fn x ->
-        create_type_category(%{
-          # 4 = unit_type
-          type: 4,
-          type_id: unit_type.id,
-          category_id: x[:category_id]
-        })
-      end)
+    Enum.each(attrs.category_ids, fn x ->
+      create_type_category(%{
+        # 4 = unit_type
+        type: 4,
+        type_id: unit_type.id,
+        category_id: x[:category_id]
+      })
+    end)
 
-      {:ok, unit_type}
+    {:ok, unit_type}
     # end)
   end
 

@@ -6,7 +6,12 @@ defmodule EshopWeb.Schema.Mutations.DiscountCode do
   object :discount_code_mutations do
     @desc "Create a discount_code"
     field :create_discount_code, type: :discount_code do
-      middleware(Auth, %{per: "order_payment_create", context: "components", model: "discount_code"})
+      middleware(Auth, %{
+        per: "order_payment_create",
+        context: "components",
+        model: "discount_code"
+      })
+
       arg(:name, :string)
       arg(:amount, :integer)
       arg(:code, :string)
@@ -24,7 +29,12 @@ defmodule EshopWeb.Schema.Mutations.DiscountCode do
 
     @desc "Update a discount_code"
     field :update_discount_code, type: :discount_code do
-      middleware(Auth, %{per: "order_payment_create", context: "components", model: "discount_code"})
+      middleware(Auth, %{
+        per: "order_payment_create",
+        context: "components",
+        model: "discount_code"
+      })
+
       arg(:id, non_null(:id))
       arg(:discount_code_params, :discount_code_params)
 
@@ -33,7 +43,12 @@ defmodule EshopWeb.Schema.Mutations.DiscountCode do
 
     @desc "Delete a discount_code"
     field :delete_discount_code, type: :discount_code do
-      middleware(Auth, %{per: "order_payment_create", context: "components", model: "discount_code"})
+      middleware(Auth, %{
+        per: "order_payment_create",
+        context: "components",
+        model: "discount_code"
+      })
+
       arg(:id, non_null(:id))
       resolve(&DiscountCode.delete_discount_code/2)
     end

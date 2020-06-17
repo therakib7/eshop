@@ -29,7 +29,7 @@ defmodule EshopWeb.Schema.Types.DiscountCode do
     field :used_at, :datetime
     field :validity, :integer
     field :shop_id, :integer
-    field :user_id, :integer 
+    field :user_id, :integer
     field :invoice_id, :integer
   end
 end

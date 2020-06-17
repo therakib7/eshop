@@ -28,6 +28,7 @@ defmodule Eshop.Objects.Item do
     field :views, :integer
     has_many :categories, Eshop.Components.ItemCategory
     has_many :variants, Eshop.Components.ItemVariant
+    has_many :packages, Eshop.Components.Package
     belongs_to :shop, Eshop.Companies.Shop
     belongs_to :user, Eshop.Users.User
     belongs_to :unit_type, Eshop.Components.UnitType
