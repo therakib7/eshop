@@ -17,8 +17,29 @@ defmodule Eshop.Companies do
       [%Company{}, ...]
 
   """
-  def list_companies do
-    Repo.all(Company)
+  # def list_companies do
+  #   Repo.all(Company)
+  # end
+  
+  def list_companies(args) do
+    query = from(p in Company)
+    filter_with(query, args.filter)
+  end
+
+  defp filter_with(query, filter) do
+    Enum.reduce(filter, query, fn
+      {:id, id}, query ->
+        from q in query, where: q.id == ^id
+
+      {:name, name}, query ->
+        from q in query, where: ilike(q.name, ^"%#{name}%")
+
+      {:inserted_before, date}, query ->
+        from q in query, where: q.inserted_at <= ^date
+
+      {:inserted_after, date}, query ->
+        from q in query, where: q.inserted_at >= ^date
+    end)
   end
 
   @doc """
