@@ -13,7 +13,7 @@ defmodule Eshop.Components.ItemWarehouseVariant do
   @doc false
   def changeset(item_warehouse_variant, attrs) do
     item_warehouse_variant
-    |> cast(attrs, [])
-    |> validate_required([])
+    |> cast(attrs, [:item_id, :warehouse_variant_id, :warehouse_variant_value_id])
+    |> validate_required([:item_id, :warehouse_variant_id, :warehouse_variant_value_id])
   end
 end

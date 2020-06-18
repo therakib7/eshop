@@ -23,6 +23,12 @@ defmodule EshopWeb.Schema.Mutations.Item do
     field :sale_price, :decimal
   end
 
+  @desc "A item warehouse"
+  input_object :item_warehouses do
+    field :warehouse_variant_id, :integer
+    field :warehouse_variant_value_id, :integer
+  end
+
   #   object :item_mutations do
   #     @desc "Create a item"
   #     field :create_item, type: :item do
