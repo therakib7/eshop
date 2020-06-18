@@ -200,10 +200,10 @@ defmodule Eshop.Objects do
   defp has_package(query, has_package),
     do: query |> Ecto.Changeset.put_assoc(:packages, has_package)
 
-    defp has_warehouse_variant(query, nil), do: query
+    defp has_warehouse(query, nil), do: query
 
-    defp has_warehouse_variant(query, has_warehouse_variant),
-      do: query |> Ecto.Changeset.put_assoc(:warehouse_variants, has_warehouse_variant)
+    defp has_warehouse(query, has_warehouse),
+      do: query |> Ecto.Changeset.put_assoc(:warehouse_variants, has_warehouse)
 
   def create_product(attrs \\ %{}) do
     # %Product{}
@@ -216,7 +216,7 @@ defmodule Eshop.Objects do
     |> Ecto.Changeset.put_assoc(:categories, attrs.category_ids)
     |> has_variant(Map.get(attrs, :has_variant))
     |> has_package(Map.get(attrs, :has_package))
-    |> has_warehouse_variant(Map.get(attrs, :has_warehouse_variant))
+    |> has_warehouse(Map.get(attrs, :has_warehouse))
     |> Repo.insert()
   end
 

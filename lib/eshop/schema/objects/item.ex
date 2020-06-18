@@ -29,6 +29,7 @@ defmodule Eshop.Objects.Item do
     has_many :categories, Eshop.Components.ItemCategory
     has_many :variants, Eshop.Components.ItemVariant
     has_many :packages, Eshop.Components.Package
+    has_many :warehouse_variants, Eshop.Components.ItemWarehouseVariant
     belongs_to :shop, Eshop.Companies.Shop
     belongs_to :user, Eshop.Users.User
     belongs_to :unit_type, Eshop.Components.UnitType
