@@ -37,7 +37,7 @@ POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
 mutation{
-  createWarehouse(name:"test",nativeName:"test",shopId:1,userId:1,){
+  createWarehouse(name:"test",nativeName:"test",shopId:5,){
     id
     name
     nativeName

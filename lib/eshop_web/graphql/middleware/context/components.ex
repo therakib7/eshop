@@ -13,7 +13,7 @@ defmodule EshopWeb.Graphql.Middleware.Components do
         EshopWeb.Graphql.Middleware.Role.user_role(args, user_id)
 
       "unit_type" ->
-          EshopWeb.Graphql.Middleware.Role.user_role(args, user_id)
+        EshopWeb.Graphql.Middleware.Role.user_role(args, user_id)
 
       "faq" ->
         faq(args, res_args, user_id)
@@ -23,7 +23,7 @@ defmodule EshopWeb.Graphql.Middleware.Components do
 
       "package_item" ->
         package_item(args, res_args, user_id)
-      
+
       "discount_code" ->
         discount_code(args, res_args, user_id)
     end

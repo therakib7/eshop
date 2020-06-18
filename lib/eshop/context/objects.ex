@@ -190,26 +190,34 @@ defmodule Eshop.Objects do
       {:error, %Ecto.Changeset{}}
 
   """
-  # defp has_variant(query, ""), do: query
-  defp has_variant(query, attrs),
-    do:
-    if has_key?(attrs, has_variant)
-     query |> Ecto.Changeset.put_assoc(:variants, has_variant)
-    else:
-    
+
+  defp has_variant(query, nil), do: query
+
+  defp has_variant(query, has_variant),
+    do: query |> Ecto.Changeset.put_assoc(:variants, has_variant)
+
+  defp has_package(query, nil), do: query
+
+  defp has_package(query, has_package),
+    do: query |> Ecto.Changeset.put_assoc(:packages, has_package)
+
+    defp has_warehouse_variant(query, nil), do: query
+
+    defp has_warehouse_variant(query, has_warehouse_variant),
+      do: query |> Ecto.Changeset.put_assoc(:warehouse_variants, has_warehouse_variant)
 
   def create_product(attrs \\ %{}) do
     # %Product{}
     # |> Product.changeset(attrs)
     # |> Repo.insert()
-    shop = Eshop.Companies.get_shop!(attrs.type_id) 
-    has_varint = ""
+    shop = Eshop.Companies.get_shop!(attrs.type_id)
     %Item{}
     |> Item.changeset(attrs.item)
     |> Ecto.Changeset.put_assoc(:shop, shop)
     |> Ecto.Changeset.put_assoc(:categories, attrs.category_ids)
-    # |> Ecto.Changeset.put_assoc(:variants, attrs.has_variant)
-    |> has_variant(attrs)
+    |> has_variant(Map.get(attrs, :has_variant))
+    |> has_package(Map.get(attrs, :has_package))
+    |> has_warehouse_variant(Map.get(attrs, :has_warehouse_variant))
     |> Repo.insert()
   end
 
