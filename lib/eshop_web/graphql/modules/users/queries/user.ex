@@ -15,18 +15,18 @@ defmodule EshopWeb.Schema.Queries.User do
   connection(node_type: :user)
 
   object :user_queries do
-    @desc "Get all relay users"
-    connection field :relay_users, node_type: :user do
+    @desc "Get all users"
+    connection field :users, node_type: :user do
       arg(:filter, :user_filter)
       resolve(&User.relay_list_users/3)
     end
 
-    @desc "Get all users"
-    field :users, list_of(:user) do
-      arg(:filter, :user_filter)
-      arg(:order, type: :sort_order, default_value: :asc)
-      resolve(&User.list_users/3)
-    end
+    # @desc "Get all users"
+    # field :users, list_of(:user) do
+    #   arg(:filter, :user_filter)
+    #   arg(:order, type: :sort_order, default_value: :asc)
+    #   resolve(&User.list_users/3)
+    # end
 
     @desc "Get a user by its id"
     field :user, :user do

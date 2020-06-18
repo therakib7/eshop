@@ -190,6 +190,7 @@ defmodule Eshop.Objects do
       {:error, %Ecto.Changeset{}}
 
   """
+
   defp has_variant(query, nil), do: query
 
   defp has_variant(query, has_variant),

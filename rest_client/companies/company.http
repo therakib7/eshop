@@ -3,11 +3,17 @@ POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
 query {
-  companies {
-    id
-    name,
+  companies(first: 5, filter: {name: "v"}) {
+    edges {
+      cursor
+      node {
+        id
+        name
+      }
+    }
   }
 }
+
 
 
 ### Get company
