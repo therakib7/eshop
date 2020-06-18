@@ -50,6 +50,12 @@ mutation {
         salePrice: 100,  
       },
     ], 
+    hasWarehouse: [
+      {
+        warehouseVariantId: 1
+        warehouseVariantValueId: 1
+      }
+    ]
     brandId: 3
     categoryIds: [ {categoryId: 4}]
     ) {
