@@ -5,7 +5,6 @@ defmodule EshopWeb.Schema.Queries.Company do
   alias EshopWeb.Graphql.Middleware.Auth
   alias EshopWeb.Schema.Resolvers.Company
 
-
   input_object :company_filter do
     field :id, :integer
     field :created_at, :datetime
@@ -29,7 +28,7 @@ defmodule EshopWeb.Schema.Queries.Company do
     @desc "Get all company"
     connection field :companies, node_type: :company do
       arg(:filter, :company_filter)
-     resolve(&EshopWeb.Schema.Resolvers.Company.list_companies/3)
+      resolve(&EshopWeb.Schema.Resolvers.Company.list_companies/3)
     end
 
     @desc "Get a company by its id"

@@ -1,0 +1,44 @@
+# Get ItemWarehouseVariants
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+query {
+  itemWarehouseVariants{
+    id
+    warehouseVariantId
+    warehouseVariantValueId
+  }
+}
+
+### Create ItemWarehouseVariant
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  createItemWarehouseVariant( 
+    itemId: 49,
+    warehouseVariantId: 1
+    warehouseVariantValueId: 1 
+  ){
+    id
+    warehouseVariantId
+    warehouseVariantValueId
+  }
+} 
+
+### Update ItemWarehouseVariant
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  updateItemWarehouseVariant(
+    id: 1,
+    itemVariantParams: { 
+      name: "Update ItemWarehouseVariant", 
+    }
+  ){
+    id,
+    name, 
+  }
+}
+

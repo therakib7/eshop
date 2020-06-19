@@ -1,5 +1,4 @@
 defmodule EshopWeb.Schema.Resolvers.Company do
-
   def list_companies(_parent, args, _resolution) do
     Absinthe.Relay.Connection.from_query(
       Eshop.Companies.list_companies(args),

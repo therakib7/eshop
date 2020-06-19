@@ -15,8 +15,8 @@ defmodule EshopWeb.Graphql.Middleware.Components do
       "unit_type" ->
         EshopWeb.Graphql.Middleware.Role.user_role(args, user_id)
 
-      "faq" ->
-        faq(args, res_args, user_id)
+      n when n in ["item_variant", "item_warehouse_variant", "faq"] ->
+        common_per(args, res_args, user_id)
 
       "package" ->
         package(args, res_args, user_id)
@@ -29,7 +29,7 @@ defmodule EshopWeb.Graphql.Middleware.Components do
     end
   end
 
-  defp faq(args, res_args, user_id) do
+  defp common_per(args, res_args, user_id) do
     shop_id =
       Eshop.Repo.one(
         from u in Eshop.Objects.Item, where: u.id == ^res_args.item_id, select: u.shop_id

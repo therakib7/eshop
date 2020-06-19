@@ -56,6 +56,9 @@ defmodule EshopWeb.Schema do
     PackageItem,
     Faq,
     DiscountCode,
+    ItemVariant,
+    ItemWarehouseVariant,
+    ItemCategory,
 
     # Objects
     Item,
@@ -132,6 +135,9 @@ defmodule EshopWeb.Schema do
     PackageItem,
     Faq,
     DiscountCode,
+    ItemVariant,
+    ItemWarehouseVariant,
+    ItemCategory,
 
     # Objects
     # Item,
@@ -211,6 +217,9 @@ defmodule EshopWeb.Schema do
     PackageItem,
     Faq,
     DiscountCode,
+    ItemVariant,
+    ItemWarehouseVariant,
+    ItemCategory,
 
     # Objects
     Item,
@@ -287,6 +296,9 @@ defmodule EshopWeb.Schema do
     import_fields(:package_item_queries)
     import_fields(:faq_queries)
     import_fields(:discount_code_queries)
+    import_fields(:item_variant_queries)
+    import_fields(:item_warehouse_variant_queries)
+    import_fields(:item_category_queries)
 
     # Objects
     # import_fields(:item_queries)
@@ -366,6 +378,9 @@ defmodule EshopWeb.Schema do
     import_fields(:package_item_mutations)
     import_fields(:faq_mutations)
     import_fields(:discount_code_mutations)
+    import_fields(:item_variant_mutations)
+    import_fields(:item_warehouse_variant_mutations)
+    import_fields(:item_category_mutations)
 
     # Objects
     # import_fields(:item_mutations)

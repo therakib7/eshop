@@ -1,0 +1,51 @@
+# Get ItemVariants
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+query {
+  itemVariants {
+    id
+    itemId
+    unitPrice 
+    costPrice
+    salePrice 
+  } 
+}
+
+### Create ItemVariant
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  createItemVariant( 
+    itemId: 49,
+    variantId: 1, 
+    variantValueId: 1, 
+    unitPrice: 220, 
+    costPrice: 100, 
+    salePrice: 100, 
+  ){
+    id
+    itemId
+    unitPrice 
+    costPrice
+    salePrice
+  }
+} 
+
+### Update ItemVariant
+POST http://{{host}}:{{port}}{{url}}
+Authorization: {{user_token}}
+
+mutation{
+  updateItemVariant(
+    id: 1,
+    itemVariantParams: { 
+      name: "Update ItemVariant", 
+    }
+  ){
+    id,
+    name, 
+  }
+}
+

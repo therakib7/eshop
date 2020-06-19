@@ -17,10 +17,11 @@ defmodule Eshop.Companies do
       [%Company{}, ...]
 
   """
+
   # def list_companies do
   #   Repo.all(Company)
   # end
-  
+
   def list_companies(args) do
     query = from(p in Company)
     filter_with(query, args.filter)

@@ -178,6 +178,21 @@ defmodule Eshop.Objects do
   """
   def get_product!(id), do: Repo.get!(Product, id)
 
+  defp has_variant(query, nil), do: query
+
+  defp has_variant(query, has_variant),
+    do: query |> Ecto.Changeset.put_assoc(:variants, has_variant)
+
+  defp has_package(query, nil), do: query
+
+  defp has_package(query, has_package),
+    do: query |> Ecto.Changeset.put_assoc(:packages, has_package)
+
+  defp has_warehouse(query, nil), do: query
+
+  defp has_warehouse(query, has_warehouse),
+    do: query |> Ecto.Changeset.put_assoc(:warehouse_variants, has_warehouse)
+
   @doc """
   Creates a product.
 
@@ -191,26 +206,12 @@ defmodule Eshop.Objects do
 
   """
 
-  defp has_variant(query, nil), do: query
-
-  defp has_variant(query, has_variant),
-    do: query |> Ecto.Changeset.put_assoc(:variants, has_variant)
-
-  defp has_package(query, nil), do: query
-
-  defp has_package(query, has_package),
-    do: query |> Ecto.Changeset.put_assoc(:packages, has_package)
-
-    defp has_warehouse(query, nil), do: query
-
-    defp has_warehouse(query, has_warehouse),
-      do: query |> Ecto.Changeset.put_assoc(:warehouse_variants, has_warehouse)
-
   def create_product(attrs \\ %{}) do
     # %Product{}
     # |> Product.changeset(attrs)
     # |> Repo.insert()
     shop = Eshop.Companies.get_shop!(attrs.type_id)
+
     %Item{}
     |> Item.changeset(attrs.item)
     |> Ecto.Changeset.put_assoc(:shop, shop)

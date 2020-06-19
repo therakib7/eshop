@@ -1,12 +1,13 @@
 defmodule EshopWeb.Schema.Mutations.ItemVariant do
   use Absinthe.Schema.Notation
+  alias EshopWeb.Graphql.Middleware.Auth
 
   alias EshopWeb.Schema.Resolvers.ItemVariant, as: ItemVariant
 
   object :item_variant_mutations do
     @desc "Create a item_variant"
     field :create_item_variant, type: :item_variant do
-      arg(:id, :integer)
+      middleware(Auth, %{per: "product_create", context: "components", model: "item_variant"})
       arg(:cost_price, :decimal)
       arg(:sale_price, :decimal)
       arg(:unit_price, :decimal)
@@ -19,6 +20,7 @@ defmodule EshopWeb.Schema.Mutations.ItemVariant do
 
     @desc "Update a item_variant"
     field :update_item_variant, type: :item_variant do
+      middleware(Auth, %{per: "product_create", context: "components", model: "item_variant"})
       arg(:id, non_null(:id))
       arg(:item_variant_params, :item_variant_params)
 
@@ -27,6 +29,7 @@ defmodule EshopWeb.Schema.Mutations.ItemVariant do
 
     @desc "Delete a item_variant"
     field :delete_item_variant, type: :item_variant do
+      middleware(Auth, %{per: "product_create", context: "components", model: "item_variant"})
       arg(:id, non_null(:id))
       resolve(&ItemVariant.delete_item_variant/2)
     end
