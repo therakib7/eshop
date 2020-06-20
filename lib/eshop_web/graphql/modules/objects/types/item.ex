@@ -1,11 +1,27 @@
 defmodule EshopWeb.Schema.Types.Item do
   use Absinthe.Schema.Notation
 
+  @desc "extra_fields input"
+  input_object :item_extra_fields do
+    field :video_url, :string
+    field :term_condition_id, :integer 
+    field :refund_policy_id, :integer 
+    field :guarantee_id, :integer 
+  end
+
+  @desc "extra_fields type"
+  object :item_extra_fields_type do
+    field :video_url, :string
+    field :term_condition_id, :integer 
+    field :refund_policy_id, :integer 
+    field :guarantee_id, :integer 
+  end
+
   @desc "A item"
   object :item_type do
     field :cost_price, :decimal
     field :desc, :string
-    field :extra_fields, :string
+    field :extra_fields, :item_extra_fields_type
     field :has_package, :boolean
     field :has_variant, :boolean
     field :has_warehouse, :boolean
@@ -32,7 +48,7 @@ defmodule EshopWeb.Schema.Types.Item do
   input_object :item do
     field :cost_price, :decimal
     field :desc, :string
-    field :extra_fields, :string
+    field :extra_fields, :item_extra_fields
     field :has_package, :boolean
     field :has_variant, :boolean
     field :has_warehouse, :boolean
@@ -60,7 +76,7 @@ defmodule EshopWeb.Schema.Types.Item do
     field :asin_id, :string
     field :cost_price, :decimal
     field :desc, :string
-    field :extra_fields, :string
+    field :extra_fields, :item_extra_fields
     field :has_package, :boolean
     field :has_variant, :boolean
     field :has_warehouse, :boolean
