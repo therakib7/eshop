@@ -12,6 +12,8 @@ defmodule EshopWeb.Schema.Mutations.Package do
       arg(:native_title, :string)
       arg(:subtitle, :string)
       arg(:native_subtitle, :string)
+      arg :content, list_of(:string)
+      arg :native_content, list_of(:string)
       arg(:cost_price, :decimal)
       arg(:sale_price, :decimal)
       arg(:unit_price, :decimal)

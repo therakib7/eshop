@@ -23,12 +23,6 @@ mutation {
       unitPrice: 220, 
       costPrice: 100, 
       salePrice: 100,  
-      extraFields: {
-        videoUrl: "videourl",
-        termConditionId: 1,
-        refundPolicyId: 1
-        guaranteeId: 1
-      }
     },  
     product: {
       sku: "hellosku"
@@ -61,6 +55,14 @@ mutation {
         unitPrice: 220, 
         costPrice: 100, 
         salePrice: 100,  
+        content: [
+          "name one",
+          "name two"
+        ],
+        nativeContent: [
+          "native name one",
+          "native name two"
+        ]
       },
     ], 
     hasWarehouse: [
@@ -76,6 +78,7 @@ mutation {
     brandId 
   }
 }
+
 ### Update Product
 POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}

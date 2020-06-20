@@ -10,6 +10,8 @@ defmodule Eshop.Components.Package do
     field :native_title, :string
     field :subtitle, :string
     field :native_subtitle, :string
+    field :content, {:array, :string}	
+    field :native_content, {:array, :string}	
     belongs_to :item, Eshop.Objects.Item
     belongs_to :user, Eshop.Users.User
 
@@ -27,6 +29,8 @@ defmodule Eshop.Components.Package do
       :native_title,
       :subtitle,
       :native_subtitle,
+      :content,
+      :native_content,
       :item_id,
       :user_id
     ])

@@ -9,8 +9,10 @@ defmodule Eshop.Repo.Migrations.CreatePackages do
       add :sale_price, :decimal, null: true
       add :title, :string, null: true, size: 255
       add :native_title, :string, null: true, size: 255
-      add :subtitle, :string, null: true, size: 255
+      add :subtitle, :string, null: true, size: 255 
       add :native_subtitle, :string, null: true, size: 255  
+      add :content, {:array, :jsonb}
+      add :native_content, {:array, :jsonb}
       add :user_id, references(:users, on_delete: :nothing)
 
       timestamps()

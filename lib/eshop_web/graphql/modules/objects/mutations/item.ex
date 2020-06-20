@@ -18,6 +18,8 @@ defmodule EshopWeb.Schema.Mutations.Item do
     field :native_title, :string
     field :subtitle, :string
     field :native_subtitle, :string
+    field :content, list_of(:string)
+    field :native_content, list_of(:string)
     field :unit_price, :decimal
     field :cost_price, :decimal
     field :sale_price, :decimal
