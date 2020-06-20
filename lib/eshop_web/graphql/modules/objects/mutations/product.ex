@@ -4,21 +4,26 @@ defmodule EshopWeb.Schema.Mutations.Product do
   alias EshopWeb.Graphql.Middleware.Auth
   alias EshopWeb.Schema.Resolvers.Product, as: Product
 
+  @desc "Product attr"
+  input_object :item_product do
+    field :product, :item_product
+    field :barcode, :string
+    field :exp_date, :naive_datetime
+    field :mfg_date, :naive_datetime
+    field :sku, :string
+  end
+
   object :product_mutations do
     @desc "Create a product"
     field :create_product, type: :product do
       middleware(Auth, %{per: "product_create", context: "objects", model: "item"})
-      arg(:type_id, :integer)
-      arg(:item, :item)
-      arg(:barcode, :string)
-      arg(:exp_date, :naive_datetime)
-      arg(:mfg_date, :naive_datetime)
-      arg(:sku, :string)
-      arg(:brand_id, :integer)
-      arg(:category_ids, list_of(:category_ids))
-      arg(:has_variant, list_of(:item_variants))
-      arg(:has_package, list_of(:item_packages))
-      arg(:has_warehouse, list_of(:item_warehouses))
+      arg :type_id, :integer
+      arg :item, :item 
+      arg :product, :item_product 
+      arg :category_ids, list_of(:category_ids)
+      arg :has_variant, list_of(:item_variants)
+      arg :has_package, list_of(:item_packages)
+      arg :has_warehouse, list_of(:item_warehouses)
 
       resolve(&Product.create_product/3)
     end

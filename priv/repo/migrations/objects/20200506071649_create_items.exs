@@ -22,12 +22,12 @@ defmodule Eshop.Repo.Migrations.CreateItems do
       add :cost_price, :decimal, null: true
       add :unit_price, :decimal, null: true
       add :sale_price, :decimal, null: true
-      add :type, :integer, null: true
-      add :type_id, :integer, null: true
+      add :type, :integer, null: true 
       add :extra_fields, :map, null: true
       add :asin_id, :string, null: true
-      add :user_id, references(:users, on_delete: :nothing)
+      add :user_id, references(:users, on_delete: :nothing) 
       add :shop_id, references(:shops, on_delete: :nothing)
+      add :brand_id, references(:brands, on_delete: :nothing)
       add :unit_type_id, references(:unit_types, on_delete: :nothing)
 
       timestamps()
@@ -35,6 +35,7 @@ defmodule Eshop.Repo.Migrations.CreateItems do
 
     create index(:items, [:user_id])
     create index(:items, [:shop_id])
+    create index(:items, [:brand_id])
     create index(:items, [:unit_type_id])
   end
 end

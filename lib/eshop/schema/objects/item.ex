@@ -19,18 +19,19 @@ defmodule Eshop.Objects.Item do
     field :native_title, :string
     field :sale_price, :decimal
     field :total_order, :integer
-    field :type, :integer
-    field :type_id, :integer
+    field :type, :integer 
     field :unit, :integer
     field :unit_price, :decimal
     field :vat, :integer
     field :vat_type, :integer
     field :views, :integer
+    has_one :product, Eshop.Objects.Product
     has_many :categories, Eshop.Components.ItemCategory
     has_many :variants, Eshop.Components.ItemVariant
     has_many :packages, Eshop.Components.Package
     has_many :warehouse_variants, Eshop.Components.ItemWarehouseVariant
     belongs_to :shop, Eshop.Companies.Shop
+    belongs_to :brand, Eshop.Components.Brand
     belongs_to :user, Eshop.Users.User
     belongs_to :unit_type, Eshop.Components.UnitType
 
@@ -61,7 +62,7 @@ defmodule Eshop.Objects.Item do
       :unit_price,
       :sale_price,
       :type,
-      :type_id,
+      :brand_id,
       :extra_fields,
       :asin_id,
       :user_id,

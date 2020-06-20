@@ -18,7 +18,7 @@ defmodule EshopWeb.Schema.Types.Item do
     field :sale_price, :decimal
     field :total_order, :integer
     field :type, :integer
-    field :type_id, :integer
+    field :brand_id, :integer
     field :unit, :integer
     field :unit_price, :decimal
     field :vat, :integer
@@ -45,7 +45,7 @@ defmodule EshopWeb.Schema.Types.Item do
     field :sale_price, :decimal
     field :total_order, :integer
     field :type, :integer
-    field :type_id, :integer
+    field :brand_id, :integer
     field :unit, :integer
     field :unit_price, :decimal
     field :vat, :integer
@@ -74,7 +74,7 @@ defmodule EshopWeb.Schema.Types.Item do
     field :sale_price, :decimal
     field :total_order, :integer
     field :type, :integer
-    field :type_id, :integer
+    field :brand_id, :integer
     field :unit, :integer
     field :unit_price, :decimal
     field :vat, :integer

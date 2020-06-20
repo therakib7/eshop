@@ -210,11 +210,12 @@ defmodule Eshop.Objects do
     # %Product{}
     # |> Product.changeset(attrs)
     # |> Repo.insert()
-    shop = Eshop.Companies.get_shop!(attrs.type_id)
+    shop = Eshop.Companies.get_shop!(attrs.type_id) 
 
     %Item{}
-    |> Item.changeset(attrs.item)
+    |> Item.changeset( Map.put(attrs.item, :type, 1) )
     |> Ecto.Changeset.put_assoc(:shop, shop)
+    |> Ecto.Changeset.put_assoc(:product, attrs.product)
     |> Ecto.Changeset.put_assoc(:categories, attrs.category_ids)
     |> has_variant(Map.get(attrs, :has_variant))
     |> has_package(Map.get(attrs, :has_package))

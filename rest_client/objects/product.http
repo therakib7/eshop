@@ -16,13 +16,20 @@ Authorization: {{user_token}}
 
 mutation {
   createProduct(
-    typeId: 5,
+    typeId: 1 
     item: {
+      brandId: 3
       title: "Test Item", 
       unitPrice: 220, 
       costPrice: 100, 
       salePrice: 100,  
-    }, 
+    },  
+    product: {
+      sku: "hellosku"
+      barcode: "hellosku"
+      mfgDate: "2020-06-20 04:13:22"
+      expDate: "2020-06-20 04:13:22"
+    },
     hasVariant: [
       {
         variantId: 1, 
@@ -33,7 +40,7 @@ mutation {
       },
       {
         variantId: 1, 
-        variantValueId: 2, 
+        variantValueId: 1, 
         unitPrice: 240, 
         costPrice: 130, 
         salePrice: 100,  
@@ -55,15 +62,12 @@ mutation {
         warehouseVariantId: 1
         warehouseVariantValueId: 1
       }
-    ]
-    brandId: 3
-    categoryIds: [ {categoryId: 4}]
+    ] 
+    categoryIds: [ {categoryId: 2}]
     ) {
     id
     title 
-    item {
-      title 
-    }
+    brandId
   }
 }
 
