@@ -3,7 +3,8 @@ defmodule Eshop.Objects do
   The Objects context.
   """
 
-  import Ecto.Query, warn: false
+  # import Ecto.Query, only: [from: 2]
+  # import Ecto.Query, warn: false
   alias Eshop.Repo
 
   alias Eshop.Objects.Item

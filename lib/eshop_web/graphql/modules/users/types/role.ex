@@ -18,7 +18,6 @@ defmodule EshopWeb.Schema.Types.Role do
     field :name, :string
     field :desc, :string
     field :type, :integer
-    field :name, :string
     field :slug, :string
     field :native_name, :string
   end

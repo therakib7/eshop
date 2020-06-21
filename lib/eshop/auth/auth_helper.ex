@@ -3,12 +3,8 @@ defmodule Eshop.AuthHelper do
   import Ecto.Query, only: [from: 2]
 
   def authenticate_user(email, plain_text_password) do
-    query =
-      if validate(email) do
-        query = from u in Eshop.Users.User, where: u.email == ^email
-      else
-        query = from u in Eshop.Users.User, where: u.mobile == ^email
-      end
+      
+    query = if validate(email), do: (from u in Eshop.Users.User, where: u.email == ^email), else: (from u in Eshop.Users.User, where: u.mobile == ^email)
 
     case Eshop.Repo.one(query) do
       nil ->

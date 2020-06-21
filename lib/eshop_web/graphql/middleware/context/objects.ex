@@ -1,5 +1,5 @@
 defmodule EshopWeb.Graphql.Middleware.Objects do
-  import Ecto.Query, only: [from: 2]
+  # import Ecto.Query, only: [from: 2]
 
   def context(args, res_args, user_id) do
     case args.model do
