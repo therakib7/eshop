@@ -4,17 +4,17 @@ defmodule EshopWeb.Schema.Types.Item do
   @desc "extra_fields input"
   input_object :item_extra_fields do
     field :video_url, :string
-    field :term_condition_id, :integer 
-    field :refund_policy_id, :integer 
-    field :guarantee_id, :integer 
+    field :term_condition_id, :integer
+    field :refund_policy_id, :integer
+    field :guarantee_id, :integer
   end
 
   @desc "extra_fields type"
   object :item_extra_fields_type do
     field :video_url, :string
-    field :term_condition_id, :integer 
-    field :refund_policy_id, :integer 
-    field :guarantee_id, :integer 
+    field :term_condition_id, :integer
+    field :refund_policy_id, :integer
+    field :guarantee_id, :integer
   end
 
   @desc "A item"

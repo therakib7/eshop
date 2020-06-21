@@ -2,7 +2,7 @@ defmodule EshopWeb.Schema.Queries.Company do
   use Absinthe.Schema.Notation
 
   use Absinthe.Relay.Schema.Notation, :modern
-  alias EshopWeb.Graphql.Middleware.Auth
+  # alias EshopWeb.Graphql.Middleware.Auth
   alias EshopWeb.Schema.Resolvers.Company
 
   input_object :company_filter do
@@ -28,13 +28,13 @@ defmodule EshopWeb.Schema.Queries.Company do
     @desc "Get all company"
     connection field :companies, node_type: :company do
       arg(:filter, :company_filter)
-      resolve(&EshopWeb.Schema.Resolvers.Company.list_companies/3)
+      resolve(&Company.list_companies/3)
     end
 
     @desc "Get a company by its id"
     field :company, :company do
       arg(:id, non_null(:id))
-      resolve(&EshopWeb.Schema.Resolvers.Company.get_company/3)
+      resolve(&Company.get_company/3)
     end
   end
 end

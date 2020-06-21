@@ -78,14 +78,13 @@ defmodule Eshop.Companies do
       |> Repo.insert()
 
     # # 1 = super, 2 = company, 3 = shop, 4 = warehouse
-    role_id =
-      create_type_user_role(%{
-        type: 2,
-        type_id: company.id,
-        user_id: company.user_id,
-        role_id:
-          Eshop.Repo.one(from u in Eshop.Users.Role, where: u.slug == "com_admin", select: u.id)
-      })
+    create_type_user_role(%{
+      type: 2,
+      type_id: company.id,
+      user_id: company.user_id,
+      role_id:
+        Eshop.Repo.one(from u in Eshop.Users.Role, where: u.slug == "com_admin", select: u.id)
+    })
 
     # {:ok, company}
     # {:error, message: "Unknown user", code: 21}

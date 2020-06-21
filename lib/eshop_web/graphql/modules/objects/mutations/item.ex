@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Mutations.Item do
   use Absinthe.Schema.Notation
-  alias EshopWeb.Graphql.Middleware.Auth
-  alias EshopWeb.Schema.Resolvers.Item
+  # alias EshopWeb.Graphql.Middleware.Auth
+  # alias EshopWeb.Schema.Resolvers.Item
 
   @desc "A item variant"
   input_object :item_variants do

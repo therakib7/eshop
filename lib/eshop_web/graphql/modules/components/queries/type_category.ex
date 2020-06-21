@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Queries.TypeCategory do
   use Absinthe.Schema.Notation
 
-  alias EshopWeb.Schema.Resolvers.TypeCategory, as: TypeCategory
+  alias EshopWeb.Schema.Resolvers.TypeCategory
 
   object :type_category_queries do
     @desc "Get all type_categories"

@@ -7,8 +7,8 @@ defmodule EshopWeb.Schema.Resolvers.Product do
     {:ok, Eshop.Objects.get_product!(id)}
   end
 
-  def create_product(_parent, args, %{context: %{current_user: current_user}}) do 
-    args = put_in(args, [:item, :user_id], current_user["sub"])  
+  def create_product(_parent, args, %{context: %{current_user: current_user}}) do
+    args = put_in(args, [:item, :user_id], current_user["sub"])
     # args = put_in(args, [:item, :extra_fields], [1,2,3,4,5])  
     Eshop.Objects.create_product(args)
   end

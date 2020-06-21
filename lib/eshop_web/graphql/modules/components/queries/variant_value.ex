@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Queries.VariantValue do
   use Absinthe.Schema.Notation
 
-  alias EshopWeb.Schema.Resolvers.VariantValue, as: VariantValue
+  alias EshopWeb.Schema.Resolvers.VariantValue
 
   object :variant_value_queries do
     @desc "Get all variant_values"

@@ -17,13 +17,13 @@ defmodule EshopWeb.Schema.Mutations.Product do
     @desc "Create a product"
     field :create_product, type: :product do
       middleware(Auth, %{per: "product_create", context: "objects", model: "item"})
-      arg :type_id, :integer
-      arg :item, :item 
-      arg :product, :item_product 
-      arg :category_ids, list_of(:category_ids)
-      arg :has_variant, list_of(:item_variants)
-      arg :has_package, list_of(:item_packages)
-      arg :has_warehouse, list_of(:item_warehouses)
+      arg(:type_id, :integer)
+      arg(:item, :item)
+      arg(:product, :item_product)
+      arg(:category_ids, list_of(:category_ids))
+      arg(:has_variant, list_of(:item_variants))
+      arg(:has_package, list_of(:item_packages))
+      arg(:has_warehouse, list_of(:item_warehouses))
 
       resolve(&Product.create_product/3)
     end

@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Queries.ItemWarehouseVariant do
   use Absinthe.Schema.Notation
 
-  alias EshopWeb.Schema.Resolvers.ItemWarehouseVariant, as: ItemWarehouseVariant
+  alias EshopWeb.Schema.Resolvers.ItemWarehouseVariant
 
   object :item_warehouse_variant_queries do
     @desc "Get all item_warehouse_variants"

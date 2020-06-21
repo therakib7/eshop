@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Queries.TypeStatus do
   use Absinthe.Schema.Notation
 
-  alias EshopWeb.Schema.Resolvers.TypeStatus, as: TypeStatus
+  alias EshopWeb.Schema.Resolvers.TypeStatus
 
   object :type_status_queries do
     @desc "Get all type_statuses"

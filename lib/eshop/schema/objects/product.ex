@@ -6,7 +6,7 @@ defmodule Eshop.Objects.Product do
     field :barcode, :string
     field :exp_date, :naive_datetime
     field :mfg_date, :naive_datetime
-    field :sku, :string  
+    field :sku, :string
     belongs_to :item, Eshop.Objects.Item
 
     timestamps()

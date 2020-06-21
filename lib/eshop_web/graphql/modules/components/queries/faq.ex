@@ -1,6 +1,6 @@
 defmodule EshopWeb.Schema.Queries.Faq do
   use Absinthe.Schema.Notation
-  alias EshopWeb.Graphql.Middleware.Auth
+  # alias EshopWeb.Graphql.Middleware.Auth
   alias EshopWeb.Schema.Resolvers.Faq, as: Faq
 
   object :faq_queries do

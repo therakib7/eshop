@@ -19,7 +19,7 @@ defmodule Eshop.Objects.Item do
     field :native_title, :string
     field :sale_price, :decimal
     field :total_order, :integer
-    field :type, :integer 
+    field :type, :integer
     field :unit, :integer
     field :unit_price, :decimal
     field :vat, :integer

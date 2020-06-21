@@ -16,7 +16,7 @@ defmodule EshopWeb.Graphql.Middleware.Auth do
   end
 
   defp auth(resolution) do
-    with %{current_user: current_user} <- resolution.context,
+    with %{current_user: _current_user} <- resolution.context,
          true do
       resolution
     else

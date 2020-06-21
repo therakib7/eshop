@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Queries.Category do
   use Absinthe.Schema.Notation
   use Absinthe.Relay.Schema.Notation, :modern
-  alias EshopWeb.Graphql.Middleware.Auth
+  # alias EshopWeb.Graphql.Middleware.Auth
   alias EshopWeb.Schema.Resolvers.Category
 
   input_object :category_filter do

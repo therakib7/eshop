@@ -1,6 +1,6 @@
 defmodule EshopWeb.Schema.Queries.Package do
   use Absinthe.Schema.Notation
-  alias EshopWeb.Graphql.Middleware.Auth
+  # alias EshopWeb.Graphql.Middleware.Auth
   alias EshopWeb.Schema.Resolvers.Package, as: Package
 
   object :package_queries do

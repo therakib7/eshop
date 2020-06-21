@@ -1,7 +1,7 @@
 defmodule EshopWeb.Schema.Queries.InvoiceStatus do
   use Absinthe.Schema.Notation
 
-  alias EshopWeb.Schema.Resolvers.InvoiceStatus, as: InvoiceStatus
+  alias EshopWeb.Schema.Resolvers.InvoiceStatus
 
   object :invoice_status_queries do
     @desc "Get all invoice_statuses"
