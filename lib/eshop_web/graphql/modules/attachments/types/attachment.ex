@@ -21,4 +21,9 @@ defmodule EshopWeb.Schema.Types.Attachment do
     field :type, :integer
     field :type_id, :integer
   end
+
+  @desc "A item attachments"
+  input_object :attachments do
+    field :attachment_id, :integer
+  end
 end

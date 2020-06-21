@@ -10,7 +10,7 @@ defmodule EshopWeb.Schema.Mutations.UnitType do
       arg(:name, :string)
       arg(:native_name, :string)
       arg(:type, :integer)
-      arg(:category_ids, list_of(:category_ids))
+      arg(:categories, list_of(:categories))
 
       resolve(&UnitType.create_unit_type/3)
     end

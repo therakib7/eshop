@@ -86,7 +86,7 @@ defmodule Eshop.Companies do
         Eshop.Repo.one(from u in Eshop.Users.Role, where: u.slug == "com_admin", select: u.id)
     })
 
-    # {:ok, company}
+    {:ok, company}
     # {:error, message: "Unknown user", code: 21}
   end
 

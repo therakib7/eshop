@@ -16,37 +16,24 @@ Authorization: {{user_token}}
 
 mutation {
   createProduct(
-    typeId: 1 
+    typeId: 5,
+    product: {
+      sku: "sfds"
+    }
     item: {
       brandId: 3
       title: "Test Item", 
       unitPrice: 220, 
       costPrice: 100, 
       salePrice: 100,  
-    },  
-    product: {
-      sku: "hellosku"
-      barcode: "hellosku"
-      mfgDate: "2020-06-20 04:13:22"
-      expDate: "2020-06-20 04:13:22"
-    },
-    hasVariant: [
+    },     
+    warehouses: [
       {
-        variantId: 1, 
-        variantValueId: 1, 
-        unitPrice: 220, 
-        costPrice: 100, 
-        salePrice: 100,  
-      },
-      {
-        variantId: 1, 
-        variantValueId: 1, 
-        unitPrice: 240, 
-        costPrice: 130, 
-        salePrice: 100,  
-      },
-    ], 
-    hasPackage: [
+        warehouseVariantId: 1
+        warehouseVariantValueId: 1
+      }
+    ]
+    packages: [
       {
         title: "Pack Title",
         nativeTitle: "Pack Native Title"
@@ -55,29 +42,19 @@ mutation {
         unitPrice: 220, 
         costPrice: 100, 
         salePrice: 100,  
-        content: [
-          "name one",
-          "name two"
-        ],
-        nativeContent: [
-          "native name one",
-          "native name two"
-        ]
       },
     ], 
-    hasWarehouse: [
-      {
-        warehouseVariantId: 1
-        warehouseVariantValueId: 1
-      }
-    ] 
-    categoryIds: [ {categoryId: 2}]
+    categories: [ {categoryId: 4}]
+    attachments: [ {attachmentId: 1}]
     ) {
     id
     title 
-    brandId 
+    item {
+      title 
+    }
   }
 }
+
 
 ### Update Product
 POST http://{{host}}:{{port}}{{url}}

@@ -173,7 +173,7 @@ defmodule Eshop.Components do
       # |> Ecto.Changeset.put_assoc(:type_categories, [{type_id, 3, type_id: 1, category_id: 1}])
       |> Repo.insert()
 
-    Enum.each(attrs.category_ids, fn x ->
+    Enum.each(attrs.categories, fn x ->
       create_type_category(%{
         # 2 = brand
         type: 2,
@@ -286,7 +286,7 @@ defmodule Eshop.Components do
       # |> Ecto.Changeset.put_assoc(:type_categories, [{type_id, 3, type_id: 1, category_id: 1}])
       |> Repo.insert()
 
-    Enum.each(attrs.category_ids, fn x ->
+    Enum.each(attrs.categories, fn x ->
       create_type_category(%{
         # 4 = unit_type
         type: 4,
@@ -496,7 +496,7 @@ defmodule Eshop.Components do
       # |> Ecto.Changeset.put_assoc(:type_categories, [{type_id, 3, type_id: 1, category_id: 1}])
       |> Repo.insert()
 
-    Enum.each(attrs.category_ids, fn x ->
+    Enum.each(attrs.categories, fn x ->
       create_type_category(%{
         # 3 = variant
         type: 3,

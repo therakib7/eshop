@@ -59,7 +59,7 @@ defmodule EshopWeb.Schema.Mutations.Item do
   #       arg(:vat_type, :integer)
   #       arg(:shop_id, non_null(:id))
   #       arg(:unit_type_id, :integer)
-  #       arg(:category_ids, list_of(:category_ids))
+  #       arg(:categories, list_of(:categories))
   #       resolve(&Item.create_item/3)
   #     end
 

@@ -27,6 +27,7 @@ defmodule Eshop.Objects.Item do
     field :views, :integer
     has_one :product, Eshop.Objects.Product
     has_many :categories, Eshop.Components.ItemCategory
+    has_many :attachments, Eshop.Attachments.Gallery, foreign_key: :type_id
     has_many :variants, Eshop.Components.ItemVariant
     has_many :packages, Eshop.Components.Package
     has_many :warehouse_variants, Eshop.Components.ItemWarehouseVariant

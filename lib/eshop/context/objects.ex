@@ -58,8 +58,8 @@ defmodule Eshop.Objects do
     |> Item.changeset(attrs)
     |> Ecto.Changeset.put_assoc(:shop, shop)
     # |> Ecto.Changeset.put_assoc(:categories, [%{category_id: 1}, %{category_id: 2}])
-    |> Ecto.Changeset.put_assoc(:categories, attrs.category_ids)
-    # |> Ecto.Changeset.put_assoc(:variants, attrs.has_variant)
+    |> Ecto.Changeset.put_assoc(:categories, attrs.categories)
+    # |> Ecto.Changeset.put_assoc(:variants, attrs.variants)
     |> Repo.insert()
 
     # {:ok, item} =
@@ -79,7 +79,7 @@ defmodule Eshop.Objects do
     # |> Item.changeset(attrs)
     # |> Repo.insert()
 
-    #   # IO.inspect(attrs.category_ids)
+    #   # IO.inspect(attrs.categories)
     # # Eshop.Components.create_item_category(%{
     # #   item_id: item.id,
     # #   category_id: attrs.category_id
@@ -179,21 +179,6 @@ defmodule Eshop.Objects do
   """
   def get_product!(id), do: Repo.get!(Product, id)
 
-  defp has_variant(query, nil), do: query
-
-  defp has_variant(query, has_variant),
-    do: query |> Ecto.Changeset.put_assoc(:variants, has_variant)
-
-  defp has_package(query, nil), do: query
-
-  defp has_package(query, has_package),
-    do: query |> Ecto.Changeset.put_assoc(:packages, has_package)
-
-  defp has_warehouse(query, nil), do: query
-
-  defp has_warehouse(query, has_warehouse),
-    do: query |> Ecto.Changeset.put_assoc(:warehouse_variants, has_warehouse)
-
   @doc """
   Creates a product.
 
@@ -217,12 +202,35 @@ defmodule Eshop.Objects do
     |> Item.changeset(Map.put(attrs.item, :type, 1))
     |> Ecto.Changeset.put_assoc(:shop, shop)
     |> Ecto.Changeset.put_assoc(:product, attrs.product)
-    |> Ecto.Changeset.put_assoc(:categories, attrs.category_ids)
-    |> has_variant(Map.get(attrs, :has_variant))
-    |> has_package(Map.get(attrs, :has_package))
-    |> has_warehouse(Map.get(attrs, :has_warehouse))
+    |> Ecto.Changeset.put_assoc(:categories, attrs.categories)
+    |> attachments(Map.get(attrs, :attachments))
+    |> variants(Map.get(attrs, :variants))
+    |> packages(Map.get(attrs, :packages))
+    |> warehouses(Map.get(attrs, :warehouses))
     |> Repo.insert()
   end
+
+  defp attachments(query, nil), do: query
+
+  defp attachments(query, attachments) do
+    attachments = Enum.map(attachments, fn(x) -> Map.put(x, :type, 1) end)
+    query |> Ecto.Changeset.put_assoc(:attachments, attachments)
+  end
+
+  defp variants(query, nil), do: query
+
+  defp variants(query, variants),
+    do: query |> Ecto.Changeset.put_assoc(:variants, variants)
+
+  defp packages(query, nil), do: query
+
+  defp packages(query, packages),
+    do: query |> Ecto.Changeset.put_assoc(:packages, packages)
+
+  defp warehouses(query, nil), do: query
+
+  defp warehouses(query, warehouses),
+    do: query |> Ecto.Changeset.put_assoc(:warehouse_variants, warehouses)
 
   @doc """
   Updates a product.
