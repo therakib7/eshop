@@ -1,6 +1,14 @@
 defmodule EshopWeb.Schema.Resolvers.Product do
-  def list_products(_parent, _args, _resolution) do
-    {:ok, Eshop.Objects.list_products()}
+  # def list_products(_parent, _args, _resolution) do
+  #   {:ok, Eshop.Objects.list_items()}
+  # end
+
+  def list_products(_parent, args, _resolution) do
+    Absinthe.Relay.Connection.from_query(
+      Eshop.Objects.list_products(args),
+      &Eshop.Repo.all/1,
+      args
+    )
   end
 
   def get_product(_, %{id: id}, _) do

@@ -161,9 +161,9 @@ Book
   cost_price	decimal	 
   unit_price	decimal	 
   sale_price
-  has_variant
-  has_package
-  has_warehouse
+  variants
+  packages
+  warehouses
   Gallery
   Discount
 > Service

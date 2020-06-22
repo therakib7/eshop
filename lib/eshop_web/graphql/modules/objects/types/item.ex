@@ -19,6 +19,7 @@ defmodule EshopWeb.Schema.Types.Item do
 
   @desc "A item"
   object :item_type do
+    field :id, :integer
     field :cost_price, :decimal
     field :desc, :string
     field :extra_fields, :item_extra_fields_type

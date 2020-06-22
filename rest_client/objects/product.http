@@ -3,12 +3,21 @@ POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
 query {
-  products {
-    id
-    title,
-    nativeTitle
-  } 
-}
+  products(first: 5, filter: {id: 2}) {
+   	pageInfo{
+      hasPreviousPage
+      hasNextPage
+    }    
+    edges{
+      node {
+        id
+        title
+        hasPackage
+      }
+      cursor
+    }
+  }
+}  
 
 ### Create Product
 POST http://{{host}}:{{port}}{{url}}

@@ -11,9 +11,9 @@ defmodule Eshop.ObjectsTest do
       cost_price: "120.5",
       desc: "some desc",
       extra_fields: %{},
-      has_package: true,
-      has_variant: true,
-      has_warehouse: true,
+      packages: true,
+      variants: true,
+      warehouses: true,
       is_active: true,
       loves: 42,
       low_stock: 42,
@@ -104,9 +104,9 @@ defmodule Eshop.ObjectsTest do
       assert item.cost_price == Decimal.new("120.5")
       assert item.desc == "some desc"
       assert item.extra_fields == %{}
-      assert item.has_package == true
-      assert item.has_variant == true
-      assert item.has_warehouse == true
+      assert item.packages == true
+      assert item.variants == true
+      assert item.warehouses == true
       assert item.is_active == true
       assert item.loves == 42
       assert item.low_stock == 42

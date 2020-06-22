@@ -3,8 +3,7 @@ defmodule Eshop.Objects do
   The Objects context.
   """
 
-  # import Ecto.Query, only: [from: 2]
-  # import Ecto.Query, warn: false
+  import Ecto.Query, warn: false
   alias Eshop.Repo
 
   alias Eshop.Objects.Item
@@ -159,8 +158,28 @@ defmodule Eshop.Objects do
       [%Product{}, ...]
 
   """
-  def list_products do
-    Repo.all(Product)
+  # def list_products do
+  #   Repo.all(Product)
+  # end
+  def list_products(args) do
+    query = from(p in Item)
+    filter_with(query, args.filter)
+  end
+
+  defp filter_with(query, filter) do
+    Enum.reduce(filter, query, fn
+      {:id, id}, query ->
+        from q in query, where: q.id == ^id
+
+      {:title, title}, query ->
+        from q in query, where: ilike(q.title, ^"%#{title}%")
+
+      {:inserted_before, date}, query ->
+        from q in query, where: q.inserted_at <= ^date
+
+      {:inserted_after, date}, query ->
+        from q in query, where: q.inserted_at >= ^date
+    end)
   end
 
   @doc """
