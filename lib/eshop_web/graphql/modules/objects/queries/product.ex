@@ -7,6 +7,7 @@ defmodule EshopWeb.Schema.Queries.Product do
   input_object :product_filter do
     field :id, :integer
     field :name, :string
+    field :categories, list_of(:categories)
     field :inserted_before, :naive_datetime
     field :inserted_after, :naive_datetime
   end

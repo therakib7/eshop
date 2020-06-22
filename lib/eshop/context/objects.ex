@@ -232,7 +232,7 @@ defmodule Eshop.Objects do
   defp attachments(query, nil), do: query
 
   defp attachments(query, attachments) do
-    attachments = Enum.map(attachments, fn(x) -> Map.put(x, :type, 1) end)
+    attachments = Enum.map(attachments, fn x -> Map.put(x, :type, 1) end)
     query |> Ecto.Changeset.put_assoc(:attachments, attachments)
   end
 

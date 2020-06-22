@@ -3,7 +3,7 @@ POST http://{{host}}:{{port}}{{url}}
 Authorization: {{user_token}}
 
 query {
-  products(first: 5, filter: {id: 2}) {
+  products(first: 5, filter: {id: 2, categories:[{categoryId: 2}]}) {
    	pageInfo{
       hasPreviousPage
       hasNextPage
