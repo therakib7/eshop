@@ -170,10 +170,10 @@ defmodule Eshop.Objects do
           where: m.category_id in ^args.filter.categories,
           select: c
         )
-      IO.inspect(query)
+      # IO.inspect(query)
       args = Map.delete(args.filter, :categories)
       hello = filter_with(query, args)
-      IO.inspect(hello)
+      # IO.inspect(hello)
     else
       from(p in Item) |> filter_with(args.filter)
     end
