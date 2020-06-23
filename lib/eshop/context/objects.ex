@@ -167,16 +167,40 @@ defmodule Eshop.Objects do
         from(m in Eshop.Components.ItemCategory,
           join: c in Item,
           on: m.item_id == c.id,
-          where: m.category_id in ^args.filter.categories,
+          where: ^filter_where(args.filter),
           select: c
         )
+
       # IO.inspect(query)
-      args = Map.delete(args.filter, :categories)
-      hello = filter_with(query, args)
+      # args = Map.delete(args.filter, :categories)
+      # hello = filter_with(query, args)
       # IO.inspect(hello)
     else
       from(p in Item) |> filter_with(args.filter)
     end
+  end
+
+  def filter_where(params) do
+    Enum.reduce(params, dynamic(true), fn
+      {:id, id}, dynamic ->
+        dynamic([m, c], ^dynamic and c.id == ^id)
+
+      {:brands, brands}, dynamic ->
+        dynamic([m, c], ^dynamic and c.brand_id in ^brands)
+
+      {:shops, shops}, dynamic ->
+        dynamic([m, c], ^dynamic and c.shop_id in ^shops)
+
+      {:inserted_before, date}, dynamic ->
+        dynamic([m, c], ^dynamic and c.inserted_at <= ^date)
+
+      {:inserted_after, date}, dynamic ->
+        dynamic([m, c], ^dynamic and c.inserted_at >= ^date)
+
+      {_, _}, dynamic ->
+        # Not a where parameter
+        dynamic
+    end)
   end
 
   defp filter_with(query, filter) do
@@ -184,22 +208,24 @@ defmodule Eshop.Objects do
       {:id, id}, query ->
         from q in query, where: q.id == ^id
 
-      {:title, title}, query ->
-        from q in query, where: ilike(q.title, ^"%#{title}%")
-
       {:brands, brands}, query ->
-          from q in query
-          # from q in query, where: q.brand_id in ^brands
+        from q in query, where: q.brand_id in ^brands
 
       {:shops, shops}, query ->
-        from q in query
-      #   from q in query, where: q.shop_id in ^shops
+        from q in query, where: q.shop_id in ^shops
+
+      {:title, title}, query ->
+        from q in query, where: ilike(q.title, ^"%#{title}%")
 
       {:inserted_before, date}, query ->
         from q in query, where: q.inserted_at <= ^date
 
       {:inserted_after, date}, query ->
         from q in query, where: q.inserted_at >= ^date
+
+      {_, _}, query ->
+        # Not a where parameter
+        query
     end)
   end
 
