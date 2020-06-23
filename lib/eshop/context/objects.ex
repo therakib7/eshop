@@ -170,9 +170,10 @@ defmodule Eshop.Objects do
           where: m.category_id in ^args.filter.categories,
           select: c
         )
-
+      IO.inspect(query)
       args = Map.delete(args.filter, :categories)
-      filter_with(query, args)
+      hello = filter_with(query, args)
+      IO.inspect(hello)
     else
       from(p in Item) |> filter_with(args.filter)
     end
@@ -186,10 +187,12 @@ defmodule Eshop.Objects do
       {:title, title}, query ->
         from q in query, where: ilike(q.title, ^"%#{title}%")
 
-      # {:brands, brands}, query ->
-      #     from q in query, where: q.brand_id in [3]
+      {:brands, brands}, query ->
+          from q in query
+          # from q in query, where: q.brand_id in ^brands
 
-      # {:shops, shops}, query ->
+      {:shops, shops}, query ->
+        from q in query
       #   from q in query, where: q.shop_id in ^shops
 
       {:inserted_before, date}, query ->
