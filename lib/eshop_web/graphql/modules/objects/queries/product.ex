@@ -6,7 +6,7 @@ defmodule EshopWeb.Schema.Queries.Product do
 
   input_object :product_filter do
     field :id, :integer
-    field :name, :string
+    field :title, :string
     field :categories, list_of(:integer)
     field :brands, list_of(:integer)
     field :shops, list_of(:integer)
@@ -16,8 +16,7 @@ defmodule EshopWeb.Schema.Queries.Product do
 
   connection(node_type: :item_type)
 
-  object :product_queries do 
-
+  object :product_queries do
     @desc "Get all products"
     connection field :products, node_type: :item_type do
       arg(:filter, :product_filter)

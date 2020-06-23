@@ -162,8 +162,20 @@ defmodule Eshop.Objects do
   #   Repo.all(Product)
   # end
   def list_products(args) do
-    query = from(p in Item)
-    filter_with(query, args.filter)
+    if Map.has_key?(args.filter, :categories) do
+      query =
+        from(m in Eshop.Components.ItemCategory,
+          join: c in Item,
+          on: m.item_id == c.id,
+          where: m.category_id in ^args.filter.categories,
+          select: c
+        )
+
+      args = Map.delete(args.filter, :categories)
+      filter_with(query, args)
+    else
+      from(p in Item) |> filter_with(args.filter)
+    end
   end
 
   defp filter_with(query, filter) do
@@ -173,6 +185,12 @@ defmodule Eshop.Objects do
 
       {:title, title}, query ->
         from q in query, where: ilike(q.title, ^"%#{title}%")
+
+      # {:brands, brands}, query ->
+      #     from q in query, where: q.brand_id in [3]
+
+      # {:shops, shops}, query ->
+      #   from q in query, where: q.shop_id in ^shops
 
       {:inserted_before, date}, query ->
         from q in query, where: q.inserted_at <= ^date

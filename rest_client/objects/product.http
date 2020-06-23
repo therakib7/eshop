@@ -6,14 +6,14 @@ query {
   products(first: 5, filter: {
     id: 2, 
     categories: [1,2],
-    brands:[1, 2],
+    brands: [1,2],
     shops: [1,2]
   }) {
-   	pageInfo{
+   	pageInfo {
       hasPreviousPage
       hasNextPage
     }    
-    edges{
+    edges {
       node {
         id
         title
